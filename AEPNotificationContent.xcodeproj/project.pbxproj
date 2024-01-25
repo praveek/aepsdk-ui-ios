@@ -117,7 +117,8 @@
 				B632B3502B63182000D04C48 /* ContentView.swift */,
 				B632B3512B63182000D04C48 /* DemoApp.swift */,
 			);
-			path = DemoApp;
+			name = DemoApp;
+			path = TestApps/DemoApp;
 			sourceTree = "<group>";
 		};
 		B632B34E2B63182000D04C48 /* Preview Content */ = {
@@ -135,7 +136,8 @@
 				B632B3652B63230000D04C48 /* MainInterface.storyboard */,
 				B632B3682B63230000D04C48 /* Info.plist */,
 			);
-			path = DemoAppNotificationContent;
+			name = DemoAppNotificationContent;
+			path = TestApps/DemoAppNotificationContent;
 			sourceTree = "<group>";
 		};
 		B6ADF46D2B62EFBB007D8DDB /* Sources */ = {
@@ -401,7 +403,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FKGEE875K4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DemoAppNotificationContent/Info.plist;
+				INFOPLIST_FILE = TestApps/DemoAppNotificationContent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DemoAppNotificationContent;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -426,7 +428,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FKGEE875K4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DemoAppNotificationContent/Info.plist;
+				INFOPLIST_FILE = TestApps/DemoAppNotificationContent/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DemoAppNotificationContent;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
