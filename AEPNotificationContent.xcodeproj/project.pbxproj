@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B632B3522B63182000D04C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B632B34D2B63182000D04C48 /* Assets.xcassets */; };
-		B632B3532B63182000D04C48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B632B34F2B63182000D04C48 /* Preview Assets.xcassets */; };
-		B632B3542B63182000D04C48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3502B63182000D04C48 /* ContentView.swift */; };
-		B632B3552B63182000D04C48 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3512B63182000D04C48 /* DemoApp.swift */; };
 		B632B3562B63183800D04C48 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3512B63182000D04C48 /* DemoApp.swift */; };
 		B632B3572B63183E00D04C48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3502B63182000D04C48 /* ContentView.swift */; };
 		B632B35A2B63213800D04C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B632B34D2B63182000D04C48 /* Assets.xcassets */; };
@@ -317,8 +313,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B632B3532B63182000D04C48 /* Preview Assets.xcassets in Resources */,
-				B632B3522B63182000D04C48 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,9 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B632B3542B63182000D04C48 /* ContentView.swift in Sources */,
 				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,
-				B632B3552B63182000D04C48 /* DemoApp.swift in Sources */,
 				B6ADF4702B62EFBB007D8DDB /* AEPNotificationContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,6 +643,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -685,6 +678,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
