@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "5.0.0"
   s.summary      = "AEPNotificationContent extension for Adobe Experience Cloud SDK. Written and maintained by Adobe."
   s.description  = <<-DESC
-                   The AEPNotificationContent extension is used in conjunction with Adobe Journey Optimizer or Adobe Campaign Classic to deliver push notification with predefined templates.
+                   The AEPNotificationContent extension is used in conjunction with AEPMessaging or AEPCampaignClassic to deliver push notification with predefined templates.
                    DESC
 
   s.homepage     = "https://github.com/adobe/aepsdk-notificationcontent-ios.git"

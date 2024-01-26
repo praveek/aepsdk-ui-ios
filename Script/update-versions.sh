@@ -23,7 +23,6 @@ help()
    echo ""
    echo -e "    -n\t- Name of the extension getting a version update. \n\t  Example: Edge, Analytics\n"
    echo -e "    -v\t- New version to use for the extension. \n\t  Example: 4.0.2\n"
-   echo -e "    -d (optional)\t- Dependency(ies) that require updating in the extension's podspec and Package.swift file. \n\t  Example: -d \"AEPCore 4.0.2\" (update the dependency on AEPCore to version 4.0.2 or newer)\n"
    exit 1 # Exit script after printing help
 }
 

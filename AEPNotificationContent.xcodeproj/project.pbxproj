@@ -163,9 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				B6ADF46D2B62EFBB007D8DDB /* Sources */,
-				B6E9FFBE2B5AE672003E9D10 /* Products */,
 				B632B34C2B63182000D04C48 /* DemoApp */,
 				B632B3622B63230000D04C48 /* DemoAppNotificationContent */,
+				B6E9FFBE2B5AE672003E9D10 /* Products */,
 				B6ADF4842B62F34A007D8DDB /* Frameworks */,
 				81B20672BDDD6179B868484E /* Pods */,
 			);
