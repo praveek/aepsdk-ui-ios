@@ -14,7 +14,7 @@ import UIKit
 import UserNotifications
 import UserNotificationsUI
 
-open class AEPNotificationContent: UIViewController, UNNotificationContentExtension {
+open class AEPNotificationViewController: UIViewController, UNNotificationContentExtension {
     
     public override func viewDidLoad() {
         
