@@ -2,6 +2,7 @@
  platform :ios, '12.0'
 use_frameworks!
 
+pod 'SwiftLint', '0.52.0'
 
 target 'DemoApp' do
   pod 'AEPCore'

@@ -21,10 +21,10 @@ import AEPLifecycle
 import AEPRulesEngine
 import AEPSignal
 
-class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate  {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         MobileCore.setLogLevel(.debug)
-    
+
         let extensions = [
             Lifecycle.self,
             Identity.self,
@@ -33,7 +33,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             Signal.self,
             Assurance.self
         ]
-        
+
         MobileCore.registerExtensions(extensions) {
             // only start lifecycle if the application is not in the background
             DispatchQueue.main.async {
@@ -48,47 +48,45 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
                 MobileCore.updateConfigurationWith(configDict: debugConfig)
             #endif
         }
-        
+
         registerForPushNotifications(application)
         return true
     }
-    
-    
+
     // MARK: - Push Notification registration methods
-    func registerForPushNotifications(_ application : UIApplication) {
+    func registerForPushNotifications(_ application: UIApplication) {
         let center = UNUserNotificationCenter.current()
         // Ask for user permission
         center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] granted, _ in
             guard granted else { return }
-            
+
             center.delegate = self
-                        
+
             self?.registerNotificationCategories()
             DispatchQueue.main.async {
                 application.registerForRemoteNotifications()
             }
         }
     }
-    
+
     func registerNotificationCategories() {
         // Define category with actions
         let myCategory = UNNotificationCategory(identifier: "AEPNotificationContentCategory", actions: [], intentIdentifiers: [], options: [.customDismissAction])
-    
+
         // Register the all the category at once
         UNUserNotificationCenter.current().setNotificationCategories([myCategory])
     }
-    
-    
-    //MARK: - Push Notification delegates
+
+    // MARK: - Push Notification delegates
     func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         MobileCore.setPushIdentifier(deviceToken)
     }
 
     func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError _: Error) {
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler( [.banner,.sound, .badge, .list])
+        completionHandler( [.banner, .sound, .badge, .list])
     }
-    
+
 }
