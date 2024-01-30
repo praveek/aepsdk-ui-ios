@@ -14,9 +14,13 @@ import UIKit
 import UserNotifications
 import UserNotificationsUI
 
-class AEPNotificationContent: UIViewController, UNNotificationContentExtension {
+open class AEPNotificationViewController: UIViewController, UNNotificationContentExtension {
     
-    func didReceive(_ notification: UNNotification) {
+    public override func viewDidLoad() {
+        
+    }
+    
+    public func didReceive(_ notification: UNNotification) {
         // Write code here to unwrap notification and design the realized push template
     }
     

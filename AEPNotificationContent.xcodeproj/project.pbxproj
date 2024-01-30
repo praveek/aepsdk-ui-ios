@@ -16,11 +16,13 @@
 		B632B3672B63230000D04C48 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B632B3652B63230000D04C48 /* MainInterface.storyboard */; };
 		B632B36B2B63230000D04C48 /* DemoAppNotificationContent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B632B35F2B63230000D04C48 /* DemoAppNotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */; };
-		B6ADF4702B62EFBB007D8DDB /* AEPNotificationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADF46E2B62EFBB007D8DDB /* AEPNotificationContent.swift */; };
+		B64224372B6872DB00BAA595 /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
+		B64224392B688FE100BAA595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224382B688FE100BAA595 /* AppDelegate.swift */; };
+		B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */; };
 		B6ADF4712B62EFBB007D8DDB /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
 		B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */; };
-		E453799129BBBD7D5534CE57 /* Pods_AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FFB9B10A7A7BBBAC2DEC489 /* Pods_AEPNotificationContent.framework */; };
+		D1AF3549E9FABE234DE3040F /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2FFB9B10A7A7BBBAC2DEC489 /* Pods_AEPNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ADA49E7A5331B78ABF9394B /* Pods-AEPNotificationContent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPNotificationContent.debug.xcconfig"; path = "Target Support Files/Pods-AEPNotificationContent/Pods-AEPNotificationContent.debug.xcconfig"; sourceTree = "<group>"; };
+		06926D379CA5D46B4E814218 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		17CE7A3FB2D9B539E13F0114 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		B632B34D2B63182000D04C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B632B34F2B63182000D04C48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B632B3502B63182000D04C48 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,13 +61,15 @@
 		B632B3662B63230000D04C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B632B3682B63230000D04C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationContentConstants.swift; sourceTree = "<group>"; };
-		B6ADF46E2B62EFBB007D8DDB /* AEPNotificationContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEPNotificationContent.swift; sourceTree = "<group>"; };
+		B64224382B688FE100BAA595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B642243A2B69528C00BAA595 /* DemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoApp.entitlements; sourceTree = SOURCE_ROOT; };
+		B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
 		B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEPNotificationContent.h; sourceTree = "<group>"; };
 		B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF48D2B63169B007D8DDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AEPNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4E8029024152954F75B6A3E /* Pods-AEPNotificationContent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPNotificationContent.release.xcconfig"; path = "Target Support Files/Pods-AEPNotificationContent/Pods-AEPNotificationContent.release.xcconfig"; sourceTree = "<group>"; };
+		BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64224372B6872DB00BAA595 /* AEPNotificationContent.framework in Frameworks */,
 				B632B3612B63230000D04C48 /* UserNotificationsUI.framework in Frameworks */,
 				B632B3602B63230000D04C48 /* UserNotifications.framework in Frameworks */,
 			);
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1AF3549E9FABE234DE3040F /* Pods_DemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +97,6 @@
 			files = (
 				B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */,
 				B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */,
-				E453799129BBBD7D5534CE57 /* Pods_AEPNotificationContent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,8 +106,8 @@
 		81B20672BDDD6179B868484E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5ADA49E7A5331B78ABF9394B /* Pods-AEPNotificationContent.debug.xcconfig */,
-				E4E8029024152954F75B6A3E /* Pods-AEPNotificationContent.release.xcconfig */,
+				06926D379CA5D46B4E814218 /* Pods-DemoApp.debug.xcconfig */,
+				17CE7A3FB2D9B539E13F0114 /* Pods-DemoApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -110,10 +115,12 @@
 		B632B34C2B63182000D04C48 /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				B632B34D2B63182000D04C48 /* Assets.xcassets */,
-				B632B34E2B63182000D04C48 /* Preview Content */,
+				B642243A2B69528C00BAA595 /* DemoApp.entitlements */,
+				B64224382B688FE100BAA595 /* AppDelegate.swift */,
 				B632B3502B63182000D04C48 /* ContentView.swift */,
 				B632B3512B63182000D04C48 /* DemoApp.swift */,
+				B632B34D2B63182000D04C48 /* Assets.xcassets */,
+				B632B34E2B63182000D04C48 /* Preview Content */,
 			);
 			name = DemoApp;
 			path = TestApps/DemoApp;
@@ -141,7 +148,7 @@
 		B6ADF46D2B62EFBB007D8DDB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B6ADF46E2B62EFBB007D8DDB /* AEPNotificationContent.swift */,
+				B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */,
 				B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */,
 				B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */,
 			);
@@ -154,7 +161,7 @@
 			children = (
 				B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */,
 				B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */,
-				2FFB9B10A7A7BBBAC2DEC489 /* Pods_AEPNotificationContent.framework */,
+				BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,10 +223,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6ADF49A2B63169C007D8DDB /* Build configuration list for PBXNativeTarget "DemoApp" */;
 			buildPhases = (
+				5A4DF99311ED2CA3BB1B14E8 /* [CP] Check Pods Manifest.lock */,
 				B6ADF4892B63169B007D8DDB /* Sources */,
 				B6ADF48A2B63169B007D8DDB /* Frameworks */,
 				B6ADF48B2B63169B007D8DDB /* Resources */,
 				B632B36F2B63230100D04C48 /* Embed Foundation Extensions */,
+				8E50594B585EFB63A4C36E4D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,7 +244,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6E9FFCF2B5AE672003E9D10 /* Build configuration list for PBXNativeTarget "AEPNotificationContent" */;
 			buildPhases = (
-				FCEA8B6B94D7D2DF58E4684B /* [CP] Check Pods Manifest.lock */,
 				B6E9FFB82B5AE672003E9D10 /* Headers */,
 				B6E9FFB92B5AE672003E9D10 /* Sources */,
 				B6E9FFBA2B5AE672003E9D10 /* Frameworks */,
@@ -319,7 +327,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		FCEA8B6B94D7D2DF58E4684B /* [CP] Check Pods Manifest.lock */ = {
+		5A4DF99311ED2CA3BB1B14E8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,11 +342,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AEPNotificationContent-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DemoApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E50594B585EFB63A4C36E4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -356,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64224392B688FE100BAA595 /* AppDelegate.swift in Sources */,
 				B632B3572B63183E00D04C48 /* ContentView.swift in Sources */,
 				B632B3562B63183800D04C48 /* DemoApp.swift in Sources */,
 			);
@@ -366,7 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,
-				B6ADF4702B62EFBB007D8DDB /* AEPNotificationContent.swift in Sources */,
+				B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,10 +470,12 @@
 		};
 		B6ADF4982B63169C007D8DDB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06926D379CA5D46B4E814218 /* Pods-DemoApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApps/DemoApp/Preview Content\"";
@@ -474,10 +502,12 @@
 		};
 		B6ADF4992B63169C007D8DDB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17CE7A3FB2D9B539E13F0114 /* Pods-DemoApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DemoApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TestApps/DemoApp/Preview Content\"";
@@ -540,7 +570,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -606,7 +636,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -629,7 +659,6 @@
 		};
 		B6E9FFD02B5AE672003E9D10 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5ADA49E7A5331B78ABF9394B /* Pods-AEPNotificationContent.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -664,7 +693,6 @@
 		};
 		B6E9FFD12B5AE672003E9D10 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4E8029024152954F75B6A3E /* Pods-AEPNotificationContent.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
