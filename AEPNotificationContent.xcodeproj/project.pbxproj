@@ -6,6 +6,20 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		B642243B2B697A7300BAA595 /* AEPNotificationContentXCF */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B642243E2B697A7300BAA595 /* Build configuration list for PBXAggregateTarget "AEPNotificationContentXCF" */;
+			buildPhases = (
+			);
+			dependencies = (
+				B64224402B697B6400BAA595 /* PBXTargetDependency */,
+			);
+			name = AEPNotificationContentXCF;
+			productName = AEPNotificationContentXCF;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		B632B3562B63183800D04C48 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3512B63182000D04C48 /* DemoApp.swift */; };
 		B632B3572B63183E00D04C48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3502B63182000D04C48 /* ContentView.swift */; };
@@ -32,6 +46,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B632B35E2B63230000D04C48;
 			remoteInfo = DemoAppNotificationContent;
+		};
+		B642243F2B697B6400BAA595 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6E9FFB42B5AE672003E9D10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6E9FFBC2B5AE672003E9D10;
+			remoteInfo = AEPNotificationContent;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -271,6 +292,9 @@
 					B632B35E2B63230000D04C48 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
+					B642243B2B697A7300BAA595 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					B6ADF48C2B63169B007D8DDB = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -296,6 +320,7 @@
 				B6E9FFBC2B5AE672003E9D10 /* AEPNotificationContent */,
 				B6ADF48C2B63169B007D8DDB /* DemoApp */,
 				B632B35E2B63230000D04C48 /* DemoAppNotificationContent */,
+				B642243B2B697A7300BAA595 /* AEPNotificationContentXCF */,
 			);
 		};
 /* End PBXProject section */
@@ -404,6 +429,11 @@
 			target = B632B35E2B63230000D04C48 /* DemoAppNotificationContent */;
 			targetProxy = B632B3692B63230000D04C48 /* PBXContainerItemProxy */;
 		};
+		B64224402B697B6400BAA595 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6E9FFBC2B5AE672003E9D10 /* AEPNotificationContent */;
+			targetProxy = B642243F2B697B6400BAA595 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -465,6 +495,24 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B642243C2B697A7300BAA595 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B642243D2B697A7300BAA595 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -732,6 +780,15 @@
 			buildConfigurations = (
 				B632B36D2B63230100D04C48 /* Debug */,
 				B632B36E2B63230100D04C48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B642243E2B697A7300BAA595 /* Build configuration list for PBXAggregateTarget "AEPNotificationContentXCF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B642243C2B697A7300BAA595 /* Debug */,
+				B642243D2B697A7300BAA595 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
