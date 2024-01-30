@@ -169,8 +169,8 @@
 		B6ADF46D2B62EFBB007D8DDB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */,
 				B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */,
+				B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */,
 				B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */,
 			);
 			name = Sources;
