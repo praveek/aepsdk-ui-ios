@@ -19,12 +19,11 @@ class ImageDownloader {
     ///   - urls: Array of string URLs for the images to be downloaded.
     ///   - completion: A  completion block with `Result` value called with a dictionary of downloaded images or an ImageDownloadError.
     func downloadImages(urls: [String], completion: @escaping (Result<[String: UIImage], ImageDownloadError>) -> Void) {
-        
         // Quick bail out if no URLs are provided
-        if (urls.isEmpty){
+        if urls.isEmpty {
             completion(.failure(.noURL))
         }
-        
+
         // Validate URLs before downloading
         var cleanURLs: [URL] = []
         let result = validateURLs(urls: urls)
