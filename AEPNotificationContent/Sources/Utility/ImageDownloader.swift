@@ -18,7 +18,7 @@ class ImageDownloader {
     /// - Parameters:
     ///   - urls: Array of string URLs for the images to be downloaded.
     ///   - completion: Completion block with a dictionary of URL to UIImage pairs and an optional error.
-    func downloadImages(urls: [String], completion: @escaping ([String: UIImage]?, ImageDownloaderError?) -> Void) {
+    func downloadImages(urls: [String], completion: @escaping ([String: UIImage]?, ImageDownloadError?) -> Void) {
         var validURLs: [URL] = []
         let result = validateURLs(urls: urls)
         switch result {
@@ -30,7 +30,7 @@ class ImageDownloader {
 
         let downloadGroup = DispatchGroup()
         var downloadedImages: [String: UIImage] = [:]
-        var errors = [ImageDownloaderError]()
+        var errors = [ImageDownloadError]()
 
         // Download images concurrently
         for url in validURLs {
@@ -61,7 +61,7 @@ class ImageDownloader {
     /// - Parameters:
     ///   - url: `URL` of the image to download.
     ///   - completion: A `Result` value  called with the downloaded image or an ImageDownloadError.
-    private func downloadImage(url: URL, completion: @escaping (Result<UIImage, ImageDownloaderError>) -> Void) {
+    private func downloadImage(url: URL, completion: @escaping (Result<UIImage, ImageDownloadError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             // if there is an error downloading image send
             if let error = error {
@@ -87,9 +87,9 @@ class ImageDownloader {
     ///
     /// - Parameter urls: An array of strings, where each string is intended to be a URL.
     /// - Returns: A `Result` type. On success, it contains an array of `URL` objects corresponding to the valid URL strings. On failure, it contains an `ImageDownloaderError`.
-    private func validateURLs(urls: [String]) -> Result<[URL], ImageDownloaderError> {
+    private func validateURLs(urls: [String]) -> Result<[URL], ImageDownloadError> {
         var validatedUrls: [URL] = []
-        var errors: [ImageDownloaderError] = []
+        var errors: [ImageDownloadError] = []
 
         // Validate URLs
         for urlString in urls {
@@ -109,7 +109,7 @@ class ImageDownloader {
 }
 
 /// Enum representing possible errors that can occur during image downloading.
-enum ImageDownloaderError: Error {
+enum ImageDownloadError: Error {
     /// Error indicating that a provided URL string to download image is invalid.
     case invalidURL(url: String)
 
@@ -121,7 +121,7 @@ enum ImageDownloaderError: Error {
 
     /// Error representing multiple image downloading errors.
     /// In batch download scenarios this error aggregates all individual errors into a single error case.
-    case multipleErrors(errors: [ImageDownloaderError])
+    case multipleErrors(errors: [ImageDownloadError])
 
     var description: String {
         switch self {
