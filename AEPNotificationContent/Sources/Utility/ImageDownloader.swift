@@ -14,6 +14,7 @@ import UIKit
 
 /// Utility class to download images asynchronously
 class ImageDownloader {
+    
     /// Downloads images from the provided URLs.
     /// - Parameters:
     ///   - urls: Array of string URLs for the images to be downloaded.
@@ -67,7 +68,7 @@ class ImageDownloader {
     ///
     /// - Parameters:
     ///   - url: `URL` of the image to download.
-    ///   - completion: A `Result` value  called with the downloaded image or an ImageDownloadError.
+    ///   - completion: A `Result` value called with the downloaded image or an ImageDownloadError.
     private func downloadImage(url: URL, completion: @escaping (Result<UIImage, ImageDownloadError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             // check for network error
@@ -112,40 +113,5 @@ class ImageDownloader {
         }
 
         return .success(validatedUrls)
-    }
-}
-
-/// Enum representing possible errors that can occur during image downloading.
-enum ImageDownloadError: Error {
-    /// Error indicating that no URL was provided to download image.
-    case noURL
-
-    /// Error indicating that a provided URL string to download image is invalid.
-    case invalidURL(url: String)
-
-    /// Error indicating a network-related issue occurred while downloading an image.
-    case networkError(url: String, error: Error)
-
-    /// Error indicating that the downloaded data could not be converted into an image.
-    case invalidImageData(url: String)
-
-    /// Error representing multiple image downloading errors.
-    /// In batch download scenarios this error aggregates all individual errors into a single error case.
-    case multipleErrors(errors: [ImageDownloadError])
-
-    var description: String {
-        switch self {
-        case .noURL:
-            return "No URL provided"
-        case let .invalidURL(url):
-            return "Invalid URL: \(url)"
-        case let .networkError(url, error):
-            return "Network error at \(url): \(error.localizedDescription)"
-        case let .invalidImageData(url):
-            return "Failed to convert downloaded data to image at \(url)"
-        case let .multipleErrors(errors):
-            let errorDescriptions = errors.map { $0.description }
-            return "Image Downloader error: \n" + errorDescriptions.joined(separator: " \n")
-        }
     }
 }
