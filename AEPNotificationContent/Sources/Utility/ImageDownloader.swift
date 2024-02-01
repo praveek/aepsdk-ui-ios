@@ -17,23 +17,31 @@ class ImageDownloader {
     /// Downloads images from the provided URLs.
     /// - Parameters:
     ///   - urls: Array of string URLs for the images to be downloaded.
-    ///   - completion: Completion block with a dictionary of URL to UIImage pairs and an optional error.
-    func downloadImages(urls: [String], completion: @escaping ([String: UIImage]?, ImageDownloadError?) -> Void) {
-        var validURLs: [URL] = []
+    ///   - completion: A  completion block with `Result` value called with a dictionary of downloaded images or an ImageDownloadError.
+    func downloadImages(urls: [String], completion: @escaping (Result<[String: UIImage], ImageDownloadError>) -> Void) {
+        
+        // Quick bail out if no URLs are provided
+        if (urls.isEmpty){
+            completion(.failure(.noURL))
+        }
+        
+        // Validate URLs before downloading
+        var cleanURLs: [URL] = []
         let result = validateURLs(urls: urls)
         switch result {
         case let .success(urls):
-            validURLs = urls
+            cleanURLs = urls
         case let .failure(error):
-            completion(nil, error)
+            completion(.failure(error))
         }
 
+        // Create a dispatch group to track the download progress
         let downloadGroup = DispatchGroup()
         var downloadedImages: [String: UIImage] = [:]
         var errors = [ImageDownloadError]()
 
         // Download images concurrently
-        for url in validURLs {
+        for url in cleanURLs {
             downloadGroup.enter()
             downloadImage(url: url) { result in
                 switch result {
@@ -49,9 +57,9 @@ class ImageDownloader {
         // Notify the main queue when all downloads are complete
         downloadGroup.notify(queue: .main) {
             if errors.isEmpty {
-                completion(downloadedImages, nil)
+                completion(.success(downloadedImages))
             } else {
-                completion(nil, .multipleErrors(errors: errors))
+                completion(.failure(.multipleErrors(errors: errors)))
             }
         }
     }
@@ -63,7 +71,7 @@ class ImageDownloader {
     ///   - completion: A `Result` value  called with the downloaded image or an ImageDownloadError.
     private func downloadImage(url: URL, completion: @escaping (Result<UIImage, ImageDownloadError>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
-            // if there is an error downloading image send
+            // check for network error
             if let error = error {
                 completion(.failure(.networkError(url: url.absoluteString, error: error)))
                 return
@@ -110,6 +118,9 @@ class ImageDownloader {
 
 /// Enum representing possible errors that can occur during image downloading.
 enum ImageDownloadError: Error {
+    /// Error indicating that no URL was provided to download image.
+    case noURL
+
     /// Error indicating that a provided URL string to download image is invalid.
     case invalidURL(url: String)
 
@@ -125,6 +136,8 @@ enum ImageDownloadError: Error {
 
     var description: String {
         switch self {
+        case .noURL:
+            return "No URL provided"
         case let .invalidURL(url):
             return "Invalid URL: \(url)"
         case let .networkError(url, error):
