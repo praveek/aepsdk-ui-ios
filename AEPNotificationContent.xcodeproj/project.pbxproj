@@ -32,6 +32,8 @@
 		B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */; };
 		B64224372B6872DB00BAA595 /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
 		B64224392B688FE100BAA595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224382B688FE100BAA595 /* AppDelegate.swift */; };
+		B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224422B6ABDED00BAA595 /* ImageDownloader.swift */; };
+		B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */; };
 		B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */; };
 		B6ADF4712B62EFBB007D8DDB /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
@@ -84,6 +86,8 @@
 		B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationContentConstants.swift; sourceTree = "<group>"; };
 		B64224382B688FE100BAA595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B642243A2B69528C00BAA595 /* DemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoApp.entitlements; sourceTree = SOURCE_ROOT; };
+		B64224422B6ABDED00BAA595 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadError.swift; sourceTree = "<group>"; };
 		B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
 		B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEPNotificationContent.h; sourceTree = "<group>"; };
 		B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
@@ -166,9 +170,19 @@
 			path = TestApps/DemoAppNotificationContent;
 			sourceTree = "<group>";
 		};
+		B64224412B6ABDC700BAA595 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				B64224422B6ABDED00BAA595 /* ImageDownloader.swift */,
+				B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		B6ADF46D2B62EFBB007D8DDB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B64224412B6ABDC700BAA595 /* Utility */,
 				B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */,
 				B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */,
 				B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */,
@@ -416,7 +430,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */,
 				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,
+				B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */,
 				B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
