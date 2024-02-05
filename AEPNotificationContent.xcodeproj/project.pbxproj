@@ -34,10 +34,14 @@
 		B64224392B688FE100BAA595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224382B688FE100BAA595 /* AppDelegate.swift */; };
 		B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224422B6ABDED00BAA595 /* ImageDownloader.swift */; };
 		B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */; };
+		B69F9F332B6D804B00AC4B91 /* FallbackTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9F322B6D804B00AC4B91 /* FallbackTemplate.swift */; };
+		B69F9F352B6F173C00AC4B91 /* TitleDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9F342B6F173C00AC4B91 /* TitleDescription.swift */; };
+		B69F9F372B70118800AC4B91 /* BasicTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9F362B70118800AC4B91 /* BasicTemplate.swift */; };
 		B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */; };
 		B6ADF4712B62EFBB007D8DDB /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
 		B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */; };
+		B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */; };
 		D1AF3549E9FABE234DE3040F /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,11 +92,16 @@
 		B642243A2B69528C00BAA595 /* DemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoApp.entitlements; sourceTree = SOURCE_ROOT; };
 		B64224422B6ABDED00BAA595 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadError.swift; sourceTree = "<group>"; };
+		B69F9F322B6D804B00AC4B91 /* FallbackTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackTemplate.swift; sourceTree = "<group>"; };
+		B69F9F342B6F173C00AC4B91 /* TitleDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDescription.swift; sourceTree = "<group>"; };
+		B69F9F362B70118800AC4B91 /* BasicTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTemplate.swift; sourceTree = "<group>"; };
+		B69F9F392B717CC900AC4B91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
 		B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEPNotificationContent.h; sourceTree = "<group>"; };
 		B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF48D2B63169B007D8DDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LabelHeight.swift"; sourceTree = "<group>"; };
 		B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AEPNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -175,13 +184,41 @@
 			children = (
 				B64224422B6ABDED00BAA595 /* ImageDownloader.swift */,
 				B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */,
+				B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		B69F9F302B6D7D4E00AC4B91 /* PushTemplatesControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B69F9F322B6D804B00AC4B91 /* FallbackTemplate.swift */,
+				B69F9F362B70118800AC4B91 /* BasicTemplate.swift */,
+			);
+			path = PushTemplatesControllers;
+			sourceTree = "<group>";
+		};
+		B69F9F312B6D7E0700AC4B91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B69F9F342B6F173C00AC4B91 /* TitleDescription.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B69F9F382B70529C00AC4B91 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		B6ADF46D2B62EFBB007D8DDB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B69F9F382B70529C00AC4B91 /* Modal */,
+				B69F9F312B6D7E0700AC4B91 /* Views */,
+				B69F9F302B6D7D4E00AC4B91 /* PushTemplatesControllers */,
 				B64224412B6ABDC700BAA595 /* Utility */,
 				B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */,
 				B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */,
@@ -194,6 +231,7 @@
 		B6ADF4842B62F34A007D8DDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B69F9F392B717CC900AC4B91 /* UIKit.framework */,
 				B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */,
 				B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */,
 				BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */,
@@ -431,9 +469,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */,
+				B69F9F332B6D804B00AC4B91 /* FallbackTemplate.swift in Sources */,
 				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,
 				B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */,
 				B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */,
+				B69F9F352B6F173C00AC4B91 /* TitleDescription.swift in Sources */,
+				B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */,
+				B69F9F372B70118800AC4B91 /* BasicTemplate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
