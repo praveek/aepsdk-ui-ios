@@ -50,7 +50,7 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
     }
 
     private func displayFallbackTemplate(_ notification: UNNotification) {
-        let fallback = FallbackTemplate(notification: notification)
+        let fallback = FallbackTemplateController(notification: notification)
         view.addSubview(fallback.view)
         preferredContentSize.height = fallback.preferredContentSize.height
     }
