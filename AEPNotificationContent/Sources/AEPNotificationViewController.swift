@@ -15,7 +15,7 @@ import UserNotifications
 import UserNotificationsUI
 
 open class AEPNotificationViewController: UIViewController, UNNotificationContentExtension {
-    /// Called when a new notification to notification content app extension with category "AEPNotification".
+    
     /// This method is called in the main thread of the notification content app extension
     public func didReceive(_ notification: UNNotification) {
         guard let payload = notification.request.content.userInfo as? [String: AnyObject],
