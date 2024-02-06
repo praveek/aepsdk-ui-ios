@@ -24,6 +24,12 @@ enum AEPNotificationContentConstants {
         static let TITLE_COLOR = "adb_clr_title"
         static let BACKGROUND_COLOR = "adb_clr_bg"
 
+        enum TemplateType {
+            static let BASIC = "basic"
+            static let CAROUSEL = "car"
+            static let TIMER = "timer"
+        }
+
         enum Carousel {
             static let MODE = "adb_car_mode"
             static let LAYOUT = "adb_car_layout"

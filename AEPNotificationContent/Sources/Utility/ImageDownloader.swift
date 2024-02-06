@@ -14,7 +14,6 @@ import UIKit
 
 /// Utility class to download images asynchronously
 class ImageDownloader {
-    
     /// Downloads images from the provided URLs.
     /// - Parameters:
     ///   - urls: Array of string URLs for the images to be downloaded.
