@@ -27,7 +27,13 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
 
         switch template {
         case AEPNotificationContentConstants.PayloadKey.TemplateType.BASIC:
-            print("//TODO: Create and display BasicTemplate viewController")
+            if let payload = BasicPayload(from: notification.request.content) {
+                let basicTemplateController = BasicTemplateController(withPayload: payload)
+                view.addSubview(basicTemplateController.view)
+                preferredContentSize.height = basicTemplateController.preferredContentSize.height
+            } else {
+                displayFallbackTemplate(notification)
+            }
         case AEPNotificationContentConstants.PayloadKey.TemplateType.CAROUSEL:
             print("//TODO: Create and display Carousel viewController")
         case AEPNotificationContentConstants.PayloadKey.TemplateType.TIMER:

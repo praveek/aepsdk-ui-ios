@@ -42,7 +42,7 @@
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
 		B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */; };
 		B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */; };
-		B6E073C32B71B53C000B9E0B /* BasicTemplatePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C22B71B53C000B9E0B /* BasicTemplatePayload.swift */; };
+		B6E073C32B71B53C000B9E0B /* BasicPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C22B71B53C000B9E0B /* BasicPayload.swift */; };
 		B6E073C52B71B6B2000B9E0B /* TitleDescriptionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C42B71B6B2000B9E0B /* TitleDescriptionPayload.swift */; };
 		B6E073C72B71D5C4000B9E0B /* Color+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C62B71D5C4000B9E0B /* Color+HexString.swift */; };
 		D1AF3549E9FABE234DE3040F /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */; };
@@ -105,7 +105,7 @@
 		B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF48D2B63169B007D8DDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LabelHeight.swift"; sourceTree = "<group>"; };
-		B6E073C22B71B53C000B9E0B /* BasicTemplatePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTemplatePayload.swift; sourceTree = "<group>"; };
+		B6E073C22B71B53C000B9E0B /* BasicPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPayload.swift; sourceTree = "<group>"; };
 		B6E073C42B71B6B2000B9E0B /* TitleDescriptionPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDescriptionPayload.swift; sourceTree = "<group>"; };
 		B6E073C62B71D5C4000B9E0B /* Color+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HexString.swift"; sourceTree = "<group>"; };
 		B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AEPNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +216,7 @@
 		B69F9F382B70529C00AC4B91 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				B6E073C22B71B53C000B9E0B /* BasicTemplatePayload.swift */,
+				B6E073C22B71B53C000B9E0B /* BasicPayload.swift */,
 				B6E073C42B71B6B2000B9E0B /* TitleDescriptionPayload.swift */,
 			);
 			path = Modal;
@@ -478,7 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6E073C52B71B6B2000B9E0B /* TitleDescriptionPayload.swift in Sources */,
-				B6E073C32B71B53C000B9E0B /* BasicTemplatePayload.swift in Sources */,
+				B6E073C32B71B53C000B9E0B /* BasicPayload.swift in Sources */,
 				B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */,
 				B69F9F332B6D804B00AC4B91 /* FallbackTemplateController.swift in Sources */,
 				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,

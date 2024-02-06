@@ -15,7 +15,7 @@ import UserNotifications
 import UIKit
 
 /// A structure representing a valid basic template payload extracted from a notification.
-struct BasicTemplatePayload {
+struct BasicPayload {
     
     /// Color constants
     enum DefaultColor {
