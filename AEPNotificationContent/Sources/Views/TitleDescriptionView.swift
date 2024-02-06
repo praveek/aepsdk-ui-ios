@@ -48,10 +48,10 @@ class TitleDescriptionView: UIView {
 
     // MARK: - Initialization
 
-    init(titleText: String, descriptionText: String, viewWidth: CGFloat) {
+    init(withPayload payload: TitleDescriptionPayload, viewWidth: CGFloat) {
         super.init(frame: .zero)
         setupView()
-        configure(with: titleText, descriptionText: descriptionText, viewWidth: viewWidth)
+        configure(withPayload: payload, viewWidth: viewWidth)
     }
 
     @available(*, unavailable)
@@ -86,10 +86,12 @@ class TitleDescriptionView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with titleText: String, descriptionText: String, viewWidth: CGFloat) {
-        titleLabel.text = titleText
-        descriptionLabel.text = descriptionText
-        updateDescriptionHeight(with: descriptionText, viewWidth: viewWidth)
+    func configure(withPayload payload : TitleDescriptionPayload, viewWidth: CGFloat) {
+        titleLabel.text = payload.title
+        descriptionLabel.text = payload.description
+        titleLabel.textColor = payload.titleColor
+        descriptionLabel.textColor = payload.descriptionColor
+        updateDescriptionHeight(with: payload.description, viewWidth: viewWidth)
     }
 
     private func updateDescriptionHeight(with text: String, viewWidth: CGFloat) {
