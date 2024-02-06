@@ -16,12 +16,20 @@ import UIKit
 // Struct representing the title and description payload
 // It contains all the necessary information to display a titleDescriptionView
 struct TitleDescriptionPayload {
+    
+    /// Color constants
+    enum DefaultColor {
+        static let TITLE = UIColor.black
+        static let DESCRIPTION = UIColor.darkGray
+    }
+        
     let title : String
     let description : String
     var titleColor : UIColor
     var descriptionColor : UIColor
     
-    init(title: String, description: String, titleColor: UIColor, descriptionColor: UIColor) {
+    init(title: String, description: String,
+         titleColor: UIColor = DefaultColor.TITLE, descriptionColor: UIColor = DefaultColor.DESCRIPTION) {
         self.title = title
         self.description = description
         self.titleColor = titleColor

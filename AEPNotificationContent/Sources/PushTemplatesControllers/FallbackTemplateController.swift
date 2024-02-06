@@ -46,9 +46,7 @@ class FallbackTemplateController: UIViewController {
     /// Sets up the view with the notification content.
     private func setupView() {
         let payload = TitleDescriptionPayload(title: notification.request.content.title,
-                                              description: notification.request.content.body,
-                                              titleColor: .black,
-                                              descriptionColor: .darkGray)
+                                              description: notification.request.content.body)
 
         let titleDescriptionView = TitleDescriptionView(withPayload: payload, viewWidth: view.frame.width - (2 * SIDE_MARGIN))
         titleDescriptionView.translatesAutoresizingMaskIntoConstraints = false

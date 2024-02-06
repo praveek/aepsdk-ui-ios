@@ -14,12 +14,15 @@ import Foundation
 import UserNotifications
 import UIKit
 
-/// A structure representing the basic payload extracted from a notification.
+/// A structure representing a valid basic template payload extracted from a notification.
 struct BasicTemplatePayload {
     
-    private let defaultBackgroundColor = UIColor.white
-    private let defaultTitleColor = UIColor.black
-    private let defaultDescriptionColor = UIColor.darkGray
+    /// Color constants
+    enum DefaultColor {
+        static let background = UIColor.white
+        static let title = UIColor.black
+        static let description = UIColor.darkGray
+    }
     
     /// The URL of the image associated with the basic template notification.
     let imageURL: String
@@ -31,6 +34,7 @@ struct BasicTemplatePayload {
     var titleDescriptionPayload: TitleDescriptionPayload
     
     /// Initializes a `BasicPayload` instance from a `UNNotificationContent`.
+    /// Initialization fails if the mandatory properties required for BasicTemplate are unavailable
     /// - Parameter notificationContent: The content of the notification.
     init?(from notificationContent: UNNotificationContent) {
         // Extract image URL from the notification, return nil if not found.
@@ -46,15 +50,15 @@ struct BasicTemplatePayload {
         // Extract and set the background color.
         backgroundColor = Self.extractColor(from: notificationContent,
                                             key: AEPNotificationContentConstants.PayloadKey.BACKGROUND_COLOR,
-                                            defaultColor: defaultBackgroundColor)
+                                            defaultColor: DefaultColor.background)
         
         // Extract and set the title and description colors.
         let titleColor = Self.extractColor(from: notificationContent,
                                            key: AEPNotificationContentConstants.PayloadKey.TITLE_COLOR,
-                                           defaultColor: defaultTitleColor)
+                                           defaultColor: DefaultColor.title)
         let descriptionColor = Self.extractColor(from: notificationContent,
                                                  key: AEPNotificationContentConstants.PayloadKey.BODY_COLOR,
-                                                 defaultColor: defaultDescriptionColor)
+                                                 defaultColor: DefaultColor.description)
         
         // Initialize properties.
         self.imageURL = imageURL
