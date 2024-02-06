@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-class FallbackTemplate: UIViewController {
+class FallbackTemplateController: UIViewController {
     private let SIDE_MARGIN = 8.0
     private let TOP_MARGIN = 8.0
 
