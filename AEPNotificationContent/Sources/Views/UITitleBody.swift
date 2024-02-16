@@ -13,6 +13,7 @@
 import Foundation
 import UIKit
 
+// A UIView that displays a title and a body
 class UITitleBody: UIView {
     
     // Color constants
@@ -74,12 +75,16 @@ class UITitleBody: UIView {
         configure(withPayload: payload, viewWidth: viewWidth)
     }
 
+    // MARK: - Private methods
+
+    /// Sets up the view
     private func setupView() {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         setupConstraints()
     }
 
+    /// Sets up the constraints for the view
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -92,6 +97,7 @@ class UITitleBody: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
 
+        /// Set the dynamic height constraint for the description label
         descriptionHeightConstraint = descriptionLabel.heightAnchor.constraint(equalToConstant: 0)
         descriptionHeightConstraint.priority = .defaultHigh
         descriptionHeightConstraint.isActive = true

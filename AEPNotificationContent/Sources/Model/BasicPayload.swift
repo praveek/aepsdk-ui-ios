@@ -14,14 +14,17 @@ import Foundation
 import UIKit
 import UserNotifications
 
-/// A structure representing a valid basic template payload extracted from a notification.
+/// A class that represents the payload required to build BasicTemplate
 class BasicPayload : Payload {
     
+    // MARK: - Public properties
+
+    /// The image URL for BasicTemplate
     var basicImageURL : URL {
         return imageURL! // Force unwrap is safe here due to the initializer check
     }
 
-    /// The title and description text, along with their respective colors.
+    /// The title and body for BasicTemplate
     var titleBodyPayload: TitleBodyPayload {
         let titleText = notificationContent.title
         let descriptionText = expandedDescription ?? notificationContent.body
@@ -29,6 +32,8 @@ class BasicPayload : Payload {
                                                           body: descriptionText)
         return titleBodyPayload
     }
+
+    // MARK: - Initialization
 
     /// Initializes a `BasicPayload` instance from a `UNNotificationContent`.
     /// Initialization fails if the mandatory properties required for BasicTemplate are unavailable

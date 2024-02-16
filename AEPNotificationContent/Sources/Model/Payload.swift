@@ -14,16 +14,18 @@ import Foundation
 import UIKit
 import UserNotifications
 
+
+// A class that extracts and loads the base properties for building push templates
 class Payload {
     
-    /// Color constants
+    /// Default color constants
     enum DefaultColor {
         static let background = UIColor.white
         static let title = UIColor.black
         static let description = UIColor.darkGray
     }
     
-    // MARK: - Properties
+    // MARK: Public properties
 
     /// The image URL for the notification.
     let imageURL: URL?
@@ -46,6 +48,7 @@ class Payload {
     /// The description text for the expanded view
     var expandedDescription: String?
         
+    // MARK: - Initialization
     
     /// Initializes a `BasicPayload` instance from a `UNNotificationContent`.
     /// Initialization fails if the mandatory properties required for BasicTemplate are unavailable
@@ -85,6 +88,8 @@ class Payload {
                                                  key: AEPNotificationContentConstants.PayloadKey.BODY_COLOR,
                                                  defaultColor: DefaultColor.description)
     }
+
+    // MARK: - Private methods
     
     /// Extracts and returns the expanded description from notification content.
     /// - Parameter notificationContent: The notification content to extract from.
@@ -105,6 +110,4 @@ class Payload {
         }
         return defaultColor
     }
-    
 }
-

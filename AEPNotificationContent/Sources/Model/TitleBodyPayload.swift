@@ -13,12 +13,18 @@
 import Foundation
 import UIKit
 
-// Struct representing the title and description payload
-struct TitleBodyPayload {
+// A class that holds the payload required to build UITitleBody View
+class TitleBodyPayload {
 
+    // MARK: - Public properties
+    
+    /// The title for UITitleBody View
     let title: String
+    
+    /// The body for UITitleBody View
     let body: String
 
+    // MARK: - Initialization
     init(title: String, body: String){
         self.title = title
         self.body = body
