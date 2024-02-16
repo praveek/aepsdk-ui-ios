@@ -30,6 +30,7 @@
 		B61B5ACD2B7FF6A90049679F /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5ACA2B7FF6A90049679F /* PayloadTests.swift */; };
 		B61B5ACE2B7FF6A90049679F /* Color+HexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5ACB2B7FF6A90049679F /* Color+HexStringTests.swift */; };
 		B61B5ACF2B7FF6A90049679F /* BasicPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5ACC2B7FF6A90049679F /* BasicPayloadTests.swift */; };
+		B61B5AD12B7FF74E0049679F /* Color+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AD02B7FF74E0049679F /* Color+HexString.swift */; };
 		B632B3562B63183800D04C48 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3512B63182000D04C48 /* DemoApp.swift */; };
 		B632B3572B63183E00D04C48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3502B63182000D04C48 /* ContentView.swift */; };
 		B632B35A2B63213800D04C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B632B34D2B63182000D04C48 /* Assets.xcassets */; };
@@ -49,7 +50,6 @@
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
 		B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */; };
 		B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */; };
-		B6E073C72B71D5C4000B9E0B /* Color+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C62B71D5C4000B9E0B /* Color+HexString.swift */; };
 		D1AF3549E9FABE234DE3040F /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +103,7 @@
 		B61B5ACA2B7FF6A90049679F /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
 		B61B5ACB2B7FF6A90049679F /* Color+HexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+HexStringTests.swift"; sourceTree = "<group>"; };
 		B61B5ACC2B7FF6A90049679F /* BasicPayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPayloadTests.swift; sourceTree = "<group>"; };
+		B61B5AD02B7FF74E0049679F /* Color+HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+HexString.swift"; sourceTree = "<group>"; };
 		B632B34D2B63182000D04C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B632B34F2B63182000D04C48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B632B3502B63182000D04C48 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF48D2B63169B007D8DDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LabelHeight.swift"; sourceTree = "<group>"; };
-		B6E073C62B71D5C4000B9E0B /* Color+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HexString.swift"; sourceTree = "<group>"; };
 		B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AEPNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -223,10 +223,10 @@
 		B64224412B6ABDC700BAA595 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B61B5AD02B7FF74E0049679F /* Color+HexString.swift */,
 				B64224422B6ABDED00BAA595 /* ImageDownloader.swift */,
 				B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */,
 				B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */,
-				B6E073C62B71D5C4000B9E0B /* Color+HexString.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -557,10 +557,10 @@
 				B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */,
 				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,
 				B61B5AC72B7FEF790049679F /* TitleBodyPayload.swift in Sources */,
-				B6E073C72B71D5C4000B9E0B /* Color+HexString.swift in Sources */,
 				B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */,
 				B61B5A972B7FEBE60049679F /* UITitleBody.swift in Sources */,
 				B61B5AC92B7FF4F30049679F /* FallbackTemplateController.swift in Sources */,
+				B61B5AD12B7FF74E0049679F /* Color+HexString.swift in Sources */,
 				B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */,
 				B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */,
 				B61B5A9B2B7FEC4C0049679F /* BasicPayload.swift in Sources */,
