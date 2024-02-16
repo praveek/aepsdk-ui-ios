@@ -13,7 +13,14 @@
 import Foundation
 import UIKit
 
-class TitleDescriptionView: UIView {
+class UITitleBody: UIView {
+    
+    // Color constants
+    enum DefaultColor {
+        static let TITLE = UIColor.black
+        static let DESCRIPTION = UIColor.darkGray
+    }
+    
     // Constants
     let TITLE_HEIGHT = 25.0
     let PADDING_BETWEEN_VIEWS = 5.0
@@ -47,19 +54,25 @@ class TitleDescriptionView: UIView {
     }
 
     // MARK: - Initialization
-
-    init(withPayload payload: TitleDescriptionPayload, viewWidth: CGFloat) {
+    
+    init() {
         super.init(frame: .zero)
-        setupView()
-        configure(withPayload: payload, viewWidth: viewWidth)
     }
-
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Setup
+    
+    func setupWith(payload :TitleBodyPayload, viewWidth: CGFloat) {
+        setupView()
+        configure(withPayload: payload, viewWidth: viewWidth)
+    }
+    
+    func change(payload: TitleBodyPayload, viewWidth: CGFloat) {
+        configure(withPayload: payload, viewWidth: viewWidth)
+    }
 
     private func setupView() {
         addSubview(titleLabel)
@@ -86,12 +99,17 @@ class TitleDescriptionView: UIView {
 
     // MARK: - Configuration
 
-    func configure(withPayload payload : TitleDescriptionPayload, viewWidth: CGFloat) {
+    func configure(withPayload payload: TitleBodyPayload, viewWidth: CGFloat) {
         titleLabel.text = payload.title
-        descriptionLabel.text = payload.description
+        titleLabel.textColor = DefaultColor.TITLE
+        descriptionLabel.text = payload.body
+        descriptionLabel.textColor = DefaultColor.DESCRIPTION
+        updateDescriptionHeight(with: payload.body, viewWidth: viewWidth)
+    }
+    
+    func changeColor(from payload: Payload) {
         titleLabel.textColor = payload.titleColor
         descriptionLabel.textColor = payload.descriptionColor
-        updateDescriptionHeight(with: payload.description, viewWidth: viewWidth)
     }
 
     private func updateDescriptionHeight(with text: String, viewWidth: CGFloat) {
