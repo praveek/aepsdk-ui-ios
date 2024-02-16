@@ -28,7 +28,7 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
         switch template {
         case AEPNotificationContentConstants.PayloadKey.TemplateType.BASIC:
             if let payload = BasicPayload(from: notification.request.content) {
-                let basicTemplateController = BasicTemplateController(withPayload: payload)
+                let basicTemplateController = BasicTemplateController(payload)
                 view.addSubview(basicTemplateController.view)
                 preferredContentSize.height = basicTemplateController.preferredContentSize.height
             } else {

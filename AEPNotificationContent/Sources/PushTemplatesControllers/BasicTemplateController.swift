@@ -15,7 +15,7 @@ import UIKit
 class BasicTemplateController: UIViewController {
     let payload : BasicPayload
     
-    init(withPayload payload: BasicPayload) {
+    init(payload: BasicPayload) {
         self.payload = payload
         super.init(nibName: nil, bundle: nil)
     }
