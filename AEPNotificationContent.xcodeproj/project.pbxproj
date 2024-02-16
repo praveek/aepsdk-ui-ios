@@ -27,6 +27,7 @@
 		B61B5ABF2B7FEE2B0049679F /* UnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5ABE2B7FEE2B0049679F /* UnitTest.swift */; };
 		B61B5AC02B7FEE2B0049679F /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
 		B61B5AC72B7FEF790049679F /* TitleBodyPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */; };
+		B61B5AC92B7FF4F30049679F /* FallbackTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AC82B7FF4F30049679F /* FallbackTemplateController.swift */; };
 		B632B3562B63183800D04C48 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3512B63182000D04C48 /* DemoApp.swift */; };
 		B632B3572B63183E00D04C48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3502B63182000D04C48 /* ContentView.swift */; };
 		B632B35A2B63213800D04C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B632B34D2B63182000D04C48 /* Assets.xcassets */; };
@@ -40,7 +41,6 @@
 		B64224392B688FE100BAA595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224382B688FE100BAA595 /* AppDelegate.swift */; };
 		B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224422B6ABDED00BAA595 /* ImageDownloader.swift */; };
 		B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */; };
-		B69F9F332B6D804B00AC4B91 /* FallbackTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9F322B6D804B00AC4B91 /* FallbackTemplateController.swift */; };
 		B69F9F372B70118800AC4B91 /* BasicTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */; };
 		B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */; };
 		B6ADF4712B62EFBB007D8DDB /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -98,6 +98,7 @@
 		B61B5ABC2B7FEE2B0049679F /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61B5ABE2B7FEE2B0049679F /* UnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTest.swift; sourceTree = "<group>"; };
 		B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBodyPayload.swift; sourceTree = "<group>"; };
+		B61B5AC82B7FF4F30049679F /* FallbackTemplateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallbackTemplateController.swift; sourceTree = "<group>"; };
 		B632B34D2B63182000D04C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B632B34F2B63182000D04C48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B632B3502B63182000D04C48 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		B642243A2B69528C00BAA595 /* DemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoApp.entitlements; sourceTree = SOURCE_ROOT; };
 		B64224422B6ABDED00BAA595 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadError.swift; sourceTree = "<group>"; };
-		B69F9F322B6D804B00AC4B91 /* FallbackTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackTemplateController.swift; sourceTree = "<group>"; };
 		B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTemplateController.swift; sourceTree = "<group>"; };
 		B69F9F392B717CC900AC4B91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
@@ -225,13 +225,13 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		B69F9F302B6D7D4E00AC4B91 /* PushTemplatesControllers */ = {
+		B69F9F302B6D7D4E00AC4B91 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B69F9F322B6D804B00AC4B91 /* FallbackTemplateController.swift */,
+				B61B5AC82B7FF4F30049679F /* FallbackTemplateController.swift */,
 				B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */,
 			);
-			path = PushTemplatesControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		B69F9F312B6D7E0700AC4B91 /* Views */ = {
@@ -257,7 +257,7 @@
 			children = (
 				B69F9F382B70529C00AC4B91 /* Model */,
 				B69F9F312B6D7E0700AC4B91 /* Views */,
-				B69F9F302B6D7D4E00AC4B91 /* PushTemplatesControllers */,
+				B69F9F302B6D7D4E00AC4B91 /* Controllers */,
 				B64224412B6ABDC700BAA595 /* Utility */,
 				B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */,
 				B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */,
@@ -547,12 +547,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */,
-				B69F9F332B6D804B00AC4B91 /* FallbackTemplateController.swift in Sources */,
 				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,
 				B61B5AC72B7FEF790049679F /* TitleBodyPayload.swift in Sources */,
 				B6E073C72B71D5C4000B9E0B /* Color+HexString.swift in Sources */,
 				B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */,
 				B61B5A972B7FEBE60049679F /* UITitleBody.swift in Sources */,
+				B61B5AC92B7FF4F30049679F /* FallbackTemplateController.swift in Sources */,
 				B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */,
 				B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */,
 				B61B5A9B2B7FEC4C0049679F /* BasicPayload.swift in Sources */,
