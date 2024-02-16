@@ -23,6 +23,8 @@ enum AEPNotificationContentConstants {
         static let BODY_COLOR = "adb_clr_body"
         static let TITLE_COLOR = "adb_clr_title"
         static let BACKGROUND_COLOR = "adb_clr_bg"
+        static let IMAGE_URL = "adb_media"
+        static let CLICK_URL = "adb_uri"
 
         enum TemplateType {
             static let BASIC = "basic"
@@ -31,7 +33,6 @@ enum AEPNotificationContentConstants {
         }
         
         enum Basic {
-            static let IMAGE_URL = "adb_media"
             static let EXPANDED_BODY_TXT = "adb_body_ex"
         }
 
@@ -48,6 +49,7 @@ enum AEPNotificationContentConstants {
             static let COLOR = "adb_clr_tmr"
             static let DURATION = "adb_tmr_dur"
             static let END_TIMESTAMP = "adb_tmr_end"
+            static let ALTERNATE_TITLE = "adb_title_alt"
             static let ALTERNATE_BODY = "adb_body_ex_alt"
             static let ALTERNATE_IMAGE = "adb_media_alt"
         }
