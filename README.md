@@ -1,4 +1,4 @@
-# Adobe Experience Platform - NotificationContent extension for iOS
+# Adobe Experience Platform - NotificationContent extension for iOS (IN DEVELOPMENT)
 
 ## About this project
 AEPNotificationContent extension provides the capability to deliver predefined push notification templates to your application. This SDK is compatible with push notifications originating from Adobe Journey Optimizer and Adobe Campaign Classic solution.
