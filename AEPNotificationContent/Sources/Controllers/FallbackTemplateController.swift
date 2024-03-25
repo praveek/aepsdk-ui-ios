@@ -13,19 +13,26 @@
 import Foundation
 import UIKit
 
-class FallbackTemplate: UIViewController {
+class FallbackTemplateController: UIViewController {
+    
     private let SIDE_MARGIN = 8.0
     private let TOP_MARGIN = 8.0
+    
+    lazy var titleBodyView: UITitleBody = {
+        let view = UITitleBody()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
-    private let notification: UNNotification
-    private var titleDescriptionHeight = 0.0
+    private let notificationContent: UNNotificationContent
+    private var titleBodyHeight = 0.0
 
     // MARK: - Initialization
 
     /// Initializes the FallbackTemplate with the provided notification.
     /// - Parameter notification: The notification to be displayed.
-    init(notification: UNNotification) {
-        self.notification = notification
+    init(notificationContent: UNNotificationContent) {
+        self.notificationContent = notificationContent
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -45,25 +52,24 @@ class FallbackTemplate: UIViewController {
 
     /// Sets up the view with the notification content.
     private func setupView() {
-        let title = notification.request.content.title
-        let description = notification.request.content.body
+        let payload = TitleBodyPayload(title: notificationContent.title,
+                                              body: notificationContent.body)
 
-        let titleDescriptionView = TitleDescriptionView(titleText: title, descriptionText: description, viewWidth: view.frame.width - (2 * SIDE_MARGIN))
-        titleDescriptionView.translatesAutoresizingMaskIntoConstraints = false
-        titleDescriptionHeight = titleDescriptionView.viewHeight
-        view.addSubview(titleDescriptionView)
+        titleBodyView.setupWith(payload: payload, viewWidth: view.frame.width - (2 * SIDE_MARGIN))
+        titleBodyHeight = titleBodyView.viewHeight
+        view.addSubview(titleBodyView)
 
         NSLayoutConstraint.activate([
-            titleDescriptionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: TOP_MARGIN),
-            titleDescriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SIDE_MARGIN),
-            titleDescriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SIDE_MARGIN),
-            titleDescriptionView.heightAnchor.constraint(equalToConstant: titleDescriptionHeight),
+            titleBodyView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: TOP_MARGIN),
+            titleBodyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SIDE_MARGIN),
+            titleBodyView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SIDE_MARGIN),
+            titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyHeight),
         ])
 
         updatePreferredContentSize()
     }
 
     private func updatePreferredContentSize() {
-        preferredContentSize.height = titleDescriptionHeight + (2 * TOP_MARGIN)
+        preferredContentSize.height = titleBodyHeight + (2 * TOP_MARGIN)
     }
 }

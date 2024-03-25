@@ -13,7 +13,15 @@
 import Foundation
 import UIKit
 
-class TitleDescriptionView: UIView {
+// A UIView that displays a title and a body
+class UITitleBody: UIView {
+    
+    // Color constants
+    enum DefaultColor {
+        static let TITLE = UIColor.black
+        static let DESCRIPTION = UIColor.darkGray
+    }
+    
     // Constants
     let TITLE_HEIGHT = 25.0
     let PADDING_BETWEEN_VIEWS = 5.0
@@ -47,26 +55,36 @@ class TitleDescriptionView: UIView {
     }
 
     // MARK: - Initialization
-
-    init(titleText: String, descriptionText: String, viewWidth: CGFloat) {
+    
+    init() {
         super.init(frame: .zero)
-        setupView()
-        configure(with: titleText, descriptionText: descriptionText, viewWidth: viewWidth)
     }
-
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Setup
+    
+    func setupWith(payload :TitleBodyPayload, viewWidth: CGFloat) {
+        setupView()
+        configure(withPayload: payload, viewWidth: viewWidth)
+    }
+    
+    func change(payload: TitleBodyPayload, viewWidth: CGFloat) {
+        configure(withPayload: payload, viewWidth: viewWidth)
+    }
 
+    // MARK: - Private methods
+
+    /// Sets up the view
     private func setupView() {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         setupConstraints()
     }
 
+    /// Sets up the constraints for the view
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -79,6 +97,7 @@ class TitleDescriptionView: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
 
+        /// Set the dynamic height constraint for the description label
         descriptionHeightConstraint = descriptionLabel.heightAnchor.constraint(equalToConstant: 0)
         descriptionHeightConstraint.priority = .defaultHigh
         descriptionHeightConstraint.isActive = true
@@ -86,10 +105,17 @@ class TitleDescriptionView: UIView {
 
     // MARK: - Configuration
 
-    func configure(with titleText: String, descriptionText: String, viewWidth: CGFloat) {
-        titleLabel.text = titleText
-        descriptionLabel.text = descriptionText
-        updateDescriptionHeight(with: descriptionText, viewWidth: viewWidth)
+    func configure(withPayload payload: TitleBodyPayload, viewWidth: CGFloat) {
+        titleLabel.text = payload.title
+        titleLabel.textColor = DefaultColor.TITLE
+        descriptionLabel.text = payload.body
+        descriptionLabel.textColor = DefaultColor.DESCRIPTION
+        updateDescriptionHeight(with: payload.body, viewWidth: viewWidth)
+    }
+    
+    func changeColor(from payload: Payload) {
+        titleLabel.textColor = payload.titleColor
+        descriptionLabel.textColor = payload.descriptionColor
     }
 
     private func updateDescriptionHeight(with text: String, viewWidth: CGFloat) {
