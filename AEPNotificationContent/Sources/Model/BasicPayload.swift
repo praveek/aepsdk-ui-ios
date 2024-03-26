@@ -15,13 +15,12 @@ import UIKit
 import UserNotifications
 
 /// A class that represents the payload required to build BasicTemplate
-class BasicPayload : Payload {
-    
+class BasicPayload: Payload {
     // MARK: - Public properties
 
     /// The image URL for BasicTemplate
-    var basicImageURL : URL {
-        return imageURL! // Force unwrap is safe here due to the initializer check
+    var basicImageURL: URL {
+        imageURL! // Force unwrap is safe here due to the initializer check
     }
 
     /// The title and body for BasicTemplate
@@ -29,7 +28,7 @@ class BasicPayload : Payload {
         let titleText = notificationContent.title
         let descriptionText = expandedDescription ?? notificationContent.body
         let titleBodyPayload = TitleBodyPayload(title: titleText,
-                                                          body: descriptionText)
+                                                body: descriptionText)
         return titleBodyPayload
     }
 
@@ -40,7 +39,7 @@ class BasicPayload : Payload {
     /// - Parameter notificationContent: The content of the notification.
     required init?(from notificationContent: UNNotificationContent) {
         super.init(notificationContent: notificationContent)
-        
+
         // If the imageUrl is not available in the notification, bail out
         guard let _ = imageURL else {
             return nil

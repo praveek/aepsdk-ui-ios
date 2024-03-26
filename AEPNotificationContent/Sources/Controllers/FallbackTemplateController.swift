@@ -14,10 +14,9 @@ import Foundation
 import UIKit
 
 class FallbackTemplateController: UIViewController {
-    
     private let SIDE_MARGIN = 8.0
     private let TOP_MARGIN = 8.0
-    
+
     lazy var titleBodyView: UITitleBody = {
         let view = UITitleBody()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +52,7 @@ class FallbackTemplateController: UIViewController {
     /// Sets up the view with the notification content.
     private func setupView() {
         let payload = TitleBodyPayload(title: notificationContent.title,
-                                              body: notificationContent.body)
+                                       body: notificationContent.body)
 
         titleBodyView.setupWith(payload: payload, viewWidth: view.frame.width - (2 * SIDE_MARGIN))
         titleBodyHeight = titleBodyView.viewHeight

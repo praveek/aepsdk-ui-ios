@@ -15,13 +15,12 @@ import UIKit
 
 // A UIView that displays a title and a body
 class UITitleBody: UIView {
-    
     // Color constants
     enum DefaultColor {
         static let TITLE = UIColor.black
         static let DESCRIPTION = UIColor.darkGray
     }
-    
+
     // Constants
     let TITLE_HEIGHT = 25.0
     let PADDING_BETWEEN_VIEWS = 5.0
@@ -55,22 +54,23 @@ class UITitleBody: UIView {
     }
 
     // MARK: - Initialization
-    
+
     init() {
         super.init(frame: .zero)
     }
+
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Setup
-    
-    func setupWith(payload :TitleBodyPayload, viewWidth: CGFloat) {
+
+    func setupWith(payload: TitleBodyPayload, viewWidth: CGFloat) {
         setupView()
         configure(withPayload: payload, viewWidth: viewWidth)
     }
-    
+
     func change(payload: TitleBodyPayload, viewWidth: CGFloat) {
         configure(withPayload: payload, viewWidth: viewWidth)
     }
@@ -112,7 +112,7 @@ class UITitleBody: UIView {
         descriptionLabel.textColor = DefaultColor.DESCRIPTION
         updateDescriptionHeight(with: payload.body, viewWidth: viewWidth)
     }
-    
+
     func changeColor(from payload: Payload) {
         titleLabel.textColor = payload.titleColor
         descriptionLabel.textColor = payload.descriptionColor

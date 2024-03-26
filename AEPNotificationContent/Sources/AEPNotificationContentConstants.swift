@@ -31,7 +31,7 @@ enum AEPNotificationContentConstants {
             static let CAROUSEL = "car"
             static let TIMER = "timer"
         }
-        
+
         enum Basic {
             static let EXPANDED_BODY_TXT = "adb_body_ex"
         }
