@@ -13,17 +13,17 @@
 import UIKit
 
 class BasicTemplateController: UIViewController {
-    let payload : BasicPayload
-    
+    let payload: BasicPayload
+
     init(_ payload: BasicPayload) {
         self.payload = payload
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("BasicTemplateController cannot be initialized from storyboard.")
     }
-    
+
     override func viewDidLoad() {}
 }

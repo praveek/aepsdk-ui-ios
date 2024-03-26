@@ -15,7 +15,6 @@ import UserNotifications
 import UserNotificationsUI
 
 open class AEPNotificationViewController: UIViewController, UNNotificationContentExtension {
-    
     /// This method is called in the main thread of the notification content app extension
     public func didReceive(_ notification: UNNotification) {
         guard let payload = notification.request.content.userInfo as? [String: AnyObject],
@@ -43,15 +42,14 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
         }
     }
 
-    public func didReceive(_: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
-    }
+    public func didReceive(_: UNNotificationResponse, completionHandler _: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {}
 
     override public func viewDidLoad() {
         super.viewDidLoad()
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
-    
-    open override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+
+    override open func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         preferredContentSize.height = container.preferredContentSize.height
     }
 
