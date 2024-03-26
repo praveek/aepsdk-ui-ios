@@ -438,9 +438,9 @@
 			projectRoot = "";
 			targets = (
 				B6E9FFBC2B5AE672003E9D10 /* AEPNotificationContent */,
+				B642243B2B697A7300BAA595 /* AEPNotificationContentXCF */,
 				B6ADF48C2B63169B007D8DDB /* DemoApp */,
 				B632B35E2B63230000D04C48 /* DemoAppNotificationContent */,
-				B642243B2B697A7300BAA595 /* AEPNotificationContentXCF */,
 				B61B5ABB2B7FEE2B0049679F /* UnitTest */,
 			);
 		};

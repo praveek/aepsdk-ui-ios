@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AEPNotificationContent.xctestplan">
+   </FileRef>
+   <FileRef
       location = "group:AEPNotificationContent.xcodeproj">
    </FileRef>
    <FileRef
