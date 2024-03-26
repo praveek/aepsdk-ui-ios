@@ -15,7 +15,7 @@ import UserNotifications
 import UserNotificationsUI
 
 open class AEPNotificationViewController: UIViewController, UNNotificationContentExtension {
-    /// Called when a new notification to notification content app extension with category "AEPNotification".
+    
     /// This method is called in the main thread of the notification content app extension
     public func didReceive(_ notification: UNNotification) {
         guard let payload = notification.request.content.userInfo as? [String: AnyObject],
@@ -27,7 +27,13 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
 
         switch template {
         case AEPNotificationContentConstants.PayloadKey.TemplateType.BASIC:
-            print("//TODO: Create and display BasicTemplate viewController")
+            if let payload = BasicPayload(from: notification.request.content) {
+                let basicTemplateController = BasicTemplateController(payload)
+                view.addSubview(basicTemplateController.view)
+                preferredContentSize.height = basicTemplateController.preferredContentSize.height
+            } else {
+                displayFallbackTemplate(notification)
+            }
         case AEPNotificationContentConstants.PayloadKey.TemplateType.CAROUSEL:
             print("//TODO: Create and display Carousel viewController")
         case AEPNotificationContentConstants.PayloadKey.TemplateType.TIMER:
@@ -50,7 +56,7 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
     }
 
     private func displayFallbackTemplate(_ notification: UNNotification) {
-        let fallback = FallbackTemplate(notification: notification)
+        let fallback = FallbackTemplateController(notificationContent: notification.request.content)
         view.addSubview(fallback.view)
         preferredContentSize.height = fallback.preferredContentSize.height
     }
