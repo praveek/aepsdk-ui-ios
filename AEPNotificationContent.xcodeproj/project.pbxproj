@@ -46,7 +46,8 @@
 		B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */; };
 		B69F9F372B70118800AC4B91 /* BasicTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */; };
 		B6A8BC102BB3CE2000E3B3DC /* TemplateControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC0F2BB3CE2000E3B3DC /* TemplateControllerDelegate.swift */; };
-		B6A8BC162BB480D700E3B3DC /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
+		B6A8BC192BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
+		B6A8BC1A2BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */; };
 		B6ADF4712B62EFBB007D8DDB /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
@@ -89,6 +90,17 @@
 				B632B36B2B63230000D04C48 /* DemoAppNotificationContent.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6A8BC1B2BB4D1FF00E3B3DC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B6A8BC1A2BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -146,7 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A8BC162BB480D700E3B3DC /* AEPNotificationContent.framework in Frameworks */,
+				B6A8BC192BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Frameworks */,
 				B632B3612B63230000D04C48 /* UserNotificationsUI.framework in Frameworks */,
 				B632B3602B63230000D04C48 /* UserNotifications.framework in Frameworks */,
 			);
@@ -353,6 +365,7 @@
 				B632B35B2B63230000D04C48 /* Sources */,
 				B632B35C2B63230000D04C48 /* Frameworks */,
 				B632B35D2B63230000D04C48 /* Resources */,
+				B6A8BC1B2BB4D1FF00E3B3DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -409,6 +422,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
