@@ -24,18 +24,22 @@ import UIKit
 
 class BasicTemplateController: UIViewController {
     // MARK: - Margin Constants
+
     private let SIDE_MARGIN = 8.0
     private let TOP_MARGIN = 10.0
-    
+
     // MARK: - Properties
+
     private let delegate: TemplateControllerDelegate
     private let payload: BasicPayload
 
     // MARK: - Height properties
+
     private var titleBodyHeight = 0.0
     private var imageViewHeight = 0.0
 
     // MARK: - UI Elements
+
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -43,7 +47,7 @@ class BasicTemplateController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
+
     lazy var titleBodyView: UITitleBody = {
         let view = UITitleBody()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -86,7 +90,7 @@ class BasicTemplateController: UIViewController {
     private func setupView(withImage downloadedImage: UIImage) {
         imageView.image = downloadedImage
         view.addSubview(imageView)
-        
+
         /// keeping height of the image view as half of the notification width.
         /// This is to maintain the recommended aspect ratio of 2:1
         imageViewHeight = (view.frame.width / 2)

@@ -15,33 +15,30 @@ import UserNotifications
 import UserNotificationsUI
 
 open class AEPNotificationViewController: UIViewController, UNNotificationContentExtension, TemplateControllerDelegate {
-    
-    var notification : UNNotification?
+    var notification: UNNotification?
 
     // MARK: - UNNotificationContentExtension delegate methods
-    
+
     /// This method is called in the main thread of the notification content app extension
     public func didReceive(_ notification: UNNotification) {
-        
         self.notification = notification
         let notificationContent = notification.request.content
 
         // Extract the template type from the notification content
         //
         guard let notificationUserInfo = notification.request.content.userInfo as? [String: AnyObject],
-               let templateType = notificationUserInfo[AEPNotificationContentConstants.PayloadKey.TEMPLATE_TYPE] as? String,
-               let payload = createPayload(for: templateType, from: notificationContent)
-         else {
-             displayFallbackTemplate(notificationContent)
-             return
-         }
+              let templateType = notificationUserInfo[AEPNotificationContentConstants.PayloadKey.TEMPLATE_TYPE] as? String,
+              let payload = createPayload(for: templateType, from: notificationContent)
+        else {
+            displayFallbackTemplate(notificationContent)
+            return
+        }
 
         // Create a controller based on the template type
         let controller: UIViewController?
-         if let basicPayload = payload as? BasicPayload {
-             controller = BasicTemplateController(withPayload: basicPayload, delegate: self)
-         }else {controller = nil}
-        
+        if let basicPayload = payload as? BasicPayload {
+            controller = BasicTemplateController(withPayload: basicPayload, delegate: self)
+        } else { controller = nil }
 
         // If a controller was created, add it as a child and its view to the hierarchy
         if let controller = controller {
@@ -68,7 +65,7 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
     }
 
     // MARK: - Private methods
-    
+
     /// Create a payload object based on the template type
     /// Returns nil if the template type is not supported or if the payload object could not be created
     /// - Parameters:
@@ -84,7 +81,6 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
         }
     }
 
-
     /// Use this method to display a fallback template
     /// This method is called when the template fails to load for any reason
     /// - Parameter notificationContent - UNNotificationContent object
@@ -95,7 +91,7 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
     }
 
     // MARK: - TemplateControllerDelegate
-    
+
     // This method is called when the template failed to load
     // A template can fail if there are issues in downloading images, parsing the payload, etc.
     // In this case, we display a fallback template
@@ -106,6 +102,6 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
 
     // Use this method to get the instance of the parent view controller
     func getParentViewController() -> UIViewController {
-        return self
+        self
     }
 }

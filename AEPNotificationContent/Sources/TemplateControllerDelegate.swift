@@ -17,7 +17,7 @@ protocol TemplateControllerDelegate {
     /// This method should be called when the template failed to load
     /// A template can fail if there are issues in downloading images, parsing the payload, etc.
     func templateFailedToLoad()
-    
+
     /// Use this method to get the instance of the parent view controller
     func getParentViewController() -> UIViewController
 }
