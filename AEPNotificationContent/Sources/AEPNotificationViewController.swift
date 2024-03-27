@@ -25,7 +25,6 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
         let notificationContent = notification.request.content
 
         // Extract the template type from the notification content
-        //
         guard let notificationUserInfo = notification.request.content.userInfo as? [String: AnyObject],
               let templateType = notificationUserInfo[AEPNotificationContentConstants.PayloadKey.TEMPLATE_TYPE] as? String,
               let payload = createPayload(for: templateType, from: notificationContent)

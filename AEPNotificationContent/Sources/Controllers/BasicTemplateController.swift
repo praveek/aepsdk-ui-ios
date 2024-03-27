@@ -12,15 +12,17 @@
 
 import UIKit
 
-// RECOMMENDATIONS
-// Title  : Characters per line : 35
-// Title : Recommended Character length : 35
-// Description :  : Characters per line : 50
-// Description :  : Recommended number of characters : 250
-// Image required aspect ratio :  2:1
-// Recommended dimensions : 600x300
-// Recommended Image size : 40KB
-// Recommended Image formats : png, jpg
+// UI Recommendations
+// Title  : Characters per line : 35-40
+// Title : Recommended maximum title length : 35
+// Title : Multiple lines supported : Yes
+// Description : Characters per line : 50-60
+// Description : Recommended number of characters : 250
+// Description : Multiple lines supported : Yes
+// Image : Required aspect ratio :  2:1
+// Image : Recommended dimensions : 600x300
+// Image : Recommended size : 40KB
+// Image : Recommended formats : png, jpg
 
 class BasicTemplateController: UIViewController {
     // MARK: - Margin Constants
