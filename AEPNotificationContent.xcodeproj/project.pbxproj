@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		2445E3542BB388AE006571F2 /* AEPNotificationContent.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 2445E3532BB388AE006571F2 /* AEPNotificationContent.xctestplan */; };
 		B61B5A972B7FEBE60049679F /* UITitleBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A962B7FEBE60049679F /* UITitleBody.swift */; };
 		B61B5A9A2B7FEC4C0049679F /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A982B7FEC4C0049679F /* Payload.swift */; };
 		B61B5A9B2B7FEC4C0049679F /* BasicPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A992B7FEC4C0049679F /* BasicPayload.swift */; };
@@ -496,7 +495,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2445E3542BB388AE006571F2 /* AEPNotificationContent.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
