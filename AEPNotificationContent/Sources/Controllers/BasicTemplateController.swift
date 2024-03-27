@@ -56,6 +56,18 @@ class BasicTemplateController: UIViewController {
         return view
     }()
 
+    lazy var loadingIndicator: UIActivityIndicatorView = {
+        let loadingIndicator = UIActivityIndicatorView()
+        if #available(iOS 13.0, *) {
+            loadingIndicator.style = .medium
+        } else {
+            loadingIndicator.style = .white
+        }
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.center = self.view.center
+        return loadingIndicator
+    }()
+
     init(withPayload payload: BasicPayload, delegate: TemplateControllerDelegate) {
         self.payload = payload
         self.delegate = delegate
@@ -67,11 +79,14 @@ class BasicTemplateController: UIViewController {
         fatalError("BasicTemplateController cannot be initialized from storyboard.")
     }
 
-    // MARK: - ViewCon
+    // MARK: - ViewControllers
 
     override func viewDidLoad() {
+        // Show loading indicator until the image is downloaded
+        showLoadingIndicator()
         let imageURLString = payload.basicImageURL.absoluteString
         ImageDownloader().downloadImages(urls: [imageURLString], completion: { result in
+            self.removeLoadingIndicator()
             switch result {
             case let .success(images):
                 if let image = images[imageURLString] {
@@ -86,6 +101,16 @@ class BasicTemplateController: UIViewController {
     }
 
     // MARK: - Private methods
+
+    private func showLoadingIndicator() {
+        self.view.addSubview(loadingIndicator)
+        loadingIndicator.startAnimating()
+    }
+
+    private func removeLoadingIndicator() {
+        self.loadingIndicator.stopAnimating()
+        self.loadingIndicator.removeFromSuperview()
+    }
 
     /// Configure and setup the view with the downloaded image
     /// - Parameter downloadedImage: UIImage object
