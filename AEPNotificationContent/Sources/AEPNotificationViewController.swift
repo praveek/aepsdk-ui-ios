@@ -14,48 +14,91 @@ import UIKit
 import UserNotifications
 import UserNotificationsUI
 
-open class AEPNotificationViewController: UIViewController, UNNotificationContentExtension {
+open class AEPNotificationViewController: UIViewController, UNNotificationContentExtension, TemplateControllerDelegate {
+    var notification: UNNotification?
+
+    // MARK: - UNNotificationContentExtension delegate methods
+
     /// This method is called in the main thread of the notification content app extension
     public func didReceive(_ notification: UNNotification) {
-        guard let payload = notification.request.content.userInfo as? [String: AnyObject],
-              let template = payload[AEPNotificationContentConstants.PayloadKey.TEMPLATE_TYPE] as? String
+        self.notification = notification
+        let notificationContent = notification.request.content
+
+        /// Extract the template type from the notification content
+        guard let notificationUserInfo = notification.request.content.userInfo as? [String: AnyObject],
+              let templateType = notificationUserInfo[AEPNotificationContentConstants.PayloadKey.TEMPLATE_TYPE] as? String,
+              let payload = createPayload(for: templateType, from: notificationContent)
         else {
-            displayFallbackTemplate(notification)
+            displayFallbackTemplate(notificationContent)
             return
         }
 
-        switch template {
-        case AEPNotificationContentConstants.PayloadKey.TemplateType.BASIC:
-            if let payload = BasicPayload(from: notification.request.content) {
-                let basicTemplateController = BasicTemplateController(payload)
-                view.addSubview(basicTemplateController.view)
-                preferredContentSize.height = basicTemplateController.preferredContentSize.height
-            } else {
-                displayFallbackTemplate(notification)
-            }
-        case AEPNotificationContentConstants.PayloadKey.TemplateType.CAROUSEL:
-            print("//TODO: Create and display Carousel viewController")
-        case AEPNotificationContentConstants.PayloadKey.TemplateType.TIMER:
-            print("//TODO: Create and display Timer viewController")
-        default:
-            displayFallbackTemplate(notification)
+        /// Create a controller based on the template type
+        let controller: UIViewController
+        if let basicPayload = payload as? BasicPayload {
+            controller = BasicTemplateController(withPayload: basicPayload, delegate: self)
+        } else {
+            controller = FallbackTemplateController(notificationContent: notificationContent)
         }
+
+        /// Add the controller and its view as a child to the AEPNotificationViewController
+        addChild(controller)
+        view.addSubview(controller.view)
     }
 
     public func didReceive(_: UNNotificationResponse, completionHandler _: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {}
 
+    // MARK: - UIViewController delegate methods
+
+    /// Called after the controller's view is loaded into memory
     override public func viewDidLoad() {
         super.viewDidLoad()
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 
+    /// Called when the preferred content size of one of the view controller's child content containers changes
     override open func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         preferredContentSize.height = container.preferredContentSize.height
     }
 
-    private func displayFallbackTemplate(_ notification: UNNotification) {
-        let fallback = FallbackTemplateController(notificationContent: notification.request.content)
+    // MARK: - Private methods
+
+    /// Create a payload object based on the template type
+    /// Returns nil if the template type is not supported or if the payload object could not be created
+    /// - Parameters:
+    ///   - templateType: String representing the template type
+    ///   - content: UNNotificationContent object from received notification
+    /// - Returns: the appropriate Payload object
+    private func createPayload(for templateType: String, from content: UNNotificationContent) -> Payload? {
+        switch templateType {
+        case AEPNotificationContentConstants.PayloadKey.TemplateType.BASIC:
+            return BasicPayload(from: content)
+        default:
+            return nil
+        }
+    }
+
+    /// Use this method to display a fallback template
+    /// This method is called when the template fails to load for any reason
+    /// - Parameter notificationContent - UNNotificationContent object
+    private func displayFallbackTemplate(_ notificationContent: UNNotificationContent) {
+        let fallback = FallbackTemplateController(notificationContent: notificationContent)
+        addChild(fallback)
         view.addSubview(fallback.view)
-        preferredContentSize.height = fallback.preferredContentSize.height
+    }
+
+    // MARK: - TemplateControllerDelegate
+
+    // This method is called when the template failed to load
+    // A template can fail if there are issues in downloading images, parsing the payload, etc.
+    // In this case, we display a fallback template
+    func templateFailedToLoad() {
+        guard let notification = self.notification else { return }
+        displayFallbackTemplate(notification.request.content)
+    }
+
+    // Use this method to get the instance of the parent view controller
+    func getParentViewController() -> UIViewController {
+        self
     }
 }

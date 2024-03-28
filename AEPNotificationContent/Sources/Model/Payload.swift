@@ -56,8 +56,7 @@ class Payload {
 
         // Extract image URL from the notification
         if let imageURLString = notificationContent.userInfo[AEPNotificationContentConstants.PayloadKey.IMAGE_URL] as? String,
-           let imageURL = URL(string: imageURLString)
-        {
+           let imageURL = URL(string: imageURLString) {
             self.imageURL = imageURL
         } else {
             imageURL = nil
@@ -65,8 +64,7 @@ class Payload {
 
         // Extract click URL from the notification
         if let clickURLString = notificationContent.userInfo[AEPNotificationContentConstants.PayloadKey.CLICK_URL] as? String,
-           let clickURL = URL(string: clickURLString)
-        {
+           let clickURL = URL(string: clickURLString) {
             self.clickURL = clickURL
         } else {
             clickURL = nil

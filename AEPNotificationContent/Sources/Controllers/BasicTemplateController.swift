@@ -12,11 +12,65 @@
 
 import UIKit
 
-class BasicTemplateController: UIViewController {
-    let payload: BasicPayload
+// UI Recommendations
+// Title  : Characters per line : 35-40
+// Title : Recommended maximum title length : 35
+// Title : Multiple lines supported : Yes
+// Description : Characters per line : 50-60
+// Description : Recommended number of characters : 250
+// Description : Multiple lines supported : Yes
+// Image : Required aspect ratio :  2:1
+// Image : Recommended dimensions : 600x300
+// Image : Recommended size : 40KB
+// Image : Recommended formats : png, jpg
 
-    init(_ payload: BasicPayload) {
+class BasicTemplateController: UIViewController {
+    // MARK: - Margin Constants
+
+    private let SIDE_MARGIN = 8.0
+    private let TOP_MARGIN = 10.0
+
+    // MARK: - Properties
+
+    private let delegate: TemplateControllerDelegate
+    private let payload: BasicPayload
+
+    // MARK: - Height properties
+
+    private var titleBodyHeight = 0.0
+    private var imageViewHeight = 0.0
+
+    // MARK: - UI Elements
+
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
+    lazy var titleBodyView: UITitleBody = {
+        let view = UITitleBody()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var loadingIndicator: UIActivityIndicatorView = {
+        let loadingIndicator = UIActivityIndicatorView()
+        if #available(iOS 13.0, *) {
+            loadingIndicator.style = .medium
+        } else {
+            loadingIndicator.style = .white
+        }
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.center = self.view.center
+        return loadingIndicator
+    }()
+
+    init(withPayload payload: BasicPayload, delegate: TemplateControllerDelegate) {
         self.payload = payload
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,5 +79,74 @@ class BasicTemplateController: UIViewController {
         fatalError("BasicTemplateController cannot be initialized from storyboard.")
     }
 
-    override func viewDidLoad() {}
+    // MARK: - ViewControllers
+
+    override func viewDidLoad() {
+        // Show loading indicator until the image is downloaded
+        showLoadingIndicator()
+        let imageURLString = payload.basicImageURL.absoluteString
+        ImageDownloader().downloadImages(urls: [imageURLString], completion: { result in
+            self.removeLoadingIndicator()
+            switch result {
+            case let .success(images):
+                if let image = images[imageURLString] {
+                    self.setupView(withImage: image)
+                }
+            case let .failure(error):
+                print(error)
+                self.removeFromParent()
+                self.delegate.templateFailedToLoad()
+            }
+        })
+    }
+
+    // MARK: - Private methods
+
+    private func showLoadingIndicator() {
+        self.view.addSubview(loadingIndicator)
+        loadingIndicator.startAnimating()
+    }
+
+    private func removeLoadingIndicator() {
+        self.loadingIndicator.stopAnimating()
+        self.loadingIndicator.removeFromSuperview()
+    }
+
+    /// Configure and setup the view with the downloaded image
+    /// - Parameter downloadedImage: UIImage object
+    private func setupView(withImage downloadedImage: UIImage) {
+        imageView.image = downloadedImage
+        view.addSubview(imageView)
+
+        /// keeping height of the image view as half of the notification width.
+        /// This is to maintain the recommended aspect ratio of 2:1
+        imageViewHeight = (view.frame.width / 2)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 2),
+        ])
+
+        titleBodyView.setupWith(payload: payload.titleBodyPayload, viewWidth: view.frame.width - (2 * SIDE_MARGIN))
+        titleBodyView.changeColor(from: payload)
+        titleBodyView.translatesAutoresizingMaskIntoConstraints = false
+        titleBodyHeight = titleBodyView.viewHeight
+        view.addSubview(titleBodyView)
+        NSLayoutConstraint.activate([
+            titleBodyView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: TOP_MARGIN),
+            titleBodyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SIDE_MARGIN),
+            titleBodyView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SIDE_MARGIN),
+            titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyHeight),
+        ])
+
+        view.backgroundColor = payload.backgroundColor
+        updatePreferredContentSize()
+    }
+
+    /// Update the preferred content size of the view controller
+    private func updatePreferredContentSize() {
+        preferredContentSize.height = titleBodyHeight + imageViewHeight + (2 * TOP_MARGIN)
+        parent?.preferredContentSize.height = titleBodyHeight + imageViewHeight + (2 * TOP_MARGIN)
+    }
 }
