@@ -24,7 +24,7 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
         self.notification = notification
         let notificationContent = notification.request.content
 
-        // Extract the template type from the notification content
+        /// Extract the template type from the notification content
         guard let notificationUserInfo = notification.request.content.userInfo as? [String: AnyObject],
               let templateType = notificationUserInfo[AEPNotificationContentConstants.PayloadKey.TEMPLATE_TYPE] as? String,
               let payload = createPayload(for: templateType, from: notificationContent)
@@ -33,19 +33,17 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
             return
         }
 
-        // Create a controller based on the template type
-        let controller: UIViewController?
+        /// Create a controller based on the template type
+        let controller: UIViewController
         if let basicPayload = payload as? BasicPayload {
             controller = BasicTemplateController(withPayload: basicPayload, delegate: self)
-        } else { controller = nil }
-
-        // If a controller was created, add it as a child and its view to the hierarchy
-        if let controller = controller {
-            addChild(controller)
-            view.addSubview(controller.view)
         } else {
-            displayFallbackTemplate(notificationContent)
+            controller = FallbackTemplateController(notificationContent: notificationContent)
         }
+
+        /// Add the controller and its view as a child to the AEPNotificationViewController
+        addChild(controller)
+        view.addSubview(controller.view)
     }
 
     public func didReceive(_: UNNotificationResponse, completionHandler _: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {}
@@ -85,8 +83,8 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
     /// - Parameter notificationContent - UNNotificationContent object
     private func displayFallbackTemplate(_ notificationContent: UNNotificationContent) {
         let fallback = FallbackTemplateController(notificationContent: notificationContent)
+        addChild(fallback)
         view.addSubview(fallback.view)
-        preferredContentSize.height = fallback.preferredContentSize.height
     }
 
     // MARK: - TemplateControllerDelegate
