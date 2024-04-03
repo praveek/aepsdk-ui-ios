@@ -1,0 +1,37 @@
+{
+   "Simulator Target Bundle" : "com.adobe.aep.DemoApp",
+   "aps" : {
+      "alert" : {
+         "title" : "Shoes for Sale 👟",
+         "body" : "This is the body of the actual notification. It tells you a lot about the notification."
+      },
+      "mutable-content" : 1,
+      "category" : "AEPNotification"
+   },
+   "adb_media" : "https://picsum.photos/400/200",
+   "adb_template_type" : "car",
+   "adb_clr_bg" : "FFFFFF",
+   "adb_clr_title" : "000023",
+   "adb_clr_body" : "000032",
+   "adb_body_alt": "Our next flash sale will be sometime next month.",
+   "adb_media_alt": "https://picsum.photos/400/200",
+   "adb_tmr_end": 1708402800,
+    "adb_items": [
+        {
+            "img": "https://picsum.photos/600/300",
+            "txt": "Shoe 1 by Cool Sneaker Brand",
+            "uri": "https://sneakerland.com/products/shoe1"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/300",
+            "txt": "Shoe 3 by Flame Sneaker Brand, Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand, Shoe 2 by Lame Sneaker Brand",
+            "uri": "https://sneakerland.com/products/shoe2"
+        }
+    ],  
+   "adb_body_ex": "Loresum Ipsum many many lines. Loresum Ipsum many many lines. Loresum Ipsum many many lines. Loresum Ips. "
+}

@@ -21,15 +21,17 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		244F56162BBDFD270087401B /* BasicPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56112BBDFD270087401B /* BasicPayloadTests.swift */; };
+		244F56172BBDFD270087401B /* CarouselPayloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56122BBDFD270087401B /* CarouselPayloadTest.swift */; };
+		244F56182BBDFD270087401B /* Color+HexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56132BBDFD270087401B /* Color+HexStringTests.swift */; };
+		244F56192BBDFD270087401B /* CarouselItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56142BBDFD270087401B /* CarouselItemTests.swift */; };
+		244F561A2BBDFD270087401B /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56152BBDFD270087401B /* PayloadTests.swift */; };
 		B61B5A972B7FEBE60049679F /* UITitleBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A962B7FEBE60049679F /* UITitleBody.swift */; };
 		B61B5A9A2B7FEC4C0049679F /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A982B7FEC4C0049679F /* Payload.swift */; };
 		B61B5A9B2B7FEC4C0049679F /* BasicPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A992B7FEC4C0049679F /* BasicPayload.swift */; };
 		B61B5AC02B7FEE2B0049679F /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
 		B61B5AC72B7FEF790049679F /* TitleBodyPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */; };
 		B61B5AC92B7FF4F30049679F /* FallbackTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AC82B7FF4F30049679F /* FallbackTemplateController.swift */; };
-		B61B5ACD2B7FF6A90049679F /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5ACA2B7FF6A90049679F /* PayloadTests.swift */; };
-		B61B5ACE2B7FF6A90049679F /* Color+HexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5ACB2B7FF6A90049679F /* Color+HexStringTests.swift */; };
-		B61B5ACF2B7FF6A90049679F /* BasicPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5ACC2B7FF6A90049679F /* BasicPayloadTests.swift */; };
 		B61B5AD12B7FF74E0049679F /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AD02B7FF74E0049679F /* UIColor+HexString.swift */; };
 		B632B3562B63183800D04C48 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3512B63182000D04C48 /* DemoApp.swift */; };
 		B632B3572B63183E00D04C48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3502B63182000D04C48 /* ContentView.swift */; };
@@ -51,8 +53,6 @@
 		B6A8BC1A2BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B6A8BC1D2BB4E55800E3B3DC /* CarouselPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC1C2BB4E55800E3B3DC /* CarouselPayload.swift */; };
 		B6A8BC1F2BB4E58300E3B3DC /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */; };
-		B6A8BC222BB4F06000E3B3DC /* CarouselItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC202BB4F02600E3B3DC /* CarouselItemTests.swift */; };
-		B6A8BC252BB549BA00E3B3DC /* CarouselPayloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC232BB5491500E3B3DC /* CarouselPayloadTest.swift */; };
 		B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */; };
 		B6ADF4712B62EFBB007D8DDB /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
@@ -113,16 +113,17 @@
 /* Begin PBXFileReference section */
 		06926D379CA5D46B4E814218 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		17CE7A3FB2D9B539E13F0114 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
-		2445E3532BB388AE006571F2 /* AEPNotificationContent.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AEPNotificationContent.xctestplan; sourceTree = "<group>"; };
+		244F56112BBDFD270087401B /* BasicPayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicPayloadTests.swift; path = AEPNotificationContent/Tests/BasicPayloadTests.swift; sourceTree = SOURCE_ROOT; };
+		244F56122BBDFD270087401B /* CarouselPayloadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselPayloadTest.swift; path = AEPNotificationContent/Tests/CarouselPayloadTest.swift; sourceTree = SOURCE_ROOT; };
+		244F56132BBDFD270087401B /* Color+HexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Color+HexStringTests.swift"; path = "AEPNotificationContent/Tests/Color+HexStringTests.swift"; sourceTree = SOURCE_ROOT; };
+		244F56142BBDFD270087401B /* CarouselItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselItemTests.swift; path = AEPNotificationContent/Tests/CarouselItemTests.swift; sourceTree = SOURCE_ROOT; };
+		244F56152BBDFD270087401B /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayloadTests.swift; path = AEPNotificationContent/Tests/PayloadTests.swift; sourceTree = SOURCE_ROOT; };
 		B61B5A962B7FEBE60049679F /* UITitleBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITitleBody.swift; sourceTree = "<group>"; };
 		B61B5A982B7FEC4C0049679F /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		B61B5A992B7FEC4C0049679F /* BasicPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPayload.swift; sourceTree = "<group>"; };
 		B61B5ABC2B7FEE2B0049679F /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBodyPayload.swift; sourceTree = "<group>"; };
 		B61B5AC82B7FF4F30049679F /* FallbackTemplateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallbackTemplateController.swift; sourceTree = "<group>"; };
-		B61B5ACA2B7FF6A90049679F /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
-		B61B5ACB2B7FF6A90049679F /* Color+HexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+HexStringTests.swift"; sourceTree = "<group>"; };
-		B61B5ACC2B7FF6A90049679F /* BasicPayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPayloadTests.swift; sourceTree = "<group>"; };
 		B61B5AD02B7FF74E0049679F /* UIColor+HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
 		B632B34D2B63182000D04C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B632B34F2B63182000D04C48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -144,8 +145,6 @@
 		B6A8BC0F2BB3CE2000E3B3DC /* TemplateControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateControllerDelegate.swift; sourceTree = "<group>"; };
 		B6A8BC1C2BB4E55800E3B3DC /* CarouselPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPayload.swift; sourceTree = "<group>"; };
 		B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
-		B6A8BC202BB4F02600E3B3DC /* CarouselItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemTests.swift; sourceTree = "<group>"; };
-		B6A8BC232BB5491500E3B3DC /* CarouselPayloadTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPayloadTest.swift; sourceTree = "<group>"; };
 		B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
 		B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEPNotificationContent.h; sourceTree = "<group>"; };
 		B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
@@ -207,11 +206,11 @@
 		B61B5ABD2B7FEE2B0049679F /* UnitTest */ = {
 			isa = PBXGroup;
 			children = (
-				B61B5ACC2B7FF6A90049679F /* BasicPayloadTests.swift */,
-				B61B5ACB2B7FF6A90049679F /* Color+HexStringTests.swift */,
-				B61B5ACA2B7FF6A90049679F /* PayloadTests.swift */,
-				B6A8BC202BB4F02600E3B3DC /* CarouselItemTests.swift */,
-				B6A8BC232BB5491500E3B3DC /* CarouselPayloadTest.swift */,
+				244F56112BBDFD270087401B /* BasicPayloadTests.swift */,
+				244F56142BBDFD270087401B /* CarouselItemTests.swift */,
+				244F56122BBDFD270087401B /* CarouselPayloadTest.swift */,
+				244F56132BBDFD270087401B /* Color+HexStringTests.swift */,
+				244F56152BBDFD270087401B /* PayloadTests.swift */,
 			);
 			path = UnitTest;
 			sourceTree = "<group>";
@@ -219,11 +218,11 @@
 		B632B34C2B63182000D04C48 /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				B642243A2B69528C00BAA595 /* DemoApp.entitlements */,
 				B64224382B688FE100BAA595 /* AppDelegate.swift */,
 				B632B3502B63182000D04C48 /* ContentView.swift */,
 				B632B3512B63182000D04C48 /* DemoApp.swift */,
 				B632B34D2B63182000D04C48 /* Assets.xcassets */,
+				B642243A2B69528C00BAA595 /* DemoApp.entitlements */,
 				B632B34E2B63182000D04C48 /* Preview Content */,
 			);
 			name = DemoApp;
@@ -282,10 +281,10 @@
 			children = (
 				B6A31DB52BBDD16400C1CEE0 /* Enums */,
 				B61B5A992B7FEC4C0049679F /* BasicPayload.swift */,
+				B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */,
+				B6A8BC1C2BB4E55800E3B3DC /* CarouselPayload.swift */,
 				B61B5A982B7FEC4C0049679F /* Payload.swift */,
 				B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */,
-				B6A8BC1C2BB4E55800E3B3DC /* CarouselPayload.swift */,
-				B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,7 +328,6 @@
 		B6E9FFB32B5AE672003E9D10 = {
 			isa = PBXGroup;
 			children = (
-				2445E3532BB388AE006571F2 /* AEPNotificationContent.xctestplan */,
 				B6ADF46D2B62EFBB007D8DDB /* Sources */,
 				B632B34C2B63182000D04C48 /* DemoApp */,
 				B632B3622B63230000D04C48 /* DemoAppNotificationContent */,
@@ -455,6 +453,7 @@
 				TargetAttributes = {
 					B61B5ABB2B7FEE2B0049679F = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1530;
 					};
 					B632B35E2B63230000D04C48 = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -573,11 +572,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A8BC252BB549BA00E3B3DC /* CarouselPayloadTest.swift in Sources */,
-				B61B5ACE2B7FF6A90049679F /* Color+HexStringTests.swift in Sources */,
-				B61B5ACF2B7FF6A90049679F /* BasicPayloadTests.swift in Sources */,
-				B6A8BC222BB4F06000E3B3DC /* CarouselItemTests.swift in Sources */,
-				B61B5ACD2B7FF6A90049679F /* PayloadTests.swift in Sources */,
+				244F56182BBDFD270087401B /* Color+HexStringTests.swift in Sources */,
+				244F56172BBDFD270087401B /* CarouselPayloadTest.swift in Sources */,
+				244F56192BBDFD270087401B /* CarouselItemTests.swift in Sources */,
+				244F56162BBDFD270087401B /* BasicPayloadTests.swift in Sources */,
+				244F561A2BBDFD270087401B /* PayloadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +657,7 @@
 		B61B5AC42B7FEE2B0049679F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FKGEE875K4;
@@ -667,6 +667,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.aep.UnitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -675,6 +676,7 @@
 		B61B5AC52B7FEE2B0049679F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FKGEE875K4;
