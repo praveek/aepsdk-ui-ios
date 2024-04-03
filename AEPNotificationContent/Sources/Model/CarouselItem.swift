@@ -21,7 +21,7 @@ class CarouselItem {
     let imageURL: URL
     /// The URL to open when the item is clicked (optional).
     var clickURL: URL?
-    /// The image data itself (to be loaded separately).
+    /// The image data (will be attached after download).
     var image: UIImage?
     /// The title and body text associated with the item.
     let titleBodyPayload: TitleBodyPayload
@@ -48,7 +48,6 @@ class CarouselItem {
         titleBodyPayload = TitleBodyPayload(title: notificationContent.title, body: bodyTxt)
 
         /// Set the click URL if available and valid, nil otherwise
-        ///
         if let clickURLString = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.URI] as? String {
             if let url = URL(string: clickURLString) {
                 clickURL = url

@@ -16,8 +16,8 @@ import XCTest
 
 
 final class CarouselPayloadTest: XCTestCase {
-
-    func testInit() {        
+    
+    func testInit() {
         // Setup
         let content = UNMutableNotificationContent()
         content.title = "Notification Title"
@@ -43,10 +43,10 @@ final class CarouselPayloadTest: XCTestCase {
                 ]
             ]
         ]
-
+        
         // Test
         let payload = CarouselPayload(from: content)
-
+        
         // Verify
         XCTAssertNotNil(payload)
         XCTAssertEqual(payload?.carouselItems.count, 2)
@@ -58,17 +58,17 @@ final class CarouselPayloadTest: XCTestCase {
         XCTAssertEqual(payload?.carouselItems[1].clickURL, URL(string: "https://example.com/click2"))
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.title, "Notification Title")
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.body, "")
-
+        
         // verify Carousel Mode and Layout
         XCTAssertEqual(payload?.carouselMode, CarouselMode.manual)
         XCTAssertEqual(payload?.carouselLayout, CarouselLayout.filmstrip)
-
+        
         // verify the color properties
         XCTAssertNotNil(payload?.backgroundColor)
         XCTAssertNotNil(payload?.titleColor)
         XCTAssertNotNil(payload?.descriptionColor)
     }
-
+    
     func testInitWithMissingItems() {
         // Setup
         let content = UNMutableNotificationContent()
@@ -79,11 +79,131 @@ final class CarouselPayloadTest: XCTestCase {
             "adb_car_mode": "manual",
             "adb_car_layout": "filmstrip"
         ]
-
+        
         // Test
         let payload = CarouselPayload(from: content)
-
+        
         // Verify
         XCTAssertNil(payload)
     }
+    
+    func testInitWhenCarouselModeIsMissing() {
+        // Setup
+        let content = UNMutableNotificationContent()
+        content.title = "Notification Title"
+        content.body = "Notification Body"
+        content.userInfo = [
+            "adb_media": "https://example.com/image.png",
+            "adb_uri": "https://example.com/click",
+            "adb_items": [
+                [
+                    "img": "https://example.com/image1.png",
+                    "txt": "This is a carousel item 1",
+                    "uri": "https://example.com/click1"
+                ]
+            ]
+        ]
+        
+        // Test
+        let payload = CarouselPayload(from: content)
+        
+        // Verify auto mode is picked
+        XCTAssertNotNil(payload)
+        XCTAssertEqual(payload?.carouselMode, CarouselMode.auto)
+    }
+    
+    func testInitWhenCarouseModeIsMissing() {
+        // Setup
+        let content = UNMutableNotificationContent()
+        content.title = "Notification Title"
+        content.body = "Notification Body"
+        content.userInfo = [
+            "adb_media": "https://example.com/image.png",
+            "adb_uri": "https://example.com/click",
+            "adb_items": [
+                [
+                    "img": "https://example.com/image1.png",
+                    "txt": "This is a carousel item 1",
+                    "uri": "https://example.com/click1"
+                ]
+            ]
+        ]
+        
+        // Test
+        let payload = CarouselPayload(from: content)
+        
+        // Verify default layout is picked
+        XCTAssertNotNil(payload)
+        XCTAssertEqual(payload?.carouselLayout, CarouselLayout.defaultLayout)
+    }
+    
+    func testInitWhenCarouselItemsIsEmptyArray() {
+        // Setup
+        let content = UNMutableNotificationContent()
+        content.title = "Notification Title"
+        content.body = "Notification Body"
+        content.userInfo = [
+            "adb_media": "https://example.com/image.png",
+            "adb_uri": "https://example.com/click",
+            "adb_car_mode": "manual",
+            "adb_car_layout": "filmstrip",
+            "adb_items": []
+        ]
+        
+        // Test
+        let payload = CarouselPayload(from: content)
+        
+        // Verify
+        XCTAssertNil(payload)
+    }
+    
+    func testInitWhenCarouselItemsIsNotArray() {
+        // Setup
+        let content = UNMutableNotificationContent()
+        content.title = "Notification Title"
+        content.body = "Notification Body"
+        content.userInfo = [
+            "adb_media": "https://example.com/image.png",
+            "adb_uri": "https://example.com/click",
+            "adb_car_mode": "manual",
+            "adb_car_layout": "filmstrip",
+            "adb_items": "not an array"
+        ]
+        
+        // Test
+        let payload = CarouselPayload(from: content)
+        
+        // Verify
+        XCTAssertNil(payload)
+    }
+
+    func testInitWhenOneCarouselItemIsInvalid() {
+        // Setup
+        let content = UNMutableNotificationContent()
+        content.title = "Notification Title"
+        content.body = "Notification Body"
+        content.userInfo = [
+            "adb_media": "https://example.com/image.png",
+            "adb_uri": "https://example.com/click",
+            "adb_items": [
+                [
+                    "img": "https://example.com/image1.png",
+                    "txt": "This is a carousel item 1",
+                    "uri": "https://example.com/click1"
+                ],
+                [
+                    "txt": "This is a carousel item 2",
+                    "uri": "https://example.com/click2"
+                ]
+            ]
+        ]
+        
+        // Test
+        let payload = CarouselPayload(from: content)
+        
+        // Verify invalid item are filtered out
+        XCTAssertNotNil(payload)
+        XCTAssertEqual(payload?.carouselItems.count, 1)
+    }
+    
 }

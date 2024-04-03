@@ -51,15 +51,15 @@ class CarouselPayload: Payload {
         }
 
         // Retrieve the carousel items from the notification
-        // If valid imageURL's are not available for any of the Carousel item, Fail initialization
         if let itemsArray = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.ITEMS] as? [[String: Any]] {
-            for itemDict in itemsArray {
-                if let carouselItem = CarouselItem(dictionary: itemDict, notificationContent: notificationContent) {
-                    self.carouselItems.append(carouselItem)
-                } else {
-                    return nil // Fails initialization if any item doesn't have a valid "image" URL
-                }
+            // Filter out invalid items
+            self.carouselItems = itemsArray.compactMap { itemDict in
+                CarouselItem(dictionary: itemDict, notificationContent: notificationContent)
             }
+
+            // If no valid carouselItems exist, the array will be empty, return nil
+            guard !self.carouselItems.isEmpty else { return nil }
+
         } else {
             return nil
         }

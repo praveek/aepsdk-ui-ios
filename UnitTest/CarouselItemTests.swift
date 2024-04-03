@@ -17,6 +17,7 @@ import XCTest
 final class CarouselItemTests: XCTestCase {
     
     func testInit() {
+        // setup
         let dictionary: [String: Any] = [
             "img": "https://www.adobe.com/image.png",
             "txt": "This is a carousel item",
@@ -25,8 +26,10 @@ final class CarouselItemTests: XCTestCase {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "This is a title"
         
+        // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
         
+        // verify
         XCTAssertNotNil(carouselItem)
         XCTAssertEqual(carouselItem?.imageURL, URL(string: "https://www.adobe.com/image.png"))
         XCTAssertEqual(carouselItem?.clickURL, URL(string: "https://www.adobe.com"))
@@ -34,7 +37,8 @@ final class CarouselItemTests: XCTestCase {
         XCTAssertEqual(carouselItem?.titleBodyPayload.body, "This is a carousel item")
     }
     
-    func testInitWithEmptyImageURL() {
+    func testInitWithInvalidImageURL() {
+        // setup
         let dictionary: [String: Any] = [
             "img": "",
             "txt": "This is a carousel item",
@@ -43,12 +47,15 @@ final class CarouselItemTests: XCTestCase {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "This is a title"
         
+        // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
         
+        // verify
         XCTAssertNil(carouselItem)
     }
     
     func testInitWithMissingBody() {
+        // setup
         let dictionary: [String: Any] = [
             "img": "https://www.adobe.com/image.png",
             "uri": "https://www.adobe.com"
@@ -56,12 +63,47 @@ final class CarouselItemTests: XCTestCase {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "This is a title"
         
+        // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
         
+        // verify
         XCTAssertNotNil(carouselItem)
-        XCTAssertEqual(carouselItem?.imageURL, URL(string: "https://www.adobe.com/image.png"))
-        XCTAssertEqual(carouselItem?.clickURL, URL(string: "https://www.adobe.com"))
-        XCTAssertEqual(carouselItem?.titleBodyPayload.title, "This is a title")
         XCTAssertEqual(carouselItem?.titleBodyPayload.body, "")
+    }
+
+    func testInitWIthInvalidBody() {
+        // setup
+        let dictionary: [String: Any] = [
+            "img": "https://www.adobe.com/image.png",
+            "txt": 123,
+            "uri": "https://www.adobe.com"
+        ]
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "This is a title"
+        
+        // test
+        let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
+        
+        // verify
+        XCTAssertNotNil(carouselItem)
+        XCTAssertEqual(carouselItem?.titleBodyPayload.body, "")
+    }
+
+    func testInitWithInvalidClickURL() {
+        // setup
+        let dictionary: [String: Any] = [
+            "img": "https://www.adobe.com/image.png",
+            "txt": "This is a carousel item",
+            "uri": ""
+        ]
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "This is a title"
+        
+        // test
+        let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
+        
+        // verify the carousel item is created
+        XCTAssertNotNil(carouselItem)
+        XCTAssertEqual(carouselItem?.clickURL, nil)
     }
 }
