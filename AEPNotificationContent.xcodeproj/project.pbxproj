@@ -21,18 +21,30 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		244F56162BBDFD270087401B /* BasicPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56112BBDFD270087401B /* BasicPayloadTests.swift */; };
-		244F56172BBDFD270087401B /* CarouselPayloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56122BBDFD270087401B /* CarouselPayloadTest.swift */; };
-		244F56182BBDFD270087401B /* Color+HexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56132BBDFD270087401B /* Color+HexStringTests.swift */; };
-		244F56192BBDFD270087401B /* CarouselItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56142BBDFD270087401B /* CarouselItemTests.swift */; };
-		244F561A2BBDFD270087401B /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56152BBDFD270087401B /* PayloadTests.swift */; };
-		B61B5A972B7FEBE60049679F /* UITitleBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A962B7FEBE60049679F /* UITitleBody.swift */; };
-		B61B5A9A2B7FEC4C0049679F /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A982B7FEC4C0049679F /* Payload.swift */; };
-		B61B5A9B2B7FEC4C0049679F /* BasicPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A992B7FEC4C0049679F /* BasicPayload.swift */; };
+		244F56452BBE101C0087401B /* BasicTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56262BBE0FE00087401B /* BasicTemplateController.swift */; };
+		244F56462BBE101C0087401B /* FallbackTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56272BBE0FE00087401B /* FallbackTemplateController.swift */; };
+		244F56472BBE101C0087401B /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56292BBE0FE00087401B /* CarouselLayout.swift */; };
+		244F56482BBE101C0087401B /* CarouselMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F562A2BBE0FE00087401B /* CarouselMode.swift */; };
+		244F56492BBE101C0087401B /* BasicPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F562C2BBE0FE00087401B /* BasicPayload.swift */; };
+		244F564A2BBE101C0087401B /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F562D2BBE0FE00087401B /* CarouselItem.swift */; };
+		244F564B2BBE101C0087401B /* CarouselPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F562E2BBE0FE00087401B /* CarouselPayload.swift */; };
+		244F564C2BBE101C0087401B /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F562F2BBE0FE00087401B /* Payload.swift */; };
+		244F564D2BBE101C0087401B /* TitleBodyPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56302BBE0FE00087401B /* TitleBodyPayload.swift */; };
+		244F564E2BBE101C0087401B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56322BBE0FE00087401B /* ImageDownloader.swift */; };
+		244F564F2BBE101C0087401B /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56332BBE0FE00087401B /* ImageDownloadError.swift */; };
+		244F56502BBE101C0087401B /* String+LabelHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56342BBE0FE00087401B /* String+LabelHeight.swift */; };
+		244F56512BBE101C0087401B /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56352BBE0FE00087401B /* UIColor+HexString.swift */; };
+		244F56522BBE101C0087401B /* UITitleBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56372BBE0FE00087401B /* UITitleBody.swift */; };
+		244F56532BBE101C0087401B /* AEPNotificationContentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */; };
+		244F56542BBE101C0087401B /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */; };
+		244F56552BBE101C0087401B /* TemplateControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */; };
+		244F56562BBE10480087401B /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 244F56392BBE0FE00087401B /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		244F56572BBE107E0087401B /* BasicPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563E2BBE0FE00087401B /* BasicPayloadTests.swift */; };
+		244F56582BBE107E0087401B /* CarouselItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563F2BBE0FE00087401B /* CarouselItemTests.swift */; };
+		244F56592BBE107E0087401B /* CarouselPayloadTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56402BBE0FE00087401B /* CarouselPayloadTest.swift */; };
+		244F565A2BBE107E0087401B /* Color+HexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56412BBE0FE00087401B /* Color+HexStringTests.swift */; };
+		244F565B2BBE107E0087401B /* PayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56422BBE0FE00087401B /* PayloadTests.swift */; };
 		B61B5AC02B7FEE2B0049679F /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
-		B61B5AC72B7FEF790049679F /* TitleBodyPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */; };
-		B61B5AC92B7FF4F30049679F /* FallbackTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AC82B7FF4F30049679F /* FallbackTemplateController.swift */; };
-		B61B5AD12B7FF74E0049679F /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5AD02B7FF74E0049679F /* UIColor+HexString.swift */; };
 		B632B3562B63183800D04C48 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3512B63182000D04C48 /* DemoApp.swift */; };
 		B632B3572B63183E00D04C48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3502B63182000D04C48 /* ContentView.swift */; };
 		B632B35A2B63213800D04C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B632B34D2B63182000D04C48 /* Assets.xcassets */; };
@@ -41,23 +53,11 @@
 		B632B3642B63230000D04C48 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3632B63230000D04C48 /* NotificationViewController.swift */; };
 		B632B3672B63230000D04C48 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B632B3652B63230000D04C48 /* MainInterface.storyboard */; };
 		B632B36B2B63230000D04C48 /* DemoAppNotificationContent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B632B35F2B63230000D04C48 /* DemoAppNotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */; };
 		B64224392B688FE100BAA595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224382B688FE100BAA595 /* AppDelegate.swift */; };
-		B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224422B6ABDED00BAA595 /* ImageDownloader.swift */; };
-		B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */; };
-		B69F9F372B70118800AC4B91 /* BasicTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */; };
-		B6A31DB72BBDD17E00C1CEE0 /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DB62BBDD17E00C1CEE0 /* CarouselLayout.swift */; };
-		B6A31DB92BBDD1B000C1CEE0 /* CarouselMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DB82BBDD1B000C1CEE0 /* CarouselMode.swift */; };
-		B6A8BC102BB3CE2000E3B3DC /* TemplateControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC0F2BB3CE2000E3B3DC /* TemplateControllerDelegate.swift */; };
 		B6A8BC192BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
-		B6A8BC1A2BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B6A8BC1D2BB4E55800E3B3DC /* CarouselPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC1C2BB4E55800E3B3DC /* CarouselPayload.swift */; };
-		B6A8BC1F2BB4E58300E3B3DC /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */; };
-		B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */; };
-		B6ADF4712B62EFBB007D8DDB /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6A8BC1A2BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
 		B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */; };
-		B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */; };
 		D1AF3549E9FABE234DE3040F /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,18 +113,31 @@
 /* Begin PBXFileReference section */
 		06926D379CA5D46B4E814218 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		17CE7A3FB2D9B539E13F0114 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
-		244F56112BBDFD270087401B /* BasicPayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicPayloadTests.swift; path = AEPNotificationContent/Tests/BasicPayloadTests.swift; sourceTree = SOURCE_ROOT; };
-		244F56122BBDFD270087401B /* CarouselPayloadTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselPayloadTest.swift; path = AEPNotificationContent/Tests/CarouselPayloadTest.swift; sourceTree = SOURCE_ROOT; };
-		244F56132BBDFD270087401B /* Color+HexStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Color+HexStringTests.swift"; path = "AEPNotificationContent/Tests/Color+HexStringTests.swift"; sourceTree = SOURCE_ROOT; };
-		244F56142BBDFD270087401B /* CarouselItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarouselItemTests.swift; path = AEPNotificationContent/Tests/CarouselItemTests.swift; sourceTree = SOURCE_ROOT; };
-		244F56152BBDFD270087401B /* PayloadTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayloadTests.swift; path = AEPNotificationContent/Tests/PayloadTests.swift; sourceTree = SOURCE_ROOT; };
-		B61B5A962B7FEBE60049679F /* UITitleBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITitleBody.swift; sourceTree = "<group>"; };
-		B61B5A982B7FEC4C0049679F /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
-		B61B5A992B7FEC4C0049679F /* BasicPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPayload.swift; sourceTree = "<group>"; };
+		244F56262BBE0FE00087401B /* BasicTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTemplateController.swift; sourceTree = "<group>"; };
+		244F56272BBE0FE00087401B /* FallbackTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackTemplateController.swift; sourceTree = "<group>"; };
+		244F56292BBE0FE00087401B /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
+		244F562A2BBE0FE00087401B /* CarouselMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMode.swift; sourceTree = "<group>"; };
+		244F562C2BBE0FE00087401B /* BasicPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPayload.swift; sourceTree = "<group>"; };
+		244F562D2BBE0FE00087401B /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
+		244F562E2BBE0FE00087401B /* CarouselPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPayload.swift; sourceTree = "<group>"; };
+		244F562F2BBE0FE00087401B /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
+		244F56302BBE0FE00087401B /* TitleBodyPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBodyPayload.swift; sourceTree = "<group>"; };
+		244F56322BBE0FE00087401B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		244F56332BBE0FE00087401B /* ImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadError.swift; sourceTree = "<group>"; };
+		244F56342BBE0FE00087401B /* String+LabelHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LabelHeight.swift"; sourceTree = "<group>"; };
+		244F56352BBE0FE00087401B /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
+		244F56372BBE0FE00087401B /* UITitleBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITitleBody.swift; sourceTree = "<group>"; };
+		244F56392BBE0FE00087401B /* AEPNotificationContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEPNotificationContent.h; sourceTree = "<group>"; };
+		244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationContentConstants.swift; sourceTree = "<group>"; };
+		244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
+		244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateControllerDelegate.swift; sourceTree = "<group>"; };
+		244F563E2BBE0FE00087401B /* BasicPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPayloadTests.swift; sourceTree = "<group>"; };
+		244F563F2BBE0FE00087401B /* CarouselItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemTests.swift; sourceTree = "<group>"; };
+		244F56402BBE0FE00087401B /* CarouselPayloadTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPayloadTest.swift; sourceTree = "<group>"; };
+		244F56412BBE0FE00087401B /* Color+HexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HexStringTests.swift"; sourceTree = "<group>"; };
+		244F56422BBE0FE00087401B /* PayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadTests.swift; sourceTree = "<group>"; };
+		244F565C2BBE118C0087401B /* AEPNotificationContent.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = AEPNotificationContent.xctestplan; path = AEPNotificationContent/Tests/AEPNotificationContent.xctestplan; sourceTree = SOURCE_ROOT; };
 		B61B5ABC2B7FEE2B0049679F /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBodyPayload.swift; sourceTree = "<group>"; };
-		B61B5AC82B7FF4F30049679F /* FallbackTemplateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallbackTemplateController.swift; sourceTree = "<group>"; };
-		B61B5AD02B7FF74E0049679F /* UIColor+HexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
 		B632B34D2B63182000D04C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B632B34F2B63182000D04C48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B632B3502B63182000D04C48 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,24 +146,12 @@
 		B632B3632B63230000D04C48 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		B632B3662B63230000D04C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B632B3682B63230000D04C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationContentConstants.swift; sourceTree = "<group>"; };
 		B64224382B688FE100BAA595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B642243A2B69528C00BAA595 /* DemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoApp.entitlements; sourceTree = SOURCE_ROOT; };
-		B64224422B6ABDED00BAA595 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadError.swift; sourceTree = "<group>"; };
-		B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTemplateController.swift; sourceTree = "<group>"; };
 		B69F9F392B717CC900AC4B91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		B6A31DB62BBDD17E00C1CEE0 /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
-		B6A31DB82BBDD1B000C1CEE0 /* CarouselMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMode.swift; sourceTree = "<group>"; };
-		B6A8BC0F2BB3CE2000E3B3DC /* TemplateControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateControllerDelegate.swift; sourceTree = "<group>"; };
-		B6A8BC1C2BB4E55800E3B3DC /* CarouselPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPayload.swift; sourceTree = "<group>"; };
-		B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
-		B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
-		B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEPNotificationContent.h; sourceTree = "<group>"; };
 		B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF48D2B63169B007D8DDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LabelHeight.swift"; sourceTree = "<group>"; };
 		B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AEPNotificationContent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -194,6 +195,93 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		244F56282BBE0FE00087401B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				244F56262BBE0FE00087401B /* BasicTemplateController.swift */,
+				244F56272BBE0FE00087401B /* FallbackTemplateController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		244F562B2BBE0FE00087401B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				244F56292BBE0FE00087401B /* CarouselLayout.swift */,
+				244F562A2BBE0FE00087401B /* CarouselMode.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		244F56312BBE0FE00087401B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				244F562B2BBE0FE00087401B /* Enums */,
+				244F562C2BBE0FE00087401B /* BasicPayload.swift */,
+				244F562D2BBE0FE00087401B /* CarouselItem.swift */,
+				244F562E2BBE0FE00087401B /* CarouselPayload.swift */,
+				244F562F2BBE0FE00087401B /* Payload.swift */,
+				244F56302BBE0FE00087401B /* TitleBodyPayload.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		244F56362BBE0FE00087401B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				244F56322BBE0FE00087401B /* ImageDownloader.swift */,
+				244F56332BBE0FE00087401B /* ImageDownloadError.swift */,
+				244F56342BBE0FE00087401B /* String+LabelHeight.swift */,
+				244F56352BBE0FE00087401B /* UIColor+HexString.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		244F56382BBE0FE00087401B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				244F56372BBE0FE00087401B /* UITitleBody.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		244F563D2BBE0FE00087401B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				244F56282BBE0FE00087401B /* Controllers */,
+				244F56312BBE0FE00087401B /* Model */,
+				244F56362BBE0FE00087401B /* Utility */,
+				244F56382BBE0FE00087401B /* Views */,
+				244F56392BBE0FE00087401B /* AEPNotificationContent.h */,
+				244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */,
+				244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */,
+				244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		244F56432BBE0FE00087401B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				244F565C2BBE118C0087401B /* AEPNotificationContent.xctestplan */,
+				244F563E2BBE0FE00087401B /* BasicPayloadTests.swift */,
+				244F563F2BBE0FE00087401B /* CarouselItemTests.swift */,
+				244F56402BBE0FE00087401B /* CarouselPayloadTest.swift */,
+				244F56412BBE0FE00087401B /* Color+HexStringTests.swift */,
+				244F56422BBE0FE00087401B /* PayloadTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		244F56442BBE0FE00087401B /* AEPNotificationContent */ = {
+			isa = PBXGroup;
+			children = (
+				244F563D2BBE0FE00087401B /* Sources */,
+				244F56432BBE0FE00087401B /* Tests */,
+			);
+			path = AEPNotificationContent;
+			sourceTree = "<group>";
+		};
 		81B20672BDDD6179B868484E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,18 +289,6 @@
 				17CE7A3FB2D9B539E13F0114 /* Pods-DemoApp.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		B61B5ABD2B7FEE2B0049679F /* UnitTest */ = {
-			isa = PBXGroup;
-			children = (
-				244F56112BBDFD270087401B /* BasicPayloadTests.swift */,
-				244F56142BBDFD270087401B /* CarouselItemTests.swift */,
-				244F56122BBDFD270087401B /* CarouselPayloadTest.swift */,
-				244F56132BBDFD270087401B /* Color+HexStringTests.swift */,
-				244F56152BBDFD270087401B /* PayloadTests.swift */,
-			);
-			path = UnitTest;
 			sourceTree = "<group>";
 		};
 		B632B34C2B63182000D04C48 /* DemoApp */ = {
@@ -248,72 +324,6 @@
 			path = TestApps/DemoAppNotificationContent;
 			sourceTree = "<group>";
 		};
-		B64224412B6ABDC700BAA595 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				B64224422B6ABDED00BAA595 /* ImageDownloader.swift */,
-				B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */,
-				B6E073C02B717ED2000B9E0B /* String+LabelHeight.swift */,
-				B61B5AD02B7FF74E0049679F /* UIColor+HexString.swift */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		B69F9F302B6D7D4E00AC4B91 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */,
-				B61B5AC82B7FF4F30049679F /* FallbackTemplateController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		B69F9F312B6D7E0700AC4B91 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B61B5A962B7FEBE60049679F /* UITitleBody.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		B69F9F382B70529C00AC4B91 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B6A31DB52BBDD16400C1CEE0 /* Enums */,
-				B61B5A992B7FEC4C0049679F /* BasicPayload.swift */,
-				B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */,
-				B6A8BC1C2BB4E55800E3B3DC /* CarouselPayload.swift */,
-				B61B5A982B7FEC4C0049679F /* Payload.swift */,
-				B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B6A31DB52BBDD16400C1CEE0 /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				B6A31DB62BBDD17E00C1CEE0 /* CarouselLayout.swift */,
-				B6A31DB82BBDD1B000C1CEE0 /* CarouselMode.swift */,
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
-		B6ADF46D2B62EFBB007D8DDB /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				B69F9F302B6D7D4E00AC4B91 /* Controllers */,
-				B69F9F382B70529C00AC4B91 /* Model */,
-				B64224412B6ABDC700BAA595 /* Utility */,
-				B69F9F312B6D7E0700AC4B91 /* Views */,
-				B6ADF46F2B62EFBB007D8DDB /* AEPNotificationContent.h */,
-				B6A8BC0F2BB3CE2000E3B3DC /* TemplateControllerDelegate.swift */,
-				B632B3702B64193400D04C48 /* AEPNotificationContentConstants.swift */,
-				B6ADF46E2B62EFBB007D8DDB /* AEPNotificationViewController.swift */,
-			);
-			name = Sources;
-			path = AEPNotificationContent/Sources;
-			sourceTree = "<group>";
-		};
 		B6ADF4842B62F34A007D8DDB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,10 +338,9 @@
 		B6E9FFB32B5AE672003E9D10 = {
 			isa = PBXGroup;
 			children = (
-				B6ADF46D2B62EFBB007D8DDB /* Sources */,
+				244F56442BBE0FE00087401B /* AEPNotificationContent */,
 				B632B34C2B63182000D04C48 /* DemoApp */,
 				B632B3622B63230000D04C48 /* DemoAppNotificationContent */,
-				B61B5ABD2B7FEE2B0049679F /* UnitTest */,
 				B6E9FFBE2B5AE672003E9D10 /* Products */,
 				B6ADF4842B62F34A007D8DDB /* Frameworks */,
 				81B20672BDDD6179B868484E /* Pods */,
@@ -356,7 +365,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6ADF4712B62EFBB007D8DDB /* AEPNotificationContent.h in Headers */,
+				244F56562BBE10480087401B /* AEPNotificationContent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +458,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					B61B5ABB2B7FEE2B0049679F = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -572,11 +581,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244F56182BBDFD270087401B /* Color+HexStringTests.swift in Sources */,
-				244F56172BBDFD270087401B /* CarouselPayloadTest.swift in Sources */,
-				244F56192BBDFD270087401B /* CarouselItemTests.swift in Sources */,
-				244F56162BBDFD270087401B /* BasicPayloadTests.swift in Sources */,
-				244F561A2BBDFD270087401B /* PayloadTests.swift in Sources */,
+				244F56572BBE107E0087401B /* BasicPayloadTests.swift in Sources */,
+				244F56582BBE107E0087401B /* CarouselItemTests.swift in Sources */,
+				244F56592BBE107E0087401B /* CarouselPayloadTest.swift in Sources */,
+				244F565A2BBE107E0087401B /* Color+HexStringTests.swift in Sources */,
+				244F565B2BBE107E0087401B /* PayloadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,23 +611,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A8BC1D2BB4E55800E3B3DC /* CarouselPayload.swift in Sources */,
-				B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */,
-				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,
-				B6A31DB92BBDD1B000C1CEE0 /* CarouselMode.swift in Sources */,
-				B61B5AC72B7FEF790049679F /* TitleBodyPayload.swift in Sources */,
-				B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */,
-				B6A8BC102BB3CE2000E3B3DC /* TemplateControllerDelegate.swift in Sources */,
-				B61B5A972B7FEBE60049679F /* UITitleBody.swift in Sources */,
-				B61B5AC92B7FF4F30049679F /* FallbackTemplateController.swift in Sources */,
-				B6A8BC1F2BB4E58300E3B3DC /* CarouselItem.swift in Sources */,
-				B61B5AD12B7FF74E0049679F /* UIColor+HexString.swift in Sources */,
-				B6A31DB72BBDD17E00C1CEE0 /* CarouselLayout.swift in Sources */,
-				B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */,
-				B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */,
-				B61B5A9B2B7FEC4C0049679F /* BasicPayload.swift in Sources */,
-				B61B5A9A2B7FEC4C0049679F /* Payload.swift in Sources */,
-				B69F9F372B70118800AC4B91 /* BasicTemplateController.swift in Sources */,
+				244F56452BBE101C0087401B /* BasicTemplateController.swift in Sources */,
+				244F56462BBE101C0087401B /* FallbackTemplateController.swift in Sources */,
+				244F56472BBE101C0087401B /* CarouselLayout.swift in Sources */,
+				244F56482BBE101C0087401B /* CarouselMode.swift in Sources */,
+				244F56492BBE101C0087401B /* BasicPayload.swift in Sources */,
+				244F564A2BBE101C0087401B /* CarouselItem.swift in Sources */,
+				244F564B2BBE101C0087401B /* CarouselPayload.swift in Sources */,
+				244F564C2BBE101C0087401B /* Payload.swift in Sources */,
+				244F564D2BBE101C0087401B /* TitleBodyPayload.swift in Sources */,
+				244F564E2BBE101C0087401B /* ImageDownloader.swift in Sources */,
+				244F564F2BBE101C0087401B /* ImageDownloadError.swift in Sources */,
+				244F56502BBE101C0087401B /* String+LabelHeight.swift in Sources */,
+				244F56512BBE101C0087401B /* UIColor+HexString.swift in Sources */,
+				244F56522BBE101C0087401B /* UITitleBody.swift in Sources */,
+				244F56532BBE101C0087401B /* AEPNotificationContentConstants.swift in Sources */,
+				244F56542BBE101C0087401B /* AEPNotificationViewController.swift in Sources */,
+				244F56552BBE101C0087401B /* TemplateControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +666,8 @@
 		B61B5AC42B7FEE2B0049679F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -676,6 +687,8 @@
 		B61B5AC52B7FEE2B0049679F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -949,7 +962,9 @@
 		B6E9FFD02B5AE672003E9D10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -983,7 +998,9 @@
 		B6E9FFD12B5AE672003E9D10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
