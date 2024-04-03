@@ -15,19 +15,18 @@ import UIKit
 
 /// Class representing a Carousel Item
 class CarouselItem {
+    // MARK: - Properties
 
-    /// MARK: - Properties
-    
     /// The URL to the item's image.
     let imageURL: URL
     /// The URL to open when the item is clicked (optional).
-    var clickURL: URL? = nil
+    var clickURL: URL?
     /// The image data itself (to be loaded separately).
     var image: UIImage?
     /// The title and body text associated with the item.
     let titleBodyPayload: TitleBodyPayload
 
-    /// MARK: - Initialization
+    // MARK: - Initialization
 
     /// Initializes a `CarouselItem` instance from a dictionary.
     /// - Parameters:
@@ -35,7 +34,6 @@ class CarouselItem {
     ///   - notificationContent: The UNNotificationContent object.
     /// - Returns: A `CarouselItem` instance if the dictionary contains valid data, `nil` otherwise.
     init?(dictionary: [String: Any], notificationContent: UNNotificationContent) {
-        
         /// Fail initialization if we are unable to obtain a valid imageURL from the given dictionary
         guard let imageString = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.IMAGE] as? String,
               let imageURL = URL(string: imageString) else {
@@ -50,11 +48,11 @@ class CarouselItem {
         titleBodyPayload = TitleBodyPayload(title: notificationContent.title, body: bodyTxt)
 
         /// Set the click URL if available and valid, nil otherwise
-        /// 
+        ///
         if let clickURLString = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.URI] as? String {
             if let url = URL(string: clickURLString) {
                 clickURL = url
-            }            
+            }
         }
     }
 }

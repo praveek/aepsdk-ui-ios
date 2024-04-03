@@ -15,12 +15,11 @@ import UIKit
 import UserNotifications
 
 class CarouselPayload: Payload {
-    
     // MARK: - Properties
 
     /// The mode of the carousel.
     let carouselMode: CarouselMode
-    
+
     /// The layout of the carousel.
     let carouselLayout: CarouselLayout
 
@@ -32,7 +31,7 @@ class CarouselPayload: Payload {
     /// - Parameter notificationContent: The content of the notification.
     required init?(from notificationContent: UNNotificationContent) {
         let userInfo = notificationContent.userInfo
-        
+
         // Retrieve the carousel mode from the notification
         // If the mode is not available, default to auto
         if let carModeString = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.MODE] as? String,
@@ -41,7 +40,7 @@ class CarouselPayload: Payload {
         } else {
             carouselMode = .auto
         }
-        
+
         // Retrieve the carousel layout from the notification
         // If the layout is not available, default to defaultLayout
         if let carLayoutString = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.LAYOUT] as? String,
@@ -50,7 +49,7 @@ class CarouselPayload: Payload {
         } else {
             carouselLayout = .defaultLayout
         }
-        
+
         // Retrieve the carousel items from the notification
         // If valid imageURL's are not available for any of the Carousel item, Fail initialization
         if let itemsArray = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.ITEMS] as? [[String: Any]] {
@@ -64,19 +63,19 @@ class CarouselPayload: Payload {
         } else {
             return nil
         }
-        
+
         super.init(notificationContent: notificationContent)
     }
 }
 
 // Enum for Carousel Mode
 enum CarouselMode: String {
-    case manual = "manual"
-    case auto = "auto"
+    case manual
+    case auto
 }
 
 // Enum for Carousel Layout
 enum CarouselLayout: String {
-    case filmstrip = "filmstrip"
+    case filmstrip
     case defaultLayout = "default" // 'default' is a reserved keyword in Swift
 }
