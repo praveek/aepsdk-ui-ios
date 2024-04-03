@@ -58,7 +58,7 @@ class CarouselPayload : Payload {
                 if let carouselItem = CarouselItem(dictionary: itemDict, notificationContent: notificationContent) {
                     self.carouselItems.append(carouselItem)
                 } else {
-                    return nil // Fails initialization if any item doesn't have a valid "img" URL
+                    return nil // Fails initialization if any item doesn't have a valid "image" URL
                 }
             }
         } else {
