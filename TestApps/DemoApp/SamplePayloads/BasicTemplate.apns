@@ -1,0 +1,17 @@
+{
+   "Simulator Target Bundle" : "com.adobe.aep.DemoApp",
+   "aps" : {
+      "alert" : {
+         "title" : "Need a Break? 🌅  Discover Our Hidden Gems!",
+         "body" : "This is the body of the actual notification. It tells you a lot about the notification."
+      },
+      "mutable-content" : 1,
+      "category" : "AEPNotification"
+   },
+   "adb_media" : "https://picsum.photos/400/200",
+   "adb_template_type" : "basic",
+   "adb_clr_bg" : "2C5F70",
+   "adb_clr_title" : "FFFFFF",
+   "adb_clr_body" : "FFFFEE",
+   "adb_body_ex": "Exclusive deals at select destinations await. 🏖️ Explore now! \nMultiple language test \n こんにちは、今日はお元気ですか\n Hola, ¿cómo estás hoy?\n வணக்கம், இன்று நீங்கள் எப்படி இருக்கிறீர்கள்\n ನಮಸ್ಕಾರ, ನೀವು ಇಂದು ಹೇಗಿದ್ದೀರಾ\n नमस्ते, आप आज कैसे हैं\n Привет,\n как ты сегодня\n مرحبا، كيف حالك اليوم؟"
+}

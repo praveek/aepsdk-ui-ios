@@ -1,0 +1,95 @@
+{
+   "Simulator Target Bundle" : "com.adobe.aep.DemoApp",
+   "aps" : {
+      "alert" : {
+         "title" : "Take a vacation",
+         "body" : "This is the body of the actual notification. It tells you a lot about the notification."
+      },
+      "mutable-content" : 1,
+      "category" : "AEPNotification"
+   },
+   "adb_media" : "https://picsum.photos/400/200",
+   "adb_template_type" : "car",
+   "adb_car_mode" : "manual",
+   "adb_clr_bg" : "000000",
+   "adb_clr_title" : "FFFFE1",
+   "adb_clr_body" : "FFFFC1",
+    "adb_items": [
+        {
+            "img": "https://picsum.photos/600/300",
+            "txt": "Experience luxury and comfort at unbeatable prices. Your perfect retreat is calling!",
+            "uri": "https://sneakerland.com/products/shoe1"
+        },
+        {
+            "img": "https://picsum.photos/600/300",
+            "txt": "Worried about flexibility? Book now and enjoy free date changes. Your peace of mind is our priority. 🌟",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 Family Fun or 🍹 Solo Retreat? Whatever your style, we have the perfect spot. Don't miss out on our tailored vacation packages.Worried about flexibility? Book now and enjoy free date changes. Your peace of mind is our priority.",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 Family Fun or 🍹 Solo Retreat? Whatever your style, we have the perfect spot. Don't miss out on our tailored vacation packages.Worried about flexibility? Book now and enjoy free date changes. Your peace of mind is our priority.",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 Fami",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 Family Fun",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 Fami",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 ",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 ",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 ",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 ",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 ",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 ",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 ",
+            "uri": "https://sneakerland.com/products/shoe2"
+        },
+        {
+            "img": "https://picsum.photos/600/350",
+            "txt": "👨‍👩‍👧‍👦 ",
+            "uri": "https://sneakerland.com/products/shoe2"
+        }
+
+    ]
+}
