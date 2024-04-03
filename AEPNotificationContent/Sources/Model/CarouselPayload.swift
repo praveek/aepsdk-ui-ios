@@ -34,8 +34,8 @@ class CarouselPayload: Payload {
 
         // Retrieve the carousel mode from the notification
         // If the mode is not available, default to auto
-        if let carModeString = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.MODE] as? String,
-           let mode = CarouselMode(rawValue: carModeString) {
+        if let carouselModeString = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.MODE] as? String,
+           let mode = CarouselMode(rawValue: carouselModeString) {
             carouselMode = mode
         } else {
             carouselMode = .auto
@@ -43,8 +43,8 @@ class CarouselPayload: Payload {
 
         // Retrieve the carousel layout from the notification
         // If the layout is not available, default to defaultLayout
-        if let carLayoutString = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.LAYOUT] as? String,
-           let layout = CarouselLayout(rawValue: carLayoutString) {
+        if let carouselLayoutString = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.LAYOUT] as? String,
+           let layout = CarouselLayout(rawValue: carouselLayoutString) {
             carouselLayout = layout
         } else {
             carouselLayout = .defaultLayout
@@ -66,16 +66,4 @@ class CarouselPayload: Payload {
 
         super.init(notificationContent: notificationContent)
     }
-}
-
-// Enum for Carousel Mode
-enum CarouselMode: String {
-    case manual
-    case auto
-}
-
-// Enum for Carousel Layout
-enum CarouselLayout: String {
-    case filmstrip
-    case defaultLayout = "default" // 'default' is a reserved keyword in Swift
 }

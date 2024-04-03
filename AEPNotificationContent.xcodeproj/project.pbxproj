@@ -44,6 +44,8 @@
 		B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224422B6ABDED00BAA595 /* ImageDownloader.swift */; };
 		B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */; };
 		B69F9F372B70118800AC4B91 /* BasicTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */; };
+		B6A31DB72BBDD17E00C1CEE0 /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DB62BBDD17E00C1CEE0 /* CarouselLayout.swift */; };
+		B6A31DB92BBDD1B000C1CEE0 /* CarouselMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DB82BBDD1B000C1CEE0 /* CarouselMode.swift */; };
 		B6A8BC102BB3CE2000E3B3DC /* TemplateControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8BC0F2BB3CE2000E3B3DC /* TemplateControllerDelegate.swift */; };
 		B6A8BC192BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
 		B6A8BC1A2BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -137,6 +139,8 @@
 		B64224442B6C4F0C00BAA595 /* ImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadError.swift; sourceTree = "<group>"; };
 		B69F9F362B70118800AC4B91 /* BasicTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTemplateController.swift; sourceTree = "<group>"; };
 		B69F9F392B717CC900AC4B91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B6A31DB62BBDD17E00C1CEE0 /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
+		B6A31DB82BBDD1B000C1CEE0 /* CarouselMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMode.swift; sourceTree = "<group>"; };
 		B6A8BC0F2BB3CE2000E3B3DC /* TemplateControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateControllerDelegate.swift; sourceTree = "<group>"; };
 		B6A8BC1C2BB4E55800E3B3DC /* CarouselPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPayload.swift; sourceTree = "<group>"; };
 		B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 		B69F9F382B70529C00AC4B91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6A31DB52BBDD16400C1CEE0 /* Enums */,
 				B61B5A992B7FEC4C0049679F /* BasicPayload.swift */,
 				B61B5A982B7FEC4C0049679F /* Payload.swift */,
 				B61B5AC62B7FEF790049679F /* TitleBodyPayload.swift */,
@@ -283,6 +288,15 @@
 				B6A8BC1E2BB4E58300E3B3DC /* CarouselItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B6A31DB52BBDD16400C1CEE0 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				B6A31DB62BBDD17E00C1CEE0 /* CarouselLayout.swift */,
+				B6A31DB82BBDD1B000C1CEE0 /* CarouselMode.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		B6ADF46D2B62EFBB007D8DDB /* Sources */ = {
@@ -592,6 +606,7 @@
 				B6A8BC1D2BB4E55800E3B3DC /* CarouselPayload.swift in Sources */,
 				B64224452B6C4F0C00BAA595 /* ImageDownloadError.swift in Sources */,
 				B632B3712B64193400D04C48 /* AEPNotificationContentConstants.swift in Sources */,
+				B6A31DB92BBDD1B000C1CEE0 /* CarouselMode.swift in Sources */,
 				B61B5AC72B7FEF790049679F /* TitleBodyPayload.swift in Sources */,
 				B64224432B6ABDED00BAA595 /* ImageDownloader.swift in Sources */,
 				B6A8BC102BB3CE2000E3B3DC /* TemplateControllerDelegate.swift in Sources */,
@@ -599,6 +614,7 @@
 				B61B5AC92B7FF4F30049679F /* FallbackTemplateController.swift in Sources */,
 				B6A8BC1F2BB4E58300E3B3DC /* CarouselItem.swift in Sources */,
 				B61B5AD12B7FF74E0049679F /* UIColor+HexString.swift in Sources */,
+				B6A31DB72BBDD17E00C1CEE0 /* CarouselLayout.swift in Sources */,
 				B6ADF4702B62EFBB007D8DDB /* AEPNotificationViewController.swift in Sources */,
 				B6E073C12B717ED2000B9E0B /* String+LabelHeight.swift in Sources */,
 				B61B5A9B2B7FEC4C0049679F /* BasicPayload.swift in Sources */,
