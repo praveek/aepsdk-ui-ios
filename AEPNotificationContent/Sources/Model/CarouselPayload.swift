@@ -14,15 +14,15 @@ import Foundation
 import UIKit
 import UserNotifications
 
-class CarouselPayload : Payload {
+class CarouselPayload: Payload {
     
     // MARK: - Properties
 
     /// The mode of the carousel.
-    let carouselMode : CarouselMode
+    let carouselMode: CarouselMode
     
     /// The layout of the carousel.
-    let carouselLayout : CarouselLayout
+    let carouselLayout: CarouselLayout
 
     /// The items in the carousel.
     var carouselItems: [CarouselItem] = []
