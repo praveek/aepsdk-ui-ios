@@ -37,6 +37,8 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
         let controller: UIViewController
         if let basicPayload = payload as? BasicPayload {
             controller = BasicTemplateController(withPayload: basicPayload, delegate: self)
+        } else if let carouselPayload = payload as? CarouselPayload {
+            controller = CarouselTemplateController(withPayload: carouselPayload, delegate: self)
         } else {
             controller = FallbackTemplateController(notificationContent: notificationContent)
         }
@@ -73,6 +75,8 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
         switch templateType {
         case AEPNotificationContentConstants.PayloadKey.TemplateType.BASIC:
             return BasicPayload(from: content)
+        case AEPNotificationContentConstants.PayloadKey.TemplateType.CAROUSEL:
+            return CarouselPayload(from: content)
         default:
             return nil
         }
