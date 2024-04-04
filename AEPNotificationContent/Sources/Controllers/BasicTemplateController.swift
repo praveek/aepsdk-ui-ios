@@ -25,7 +25,6 @@ import UIKit
 // Image : Recommended formats : png, jpg
 
 class BasicTemplateController: TemplateController {
-
     // MARK: - Properties
 
     private let payload: BasicPayload

@@ -14,33 +14,32 @@ import Foundation
 import UIKit
 
 class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
-
     let ARROW_SIZE = 40.0
     let PAGE_CONTROL_HEIGHT = 20.0
 
     private let payload: CarouselPayload
-    
+
     private var currentPageIndex: Int = 0
     private var autoScrollTimer: Timer?
-    
+
     // dynamic dimensions
-    var TITLE_DESCRIPTION_WIDTH : CGFloat {
-        return view.frame.width - (2 * SIDE_MARGIN)
+    var TITLE_DESCRIPTION_WIDTH: CGFloat {
+        view.frame.width - (2 * SIDE_MARGIN)
     }
-    
-    var SCROLL_VIEW_HEIGHT : CGFloat {
-        return view.frame.width/2
+
+    var SCROLL_VIEW_HEIGHT: CGFloat {
+        view.frame.width / 2
     }
-    
+
     // MARK: - UI Elements
-    
+
     lazy var titleBodyView: UITitleBody = {
         let view = UITitleBody()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    lazy var leftArrowButton : UIButton = {
+
+    lazy var leftArrowButton: UIButton = {
         let button = UIButton(type: .system)
         if #available(iOS 13.0, *) {
             button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
@@ -53,8 +52,8 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         button.addTarget(self, action: #selector(leftArrowClicked), for: .touchUpInside)
         return button
     }()
-    
-    lazy var rightArrowButton : UIButton = {
+
+    lazy var rightArrowButton: UIButton = {
         let button = UIButton(type: .system)
         if #available(iOS 13.0, *) {
             button.setImage(UIImage(systemName: "chevron.forward"), for: .normal)
@@ -67,14 +66,14 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         button.addTarget(self, action: #selector(rightArrowClicked), for: .touchUpInside)
         return button
     }()
-    
+
     lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         return pageControl
     }()
-    
-    lazy var scrollView : UIScrollView = {
+
+    lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
         scrollView.delegate = self
@@ -82,7 +81,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-    
+
     // MARK: - Initialization
 
     init(withPayload payload: CarouselPayload, delegate: TemplateControllerDelegate) {
@@ -101,12 +100,12 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             delegate.templateFailedToLoad()
             return
         }
-        
+
         showLoadingIndicator()
-        let imageURLs = payload.carouselItems.map{ $0.imageURL.absoluteString }
+        let imageURLs = payload.carouselItems.map { $0.imageURL.absoluteString }
         ImageDownloader().downloadImages(urls: imageURLs, completion: { [self] result in
             switch result {
-            case .success(let downloads):
+            case let .success(downloads):
                 removeLoadingIndicator()
                 for item in payload.carouselItems {
                     item.image = downloads[item.imageURL.absoluteString]
@@ -117,42 +116,41 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
                 setupTitleAndDescription()
                 view.backgroundColor = payload.backgroundColor
                 updatePreferredContentSize()
-                
+
                 setCarouselMode()
-            case .failure(let error):
+            case let .failure(error):
                 print(error)
                 delegate.templateFailedToLoad()
             }
         })
     }
-    
-    
+
     // MARK: - UI Setup
-    
+
     func setupCarousel() {
         // Setup ScrollView
-         view.addSubview(scrollView)
-         scrollView.translatesAutoresizingMaskIntoConstraints = false
-    
-         NSLayoutConstraint.activate([
-             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-             scrollView.heightAnchor.constraint(equalToConstant: CGFloat(SCROLL_VIEW_HEIGHT))
-         ])
-    
-         // Setup for PageControl
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.heightAnchor.constraint(equalToConstant: CGFloat(SCROLL_VIEW_HEIGHT))
+        ])
+
+        // Setup for PageControl
         pageControl.numberOfPages = payload.carouselItems.count
         pageControl.addTarget(self, action: #selector(pageControlChanged(_:)), for: .valueChanged)
         view.addSubview(pageControl)
-    
+
         NSLayoutConstraint.activate([
             pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             pageControl.heightAnchor.constraint(equalToConstant: CGFloat(PAGE_CONTROL_HEIGHT))
         ])
-    
+
         // Add images to the scroll view
         for (index, item) in payload.carouselItems.enumerated() {
             let imageView = UIImageView(image: item.image)
@@ -161,25 +159,25 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             imageView.frame = CGRect(x: CGFloat(index) * view.frame.width, y: 0, width: view.frame.width, height: SCROLL_VIEW_HEIGHT)
             scrollView.addSubview(imageView)
         }
-    
+
         // Set scroll view content size
         scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(payload.carouselItems.count), height: SCROLL_VIEW_HEIGHT)
-     }
-    
+    }
+
     func setupPageControl() {
         // Setup for PageControl
-       pageControl.numberOfPages = payload.carouselItems.count
-       pageControl.addTarget(self, action: #selector(pageControlChanged(_:)), for: .valueChanged)
-       view.addSubview(pageControl)
-   
-       NSLayoutConstraint.activate([
-           pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-           pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-           pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-           pageControl.heightAnchor.constraint(equalToConstant: CGFloat(PAGE_CONTROL_HEIGHT))
-       ])
+        pageControl.numberOfPages = payload.carouselItems.count
+        pageControl.addTarget(self, action: #selector(pageControlChanged(_:)), for: .valueChanged)
+        view.addSubview(pageControl)
+
+        NSLayoutConstraint.activate([
+            pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: CGFloat(PAGE_CONTROL_HEIGHT))
+        ])
     }
-    
+
     func setupArrowButtons() {
         // Left Arrow Button
         leftArrowButton.frame = CGRect(x: 10, y: (SCROLL_VIEW_HEIGHT - ARROW_SIZE) / 2, width: ARROW_SIZE, height: ARROW_SIZE)
@@ -189,7 +187,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         rightArrowButton.frame = CGRect(x: (view.frame.width - ARROW_SIZE) - 10, y: (SCROLL_VIEW_HEIGHT - ARROW_SIZE) / 2, width: ARROW_SIZE, height: ARROW_SIZE)
         view.addSubview(rightArrowButton)
     }
-    
+
     func setupTitleAndDescription() {
         titleBodyView.setupWith(payload: payload.carouselItems.first!.titleBodyPayload, viewWidth: TITLE_DESCRIPTION_WIDTH)
         titleBodyView.changeColor(from: payload)
@@ -201,22 +199,22 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyView.viewHeight),
         ])
     }
-    
+
     // MARK: - ScrollView Delegate Method
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = Int(round(scrollView.contentOffset.x / view.frame.width))
         pageControl.currentPage = pageIndex
-        
+
         // Update titleBodyView only if the page index has changed
         if pageIndex != currentPageIndex {
             currentPageIndex = pageIndex
             changeTitleBody(forPageIndex: pageIndex)
         }
     }
-    
+
     // MARK: - Interaction Handlers
-    
+
     @objc func rightArrowClicked() {
         let currentPage = min(pageControl.currentPage + 1, payload.carouselItems.count - 1)
         let x = CGFloat(currentPage) * scrollView.frame.size.width
@@ -228,34 +226,33 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         let x = CGFloat(currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
     }
-    
+
     @objc func pageControlChanged(_ sender: UIPageControl) {
         let x = CGFloat(sender.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
     }
-    
+
     @objc func onCarouselTimerFired() {
         let nextPage = (pageControl.currentPage + 1) % payload.carouselItems.count
-          let x = CGFloat(nextPage) * scrollView.frame.size.width
-          scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
-          pageControl.currentPage = nextPage
-      }
-    
-    
+        let x = CGFloat(nextPage) * scrollView.frame.size.width
+        scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
+        pageControl.currentPage = nextPage
+    }
+
     // MARK: - Private methods
-    
+
     private func updatePreferredContentSize() {
         preferredContentSize.height = titleBodyView.viewHeight + SCROLL_VIEW_HEIGHT + (2 * TOP_MARGIN)
         parent?.preferredContentSize.height = titleBodyView.viewHeight + SCROLL_VIEW_HEIGHT + (2 * TOP_MARGIN)
     }
-    
+
     private func setCarouselMode() {
         if payload.carouselItems.count > 1 && payload.carouselMode == .auto {
             autoScrollTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(onCarouselTimerFired), userInfo: nil, repeats: true)
         }
     }
-    
-    private func changeTitleBody(forPageIndex index : Int) {
+
+    private func changeTitleBody(forPageIndex index: Int) {
         if index >= 0 && index < payload.carouselItems.count {
             let titleBodyPayload = payload.carouselItems[index].titleBodyPayload
             titleBodyView.change(payload: titleBodyPayload, viewWidth: TITLE_DESCRIPTION_WIDTH)
@@ -263,5 +260,4 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             updatePreferredContentSize()
         }
     }
-    
 }

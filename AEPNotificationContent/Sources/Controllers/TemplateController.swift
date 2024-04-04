@@ -13,12 +13,12 @@
 import Foundation
 import UIKit
 
-class TemplateController : UIViewController {
-        
+class TemplateController: UIViewController {
     let SIDE_MARGIN = 8.0
     let TOP_MARGIN = 10.0
-    
+
     // MARK: - UI Elements
+
     lazy var loadingIndicator: UIActivityIndicatorView = {
         let loadingIndicator = UIActivityIndicatorView()
         if #available(iOS 13.0, *) {
@@ -30,23 +30,23 @@ class TemplateController : UIViewController {
         loadingIndicator.center = self.view.center
         return loadingIndicator
     }()
- 
+
     let delegate: TemplateControllerDelegate
-    
-    
+
     // MARK: - Initializers
+
     init(delegate: TemplateControllerDelegate) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("BaseTemplateController cannot be initialized from storyboard.")
     }
-    
-    
+
     // MARK: - Loading Indicator methods
-    
+
     func showLoadingIndicator() {
         self.view.addSubview(loadingIndicator)
         loadingIndicator.startAnimating()
@@ -57,4 +57,3 @@ class TemplateController : UIViewController {
         self.loadingIndicator.removeFromSuperview()
     }
 }
-
