@@ -24,6 +24,7 @@ import UIKit
 // Image : Recommended size : 40KB
 // Image : Recommended formats : png, jpg
 
+// ViewController for Basic Template
 class BasicTemplateController: TemplateController {
     // MARK: - Properties
 
@@ -50,6 +51,7 @@ class BasicTemplateController: TemplateController {
         return view
     }()
 
+    // MARK: - Initializers
     init(withPayload payload: BasicPayload, delegate: TemplateControllerDelegate) {
         self.payload = payload
         super.init(delegate: delegate)
@@ -60,7 +62,7 @@ class BasicTemplateController: TemplateController {
         fatalError("BasicTemplateController cannot be initialized from storyboard.")
     }
 
-    // MARK: - ViewControllers
+    // MARK: - ViewController lifecycle method
 
     override func viewDidLoad() {
         // Show loading indicator until the image is downloaded
