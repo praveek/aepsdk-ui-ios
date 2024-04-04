@@ -17,17 +17,13 @@ center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] gra
     
     center.delegate = self
     
-    // these `UNNotificationAction`s are for demonstration purposes only
-    let openInAppAction = UNNotificationAction(identifier: "customAction", title: "Open in App")
-    let replyAction = UNNotificationAction(identifier: "replyAction", title: "Reply")
-
     // create a category with desired actions and `AEPNotification` as the identifier
     let myCategory = UNNotificationCategory(identifier: "AEPNotification",
-                                            actions: [openInAppAction, replyAction],
+                                            actions: [],
                                             intentIdentifiers: [],
                                             options: [.customDismissAction])
 
-    // register your category
+    // register the category
     UNUserNotificationCenter.current().setNotificationCategories([myCategory])
     
     // if not done elsewhere, register the app to receive remote notifications
