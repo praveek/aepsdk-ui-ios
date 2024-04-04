@@ -1,8 +1,8 @@
-#  Getting started with AEPNotificationContent extension
+#  Installing the AEPNotificationContent package
 
 ### Prerequisites
 
-Make sure you have completed the steps in the [prerequisites](./prerequisites.md)
+Make sure you have completed the steps in the [prerequisites](./../README.md#prerequisites).
 
 ### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
@@ -58,6 +58,8 @@ To generate `AEPNotificationContent.xcframework`, run the following command from
 make archive
 ```
 
-This will generate an XCFramework under the `build` folder. Drag and drop `AEPNotificationContent.xcframework` to your app target.
+This will generate an XCFramework under the `build` folder. Drag and drop `AEPNotificationContent.xcframework` to your app's Notification Content extension target.
 
-### Do stuff in your extension
+### Configure your Notification Content extension
+
+With the `AEPNotificationContent` package now available in your application, you need to [configure your notification content extension](./configure-extension.md) to use it.
