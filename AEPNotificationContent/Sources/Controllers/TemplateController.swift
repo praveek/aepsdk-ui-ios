@@ -17,10 +17,12 @@ import UIKit
 // This class provides all the common methods and properties that are required by all the template controllers
 class TemplateController: UIViewController {
     // MARK: - Margin constants
+
     let SIDE_MARGIN = 8.0
     let TOP_MARGIN = 10.0
 
     // MARK: - UI Elements
+
     lazy var loadingIndicator: UIActivityIndicatorView = {
         let loadingIndicator = UIActivityIndicatorView()
         if #available(iOS 13.0, *) {

@@ -16,6 +16,7 @@ import UIKit
 // ViewController for Carousel Template
 class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
     // MARK: - Dimension Constants
+
     let ARROW_SIZE = 40.0
     let PAGE_CONTROL_HEIGHT = 20.0
 
@@ -120,6 +121,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
     }
 
     // MARK: - UI Setup
+
     func setupView() {
         setupScrollView()
         setupPageControl()

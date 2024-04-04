@@ -52,6 +52,7 @@ class BasicTemplateController: TemplateController {
     }()
 
     // MARK: - Initializers
+
     init(withPayload payload: BasicPayload, delegate: TemplateControllerDelegate) {
         self.payload = payload
         super.init(delegate: delegate)
