@@ -13,7 +13,7 @@ For further information about Adobe SDKs, visit the [developer documentation](ht
 
 ## Getting started
 
-Check out our [documentation](./Documentation/README.md) to get started using this extension.
+Check out the [documentation](./Documentation/README.md) to get started using this extension.
 
 ## Contributing
 
