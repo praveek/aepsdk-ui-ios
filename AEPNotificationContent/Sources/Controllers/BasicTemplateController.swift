@@ -24,15 +24,10 @@ import UIKit
 // Image : Recommended size : 40KB
 // Image : Recommended formats : png, jpg
 
-class BasicTemplateController: UIViewController {
-    // MARK: - Margin Constants
-
-    private let SIDE_MARGIN = 8.0
-    private let TOP_MARGIN = 10.0
-
+// ViewController for Basic Template
+class BasicTemplateController: TemplateController {
     // MARK: - Properties
 
-    private let delegate: TemplateControllerDelegate
     private let payload: BasicPayload
 
     // MARK: - Height properties
@@ -56,22 +51,11 @@ class BasicTemplateController: UIViewController {
         return view
     }()
 
-    lazy var loadingIndicator: UIActivityIndicatorView = {
-        let loadingIndicator = UIActivityIndicatorView()
-        if #available(iOS 13.0, *) {
-            loadingIndicator.style = .medium
-        } else {
-            loadingIndicator.style = .white
-        }
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.center = self.view.center
-        return loadingIndicator
-    }()
+    // MARK: - Initializers
 
     init(withPayload payload: BasicPayload, delegate: TemplateControllerDelegate) {
         self.payload = payload
-        self.delegate = delegate
-        super.init(nibName: nil, bundle: nil)
+        super.init(delegate: delegate)
     }
 
     @available(*, unavailable)
@@ -79,7 +63,7 @@ class BasicTemplateController: UIViewController {
         fatalError("BasicTemplateController cannot be initialized from storyboard.")
     }
 
-    // MARK: - ViewControllers
+    // MARK: - ViewController lifecycle method
 
     override func viewDidLoad() {
         // Show loading indicator until the image is downloaded
@@ -101,16 +85,6 @@ class BasicTemplateController: UIViewController {
     }
 
     // MARK: - Private methods
-
-    private func showLoadingIndicator() {
-        self.view.addSubview(loadingIndicator)
-        loadingIndicator.startAnimating()
-    }
-
-    private func removeLoadingIndicator() {
-        self.loadingIndicator.stopAnimating()
-        self.loadingIndicator.removeFromSuperview()
-    }
 
     /// Configure and setup the view with the downloaded image
     /// - Parameter downloadedImage: UIImage object

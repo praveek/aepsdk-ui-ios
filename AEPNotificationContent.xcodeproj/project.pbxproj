@@ -54,8 +54,10 @@
 		B632B3672B63230000D04C48 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B632B3652B63230000D04C48 /* MainInterface.storyboard */; };
 		B632B36B2B63230000D04C48 /* DemoAppNotificationContent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B632B35F2B63230000D04C48 /* DemoAppNotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B64224392B688FE100BAA595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64224382B688FE100BAA595 /* AppDelegate.swift */; };
-		B6A8BC192BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
-		B6A8BC1A2BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B6A31DE02BBF3C4000C1CEE0 /* TemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DDF2BBF3C4000C1CEE0 /* TemplateController.swift */; };
+		B6A31DE22BBF3C6500C1CEE0 /* CarouselTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DE12BBF3C6500C1CEE0 /* CarouselTemplateController.swift */; };
+		B6A31DE92BBF4E5600C1CEE0 /* AEPNotificationContent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; };
+		B6A31DEA2BBF4E5600C1CEE0 /* AEPNotificationContent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9FFBD2B5AE672003E9D10 /* AEPNotificationContent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
 		B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */; };
 		D1AF3549E9FABE234DE3040F /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */; };
@@ -97,13 +99,13 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6A8BC1B2BB4D1FF00E3B3DC /* Embed Frameworks */ = {
+		B6A31DEB2BBF4E5600C1CEE0 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B6A8BC1A2BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Embed Frameworks */,
+				B6A31DEA2BBF4E5600C1CEE0 /* AEPNotificationContent.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +151,8 @@
 		B64224382B688FE100BAA595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B642243A2B69528C00BAA595 /* DemoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoApp.entitlements; sourceTree = SOURCE_ROOT; };
 		B69F9F392B717CC900AC4B91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B6A31DDF2BBF3C4000C1CEE0 /* TemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateController.swift; sourceTree = "<group>"; };
+		B6A31DE12BBF3C6500C1CEE0 /* CarouselTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTemplateController.swift; sourceTree = "<group>"; };
 		B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF48D2B63169B007D8DDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,7 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A8BC192BB4D1FF00E3B3DC /* AEPNotificationContent.framework in Frameworks */,
+				B6A31DE92BBF4E5600C1CEE0 /* AEPNotificationContent.framework in Frameworks */,
 				B632B3612B63230000D04C48 /* UserNotificationsUI.framework in Frameworks */,
 				B632B3602B63230000D04C48 /* UserNotifications.framework in Frameworks */,
 			);
@@ -198,7 +202,9 @@
 		244F56282BBE0FE00087401B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B6A31DDF2BBF3C4000C1CEE0 /* TemplateController.swift */,
 				244F56262BBE0FE00087401B /* BasicTemplateController.swift */,
+				B6A31DE12BBF3C6500C1CEE0 /* CarouselTemplateController.swift */,
 				244F56272BBE0FE00087401B /* FallbackTemplateController.swift */,
 			);
 			path = Controllers;
@@ -397,7 +403,7 @@
 				B632B35B2B63230000D04C48 /* Sources */,
 				B632B35C2B63230000D04C48 /* Frameworks */,
 				B632B35D2B63230000D04C48 /* Resources */,
-				B6A8BC1B2BB4D1FF00E3B3DC /* Embed Frameworks */,
+				B6A31DEB2BBF4E5600C1CEE0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -616,6 +622,7 @@
 				244F56472BBE101C0087401B /* CarouselLayout.swift in Sources */,
 				244F56482BBE101C0087401B /* CarouselMode.swift in Sources */,
 				244F56492BBE101C0087401B /* BasicPayload.swift in Sources */,
+				B6A31DE02BBF3C4000C1CEE0 /* TemplateController.swift in Sources */,
 				244F564A2BBE101C0087401B /* CarouselItem.swift in Sources */,
 				244F564B2BBE101C0087401B /* CarouselPayload.swift in Sources */,
 				244F564C2BBE101C0087401B /* Payload.swift in Sources */,
@@ -628,6 +635,7 @@
 				244F56532BBE101C0087401B /* AEPNotificationContentConstants.swift in Sources */,
 				244F56542BBE101C0087401B /* AEPNotificationViewController.swift in Sources */,
 				244F56552BBE101C0087401B /* TemplateControllerDelegate.swift in Sources */,
+				B6A31DE22BBF3C6500C1CEE0 /* CarouselTemplateController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
