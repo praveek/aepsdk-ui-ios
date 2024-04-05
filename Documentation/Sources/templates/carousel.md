@@ -25,7 +25,7 @@ The properties below are used to define the payload sent to APNS:
 | Color - Background | ⛔️ | `adb_clr_bg` | string | Color for notification's background.<br /><br />Represented as six character hex, e.g. `00FF00` |
 | Operation mode | ⛔️ | `adb_car_mode` | string | Determines how the carousel will be operated.<br /><br />Valid values are "auto" or "manual".<br /><br />Default value is "auto". |
 | Carousel layout type | ⛔️ | `adb_car_layout` | string | Determines how the carousel items will be displayed.<br /><br />Valid values are "default" (full screen images) or "filmstrip" (bordered images to make them look like part of a roll of film).<br /><br />Default value is "default". |
-| Carousel items | ✅ | `adb_items` | array | Two to five items in the carousel defined by the following object:<ul><li>`img` (required) - URI to an image to be shown for the carousel item</li><li>`txt` (optional) - caption to show when the carousel item is visible</li><li>`uri` (optional) - URI to handle when the item is touched by the user.<br />If no uri  is provided for the item, adb_uri will be handled instead.</li></ul> |
+| Carousel items | ✅ | `adb_items` | array | Two to five items in the carousel defined by the following object:<ul><li>`img` (*required*) - URI to an image to be shown for the carousel item</li><li>`txt` (*optional*) - caption to show when the carousel item is visible</li><li>`uri` (*optional*) - URI to handle when the item is touched by the user.<br />If no uri  is provided for the item, adb_uri will be handled instead.</li></ul> |
 
 For more information on APNS payload keys, see [Apple's documentation](https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification).
 
@@ -48,7 +48,7 @@ Below is a sample of what a payload might look like for a notification using a c
         "thread-id": "apparel",
         "content-available": 1
     },
-    "adb_uri": "deeplinkUrl/weburl",
+    "adb_uri": "https://sneakerland.com/products/new",
     "adb_version": "1",
     "adb_template_type": "car",
     "adb_clr_body": "333333",

@@ -45,8 +45,8 @@ Below is a sample of what a payload might look like for a notification using a b
         "thread-id": "apparel",
         "content-available": 1
     },
-    "adb_media": "www.imageUrl.com",
-    "adb_uri": "deeplinkUrl/weburl",
+    "adb_media": "https://sneakerland.com/assets/new.png",
+    "adb_uri": "https://sneakerland.com/products/new",
     "adb_version": "1",
     "adb_template_type": "basic",
     "adb_body_ex": "There are some great new deals in here that we really think you're going to like! Check it out!",
