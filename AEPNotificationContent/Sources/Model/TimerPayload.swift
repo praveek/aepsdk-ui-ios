@@ -72,7 +72,7 @@ class TimerPayload: Payload {
 
     /// Extracts the timer information from the notification content
     /// - Parameter notificationContent: The content of the notification
-    private static func extractExpiryTime(_ content: UNNotificationContent,_ notificationDate: Date) -> (TimeInterval)? {
+    private static func extractExpiryTime(_ content: UNNotificationContent, _ notificationDate: Date) -> (TimeInterval)? {
         if let duration = content.timerDuration {
             return notificationDate.timeIntervalSince1970 + duration
         } else if let endTimestamp = content.endTimestamp {
