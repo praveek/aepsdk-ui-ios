@@ -115,6 +115,24 @@ extension UNNotificationContent {
                                            defaultColor: .defaultTitle)
     }
 
+    // Returns the duration of the timer
+    var timerDuration: TimeInterval? {
+        guard let durationString = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.DURATION] as? String,
+              let duration = TimeInterval(durationString) else {
+            return nil
+        }
+        return duration
+    }
+
+    // Returns the end timestamp of the timer
+    var endTimestamp: TimeInterval? {
+        guard let endTimestampString = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.END_TIMESTAMP] as? String,
+              let endTimestamp = TimeInterval(endTimestampString) else {
+            return nil
+        }
+        return endTimestamp
+    }
+
     /// Extracts and returns a color from notification content for a specific key.
     /// - Parameters:
     ///   - notificationContent: The notification content to extract from.

@@ -60,6 +60,7 @@
 		B6A31DED2BC0BA9000C1CEE0 /* TimerPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DEC2BC0BA9000C1CEE0 /* TimerPayload.swift */; };
 		B6A31DF02BC0E4BB00C1CEE0 /* String+LabelHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DEF2BC0E4BB00C1CEE0 /* String+LabelHeight.swift */; };
 		B6A31DF22BC0E53100C1CEE0 /* UNNotificationContent+TemplateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DF12BC0E53100C1CEE0 /* UNNotificationContent+TemplateKeys.swift */; };
+		B6A31DF52BC11CAA00C1CEE0 /* TimerPayloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A31DF32BC11C0E00C1CEE0 /* TimerPayloadTests.swift */; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
 		B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */; };
 		D1AF3549E9FABE234DE3040F /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF013C8606FDB41E7336EBD9 /* Pods_DemoApp.framework */; };
@@ -157,6 +158,7 @@
 		B6A31DEC2BC0BA9000C1CEE0 /* TimerPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPayload.swift; sourceTree = "<group>"; };
 		B6A31DEF2BC0E4BB00C1CEE0 /* String+LabelHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LabelHeight.swift"; sourceTree = "<group>"; };
 		B6A31DF12BC0E53100C1CEE0 /* UNNotificationContent+TemplateKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationContent+TemplateKeys.swift"; sourceTree = "<group>"; };
+		B6A31DF32BC11C0E00C1CEE0 /* TimerPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPayloadTests.swift; sourceTree = "<group>"; };
 		B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF48D2B63169B007D8DDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +281,7 @@
 				244F56402BBE0FE00087401B /* CarouselPayloadTest.swift */,
 				244F56412BBE0FE00087401B /* Color+HexStringTests.swift */,
 				244F56422BBE0FE00087401B /* PayloadTests.swift */,
+				B6A31DF32BC11C0E00C1CEE0 /* TimerPayloadTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 			files = (
 				244F56572BBE107E0087401B /* BasicPayloadTests.swift in Sources */,
 				244F56582BBE107E0087401B /* CarouselItemTests.swift in Sources */,
+				B6A31DF52BC11CAA00C1CEE0 /* TimerPayloadTests.swift in Sources */,
 				244F56592BBE107E0087401B /* CarouselPayloadTest.swift in Sources */,
 				244F565A2BBE107E0087401B /* Color+HexStringTests.swift in Sources */,
 				244F565B2BBE107E0087401B /* PayloadTests.swift in Sources */,

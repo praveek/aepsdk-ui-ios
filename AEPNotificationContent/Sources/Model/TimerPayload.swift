@@ -51,7 +51,7 @@ class TimerPayload: Payload {
         self.alternateImageURL = alternateImageURL
 
         // Extract the timer data from the notification
-        guard let expiryTime = Self.extractExpiryTime(from: notificationContent, notificationDate: notificationDate) else {
+        guard let expiryTime = Self.extractExpiryTime(notificationContent, notificationDate) else {
             return nil
         }
         self.expiryTime = expiryTime
@@ -72,13 +72,10 @@ class TimerPayload: Payload {
 
     /// Extracts the timer information from the notification content
     /// - Parameter notificationContent: The content of the notification
-    private static func extractExpiryTime(from content: UNNotificationContent, notificationDate: Date) -> (TimeInterval)? {
-        let userInfo = content.userInfo
-        if let duration = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.DURATION] as? TimeInterval {
-            // Calculate the expiry time the delivery time of the notification and the duration
+    private static func extractExpiryTime(_ content: UNNotificationContent,_ notificationDate: Date) -> (TimeInterval)? {
+        if let duration = content.timerDuration {
             return notificationDate.timeIntervalSince1970 + duration
-        } else if let endTimestamp = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.END_TIMESTAMP] as? TimeInterval {
-            // return the end timestamp
+        } else if let endTimestamp = content.endTimestamp {
             return endTimestamp
         }
         return nil
