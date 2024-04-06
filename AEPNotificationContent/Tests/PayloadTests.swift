@@ -84,9 +84,9 @@ final class PayloadTests: XCTestCase {
         XCTAssertEqual(payload.expandedDescription, "Expanded Description")
         
         // verify defaults colors are picked
-        XCTAssertEqual(payload.backgroundColor, UIColor.white)
-        XCTAssertEqual(payload.titleColor, UIColor.black)
-        XCTAssertEqual(payload.descriptionColor, UIColor.darkGray)
+        XCTAssertEqual(payload.backgroundColor, UIColor.defaultBackground)
+        XCTAssertEqual(payload.titleColor, UIColor.defaultTitle)
+        XCTAssertEqual(payload.descriptionColor, UIColor.defaultBody)
     }
     
     func testInitialization_with_noClickURL_noMediaURL_noExpandedTextProvided() {
