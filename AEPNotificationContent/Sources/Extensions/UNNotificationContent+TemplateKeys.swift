@@ -14,7 +14,7 @@ import Foundation
 import UIKit
 import UserNotifications
 
-// UNNotification extension to extract template keys and cast them to the appropriate types
+// UNNotification extension to extract template keys and cast them to appropriate types
 extension UNNotificationContent {
     // MARK: - Basic Template Keys
 
@@ -116,6 +116,7 @@ extension UNNotificationContent {
     }
 
     // Returns the duration of the timer
+    // If the duration is not available, nil is returned
     var timerDuration: TimeInterval? {
         guard let durationString = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.DURATION] as? String,
               let duration = TimeInterval(durationString) else {
@@ -125,6 +126,7 @@ extension UNNotificationContent {
     }
 
     // Returns the end timestamp of the timer
+    // If the end timestamp is not available, nil is returned
     var endTimestamp: TimeInterval? {
         guard let endTimestampString = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.END_TIMESTAMP] as? String,
               let endTimestamp = TimeInterval(endTimestampString) else {
@@ -133,7 +135,7 @@ extension UNNotificationContent {
         return endTimestamp
     }
 
-    /// Extracts and returns a color from notification content for a specific key.
+    /// Extracts and returns a color from notification content for a specified key.
     /// - Parameters:
     ///   - notificationContent: The notification content to extract from.
     ///   - key: The key for the color information.

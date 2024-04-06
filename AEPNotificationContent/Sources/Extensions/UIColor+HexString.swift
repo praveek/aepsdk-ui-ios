@@ -57,6 +57,9 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 
+    // Default background color for all templates
+    // This color is used when background color is not available in the payload
+    // It supports dark mode
     static var defaultBackground: UIColor {
         if #available(iOS 13.0, *) {
             return .systemBackground
@@ -65,6 +68,9 @@ extension UIColor {
         }
     }
 
+    // Default title color for all templates
+    // This color is used when title color is not available in the payload
+    // It supports dark mode
     static var defaultTitle: UIColor {
         if #available(iOS 13.0, *) {
             return .label
@@ -73,6 +79,9 @@ extension UIColor {
         }
     }
 
+    // Default body color for all templates
+    // This color is used when body color is not available in the payload
+    // It supports dark mode
     static var defaultBody: UIColor {
         if #available(iOS 13.0, *) {
             return .secondaryLabel
