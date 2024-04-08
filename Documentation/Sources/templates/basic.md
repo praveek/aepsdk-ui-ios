@@ -18,8 +18,6 @@ The properties below are used to define the payload sent to APNS:
 | Sound | ⛔️ | `aps.sound` | string | The name of a sound file in your app’s main bundle or in the Library/Sounds folder of your app’s container directory. Specify the string “default” to play the system sound. Use this key for regular notifications. For critical alerts, use the sound dictionary instead. |
 | Badge Count | ⛔️ | `aps.badge` | string | The number to display in a badge on your app’s icon. Specify 0 to remove the current badge, if any. |
 | Notification Thread ID | ⛔️ | `aps.thread-id` | string | An app-specific identifier for grouping related notifications. This value corresponds to the `threadIdentifier` property in the `UNNotificationContent` object. |
-| Content available | ⛔️ | `aps.content-available` | number | The background notification flag. To perform a silent background update, specify the value 1 and don’t include the alert, badge, or sound keys in your payload. |
-
 
 ### AEPNotificationContent properties
 
@@ -27,13 +25,13 @@ The properties below are used to define the payload sent to APNS:
 | :-------- | :----------- | :------ | :------- | :-------------- |
 | Payload Version | ✅ | `adb_version` | string | Version of the payload assigned by the Adobe authoring UI. |
 | Template Type | ✅ | `adb_template_type` | string | Informs the reader which properties may exist in the template object.<br /><br />Basic template uses a value of "basic". |
-| Expanded Title | ⛔️ | `adb_title_ex` | string | Title of the message when the notification is expanded. |
-| Expanded Body | ⛔️ | `adb_body_ex` | string | Body of the message when the notification is expanded. |
+| Expanded Title | ⛔️ | `adb_title_ex` | string | Title of the message when the notification is expanded.<br /><br />If an expanded title is not provided, the value in `aps.alert.title` will be used. |
+| Expanded Body | ⛔️ | `adb_body_ex` | string | Body of the message when the notification is expanded.<br /><br />If an expanded body is not provided, the value in `aps.alert.body` will be used. |
 | Image | ⛔️ | `adb_media` | string | URI of an image to be shown when notification is expanded. |
-| Link URI | ⛔️ | `adb_uri` | string | URI to be handled when user clicks the notification body. <br /><br />For example, a deep link to your app or a URI to a webpage. |
-| Color - Title | ⛔️ | `adb_clr_title` | string | Text color for `aps.alert.title`.<br /><br />Represented as six character hex, e.g. `00FF00` |
-| Color - Body | ⛔️ | `adb_clr_body` | string | Text color for `aps.alert.body`, `adb_body_ex`.<br /><br />Represented as six character hex, e.g. `00FF00` |
-| Color - Background | ⛔️ | `adb_clr_bg` | string | Color for notification's background.<br /><br />Represented as six character hex, e.g. `00FF00` |
+| Link URI | ⛔️ | `adb_uri` | string | URI to be handled when user clicks the notification body. For example, a deep link to your app or a URI to a webpage.<br /><br />If no value is provided, clicking on the notification will open the host application. |
+| Color - Title | ⛔️ | `adb_clr_title` | string | Text color for `aps.alert.title`. Represented as six character hex, e.g. `00FF00`<br /><br />If no value is provided, the system [label color](https://developer.apple.com/documentation/uikit/uicolor/3173131-label) will be used. |
+| Color - Body | ⛔️ | `adb_clr_body` | string | Text color for `aps.alert.body`, `adb_body_ex`. Represented as six character hex, e.g. `00FF00`<br /><br />If no value is provided, the system [secondaryLabel color](https://developer.apple.com/documentation/uikit/uicolor/3173136-secondarylabel) will be used. |
+| Color - Background | ⛔️ | `adb_clr_bg` | string | Color for notification's background. Represented as six character hex, e.g. `00FF00`<br /><br />If no value is provided, the system [systemBackground color](https://developer.apple.com/documentation/uikit/uicolor/3173140-systembackground) will be used. |
 
 ## Example
 
@@ -47,21 +45,20 @@ Below is a sample of what a payload might look like for a notification using a b
             "body": "Come check out the sweet new kicks we just got in stock.",
             "subtitle": "Shoes that will knock your socks off!"
         },
+        "category": "AEPNotification",
+        "mutable-content": 1,
         "sound": "sneakerSqueek",
         "badge": 1,
-        "mutable-content": 1,
-        "category": "AEPNotification",
-        "thread-id": "apparel",
-        "content-available": 1
+        "thread-id": "apparel"
     },
-    "adb_media": "https://sneakerland.com/assets/new.png",
-    "adb_uri": "https://sneakerland.com/products/new",
     "adb_version": "1",
     "adb_template_type": "basic",
     "adb_title_ex": "The spring sale is in full swing!",
     "adb_body_ex": "There are some great new deals in here that we really think you're going to like! Check it out!",
-    "adb_clr_body": "333333",
+    "adb_media": "https://sneakerland.com/assets/new.png",
+    "adb_uri": "https://sneakerland.com/products/new",
     "adb_clr_title": "000000",
+    "adb_clr_body": "333333",
     "adb_clr_bg": "FFFFFF",
     "some_custom_data_key": "some data"
 }
