@@ -51,7 +51,7 @@ enum AEPNotificationContentConstants {
             static let DURATION = "adb_tmr_dur"
             static let END_TIMESTAMP = "adb_tmr_end"
             static let ALTERNATE_TITLE = "adb_title_alt"
-            static let ALTERNATE_BODY = "adb_body_ex_alt"
+            static let ALTERNATE_BODY = "adb_body_alt"
             static let ALTERNATE_IMAGE = "adb_media_alt"
         }
     }

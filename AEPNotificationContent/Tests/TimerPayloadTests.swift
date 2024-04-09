@@ -15,14 +15,16 @@ import XCTest
 
 final class TimerPayloadTests: XCTestCase {
     
-    func testInitWithValidPayload() {
+    func testInit_with_validPayload() {
         // setup
         let content = UNMutableNotificationContent()
         content.userInfo = [
             "adb_media" : "https://www.adobe.com/image0.jpg",
+            "adb_title_ex" : "title before timer expiry",
+            "adb_body_ex" : "body before timer expiry",
             "adb_tmr_dur": "10",
-            "adb_title_alt": "alternate title",
-            "adb_body_ex_alt": "alternate body",
+            "adb_title_alt": "title after timer expiry",
+            "adb_body_alt": "body after timer expiry",
             "adb_media_alt": "https://www.adobe.com/image1.jpg"
         ]
                 
@@ -32,12 +34,16 @@ final class TimerPayloadTests: XCTestCase {
         // verify
         XCTAssertNotNil(timerPayload)
         XCTAssertNotNil(timerPayload?.expiryTime)
-        XCTAssertEqual(timerPayload?.alternateTitle, "alternate title")
-        XCTAssertEqual(timerPayload?.alternateBody, "alternate body")
+        XCTAssertEqual(timerPayload?.titleBodyPayload.title, "title before timer expiry")
+        XCTAssertEqual(timerPayload?.titleBodyPayload.body, "body before timer expiry")
+        XCTAssertEqual(timerPayload?.altTitleBodyPayload.title, "title after timer expiry")
+        XCTAssertEqual(timerPayload?.altTitleBodyPayload.body, "body after timer expiry")
         XCTAssertEqual(timerPayload?.alternateImageURL, URL(string: "https://www.adobe.com/image1.jpg"))
     }
 
-    func testInitWithoutAlternateImageURL() {
+    // MARK: - Image Keys tests
+
+    func testInit_without_alternateImageURL() {
         // setup
         let content = UNMutableNotificationContent()
         content.userInfo = [
@@ -54,12 +60,15 @@ final class TimerPayloadTests: XCTestCase {
         XCTAssertNil(timerPayload)
     }
 
-    func testInitWithoutExpiryTime() {
+    // MARK: - Title and Body Keys tests
+
+    func testInit_without_alternateTitle() {
         // setup
         let content = UNMutableNotificationContent()
+        content.title = "notification title"
         content.userInfo = [
             "adb_media" : "https://www.adobe.com/image0.jpg",
-            "adb_title_alt": "alternate title",
+            "adb_tmr_dur": "10",
             "adb_body_ex_alt": "alternate body",
             "adb_media_alt": "https://www.adobe.com/image1.jpg"
         ]
@@ -68,10 +77,11 @@ final class TimerPayloadTests: XCTestCase {
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
         
         // verify
-        XCTAssertNil(timerPayload)
+        XCTAssertNotNil(timerPayload)
+        XCTAssertEqual(timerPayload?.altTitleBodyPayload.title, "notification title")
     }
 
-    func testInitWithoutAlternateBody() {
+    func testInit_without_alternateBody() {
         // setup
         let content = UNMutableNotificationContent()
         content.userInfo = [
@@ -86,16 +96,17 @@ final class TimerPayloadTests: XCTestCase {
         
         // verify
         XCTAssertNotNil(timerPayload)
-        XCTAssertEqual(timerPayload?.alternateTitle, "alternate title")
+        XCTAssertEqual(timerPayload?.altTitleBodyPayload.body, "")
     }
 
-    func testInitWithoutAlternateTitle() {
+    func testInit_without_expandedTitle() {
         // setup
         let content = UNMutableNotificationContent()
+        content.title = "notification title"
         content.userInfo = [
             "adb_media" : "https://www.adobe.com/image0.jpg",
             "adb_tmr_dur": "10",
-            "adb_body_ex_alt": "alternate body",
+            "adb_body_ex": "alternate body",
             "adb_media_alt": "https://www.adobe.com/image1.jpg"
         ]
                 
@@ -104,10 +115,31 @@ final class TimerPayloadTests: XCTestCase {
         
         // verify
         XCTAssertNotNil(timerPayload)
-        XCTAssertEqual(timerPayload?.alternateBody, "alternate body")
+        XCTAssertEqual(timerPayload?.titleBodyPayload.title, "notification title")
     }
 
-    func testInitWithTimerDuration() {
+    func testInit_without_expandedBody() {
+        // setup
+        let content = UNMutableNotificationContent()
+        content.userInfo = [
+            "adb_media" : "https://www.adobe.com/image0.jpg",
+            "adb_tmr_dur": "10",
+            "adb_title_ex": "title before timer expiry",
+            "adb_media_alt": "https://www.adobe.com/image1.jpg"
+        ]
+                
+        // test
+        let timerPayload = TimerPayload(from: content, notificationDate: Date())
+        
+        // verify
+        XCTAssertNotNil(timerPayload)
+        XCTAssertEqual(timerPayload?.titleBodyPayload.body, "")
+    }
+    
+
+    // MARK: - Timer keys tests
+
+    func testInit_with_timerDuration() {
         // setup
         let content = UNMutableNotificationContent()
         content.userInfo = [
@@ -126,7 +158,7 @@ final class TimerPayloadTests: XCTestCase {
         XCTAssertEqual(timerPayload!.expiryTime, Date().timeIntervalSince1970 + 10, accuracy: 2.0)
     }
 
-    func testInitWithEndTimestamp() {
+    func testInit_with_endTimestamp() {
         // setup
         let content = UNMutableNotificationContent()
         content.userInfo = [
@@ -143,6 +175,23 @@ final class TimerPayloadTests: XCTestCase {
         // verify
         XCTAssertNotNil(timerPayload)
         XCTAssertEqual(timerPayload!.expiryTime, 1712417524)
+    }
+
+        func testInit_without_expiryTime() {
+        // setup
+        let content = UNMutableNotificationContent()
+        content.userInfo = [
+            "adb_media" : "https://www.adobe.com/image0.jpg",
+            "adb_title_alt": "alternate title",
+            "adb_body_ex_alt": "alternate body",
+            "adb_media_alt": "https://www.adobe.com/image1.jpg"
+        ]
+                
+        // test
+        let timerPayload = TimerPayload(from: content, notificationDate: Date())
+        
+        // verify
+        XCTAssertNil(timerPayload)
     }
     
 }

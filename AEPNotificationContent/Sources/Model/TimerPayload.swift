@@ -35,7 +35,7 @@ class TimerPayload: Payload {
 
     /// titleBody for expired timer template view
     lazy var altTitleBodyPayload: TitleBodyPayload = {
-        let title = notificationContent.alternateTitle ?? notificationContent.expandedTitle ?? notificationContent.title
+        let title = notificationContent.alternateTitle ?? notificationContent.title
         let body = notificationContent.alternateBody ?? ""
         return TitleBodyPayload(title: title, body: body)
     }()
@@ -44,8 +44,6 @@ class TimerPayload: Payload {
     /// Initialization fails if the mandatory properties required for TimerTemplate are unavailable
     /// - Parameter notification: The content of the notification.
     required init?(from notificationContent: UNNotificationContent, notificationDate: Date) {
-        let userInfo = notificationContent.userInfo
-
         // Extract the alternate image data and fast fail if alternateImage URL is not available
         guard let alternateImageURL = notificationContent.alternateImageURL else {
             return nil
