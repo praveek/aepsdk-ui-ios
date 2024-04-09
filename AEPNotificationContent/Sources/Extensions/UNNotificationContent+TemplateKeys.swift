@@ -36,6 +36,12 @@ extension UNNotificationContent {
         return URL(string: clickURLString)
     }
 
+    // Retrieve the expanded title from the notification
+    // If an expanded title is not available, nil is returned
+    var expandedTitle: String? {
+        userInfo[AEPNotificationContentConstants.PayloadKey.EXPANDED_TITLE_TXT] as? String
+    }
+
     // Retrieve the expanded description from the notification
     // If an expanded description is not available, nil is returned
     var expandedBody: String? {

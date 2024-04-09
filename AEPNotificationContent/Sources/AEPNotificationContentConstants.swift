@@ -25,6 +25,7 @@ enum AEPNotificationContentConstants {
         static let BACKGROUND_COLOR = "adb_clr_bg"
         static let IMAGE_URL = "adb_media"
         static let CLICK_URL = "adb_uri"
+        static let EXPANDED_TITLE_TXT = "adb_title_ex"
 
         enum TemplateType {
             static let BASIC = "basic"

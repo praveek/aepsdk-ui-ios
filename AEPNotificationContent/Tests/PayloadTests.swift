@@ -33,7 +33,7 @@ final class PayloadTests: XCTestCase {
         // Assert that all properties are correctly set
         XCTAssertEqual(payload.imageURL?.absoluteString, "https://example.com/image.png")
         XCTAssertEqual(payload.clickURL?.absoluteString, "https://example.com/click")
-        XCTAssertEqual(payload.expandedDescription, "Expanded Description")
+        XCTAssertEqual(payload.expandedBody, "Expanded Description")
         
         // verify color properties
         var red, green, blue, alpha: CGFloat
@@ -81,7 +81,7 @@ final class PayloadTests: XCTestCase {
         // Assert the other parameters are correctly set
         XCTAssertEqual(payload.imageURL?.absoluteString, "https://example.com/image.png")
         XCTAssertEqual(payload.clickURL?.absoluteString, "https://example.com/click")
-        XCTAssertEqual(payload.expandedDescription, "Expanded Description")
+        XCTAssertEqual(payload.expandedBody, "Expanded Description")
         
         // verify defaults colors are picked
         XCTAssertEqual(payload.backgroundColor, UIColor.defaultBackground)
@@ -100,7 +100,7 @@ final class PayloadTests: XCTestCase {
         // Assert that payload is initialized with nil values
         XCTAssertNil(payload.imageURL)
         XCTAssertNil(payload.clickURL)
-        XCTAssertNil(payload.expandedDescription)
+        XCTAssertNil(payload.expandedBody)
     }
     
 }

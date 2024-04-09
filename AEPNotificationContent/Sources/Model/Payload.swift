@@ -36,8 +36,11 @@ class Payload {
     /// The background color of the notification.
     var backgroundColor: UIColor
 
+    /// The title text for the expanded view
+    var expandedTitle: String?
+
     /// The description text for the expanded view
-    var expandedDescription: String?
+    var expandedBody: String?
 
     // MARK: - Initialization
 
@@ -49,7 +52,8 @@ class Payload {
 
         self.imageURL = notificationContent.imageURL
         self.clickURL = notificationContent.clickURL
-        self.expandedDescription = notificationContent.expandedBody
+        self.expandedTitle = notificationContent.expandedTitle
+        self.expandedBody = notificationContent.expandedBody
 
         // Extract the color data
         self.backgroundColor = notificationContent.backgroundColor

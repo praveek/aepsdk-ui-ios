@@ -17,12 +17,6 @@ import UserNotifications
 class TimerPayload: Payload {
     // MARK: - Properties
 
-    /// The title text for the timer expired view
-    var alternateTitle: String?
-
-    /// The body text for the timer expired view
-    var alternateBody: String?
-
     /// The image URL for the timer expired view
     var alternateImageURL: URL
 
@@ -32,11 +26,19 @@ class TimerPayload: Payload {
     /// The duration of the timer
     var expiryTime: TimeInterval
 
-    /// check with PM
-    lazy var titleBodyPayload: TitleBodyPayload = .init(title: notificationContent.title, body: self.expandedDescription ?? notificationContent.body)
+    /// titleBody of non-expired timer template view
+    lazy var titleBodyPayload: TitleBodyPayload = {
+        let title = notificationContent.expandedTitle ?? notificationContent.title
+        let body = expandedBody ?? ""
+        return TitleBodyPayload(title: title, body: body)
+    }()
 
-    /// check with PM
-    lazy var altTitleBodyPayload: TitleBodyPayload = .init(title: alternateTitle ?? notificationContent.title, body: alternateBody ?? "")
+    /// titleBody for expired timer template view
+    lazy var altTitleBodyPayload: TitleBodyPayload = {
+        let title = notificationContent.alternateTitle ?? notificationContent.expandedTitle ?? notificationContent.title
+        let body = notificationContent.alternateBody ?? ""
+        return TitleBodyPayload(title: title, body: body)
+    }()
 
     /// Initializes a `TimerPayload` instance from a `UNNotificationContent`.
     /// Initialization fails if the mandatory properties required for TimerTemplate are unavailable
@@ -55,10 +57,6 @@ class TimerPayload: Payload {
             return nil
         }
         self.expiryTime = expiryTime
-
-        // Extract alternate title, body and image URL from the notification
-        self.alternateTitle = notificationContent.alternateTitle
-        self.alternateBody = notificationContent.alternateBody
 
         // Extract the color of the timer text color from the notification
         self.timerColor = notificationContent.timerColor
