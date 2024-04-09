@@ -1,5 +1,9 @@
 # Push template - Basic
 
+A standard notification including a title, subtitle, message body, optional image, icons, link, buttons.
+
+Alternate texts are available for when the notification is expanded by the user.
+
 ## Push notification properties
 
 For full information on APNS payload keys, see [Apple's documentation](https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification).
@@ -42,8 +46,8 @@ Below is a sample of what a payload might look like for a notification using a b
     "aps": {
         "alert": {
             "title": "New shoes in stock!",
-            "body": "Come check out the sweet new kicks we just got in stock.",
-            "subtitle": "Shoes that will knock your socks off!"
+            "subtitle": "Shoes that will knock your socks off!",
+            "body": "Come check out the sweet new kicks we just got in stock."            
         },
         "category": "AEPNotification",
         "mutable-content": 1,
