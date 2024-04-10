@@ -51,22 +51,22 @@ extension UNNotificationContent {
     // Returns the background color of the notification
     // If a valid background color is not available, defaultBackground color is used
     var backgroundColor: UIColor {
-        UNNotificationContent.extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.BACKGROUND_COLOR,
-                                           defaultColor: .defaultBackground)
+        extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.BACKGROUND_COLOR,
+                     defaultColor: .defaultBackground)
     }
 
     // Returns the title color of the notification
     // If a valid title color is not available, defaultTitle color is used
     var titleColor: UIColor {
-        UNNotificationContent.extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.TITLE_COLOR,
-                                           defaultColor: .defaultTitle)
+        extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.TITLE_COLOR,
+                     defaultColor: .defaultTitle)
     }
 
     // Returns the body color of the notification
     // If a valid body color is not available, defaultBody color is used
     var bodyColor: UIColor {
-        UNNotificationContent.extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.BODY_COLOR,
-                                           defaultColor: .defaultBody)
+        extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.BODY_COLOR,
+                     defaultColor: .defaultBody)
     }
 
     // MARK: - Carousel Template Keys
@@ -117,8 +117,8 @@ extension UNNotificationContent {
     // Return the timer color from the notification
     // If a valid timer color is not available, defaultTitle color is used
     var timerColor: UIColor {
-        UNNotificationContent.extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.Timer.COLOR,
-                                           defaultColor: .defaultTitle)
+        extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.Timer.COLOR,
+                     defaultColor: .defaultTitle)
     }
 
     // Returns the duration of the timer
@@ -147,7 +147,7 @@ extension UNNotificationContent {
     ///   - key: The key for the color information.
     ///   - defaultColor: The default color to return if extraction fails.
     /// - Returns: The extracted color or the default color.
-    static func extractColor(from notificationContent: UNNotificationContent, key: String, defaultColor: UIColor) -> UIColor {
+    private func extractColor(from notificationContent: UNNotificationContent, key: String, defaultColor: UIColor) -> UIColor {
         if let colorString = notificationContent.userInfo[key] as? String, let color = UIColor(hexString: colorString) {
             return color
         }

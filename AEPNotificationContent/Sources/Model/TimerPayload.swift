@@ -60,7 +60,7 @@ class TimerPayload: Payload {
         self.timerColor = notificationContent.timerColor
 
         super.init(notificationContent: notificationContent)
-        // If the imageUrl or alternate image url not available in the notification, bail out
+        // If the imageUrl is not available in the notification, bail out
         guard let _ = imageURL else {
             return nil
         }

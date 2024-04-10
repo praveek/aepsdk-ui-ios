@@ -58,7 +58,7 @@ extension UIColor {
     }
 
     // Default background color for all templates
-    // This color is used when background color is not available in the payload
+    // This color is used when background color is not present in the notification payload
     // It supports dark mode
     static var defaultBackground: UIColor {
         if #available(iOS 13.0, *) {
@@ -69,7 +69,7 @@ extension UIColor {
     }
 
     // Default title color for all templates
-    // This color is used when title color is not available in the payload
+    // This color is used when title color is not present in the notification payload
     // It supports dark mode
     static var defaultTitle: UIColor {
         if #available(iOS 13.0, *) {
@@ -80,7 +80,7 @@ extension UIColor {
     }
 
     // Default body color for all templates
-    // This color is used when body color is not available in the payload
+    // This color is used when body color is not present in the notification payload
     // It supports dark mode
     static var defaultBody: UIColor {
         if #available(iOS 13.0, *) {
