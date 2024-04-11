@@ -45,7 +45,7 @@ class CarouselItem {
         /// Carousel Item title is same as the notification title
         /// Set the Carousel Item body text if available, otherwise set it to an empty string
         let titleTxt = notificationContent.expandedTitle ?? notificationContent.title
-        let bodyTxt = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.TEXT] as? String ?? ""
+        let bodyTxt = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.TEXT] as? String ?? notificationContent.body
         self.titleBodyPayload = TitleBodyPayload(title: titleTxt, body: bodyTxt)
 
         /// Set the click URL if available and valid, nil otherwise

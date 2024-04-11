@@ -20,12 +20,12 @@ class TitleBodyPayload {
     /// The title for UITitleBody View
     let title: String
 
-    /// The body for UITitleBody View
-    let body: String
+    /// The body for UITitleBody View (optional)
+    let body: String?
 
     // MARK: - Initialization
 
-    init(title: String, body: String) {
+    init(title: String, body: String?) {
         self.title = title
         self.body = body
     }

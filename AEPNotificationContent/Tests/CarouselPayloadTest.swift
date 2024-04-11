@@ -58,7 +58,7 @@ final class CarouselPayloadTest: XCTestCase {
         XCTAssertEqual(payload?.carouselItems[1].imageURL, URL(string: "https://example.com/image2.png"))
         XCTAssertEqual(payload?.carouselItems[1].clickURL, URL(string: "https://example.com/click2"))
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.title, "Expanded Title")
-        XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.body, "")
+        XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.body, "Notification Body")
         
         // verify Carousel Mode and Layout
         XCTAssertEqual(payload?.carouselMode, CarouselMode.manual)

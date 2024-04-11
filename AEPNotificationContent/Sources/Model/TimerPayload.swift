@@ -17,8 +17,15 @@ import UserNotifications
 class TimerPayload: Payload {
     // MARK: - Properties
 
+    /// The title for timer expired view
+    var alternateTitle: String
+
+    /// The body for timer expired view
+    /// This value is optional
+    var alternateBody: String?
+
     /// The image URL for the timer expired view
-    var alternateImageURL: URL
+    var alternateImageURL: URL?
 
     /// The color of the timer text
     var timerColor: UIColor
@@ -26,17 +33,21 @@ class TimerPayload: Payload {
     /// The duration of the timer
     var expiryTime: TimeInterval
 
-    /// titleBody of non-expired timer template view
+    /// title and body of non-expired timer template view
+    /// non-expired view title uses value from key  `adb_title_ex`, if unavailable defaults to value from `aps.alert.title`
+    /// non-expired view body uses value from key `adb_body_ex`, if unavailable defaults to value from `aps.alert.body`
     lazy var titleBodyPayload: TitleBodyPayload = {
         let title = notificationContent.expandedTitle ?? notificationContent.title
-        let body = expandedBody ?? ""
+        let body = expandedBody ?? notificationContent.body
         return TitleBodyPayload(title: title, body: body)
     }()
 
-    /// titleBody for expired timer template view
+    /// title and body for expired timer template view
+    /// expired view title uses value from key `adb_title_alt`
+    /// expired view body uses value from key `adb_body_alt`, if unavailable no body is shown
     lazy var altTitleBodyPayload: TitleBodyPayload = {
-        let title = notificationContent.alternateTitle ?? notificationContent.title
-        let body = notificationContent.alternateBody ?? ""
+        let title = alternateTitle
+        let body = notificationContent.alternateBody
         return TitleBodyPayload(title: title, body: body)
     }()
 
@@ -44,26 +55,21 @@ class TimerPayload: Payload {
     /// Initialization fails if the mandatory properties required for TimerTemplate are unavailable
     /// - Parameter notification: The content of the notification.
     required init?(from notificationContent: UNNotificationContent, notificationDate: Date) {
-        // Extract the alternate image data and fast fail if alternateImage URL is not available
-        guard let alternateImageURL = notificationContent.alternateImageURL else {
+        // Extract the mandatory expired view title
+        guard let alternateTitle = notificationContent.alternateTitle else {
             return nil
         }
-        self.alternateImageURL = alternateImageURL
-
         // Extract the timer data from the notification
         guard let expiryTime = Self.extractExpiryTime(notificationContent, notificationDate) else {
             return nil
         }
-        self.expiryTime = expiryTime
 
-        // Extract the color of the timer text color from the notification
+        self.alternateTitle = alternateTitle
+        self.alternateBody = notificationContent.alternateBody
+        self.alternateImageURL = notificationContent.alternateImageURL
         self.timerColor = notificationContent.timerColor
-
+        self.expiryTime = expiryTime
         super.init(notificationContent: notificationContent)
-        // If the imageUrl is not available in the notification, bail out
-        guard let _ = imageURL else {
-            return nil
-        }
     }
 
     /// Extracts the timer information from the notification content

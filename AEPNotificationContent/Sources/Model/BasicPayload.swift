@@ -26,7 +26,7 @@ class BasicPayload: Payload {
     /// The title and body for BasicTemplate
     var titleBodyPayload: TitleBodyPayload {
         let titleText = expandedTitle ?? notificationContent.title
-        let bodyText = expandedBody ?? ""
+        let bodyText = expandedBody ?? notificationContent.body
         let titleBodyPayload = TitleBodyPayload(title: titleText,
                                                 body: bodyText)
         return titleBodyPayload
