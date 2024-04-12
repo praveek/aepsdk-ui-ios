@@ -45,12 +45,12 @@ class UITitleBody: UIView {
         return label
     }()
 
-    private var descriptionHeightConstraint: NSLayoutConstraint!
+    private var bodyHeightConstraint: NSLayoutConstraint!
 
     // MARK: - Computed Properties
 
     var viewHeight: CGFloat {
-        TITLE_HEIGHT + descriptionHeightConstraint.constant + PADDING_BETWEEN_VIEWS
+        TITLE_HEIGHT + bodyHeightConstraint.constant + PADDING_BETWEEN_VIEWS
     }
 
     // MARK: - Initialization
@@ -98,9 +98,9 @@ class UITitleBody: UIView {
         ])
 
         /// Set the dynamic height constraint for the description label
-        descriptionHeightConstraint = descriptionLabel.heightAnchor.constraint(equalToConstant: 0)
-        descriptionHeightConstraint.priority = .defaultHigh
-        descriptionHeightConstraint.isActive = true
+        bodyHeightConstraint = descriptionLabel.heightAnchor.constraint(equalToConstant: 0)
+        bodyHeightConstraint.priority = .defaultHigh
+        bodyHeightConstraint.isActive = true
     }
 
     // MARK: - Configuration
@@ -110,7 +110,7 @@ class UITitleBody: UIView {
         titleLabel.textColor = DefaultColor.TITLE
         descriptionLabel.text = payload.body
         descriptionLabel.textColor = DefaultColor.DESCRIPTION
-        updateDescriptionHeight(with: payload.body, viewWidth: viewWidth)
+        updateBodyHeight(with: payload.body, viewWidth: viewWidth)
     }
 
     func changeColor(from payload: Payload) {
@@ -118,8 +118,17 @@ class UITitleBody: UIView {
         descriptionLabel.textColor = payload.descriptionColor
     }
 
-    private func updateDescriptionHeight(with text: String, viewWidth: CGFloat) {
-        let height = text.height(withConstrainedWidth: viewWidth, font: descriptionLabel.font)
-        descriptionHeightConstraint.constant = height
+    private func updateBodyHeight(with text: String?, viewWidth: CGFloat) {
+        // If no valid text is provided, set the height to zero
+        guard let text = text, !text.isEmpty else {
+            bodyHeightConstraint.constant = 0.0
+            return
+        }
+
+        // Calculate the height required to fit the text within the given width
+        let requiredHeight = text.height(withConstrainedWidth: viewWidth, font: descriptionLabel.font)
+
+        // Update the body height constraint with the calculated height
+        bodyHeightConstraint.constant = requiredHeight
     }
 }

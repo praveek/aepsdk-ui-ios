@@ -17,7 +17,7 @@ import XCTest
 
 final class BasicPayloadTests: XCTestCase {
     
-    func testInitialization_when_validBasicPayload() {
+    func testInit_when_validBasicPayload() {
         // Create a mock UNNotificationContent with all necessary fields
         let content = UNMutableNotificationContent()
         content.title = "Notification Title"
@@ -42,13 +42,31 @@ final class BasicPayloadTests: XCTestCase {
         XCTAssertEqual(payload?.titleBodyPayload.title, "Notification Title")
         XCTAssertEqual(payload?.titleBodyPayload.body, "Expanded Body")
     }
-    
-    func testInitialization_when_ExpandedBodyTextUnAvailable() {
-        // Create a mock UNNotificationContent with all necessary fields
+
+    func testInit_when_expandedTitle_unavailable() {
+        // Create a mock UNNotificationContent
         let content = UNMutableNotificationContent()
         content.title = "Notification Title"
         content.body = "Notification Body"
         content.userInfo = [
+            "adb_media": "https://example.com/image.png",
+            "adb_uri": "https://example.com/click",
+            "adb_body_ex": "Expanded Body"
+        ]
+        
+        // Initialize Payload
+        let payload = BasicPayload(from: content)
+        
+        // verify title and body picked from the notification
+        XCTAssertEqual(payload?.titleBodyPayload.title, "Notification Title")
+    }
+    
+    func testInit_when_expandedBody_unavailable() {
+        // Create a mock UNNotificationContent with all necessary fields
+        let content = UNMutableNotificationContent()
+        content.body = "Notification body"
+        content.userInfo = [
+            "adb_title_ex": "Expanded Title",
             "adb_media": "https://example.com/image.png",
             "adb_uri": "https://example.com/click",
         ]
@@ -57,11 +75,11 @@ final class BasicPayloadTests: XCTestCase {
         let payload = BasicPayload(from: content)
         
         // verify title and body picked from the notification
-        XCTAssertEqual(payload?.titleBodyPayload.title, "Notification Title")
-        XCTAssertEqual(payload?.titleBodyPayload.body, "Notification Body")
+        XCTAssertEqual(payload?.titleBodyPayload.title, "Expanded Title")
+        XCTAssertEqual(payload?.titleBodyPayload.body, "Notification body")
     }
     
-    func testInitialization_when_ImageURL_notAvailable() {
+    func testInit_when_imageURL_notAvailable() {
         // Create a mock UNNotificationContent with all necessary fields
         let content = UNMutableNotificationContent()
         content.title = "Notification Title"

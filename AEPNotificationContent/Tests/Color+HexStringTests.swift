@@ -82,7 +82,7 @@ final class ColorHexStringTests: XCTestCase {
         XCTAssertEqual(alpha, 1.0, accuracy: 0.01, "Alpha component does not match")
     }
     
-    func testColorFromValidHexWithAlpha() {
+    func testColorCreation_fromValidHexWithAlpha() {
         // 8-digit hex string (with alpha)
         let color = UIColor(hexString: "#23FB8AD9")
         var red, green, blue, alpha: CGFloat
