@@ -66,11 +66,12 @@ class BasicTemplateController: TemplateController {
     // MARK: - ViewController lifecycle method
 
     override func viewDidLoad() {
-        // Show loading indicator until the image is downloaded
+        // show loading indicator until the image is downloaded
         showLoadingIndicator()
         let imageURLString = payload.basicImageURL.absoluteString
         ImageDownloader().downloadImages(urls: [imageURLString], completion: { [weak self] downloadedImages in
             guard let self = self else { return }
+            // remove loading indicator
             removeLoadingIndicator()
             let result = downloadedImages[imageURLString]
             switch result {
@@ -91,6 +92,8 @@ class BasicTemplateController: TemplateController {
     /// Configure and setup the view with the downloaded image
     /// - Parameter downloadedImage: UIImage object
     private func setupView(withImage downloadedImage: UIImage?) {
+
+        // Add imageView to template UI only if image is downloaded
         if let image = downloadedImage {
             imageView.image = image
             view.addSubview(imageView)
@@ -111,6 +114,7 @@ class BasicTemplateController: TemplateController {
         titleBodyView.translatesAutoresizingMaskIntoConstraints = false
         titleBodyHeight = titleBodyView.viewHeight
         view.addSubview(titleBodyView)
+        
         // Update constraints for titleBodyView based on whether or not the imageView exists
         let titleBodyViewTopAnchor = downloadedImage != nil ? imageView.bottomAnchor : view.safeAreaLayoutGuide.topAnchor
         NSLayoutConstraint.activate([

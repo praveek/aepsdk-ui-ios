@@ -104,18 +104,20 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             return
         }
 
+        // show loading indicator until the images are downloaded
         showLoadingIndicator()
         let imageURLs = payload.carouselItems.map { $0.imageURL }
         ImageDownloader().downloadImages(urls: imageURLs, completion: { [weak self] downloadedImages in
             guard let self = self else { return }
+            // remove loading indicator
             removeLoadingIndicator()
+
             // Keep only the carouselItems that has the image downloaded successfully
             self.payload.carouselItems = self.payload.carouselItems.compactMap { carouselItem in
-                guard let result = downloadedImages[carouselItem.imageURL] else {
-                    // If no result is found for the imageURL, do not include this carousel item.
+                // If no result is found for the imageURL, do not include this carousel item.
+                guard let result = downloadedImages[carouselItem.imageURL] else {                    
                     return nil
                 }
-
                 switch result {
                 case let .success(image):
                     // If the download was successful, assign the image to the carousel item.
@@ -126,7 +128,13 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
                     return nil
                 }
             }
-
+            
+            // If no carousel items are left after filtering, show fallback template
+            if (self.payload.carouselItems.count == 0) {
+                delegate.templateFailedToLoad()
+                return
+            }
+            
             setupView()
         })
     }
@@ -135,8 +143,11 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
 
     func setupView() {
         setupScrollView()
-        setupPageControl()
-        setupArrowButtons()
+        // setup page control and arrow buttons only if there are more than one carousel items
+        if (payload.carouselItems.count > 1) {
+            setupPageControl()
+            setupArrowButtons()
+        }
         setupTitleAndDescription()
         view.backgroundColor = payload.backgroundColor
         updatePreferredContentSize()
