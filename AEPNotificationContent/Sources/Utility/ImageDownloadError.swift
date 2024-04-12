@@ -26,10 +26,6 @@ enum ImageDownloadError: Error {
     /// Error indicating that the downloaded data could not be converted into an image.
     case invalidImageData(url: String)
 
-    /// Error representing multiple image downloading errors.
-    /// In batch download scenarios this error aggregates all individual errors into a single error case.
-    case multipleErrors(errors: [ImageDownloadError])
-
     var description: String {
         switch self {
         case .noURL:
@@ -40,9 +36,6 @@ enum ImageDownloadError: Error {
             return "Network error at \(url): \(error.localizedDescription)"
         case let .invalidImageData(url):
             return "Failed to convert downloaded data to image at \(url)"
-        case let .multipleErrors(errors):
-            let errorDescriptions = errors.map { $0.description }
-            return "Image Downloader error: \n" + errorDescriptions.joined(separator: " \n")
         }
     }
 }
