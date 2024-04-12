@@ -18,9 +18,9 @@ class CarouselItem {
     // MARK: - Properties
 
     /// The URL to the item's image.
-    let imageURL: URL
+    let imageURL: String
     /// The URL to open when the item is clicked (optional).
-    var clickURL: URL?
+    var clickURL: String?
     /// The image data (will be attached after download).
     var image: UIImage?
     /// The title and body text associated with the item.
@@ -34,12 +34,12 @@ class CarouselItem {
     ///   - notificationContent: The UNNotificationContent object.
     /// - Returns: A `CarouselItem` instance if the dictionary contains valid data, `nil` otherwise.
     init?(dictionary: [String: Any], notificationContent: UNNotificationContent) {
-        /// Fail initialization if we are unable to obtain a valid imageURL from the given dictionary
-        guard let imageString = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.IMAGE] as? String,
-              let imageURL = URL(string: imageString) else {
+        // If not imageURL is provided, do not create the carousel Item object
+        guard let imageURL = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.IMAGE] as? String, !imageURL.isEmpty else {
             return nil
         }
         self.imageURL = imageURL
+        self.clickURL = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.URI] as? String
 
         /// Set carousel items title and body text
         /// Carousel Item title is same as the notification title
@@ -47,10 +47,5 @@ class CarouselItem {
         let titleTxt = notificationContent.expandedTitle ?? notificationContent.title
         let bodyTxt = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.TEXT] as? String ?? notificationContent.body
         self.titleBodyPayload = TitleBodyPayload(title: titleTxt, body: bodyTxt)
-
-        /// Set the click URL if available and valid, nil otherwise
-        if let clickURLString = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.URI] as? String {
-            self.clickURL = URL(string: clickURLString)
-        }
     }
 }
