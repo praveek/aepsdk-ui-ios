@@ -105,18 +105,29 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         }
 
         showLoadingIndicator()
-        let imageURLs = payload.carouselItems.map { $0.imageURL.absoluteString }
-        ImageDownloader().downloadImages(urls: imageURLs, completion: { [self] result in
-            switch result {
-            case let .success(downloads):
-                removeLoadingIndicator()
-                // add images to the carousel items
-                payload.carouselItems.forEach { $0.image = downloads[$0.imageURL.absoluteString] }
-                setupView()
-            case let .failure(error):
-                print(error)
-                delegate.templateFailedToLoad()
+        let imageURLs = payload.carouselItems.map { $0.imageURL }
+        ImageDownloader().downloadImages(urls: imageURLs, completion: { [weak self] downloadedImages in
+            guard let self = self else { return }
+            removeLoadingIndicator()
+            // Keep only the carouselItems that has the image downloaded successfully
+            self.payload.carouselItems = self.payload.carouselItems.compactMap { carouselItem in
+                guard let result = downloadedImages[carouselItem.imageURL] else {
+                    // If no result is found for the imageURL, do not include this carousel item.
+                    return nil
+                }
+
+                switch result {
+                case let .success(image):
+                    // If the download was successful, assign the image to the carousel item.
+                    carouselItem.image = image
+                    return carouselItem
+                case .failure:
+                    // If there was a failure in downloading the image, do not include this carousel item.
+                    return nil
+                }
             }
+
+            setupView()
         })
     }
 
