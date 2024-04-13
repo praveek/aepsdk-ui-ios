@@ -17,58 +17,45 @@ class ImageDownloader {
     /// Downloads images from the provided URLs.
     /// - Parameters:
     ///   - urls: Array of string URLs for the images to be downloaded.
-    ///   - completion: A  completion block with `Result` value called with a dictionary of downloaded images or an ImageDownloadError.
-    func downloadImages(urls: [String], completion: @escaping (Result<[String: UIImage], ImageDownloadError>) -> Void) {
+    ///   - completion: A  completion block with dictionary containing the result of each downloaded image
+    func downloadImages(urls: [String], completion: @escaping ([String: Result<UIImage, ImageDownloadError>]) -> Void) {
         // Quick bail out if no URLs are provided
         if urls.isEmpty {
-            completion(.failure(.noURL))
-        }
-
-        // Validate URLs before downloading
-        var cleanURLs: [URL] = []
-        let result = validateURLs(urls: urls)
-        switch result {
-        case let .success(urls):
-            cleanURLs = urls
-        case let .failure(error):
-            completion(.failure(error))
+            completion([:])
         }
 
         // Create a dispatch group to track the download progress
         let downloadGroup = DispatchGroup()
-        var downloadedImages: [String: UIImage] = [:]
+        var downloadedImages: [String: Result<UIImage, ImageDownloadError>] = [:]
         var errors = [ImageDownloadError]()
 
         // Download images concurrently
-        for url in cleanURLs {
+        for urlString in urls {
             downloadGroup.enter()
-            downloadImage(url: url) { result in
-                switch result {
-                case let .success(image):
-                    downloadedImages[url.absoluteString] = image
-                case let .failure(error):
-                    errors.append(error)
-                }
+            downloadImage(urlString) { result in
+                downloadedImages[urlString] = result
                 downloadGroup.leave()
             }
         }
 
         // Notify the main queue when all downloads are complete
         downloadGroup.notify(queue: .main) {
-            if errors.isEmpty {
-                completion(.success(downloadedImages))
-            } else {
-                completion(.failure(.multipleErrors(errors: errors)))
-            }
+            completion(downloadedImages)
         }
     }
 
     /// Downloads a single image from the given URL.
     ///
     /// - Parameters:
-    ///   - url: `URL` of the image to download.
+    ///   - urlString: The URL string for the image to be downloaded.
     ///   - completion: A `Result` value called with the downloaded image or an ImageDownloadError.
-    private func downloadImage(url: URL, completion: @escaping (Result<UIImage, ImageDownloadError>) -> Void) {
+    private func downloadImage(_ urlString: String, completion: @escaping (Result<UIImage, ImageDownloadError>) -> Void) {
+        // validate the url before downloading
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.invalidURL(url: urlString)))
+            return
+        }
+
         URLSession.shared.dataTask(with: url) { data, _, error in
             // check for network error
             if let error = error {
@@ -85,32 +72,5 @@ class ImageDownloader {
             // on successful download call the completion with success
             completion(.success(image))
         }.resume()
-    }
-
-    /// Validates a list of URL strings.
-    ///
-    /// This method takes an array of strings, each expected to represent a URL, and attempts to convert them into `URL` objects.
-    /// It checks each string and validates whether it can be transformed into a valid URL
-    ///
-    /// - Parameter urls: An array of strings, where each string is intended to be a URL.
-    /// - Returns: A `Result` type. On success, it contains an array of `URL` objects corresponding to the valid URL strings. On failure, it contains an `ImageDownloaderError`.
-    private func validateURLs(urls: [String]) -> Result<[URL], ImageDownloadError> {
-        var validatedUrls: [URL] = []
-        var errors: [ImageDownloadError] = []
-
-        // Validate URLs
-        for urlString in urls {
-            guard let url = URL(string: urlString) else {
-                errors.append(.invalidURL(url: urlString))
-                continue
-            }
-            validatedUrls.append(url)
-        }
-
-        if !errors.isEmpty {
-            return .failure(.multipleErrors(errors: errors))
-        }
-
-        return .success(validatedUrls)
     }
 }

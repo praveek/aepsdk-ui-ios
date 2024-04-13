@@ -104,19 +104,38 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             return
         }
 
+        // show loading indicator until the images are downloaded
         showLoadingIndicator()
-        let imageURLs = payload.carouselItems.map { $0.imageURL.absoluteString }
-        ImageDownloader().downloadImages(urls: imageURLs, completion: { [self] result in
-            switch result {
-            case let .success(downloads):
-                removeLoadingIndicator()
-                // add images to the carousel items
-                payload.carouselItems.forEach { $0.image = downloads[$0.imageURL.absoluteString] }
-                setupView()
-            case let .failure(error):
-                print(error)
-                delegate.templateFailedToLoad()
+        let imageURLs = payload.carouselItems.map { $0.imageURL }
+        ImageDownloader().downloadImages(urls: imageURLs, completion: { [weak self] downloadedImages in
+            guard let self = self else { return }
+            // remove loading indicator
+            removeLoadingIndicator()
+
+            // Keep only the carouselItems that has the image downloaded successfully
+            self.payload.carouselItems = self.payload.carouselItems.compactMap { carouselItem in
+                // If no result is found for the imageURL, do not include this carousel item.
+                guard let result = downloadedImages[carouselItem.imageURL] else {
+                    return nil
+                }
+                switch result {
+                case let .success(image):
+                    // If the download was successful, assign the image to the carousel item.
+                    carouselItem.image = image
+                    return carouselItem
+                case .failure:
+                    // If there was a failure in downloading the image, do not include this carousel item.
+                    return nil
+                }
             }
+
+            // If no carousel items are left after filtering, show fallback template
+            if self.payload.carouselItems.count == 0 {
+                delegate.templateFailedToLoad()
+                return
+            }
+
+            setupView()
         })
     }
 
@@ -124,8 +143,11 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
 
     func setupView() {
         setupScrollView()
-        setupPageControl()
-        setupArrowButtons()
+        // setup page control and arrow buttons only if there are more than one carousel items
+        if payload.carouselItems.count > 1 {
+            setupPageControl()
+            setupArrowButtons()
+        }
         setupTitleAndDescription()
         view.backgroundColor = payload.backgroundColor
         updatePreferredContentSize()

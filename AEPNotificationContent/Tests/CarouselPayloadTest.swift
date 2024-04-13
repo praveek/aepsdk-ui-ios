@@ -51,12 +51,12 @@ final class CarouselPayloadTest: XCTestCase {
         // Verify
         XCTAssertNotNil(payload)
         XCTAssertEqual(payload?.carouselItems.count, 2)
-        XCTAssertEqual(payload?.carouselItems[0].imageURL, URL(string: "https://example.com/image1.png"))
-        XCTAssertEqual(payload?.carouselItems[0].clickURL, URL(string: "https://example.com/click1"))
+        XCTAssertEqual(payload?.carouselItems[0].imageURL, "https://example.com/image1.png")
+        XCTAssertEqual(payload?.carouselItems[0].clickURL, "https://example.com/click1")
         XCTAssertEqual(payload?.carouselItems[0].titleBodyPayload.title, "Expanded Title")
         XCTAssertEqual(payload?.carouselItems[0].titleBodyPayload.body, "This is a carousel item 1")
-        XCTAssertEqual(payload?.carouselItems[1].imageURL, URL(string: "https://example.com/image2.png"))
-        XCTAssertEqual(payload?.carouselItems[1].clickURL, URL(string: "https://example.com/click2"))
+        XCTAssertEqual(payload?.carouselItems[1].imageURL, "https://example.com/image2.png")
+        XCTAssertEqual(payload?.carouselItems[1].clickURL, "https://example.com/click2")
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.title, "Expanded Title")
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.body, "Notification Body")
         

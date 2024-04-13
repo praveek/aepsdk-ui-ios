@@ -32,8 +32,8 @@ final class CarouselItemTests: XCTestCase {
         
         // verify
         XCTAssertNotNil(carouselItem)
-        XCTAssertEqual(carouselItem?.imageURL, URL(string: "https://www.adobe.com/image.png"))
-        XCTAssertEqual(carouselItem?.clickURL, URL(string: "https://www.adobe.com"))
+        XCTAssertEqual(carouselItem?.imageURL, "https://www.adobe.com/image.png")
+        XCTAssertEqual(carouselItem?.clickURL, "https://www.adobe.com")
         XCTAssertEqual(carouselItem?.titleBodyPayload.title, "Expanded Title")
         XCTAssertEqual(carouselItem?.titleBodyPayload.body, "This is a carousel item")
     }
@@ -90,7 +90,7 @@ final class CarouselItemTests: XCTestCase {
         XCTAssertEqual(carouselItem?.titleBodyPayload.body, "")
     }
 
-    func testInit_with_invalidClickURL() {
+    func testInit_with_noClickURL() {
         // setup
         let dictionary: [String: Any] = [
             "img": "https://www.adobe.com/image.png",
@@ -105,7 +105,6 @@ final class CarouselItemTests: XCTestCase {
         
         // verify the carousel item is created
         XCTAssertNotNil(carouselItem)
-        XCTAssertEqual(carouselItem?.clickURL, nil)
     }
 
     func testInit_with_noExpandedTitle() {

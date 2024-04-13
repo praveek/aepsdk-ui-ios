@@ -66,20 +66,23 @@ class BasicTemplateController: TemplateController {
     // MARK: - ViewController lifecycle method
 
     override func viewDidLoad() {
-        // Show loading indicator until the image is downloaded
+        // show loading indicator until the image is downloaded
         showLoadingIndicator()
         let imageURLString = payload.basicImageURL.absoluteString
-        ImageDownloader().downloadImages(urls: [imageURLString], completion: { result in
-            self.removeLoadingIndicator()
+        ImageDownloader().downloadImages(urls: [imageURLString], completion: { [weak self] downloadedImages in
+            guard let self = self else { return }
+            // remove loading indicator
+            removeLoadingIndicator()
+            let result = downloadedImages[imageURLString]
             switch result {
-            case let .success(images):
-                if let image = images[imageURLString] {
-                    self.setupView(withImage: image)
-                }
+            case let .success(image):
+                setupView(withImage: image)
             case let .failure(error):
-                print(error)
-                self.removeFromParent()
-                self.delegate.templateFailedToLoad()
+                print("BasicTemplateController : Image failed to download. Reason: \(error.description)")
+                setupView(withImage: nil)
+            case .none:
+                print("BasicTemplateController : Image not found in downloaded results. Unexpected error.")
+                setupView(withImage: nil)
             }
         })
     }
@@ -88,27 +91,33 @@ class BasicTemplateController: TemplateController {
 
     /// Configure and setup the view with the downloaded image
     /// - Parameter downloadedImage: UIImage object
-    private func setupView(withImage downloadedImage: UIImage) {
-        imageView.image = downloadedImage
-        view.addSubview(imageView)
+    private func setupView(withImage downloadedImage: UIImage?) {
+        // Add imageView to template UI only if image is downloaded
+        if let image = downloadedImage {
+            imageView.image = image
+            view.addSubview(imageView)
 
-        /// keeping height of the image view as half of the notification width.
-        /// This is to maintain the recommended aspect ratio of 2:1
-        imageViewHeight = (view.frame.width / 2)
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 2),
-        ])
+            /// keeping height of the image view as half of the notification width.
+            /// This is to maintain the recommended aspect ratio of 2:1
+            imageViewHeight = (view.frame.width / 2)
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 2),
+            ])
+        }
 
         titleBodyView.setupWith(payload: payload.titleBodyPayload, viewWidth: view.frame.width - (2 * SIDE_MARGIN))
         titleBodyView.changeColor(from: payload)
         titleBodyView.translatesAutoresizingMaskIntoConstraints = false
         titleBodyHeight = titleBodyView.viewHeight
         view.addSubview(titleBodyView)
+
+        // Update constraints for titleBodyView based on whether or not the imageView exists
+        let titleBodyViewTopAnchor = downloadedImage != nil ? imageView.bottomAnchor : view.safeAreaLayoutGuide.topAnchor
         NSLayoutConstraint.activate([
-            titleBodyView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: TOP_MARGIN),
+            titleBodyView.topAnchor.constraint(equalTo: titleBodyViewTopAnchor, constant: TOP_MARGIN),
             titleBodyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SIDE_MARGIN),
             titleBodyView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SIDE_MARGIN),
             titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyHeight),
