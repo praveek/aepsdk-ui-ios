@@ -92,7 +92,6 @@ class BasicTemplateController: TemplateController {
     /// Configure and setup the view with the downloaded image
     /// - Parameter downloadedImage: UIImage object
     private func setupView(withImage downloadedImage: UIImage?) {
-
         // Add imageView to template UI only if image is downloaded
         if let image = downloadedImage {
             imageView.image = image
@@ -114,7 +113,7 @@ class BasicTemplateController: TemplateController {
         titleBodyView.translatesAutoresizingMaskIntoConstraints = false
         titleBodyHeight = titleBodyView.viewHeight
         view.addSubview(titleBodyView)
-        
+
         // Update constraints for titleBodyView based on whether or not the imageView exists
         let titleBodyViewTopAnchor = downloadedImage != nil ? imageView.bottomAnchor : view.safeAreaLayoutGuide.topAnchor
         NSLayoutConstraint.activate([

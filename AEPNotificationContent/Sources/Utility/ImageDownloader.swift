@@ -47,7 +47,7 @@ class ImageDownloader {
     /// Downloads a single image from the given URL.
     ///
     /// - Parameters:
-    ///   - urlString: `URL` of the image to download.
+    ///   - urlString: The URL string for the image to be downloaded.
     ///   - completion: A `Result` value called with the downloaded image or an ImageDownloadError.
     private func downloadImage(_ urlString: String, completion: @escaping (Result<UIImage, ImageDownloadError>) -> Void) {
         // validate the url before downloading

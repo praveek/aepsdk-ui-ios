@@ -115,7 +115,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             // Keep only the carouselItems that has the image downloaded successfully
             self.payload.carouselItems = self.payload.carouselItems.compactMap { carouselItem in
                 // If no result is found for the imageURL, do not include this carousel item.
-                guard let result = downloadedImages[carouselItem.imageURL] else {                    
+                guard let result = downloadedImages[carouselItem.imageURL] else {
                     return nil
                 }
                 switch result {
@@ -128,13 +128,13 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
                     return nil
                 }
             }
-            
+
             // If no carousel items are left after filtering, show fallback template
-            if (self.payload.carouselItems.count == 0) {
+            if self.payload.carouselItems.count == 0 {
                 delegate.templateFailedToLoad()
                 return
             }
-            
+
             setupView()
         })
     }
@@ -144,7 +144,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
     func setupView() {
         setupScrollView()
         // setup page control and arrow buttons only if there are more than one carousel items
-        if (payload.carouselItems.count > 1) {
+        if payload.carouselItems.count > 1 {
             setupPageControl()
             setupArrowButtons()
         }

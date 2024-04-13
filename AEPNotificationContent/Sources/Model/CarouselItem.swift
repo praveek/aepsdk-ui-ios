@@ -17,9 +17,9 @@ import UIKit
 class CarouselItem {
     // MARK: - Properties
 
-    /// The URL to the item's image.
+    /// The URL string for the carousel item image.
     let imageURL: String
-    /// The URL to open when the item is clicked (optional).
+    /// The URL string for the carousel item click action.
     var clickURL: String?
     /// The image data (will be attached after download).
     var image: UIImage?
@@ -34,7 +34,7 @@ class CarouselItem {
     ///   - notificationContent: The UNNotificationContent object.
     /// - Returns: A `CarouselItem` instance if the dictionary contains valid data, `nil` otherwise.
     init?(dictionary: [String: Any], notificationContent: UNNotificationContent) {
-        // If not imageURL is provided, do not create the carousel Item object
+        // If no imageURL is provided, do not create the carousel Item object
         guard let imageURL = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.IMAGE] as? String, !imageURL.isEmpty else {
             return nil
         }
