@@ -39,6 +39,8 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
             controller = BasicTemplateController(withPayload: basicPayload, delegate: self)
         } else if let carouselPayload = payload as? CarouselPayload {
             controller = CarouselTemplateController(withPayload: carouselPayload, delegate: self)
+        } else if let timerPayload = payload as? TimerPayload {
+            controller = TimerTemplateController(withPayload: timerPayload, delegate: self)
         } else {
             controller = FallbackTemplateController(notificationContent: notificationContent)
         }
