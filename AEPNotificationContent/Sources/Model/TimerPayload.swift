@@ -14,6 +14,8 @@ import Foundation
 import UIKit
 import UserNotifications
 
+typealias DisplayData = (imageURL: String?, titleBodyPayload: TitleBodyPayload, shouldShowTimer: Bool)
+
 class TimerPayload: Payload {
     // MARK: - Properties
 
@@ -25,13 +27,21 @@ class TimerPayload: Payload {
     var alternateBody: String?
 
     /// The image URL for the timer expired view
-    var alternateImageURL: URL?
+    var alternateImageURL: String?
 
     /// The color of the timer text
     var timerColor: UIColor
 
     /// The duration of the timer
     var expiryTime: TimeInterval
+
+    /// Computed variable
+    var activeDisplayData: DisplayData {
+        if isTimerExpired() {
+            return (alternateImageURL ?? imageURL, altTitleBodyPayload, false)
+        }
+        return (imageURL, titleBodyPayload, true)
+    }
 
     /// title and body of non-expired timer template view
     /// non-expired view title uses value from key  `adb_title_ex`, if unavailable defaults to value from `aps.alert.title`
@@ -81,5 +91,10 @@ class TimerPayload: Payload {
             return endTimestamp
         }
         return nil
+    }
+
+    private func isTimerExpired() -> Bool {
+        let now = Date().timeIntervalSince1970
+        return expiryTime - now <= 0
     }
 }
