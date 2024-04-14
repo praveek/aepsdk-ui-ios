@@ -18,11 +18,6 @@ import UserNotifications
 class BasicPayload: Payload {
     // MARK: - Public properties
 
-    /// The image URL for BasicTemplate
-    var basicImageURL: URL {
-        imageURL! // Force unwrap is safe here due to the initializer check
-    }
-
     /// The title and body for BasicTemplate
     var titleBodyPayload: TitleBodyPayload {
         let titleText = expandedTitle ?? notificationContent.title
@@ -39,10 +34,5 @@ class BasicPayload: Payload {
     /// - Parameter notificationContent: The content of the notification.
     required init?(from notificationContent: UNNotificationContent) {
         super.init(notificationContent: notificationContent)
-
-        // If the imageUrl is not available in the notification, bail out
-        guard let _ = imageURL else {
-            return nil
-        }
     }
 }
