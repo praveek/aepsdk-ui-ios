@@ -111,4 +111,27 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
     func getParentViewController() -> UIViewController {
         self
     }
+
+    /// Use this method to handle the clickURL from interactions with the push template
+    func handleNotificationClickURL(_ urlString: String?) {
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            extensionContext?.performNotificationDefaultAction()
+            removeNotificationFromCenter()
+            return
+        }
+
+        extensionContext?.open(url) { [weak self] isSuccess in
+            guard let self = self else { return }
+            if !isSuccess {
+                extensionContext?.performNotificationDefaultAction()
+            }
+            removeNotificationFromCenter()
+        }
+    }
+
+    private func removeNotificationFromCenter() {
+        if let notificationId = notification?.request.identifier {
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
+        }
+    }
 }

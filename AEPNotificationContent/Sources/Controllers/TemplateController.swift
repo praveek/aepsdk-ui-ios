@@ -35,6 +35,10 @@ class TemplateController: UIViewController {
         return loadingIndicator
     }()
 
+    var clickURL: String? {
+        nil
+    }
+
     let delegate: TemplateControllerDelegate
 
     // MARK: - Initializers
@@ -49,6 +53,11 @@ class TemplateController: UIViewController {
         fatalError("BaseTemplateController cannot be initialized from storyboard.")
     }
 
+    func initializeTapGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
+    }
+
     // MARK: - Loading Indicator methods
 
     func showLoadingIndicator() {
@@ -61,5 +70,9 @@ class TemplateController: UIViewController {
     func removeLoadingIndicator() {
         self.loadingIndicator.stopAnimating()
         self.loadingIndicator.removeFromSuperview()
+    }
+
+    @objc func tapped() {
+        delegate.handleNotificationClickURL(clickURL)
     }
 }

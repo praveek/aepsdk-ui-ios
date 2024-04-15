@@ -34,6 +34,11 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         view.frame.width / 2
     }
 
+    // computer property to determine the clickURL of the current view
+    override var clickURL: String? {
+        payload.carouselItems[currentPageIndex].clickURL
+    }
+
     // MARK: - UI Elements
 
     lazy var titleBodyView: UITitleBody = {
