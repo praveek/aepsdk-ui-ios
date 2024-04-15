@@ -30,6 +30,7 @@ class TemplateController: UIViewController {
         } else {
             loadingIndicator.style = .white
         }
+        loadingIndicator.color = .defaultTitle
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.center = self.view.center
         return loadingIndicator
@@ -38,6 +39,11 @@ class TemplateController: UIViewController {
     var clickURL: String? {
         nil
     }
+
+    lazy var tapGestureRecognizer: UITapGestureRecognizer = {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped))
+        return recognizer
+    }()
 
     let delegate: TemplateControllerDelegate
 
@@ -53,9 +59,10 @@ class TemplateController: UIViewController {
         fatalError("BaseTemplateController cannot be initialized from storyboard.")
     }
 
-    func initializeTapGesture() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped))
-        self.view.addGestureRecognizer(tapGestureRecognizer)
+    func activateTapGesture() {
+        if (view.gestureRecognizers?.contains(tapGestureRecognizer)) == nil {
+            view.addGestureRecognizer(tapGestureRecognizer)
+        }
     }
 
     // MARK: - Loading Indicator methods

@@ -76,6 +76,7 @@ class BasicTemplateController: TemplateController {
             guard let self = self else { return }
             removeLoadingIndicator()
             setupView(withImage: downloadImage)
+            activateTapGesture()
         })
     }
 

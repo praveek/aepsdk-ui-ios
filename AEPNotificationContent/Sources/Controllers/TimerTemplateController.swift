@@ -72,6 +72,7 @@ class TimerTemplateController: TemplateController {
             guard let self = self else { return }
             removeLoadingIndicator()
             setupView(downloadedImage, displayData)
+            activateTapGesture()
         })
     }
 

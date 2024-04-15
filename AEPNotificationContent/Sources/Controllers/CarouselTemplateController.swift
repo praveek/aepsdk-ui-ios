@@ -141,6 +141,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             }
 
             setupView()
+            activateTapGesture()
         })
     }
 
