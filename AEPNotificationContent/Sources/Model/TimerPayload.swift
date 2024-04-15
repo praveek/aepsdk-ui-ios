@@ -14,6 +14,7 @@ import Foundation
 import UIKit
 import UserNotifications
 
+/// Typealias containing the display data for the TimerTemplate
 typealias DisplayData = (imageURL: String?, titleBodyPayload: TitleBodyPayload, shouldShowTimer: Bool)
 
 class TimerPayload: Payload {
@@ -35,7 +36,9 @@ class TimerPayload: Payload {
     /// The duration of the timer
     var expiryTime: TimeInterval
 
-    /// Computed variable
+    /// Current display data for the timer template
+    /// If the timer is expired, the alternate view data is given
+    /// If the timer is not expired, the non-expired view data is given
     var activeDisplayData: DisplayData {
         if isTimerExpired() {
             return (alternateImageURL ?? imageURL, altTitleBodyPayload, false)

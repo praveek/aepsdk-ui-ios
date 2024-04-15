@@ -17,8 +17,7 @@ class TimerTemplateController: TemplateController {
     let TIMER_LABEL_WIDTH = 75.0
 
     private let payload: TimerPayload
-
-    var countdownTimer: Timer?
+    private var countdownTimer: Timer?
 
     private let timerLabel: UILabel = {
         let label = UILabel()
@@ -26,7 +25,7 @@ class TimerTemplateController: TemplateController {
         label.textColor = .defaultTitle
         label.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5 // Adjust as needed for minimum scale
+        label.minimumScaleFactor = 0.5
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -65,16 +64,15 @@ class TimerTemplateController: TemplateController {
     private func buildView() {
         showLoadingIndicator()
         let displayData = payload.activeDisplayData
-        ImageDownloader().downloadImage(url: displayData.imageURL,
-                                        completion: { [weak self] downloadedImage in
-                                            guard let self = self else { return }
-                                            removeLoadingIndicator()
-                                            setupView(downloadedImage, displayData)
-                                        })
+        ImageDownloader().downloadImage(url: displayData.imageURL, completion: { [weak self] downloadedImage in
+            guard let self = self else { return }
+            removeLoadingIndicator()
+            setupView(downloadedImage, displayData)
+        })
     }
 
     private func setupView(_ image: UIImage?, _ displayData: DisplayData) {
-        // Add imageView to template UI only if image is downloaded
+        // Add imageView to UI only if image is downloaded
         if let image = image {
             imageView.image = image
             view.addSubview(imageView)
