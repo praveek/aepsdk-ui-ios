@@ -14,7 +14,6 @@ import UIKit
 
 /// Utility class to download images asynchronously
 class ImageDownloader {
-   
     /// Download a single image from the provided URL.
     /// This method does not provide the error status. Use `downloadImages` for more control.
     ///
