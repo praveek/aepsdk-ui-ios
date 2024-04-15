@@ -161,5 +161,6 @@ class TimerTemplateController: TemplateController {
 
     private func updatePreferredContentSize() {
         preferredContentSize.height = titleBodyHeight + imageViewHeight + (2 * TOP_MARGIN)
+        parent?.preferredContentSize.height = titleBodyHeight + imageViewHeight + (2 * TOP_MARGIN)
     }
 }

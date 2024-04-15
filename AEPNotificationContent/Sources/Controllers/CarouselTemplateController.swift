@@ -255,6 +255,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
 
     private func updatePreferredContentSize() {
         preferredContentSize.height = titleBodyView.viewHeight + SCROLL_VIEW_HEIGHT + (2 * TOP_MARGIN)
+        parent?.preferredContentSize.height = titleBodyView.viewHeight + SCROLL_VIEW_HEIGHT + (2 * TOP_MARGIN)
     }
 
     private func setCarouselMode() {

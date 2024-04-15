@@ -118,5 +118,6 @@ class BasicTemplateController: TemplateController {
     /// Update the preferred content size of the view controller
     private func updatePreferredContentSize() {
         preferredContentSize.height = titleBodyHeight + imageViewHeight + (2 * TOP_MARGIN)
+        parent?.preferredContentSize.height = titleBodyHeight + imageViewHeight + (2 * TOP_MARGIN)
     }
 }
