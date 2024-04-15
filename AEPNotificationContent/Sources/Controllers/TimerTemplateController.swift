@@ -49,7 +49,7 @@ class TimerTemplateController: TemplateController {
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
-        fatalError("Carousel Template Controller cannot be initialized with Storyboard")
+        fatalError("Timer Template Controller cannot be initialized with Storyboard")
     }
 
     init(withPayload payload: TimerPayload, delegate: TemplateControllerDelegate) {
