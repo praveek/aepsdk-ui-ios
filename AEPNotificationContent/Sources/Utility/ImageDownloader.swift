@@ -14,6 +14,33 @@ import UIKit
 
 /// Utility class to download images asynchronously
 class ImageDownloader {
+    /// Download a single image from the provided URL.
+    /// This method does not provide the error status. Use `downloadImages` for more control.
+    ///
+    /// - Parameters:
+    ///   - url: The URL string for the image to be downloaded.
+    ///   - completion: A completion block with the downloaded image or nil if the download failed.
+    func downloadImage(url: String?, completion: @escaping (UIImage?) -> Void) {
+        guard let url = url else {
+            completion(nil)
+            return
+        }
+
+        downloadImages(urls: [url], completion: { downloadedImages in
+            let result = downloadedImages[url]
+            switch result {
+            case let .success(image):
+                completion(image)
+            case let .failure(error):
+                print("Image at url : \(url) failed to download. Reason: \(error.description)")
+                completion(nil)
+            case .none:
+                print("Unexpected error. Downloading image from url :\(url)")
+                completion(nil)
+            }
+        })
+    }
+
     /// Downloads images from the provided URLs.
     /// - Parameters:
     ///   - urls: Array of string URLs for the images to be downloaded.
@@ -27,12 +54,11 @@ class ImageDownloader {
         // Create a dispatch group to track the download progress
         let downloadGroup = DispatchGroup()
         var downloadedImages: [String: Result<UIImage, ImageDownloadError>] = [:]
-        var errors = [ImageDownloadError]()
 
         // Download images concurrently
         for urlString in urls {
             downloadGroup.enter()
-            downloadImage(urlString) { result in
+            loadImageFromURL(urlString) { result in
                 downloadedImages[urlString] = result
                 downloadGroup.leave()
             }
@@ -49,7 +75,7 @@ class ImageDownloader {
     /// - Parameters:
     ///   - urlString: The URL string for the image to be downloaded.
     ///   - completion: A `Result` value called with the downloaded image or an ImageDownloadError.
-    private func downloadImage(_ urlString: String, completion: @escaping (Result<UIImage, ImageDownloadError>) -> Void) {
+    private func loadImageFromURL(_ urlString: String, completion: @escaping (Result<UIImage, ImageDownloadError>) -> Void) {
         // validate the url before downloading
         guard let url = URL(string: urlString) else {
             completion(.failure(.invalidURL(url: urlString)))

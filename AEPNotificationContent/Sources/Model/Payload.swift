@@ -19,10 +19,10 @@ class Payload {
     // MARK: Public properties
 
     /// The image URL for the notification.
-    let imageURL: URL?
+    let imageURL: String?
 
     /// The click URL for the notification.
-    let clickURL: URL?
+    let clickURL: String?
 
     /// The content of the notification.
     let notificationContent: UNNotificationContent

@@ -38,8 +38,8 @@ final class TimerPayloadTests: XCTestCase {
         XCTAssertEqual(timerPayload?.titleBodyPayload.body, "body")
         XCTAssertEqual(timerPayload?.altTitleBodyPayload.title, "expired title")
         XCTAssertEqual(timerPayload?.altTitleBodyPayload.body, "expired body")
-        XCTAssertEqual(timerPayload?.imageURL, URL(string: "https://www.adobe.com/image0.jpg"))
-        XCTAssertEqual(timerPayload?.alternateImageURL, URL(string: "https://www.adobe.com/image1.jpg"))
+        XCTAssertEqual(timerPayload?.imageURL, "https://www.adobe.com/image0.jpg")
+        XCTAssertEqual(timerPayload?.alternateImageURL, "https://www.adobe.com/image1.jpg")
     }
 
     // MARK: - Image Keys tests

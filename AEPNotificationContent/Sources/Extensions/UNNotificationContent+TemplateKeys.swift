@@ -20,20 +20,20 @@ extension UNNotificationContent {
 
     // Retrieve the image URL from the notification
     // If a valid image URL is not available, nil is returned
-    var imageURL: URL? {
+    var imageURL: String? {
         guard let imageURLString = userInfo[AEPNotificationContentConstants.PayloadKey.IMAGE_URL] as? String else {
             return nil
         }
-        return URL(string: imageURLString)
+        return imageURLString
     }
 
     // Retrieve the click URL from the notification
     // If a valid click URL is not available, nil is returned
-    var clickURL: URL? {
+    var clickURL: String? {
         guard let clickURLString = userInfo[AEPNotificationContentConstants.PayloadKey.CLICK_URL] as? String else {
             return nil
         }
-        return URL(string: clickURLString)
+        return clickURLString
     }
 
     // Retrieve the expanded title from the notification
@@ -107,11 +107,11 @@ extension UNNotificationContent {
 
     // Returns the alternate image URL of timer template
     // If a valid alternate image URL is not available, nil is returned
-    var alternateImageURL: URL? {
+    var alternateImageURL: String? {
         guard let alternateImageURLString = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.ALTERNATE_IMAGE] as? String else {
             return nil
         }
-        return URL(string: alternateImageURLString)
+        return alternateImageURLString
     }
 
     // Return the timer color from the notification

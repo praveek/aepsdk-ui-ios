@@ -35,11 +35,14 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
 
         /// Create a controller based on the template type
         let controller: UIViewController
-        if let basicPayload = payload as? BasicPayload {
+        switch payload {
+        case let basicPayload as BasicPayload:
             controller = BasicTemplateController(withPayload: basicPayload, delegate: self)
-        } else if let carouselPayload = payload as? CarouselPayload {
+        case let carouselPayload as CarouselPayload:
             controller = CarouselTemplateController(withPayload: carouselPayload, delegate: self)
-        } else {
+        case let timerPayload as TimerPayload:
+            controller = TimerTemplateController(withPayload: timerPayload, delegate: self)
+        default:
             controller = FallbackTemplateController(notificationContent: notificationContent)
         }
 

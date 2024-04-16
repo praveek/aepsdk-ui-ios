@@ -35,8 +35,8 @@ final class BasicPayloadTests: XCTestCase {
         let payload = BasicPayload(from: content)
         
         // Assert that all properties are correctly set
-        XCTAssertEqual(payload?.basicImageURL.absoluteString, "https://example.com/image.png")
-        XCTAssertEqual(payload?.clickURL?.absoluteString, "https://example.com/click")
+        XCTAssertEqual(payload?.imageURL, "https://example.com/image.png")
+        XCTAssertEqual(payload?.clickURL, "https://example.com/click")
         
         // verify title and body
         XCTAssertEqual(payload?.titleBodyPayload.title, "Notification Title")
@@ -92,9 +92,8 @@ final class BasicPayloadTests: XCTestCase {
         // Initialize Payload
         let payload = BasicPayload(from: content)
         
-        // verify payload is not formed when image url is not available
-        XCTAssertNil(payload)
+        // verify payload is formed when image url is not available
+        // Basic payload can be displayed without image
+        XCTAssertNotNil(payload)
     }
 }
-
-

@@ -52,7 +52,9 @@ class TemplateController: UIViewController {
     // MARK: - Loading Indicator methods
 
     func showLoadingIndicator() {
+        loadingIndicator.center = self.view.center
         self.view.addSubview(loadingIndicator)
+        self.view.bringSubviewToFront(loadingIndicator)
         loadingIndicator.startAnimating()
     }
 

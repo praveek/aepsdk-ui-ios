@@ -68,22 +68,10 @@ class BasicTemplateController: TemplateController {
     override func viewDidLoad() {
         // show loading indicator until the image is downloaded
         showLoadingIndicator()
-        let imageURLString = payload.basicImageURL.absoluteString
-        ImageDownloader().downloadImages(urls: [imageURLString], completion: { [weak self] downloadedImages in
+        ImageDownloader().downloadImage(url: payload.imageURL, completion: { [weak self] downloadImage in
             guard let self = self else { return }
-            // remove loading indicator
             removeLoadingIndicator()
-            let result = downloadedImages[imageURLString]
-            switch result {
-            case let .success(image):
-                setupView(withImage: image)
-            case let .failure(error):
-                print("BasicTemplateController : Image failed to download. Reason: \(error.description)")
-                setupView(withImage: nil)
-            case .none:
-                print("BasicTemplateController : Image not found in downloaded results. Unexpected error.")
-                setupView(withImage: nil)
-            }
+            setupView(withImage: downloadImage)
         })
     }
 
@@ -120,7 +108,7 @@ class BasicTemplateController: TemplateController {
             titleBodyView.topAnchor.constraint(equalTo: titleBodyViewTopAnchor, constant: TOP_MARGIN),
             titleBodyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SIDE_MARGIN),
             titleBodyView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SIDE_MARGIN),
-            titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyHeight),
+            titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyHeight)
         ])
 
         view.backgroundColor = payload.backgroundColor

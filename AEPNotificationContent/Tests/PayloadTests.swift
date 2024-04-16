@@ -31,8 +31,8 @@ final class PayloadTests: XCTestCase {
         let payload = Payload(notificationContent: content)
 
         // Assert that all properties are correctly set
-        XCTAssertEqual(payload.imageURL?.absoluteString, "https://example.com/image.png")
-        XCTAssertEqual(payload.clickURL?.absoluteString, "https://example.com/click")
+        XCTAssertEqual(payload.imageURL, "https://example.com/image.png")
+        XCTAssertEqual(payload.clickURL, "https://example.com/click")
         XCTAssertEqual(payload.expandedBody, "Expanded Description")
         
         // verify color properties
@@ -79,8 +79,8 @@ final class PayloadTests: XCTestCase {
         let payload = Payload(notificationContent: content)
 
         // Assert the other parameters are correctly set
-        XCTAssertEqual(payload.imageURL?.absoluteString, "https://example.com/image.png")
-        XCTAssertEqual(payload.clickURL?.absoluteString, "https://example.com/click")
+        XCTAssertEqual(payload.imageURL, "https://example.com/image.png")
+        XCTAssertEqual(payload.clickURL, "https://example.com/click")
         XCTAssertEqual(payload.expandedBody, "Expanded Description")
         
         // verify defaults colors are picked
