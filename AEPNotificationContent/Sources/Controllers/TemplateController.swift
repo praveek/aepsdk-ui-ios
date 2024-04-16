@@ -42,10 +42,7 @@ class TemplateController: UIViewController {
         nil
     }
 
-    lazy var tapGestureRecognizer: UITapGestureRecognizer = {
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped))
-        return recognizer
-    }()
+    var tapRecognizer: UITapGestureRecognizer?
 
     let delegate: TemplateControllerDelegate
 
@@ -62,9 +59,9 @@ class TemplateController: UIViewController {
     }
 
     func activateTapGesture() {
-        if (view.gestureRecognizers?.contains(tapGestureRecognizer)) == nil {
-            view.addGestureRecognizer(tapGestureRecognizer)
-        }
+        if tapRecognizer != nil { return }
+        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped))
+        view.addGestureRecognizer(tapRecognizer!)
     }
 
     // MARK: - Loading Indicator methods
