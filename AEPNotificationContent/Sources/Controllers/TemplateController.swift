@@ -59,7 +59,7 @@ class TemplateController: UIViewController {
     }
 
     func activateTapGesture() {
-        if tapRecognizer != nil { return }
+        guard tapRecognizer == nil else { return }
         tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped))
         view.addGestureRecognizer(tapRecognizer!)
     }
