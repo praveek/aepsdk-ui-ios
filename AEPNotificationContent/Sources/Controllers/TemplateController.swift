@@ -36,6 +36,8 @@ class TemplateController: UIViewController {
         return loadingIndicator
     }()
 
+    /// Default click URL for the notification
+    /// Override this property in the subclass to provide a clickURL for the particular template
     var clickURL: String? {
         nil
     }
