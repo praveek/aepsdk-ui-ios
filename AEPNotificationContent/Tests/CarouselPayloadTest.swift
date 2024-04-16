@@ -60,9 +60,8 @@ final class CarouselPayloadTest: XCTestCase {
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.title, "Expanded Title")
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.body, "Notification Body")
         
-        // verify Carousel Mode and Layout
+        // verify Carousel Mode
         XCTAssertEqual(payload?.carouselMode, CarouselMode.manual)
-        XCTAssertEqual(payload?.carouselLayout, CarouselLayout.filmstrip)
         
         // verify the color properties
         XCTAssertNotNil(payload?.backgroundColor)
@@ -135,7 +134,6 @@ final class CarouselPayloadTest: XCTestCase {
         
         // Verify default layout is picked
         XCTAssertNotNil(payload)
-        XCTAssertEqual(payload?.carouselLayout, CarouselLayout.defaultLayout)
     }
     
     func testInitWhenCarouselItemsIsEmptyArray() {

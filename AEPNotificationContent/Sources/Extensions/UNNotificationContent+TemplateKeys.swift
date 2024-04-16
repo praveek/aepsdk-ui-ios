@@ -71,16 +71,6 @@ extension UNNotificationContent {
 
     // MARK: - Carousel Template Keys
 
-    // Retrieve the carousel layout from the notification
-    // If the layout is not available, default Layout is used
-    var carouselLayout: CarouselLayout {
-        guard let layoutString = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.LAYOUT] as? String,
-              let layout = CarouselLayout(rawValue: layoutString) else {
-            return .defaultLayout
-        }
-        return layout
-    }
-
     // Retrieve the carousel mode from the notification
     // If the mode is not available, defaults to auto
     var carouselMode: CarouselMode {

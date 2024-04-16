@@ -39,7 +39,6 @@ enum AEPNotificationContentConstants {
 
         enum Carousel {
             static let MODE = "adb_car_mode"
-            static let LAYOUT = "adb_car_layout"
             static let ITEMS = "adb_items"
             static let IMAGE = "img"
             static let TEXT = "txt"
