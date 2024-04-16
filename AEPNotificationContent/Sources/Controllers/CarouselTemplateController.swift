@@ -34,6 +34,11 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         view.frame.width / 2
     }
 
+    // computed property to determine the clickURL of the current carousel view
+    override var clickURL: String? {
+        payload.carouselItems[currentPageIndex].clickURL
+    }
+
     // MARK: - UI Elements
 
     lazy var titleBodyView: UITitleBody = {
@@ -136,6 +141,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             }
 
             setupView()
+            activateTapGesture()
         })
     }
 

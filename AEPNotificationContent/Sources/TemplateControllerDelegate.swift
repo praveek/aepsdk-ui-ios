@@ -20,4 +20,7 @@ protocol TemplateControllerDelegate {
 
     /// Use this method to get the instance of the parent view controller
     func getParentViewController() -> UIViewController
+
+    /// Use this method to handle the clickURL from interactions with the push template
+    func handleNotificationClickURL(_ url: String?)
 }

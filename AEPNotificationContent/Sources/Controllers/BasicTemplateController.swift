@@ -51,6 +51,10 @@ class BasicTemplateController: TemplateController {
         return view
     }()
 
+    override var clickURL: String? {
+        payload.clickURL
+    }
+
     // MARK: - Initializers
 
     init(withPayload payload: BasicPayload, delegate: TemplateControllerDelegate) {
@@ -72,6 +76,7 @@ class BasicTemplateController: TemplateController {
             guard let self = self else { return }
             removeLoadingIndicator()
             setupView(withImage: downloadImage)
+            activateTapGesture()
         })
     }
 

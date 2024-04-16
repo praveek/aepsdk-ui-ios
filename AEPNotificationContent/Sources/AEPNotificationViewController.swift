@@ -111,4 +111,31 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
     func getParentViewController() -> UIViewController {
         self
     }
+
+    /// Use this method to handle the clickURL from interactions with the push template
+    func handleNotificationClickURL(_ urlString: String?) {
+        /// If the url is nil or invalid, perform the default action
+        /// The default action is to open the app
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+            extensionContext?.performNotificationDefaultAction()
+            removeNotificationFromCenter()
+            return
+        }
+
+        extensionContext?.open(url) { [weak self] isSuccess in
+            guard let self = self else { return }
+            /// If the url failed to open, perform the default action
+            if !isSuccess {
+                extensionContext?.performNotificationDefaultAction()
+            }
+            removeNotificationFromCenter()
+        }
+    }
+
+    /// Remove this notification from the notification center
+    private func removeNotificationFromCenter() {
+        if let notificationId = notification?.request.identifier {
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notificationId])
+        }
+    }
 }

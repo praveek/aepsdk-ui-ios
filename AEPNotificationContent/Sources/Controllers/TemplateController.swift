@@ -30,10 +30,19 @@ class TemplateController: UIViewController {
         } else {
             loadingIndicator.style = .white
         }
+        loadingIndicator.color = .defaultTitle
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.center = self.view.center
         return loadingIndicator
     }()
+
+    /// Default click URL for the notification
+    /// Override this property in the subclass to provide a clickURL for the particular template
+    var clickURL: String? {
+        nil
+    }
+
+    var tapRecognizer: UITapGestureRecognizer?
 
     let delegate: TemplateControllerDelegate
 
@@ -49,6 +58,12 @@ class TemplateController: UIViewController {
         fatalError("BaseTemplateController cannot be initialized from storyboard.")
     }
 
+    func activateTapGesture() {
+        guard tapRecognizer == nil else { return }
+        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped))
+        view.addGestureRecognizer(tapRecognizer!)
+    }
+
     // MARK: - Loading Indicator methods
 
     func showLoadingIndicator() {
@@ -61,5 +76,9 @@ class TemplateController: UIViewController {
     func removeLoadingIndicator() {
         self.loadingIndicator.stopAnimating()
         self.loadingIndicator.removeFromSuperview()
+    }
+
+    @objc func tapped() {
+        delegate.handleNotificationClickURL(clickURL)
     }
 }

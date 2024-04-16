@@ -44,6 +44,10 @@ class TimerTemplateController: TemplateController {
         return view
     }()
 
+    override var clickURL: String? {
+        payload.clickURL
+    }
+
     private var titleBodyHeight = 0.0
     private var imageViewHeight = 0.0
 
@@ -68,6 +72,7 @@ class TimerTemplateController: TemplateController {
             guard let self = self else { return }
             removeLoadingIndicator()
             setupView(downloadedImage, displayData)
+            activateTapGesture()
         })
     }
 
