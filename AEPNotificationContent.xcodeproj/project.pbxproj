@@ -33,7 +33,7 @@
 		244F564F2BBE101C0087401B /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56332BBE0FE00087401B /* ImageDownloadError.swift */; };
 		244F56512BBE101C0087401B /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56352BBE0FE00087401B /* UIColor+HexString.swift */; };
 		244F56522BBE101C0087401B /* TitleBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56372BBE0FE00087401B /* TitleBodyView.swift */; };
-		244F56532BBE101C0087401B /* AEPNotificationContentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */; };
+		244F56532BBE101C0087401B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563A2BBE0FE00087401B /* Constants.swift */; };
 		244F56542BBE101C0087401B /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */; };
 		244F56552BBE101C0087401B /* TemplateControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */; };
 		244F56562BBE10480087401B /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 244F56392BBE0FE00087401B /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -131,7 +131,7 @@
 		244F56352BBE0FE00087401B /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
 		244F56372BBE0FE00087401B /* TitleBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBodyView.swift; sourceTree = "<group>"; };
 		244F56392BBE0FE00087401B /* AEPNotificationContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEPNotificationContent.h; sourceTree = "<group>"; };
-		244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationContentConstants.swift; sourceTree = "<group>"; };
+		244F563A2BBE0FE00087401B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
 		244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateControllerDelegate.swift; sourceTree = "<group>"; };
 		244F563E2BBE0FE00087401B /* BasicPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPayloadTests.swift; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 				244F56362BBE0FE00087401B /* Utility */,
 				244F56382BBE0FE00087401B /* Views */,
 				244F56392BBE0FE00087401B /* AEPNotificationContent.h */,
-				244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */,
+				244F563A2BBE0FE00087401B /* Constants.swift */,
 				244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */,
 				244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */,
 			);
@@ -650,7 +650,7 @@
 				244F564F2BBE101C0087401B /* ImageDownloadError.swift in Sources */,
 				244F56512BBE101C0087401B /* UIColor+HexString.swift in Sources */,
 				244F56522BBE101C0087401B /* TitleBodyView.swift in Sources */,
-				244F56532BBE101C0087401B /* AEPNotificationContentConstants.swift in Sources */,
+				244F56532BBE101C0087401B /* Constants.swift in Sources */,
 				B6A31DF22BC0E53100C1CEE0 /* UNNotificationContent+TemplateKeys.swift in Sources */,
 				B6A31DED2BC0BA9000C1CEE0 /* TimerPayload.swift in Sources */,
 				244F56542BBE101C0087401B /* AEPNotificationViewController.swift in Sources */,

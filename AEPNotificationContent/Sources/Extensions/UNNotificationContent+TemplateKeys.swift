@@ -21,7 +21,7 @@ extension UNNotificationContent {
     // Retrieve the image URL from the notification
     // If a valid image URL is not available, nil is returned
     var imageURL: String? {
-        guard let imageURLString = userInfo[AEPNotificationContentConstants.PayloadKey.IMAGE_URL] as? String else {
+        guard let imageURLString = userInfo[Constants.PayloadKey.IMAGE_URL] as? String else {
             return nil
         }
         return imageURLString
@@ -30,7 +30,7 @@ extension UNNotificationContent {
     // Retrieve the click URL from the notification
     // If a valid click URL is not available, nil is returned
     var clickURL: String? {
-        guard let clickURLString = userInfo[AEPNotificationContentConstants.PayloadKey.CLICK_URL] as? String else {
+        guard let clickURLString = userInfo[Constants.PayloadKey.CLICK_URL] as? String else {
             return nil
         }
         return clickURLString
@@ -39,33 +39,33 @@ extension UNNotificationContent {
     // Retrieve the expanded title from the notification
     // If an expanded title is not available, nil is returned
     var expandedTitle: String? {
-        userInfo[AEPNotificationContentConstants.PayloadKey.EXPANDED_TITLE_TXT] as? String
+        userInfo[Constants.PayloadKey.EXPANDED_TITLE_TXT] as? String
     }
 
     // Retrieve the expanded description from the notification
     // If an expanded description is not available, nil is returned
     var expandedBody: String? {
-        userInfo[AEPNotificationContentConstants.PayloadKey.Basic.EXPANDED_BODY_TXT] as? String
+        userInfo[Constants.PayloadKey.Basic.EXPANDED_BODY_TXT] as? String
     }
 
     // Returns the background color of the notification
     // If a valid background color is not available, defaultBackground color is used
     var backgroundColor: UIColor {
-        extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.BACKGROUND_COLOR,
+        extractColor(from: self, key: Constants.PayloadKey.BACKGROUND_COLOR,
                      defaultColor: .defaultBackground)
     }
 
     // Returns the title color of the notification
     // If a valid title color is not available, defaultTitle color is used
     var titleColor: UIColor {
-        extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.TITLE_COLOR,
+        extractColor(from: self, key: Constants.PayloadKey.TITLE_COLOR,
                      defaultColor: .defaultTitle)
     }
 
     // Returns the body color of the notification
     // If a valid body color is not available, defaultBody color is used
     var bodyColor: UIColor {
-        extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.BODY_COLOR,
+        extractColor(from: self, key: Constants.PayloadKey.BODY_COLOR,
                      defaultColor: .defaultBody)
     }
 
@@ -74,7 +74,7 @@ extension UNNotificationContent {
     // Retrieve the carousel mode from the notification
     // If the mode is not available, defaults to auto
     var carouselMode: CarouselMode {
-        guard let modeString = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.MODE] as? String,
+        guard let modeString = userInfo[Constants.PayloadKey.Carousel.MODE] as? String,
               let mode = CarouselMode(rawValue: modeString) else {
             return .auto
         }
@@ -86,19 +86,19 @@ extension UNNotificationContent {
     // Returns the alternate title of timer template
     // If the alternate title is not available, nil is returned
     var alternateTitle: String? {
-        userInfo[AEPNotificationContentConstants.PayloadKey.Timer.ALTERNATE_TITLE] as? String
+        userInfo[Constants.PayloadKey.Timer.ALTERNATE_TITLE] as? String
     }
 
     // Returns the alternate body of timer template
     // If the alternate body is not available, nil is returned
     var alternateBody: String? {
-        userInfo[AEPNotificationContentConstants.PayloadKey.Timer.ALTERNATE_BODY] as? String
+        userInfo[Constants.PayloadKey.Timer.ALTERNATE_BODY] as? String
     }
 
     // Returns the alternate image URL of timer template
     // If a valid alternate image URL is not available, nil is returned
     var alternateImageURL: String? {
-        guard let alternateImageURLString = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.ALTERNATE_IMAGE] as? String else {
+        guard let alternateImageURLString = userInfo[Constants.PayloadKey.Timer.ALTERNATE_IMAGE] as? String else {
             return nil
         }
         return alternateImageURLString
@@ -107,14 +107,14 @@ extension UNNotificationContent {
     // Return the timer color from the notification
     // If a valid timer color is not available, defaultTitle color is used
     var timerColor: UIColor {
-        extractColor(from: self, key: AEPNotificationContentConstants.PayloadKey.Timer.COLOR,
+        extractColor(from: self, key: Constants.PayloadKey.Timer.COLOR,
                      defaultColor: .defaultTitle)
     }
 
     // Returns the duration of the timer
     // If the duration is not available, nil is returned
     var timerDuration: TimeInterval? {
-        guard let durationString = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.DURATION] as? String,
+        guard let durationString = userInfo[Constants.PayloadKey.Timer.DURATION] as? String,
               let duration = TimeInterval(durationString) else {
             return nil
         }
@@ -124,7 +124,7 @@ extension UNNotificationContent {
     // Returns the end timestamp of the timer
     // If the end timestamp is not available, nil is returned
     var endTimestamp: TimeInterval? {
-        guard let endTimestampString = userInfo[AEPNotificationContentConstants.PayloadKey.Timer.END_TIMESTAMP] as? String,
+        guard let endTimestampString = userInfo[Constants.PayloadKey.Timer.END_TIMESTAMP] as? String,
               let endTimestamp = TimeInterval(endTimestampString) else {
             return nil
         }

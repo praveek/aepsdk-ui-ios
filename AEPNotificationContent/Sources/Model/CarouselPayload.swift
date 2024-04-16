@@ -32,7 +32,7 @@ class CarouselPayload: Payload {
         self.carouselMode = notificationContent.carouselMode
 
         // Retrieve the carousel items from the notification
-        if let itemsArray = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.ITEMS] as? [[String: Any]] {
+        if let itemsArray = userInfo[Constants.PayloadKey.Carousel.ITEMS] as? [[String: Any]] {
             // Filter out invalid items
             self.carouselItems = itemsArray.compactMap { itemDict in
                 CarouselItem(dictionary: itemDict, notificationContent: notificationContent)

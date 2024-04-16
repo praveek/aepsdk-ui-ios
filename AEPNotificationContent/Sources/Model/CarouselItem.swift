@@ -35,17 +35,17 @@ class CarouselItem {
     /// - Returns: A `CarouselItem` instance if the dictionary contains valid data, `nil` otherwise.
     init?(dictionary: [String: Any], notificationContent: UNNotificationContent) {
         // If no imageURL is provided, do not create the carousel Item object
-        guard let imageURL = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.IMAGE] as? String, !imageURL.isEmpty else {
+        guard let imageURL = dictionary[Constants.PayloadKey.Carousel.IMAGE] as? String, !imageURL.isEmpty else {
             return nil
         }
         self.imageURL = imageURL
-        self.clickURL = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.URI] as? String
+        self.clickURL = dictionary[Constants.PayloadKey.Carousel.URI] as? String
 
         /// Set carousel items title and body text
         /// Carousel Item title is same as the notification title
         /// Set the Carousel Item body text if available, otherwise set it to an empty string
         let titleTxt = notificationContent.expandedTitle ?? notificationContent.title
-        let bodyTxt = dictionary[AEPNotificationContentConstants.PayloadKey.Carousel.TEXT] as? String ?? notificationContent.body
+        let bodyTxt = dictionary[Constants.PayloadKey.Carousel.TEXT] as? String ?? notificationContent.body
         self.titleBodyPayload = TitleBodyPayload(title: titleTxt, body: bodyTxt)
     }
 }

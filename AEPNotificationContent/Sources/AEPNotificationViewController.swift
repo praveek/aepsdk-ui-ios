@@ -26,7 +26,7 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
 
         /// Extract the template type from the notification content
         guard let notificationUserInfo = notification.request.content.userInfo as? [String: AnyObject],
-              let templateType = notificationUserInfo[AEPNotificationContentConstants.PayloadKey.TEMPLATE_TYPE] as? String,
+              let templateType = notificationUserInfo[Constants.PayloadKey.TEMPLATE_TYPE] as? String,
               let payload = createPayload(for: templateType, from: notification)
         else {
             displayFallbackTemplate(notificationContent)
@@ -77,11 +77,11 @@ open class AEPNotificationViewController: UIViewController, UNNotificationConten
     private func createPayload(for templateType: String, from notification: UNNotification) -> Payload? {
         let content = notification.request.content
         switch templateType {
-        case AEPNotificationContentConstants.PayloadKey.TemplateType.BASIC:
+        case Constants.PayloadKey.TemplateType.BASIC:
             return BasicPayload(from: content)
-        case AEPNotificationContentConstants.PayloadKey.TemplateType.CAROUSEL:
+        case Constants.PayloadKey.TemplateType.CAROUSEL:
             return CarouselPayload(from: content)
-        case AEPNotificationContentConstants.PayloadKey.TemplateType.TIMER:
+        case Constants.PayloadKey.TemplateType.TIMER:
             return TimerPayload(from: content, notificationDate: notification.date)
         default:
             return nil
