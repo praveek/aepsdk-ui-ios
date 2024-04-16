@@ -13,14 +13,14 @@
 import Foundation
 import UIKit
 
-// A class that holds the payload required to build UITitleBody View
+// A class that holds the payload required to build TitleBody View
 class TitleBodyPayload {
     // MARK: - Public properties
 
-    /// The title for UITitleBody View
+    /// The title for TitleBodyView
     let title: String
 
-    /// The body for UITitleBody View (optional)
+    /// The body for TitleBodyView (optional)
     let body: String?
 
     // MARK: - Initialization

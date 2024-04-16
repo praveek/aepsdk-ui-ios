@@ -17,8 +17,8 @@ class FallbackTemplateController: UIViewController {
     private let SIDE_MARGIN = 8.0
     private let TOP_MARGIN = 8.0
 
-    lazy var titleBodyView: UITitleBody = {
-        let view = UITitleBody()
+    lazy var titleBodyView: TitleBodyView = {
+        let view = TitleBodyView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
