@@ -23,7 +23,6 @@
 /* Begin PBXBuildFile section */
 		244F56452BBE101C0087401B /* BasicTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56262BBE0FE00087401B /* BasicTemplateController.swift */; };
 		244F56462BBE101C0087401B /* FallbackTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56272BBE0FE00087401B /* FallbackTemplateController.swift */; };
-		244F56472BBE101C0087401B /* CarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56292BBE0FE00087401B /* CarouselLayout.swift */; };
 		244F56482BBE101C0087401B /* CarouselMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F562A2BBE0FE00087401B /* CarouselMode.swift */; };
 		244F56492BBE101C0087401B /* BasicPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F562C2BBE0FE00087401B /* BasicPayload.swift */; };
 		244F564A2BBE101C0087401B /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F562D2BBE0FE00087401B /* CarouselItem.swift */; };
@@ -33,8 +32,8 @@
 		244F564E2BBE101C0087401B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56322BBE0FE00087401B /* ImageDownloader.swift */; };
 		244F564F2BBE101C0087401B /* ImageDownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56332BBE0FE00087401B /* ImageDownloadError.swift */; };
 		244F56512BBE101C0087401B /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56352BBE0FE00087401B /* UIColor+HexString.swift */; };
-		244F56522BBE101C0087401B /* UITitleBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56372BBE0FE00087401B /* UITitleBody.swift */; };
-		244F56532BBE101C0087401B /* AEPNotificationContentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */; };
+		244F56522BBE101C0087401B /* TitleBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F56372BBE0FE00087401B /* TitleBodyView.swift */; };
+		244F56532BBE101C0087401B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563A2BBE0FE00087401B /* Constants.swift */; };
 		244F56542BBE101C0087401B /* AEPNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */; };
 		244F56552BBE101C0087401B /* TemplateControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */; };
 		244F56562BBE10480087401B /* AEPNotificationContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 244F56392BBE0FE00087401B /* AEPNotificationContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,7 +120,6 @@
 		17CE7A3FB2D9B539E13F0114 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		244F56262BBE0FE00087401B /* BasicTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTemplateController.swift; sourceTree = "<group>"; };
 		244F56272BBE0FE00087401B /* FallbackTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackTemplateController.swift; sourceTree = "<group>"; };
-		244F56292BBE0FE00087401B /* CarouselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselLayout.swift; sourceTree = "<group>"; };
 		244F562A2BBE0FE00087401B /* CarouselMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselMode.swift; sourceTree = "<group>"; };
 		244F562C2BBE0FE00087401B /* BasicPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPayload.swift; sourceTree = "<group>"; };
 		244F562D2BBE0FE00087401B /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
@@ -131,9 +129,9 @@
 		244F56322BBE0FE00087401B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		244F56332BBE0FE00087401B /* ImageDownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadError.swift; sourceTree = "<group>"; };
 		244F56352BBE0FE00087401B /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
-		244F56372BBE0FE00087401B /* UITitleBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITitleBody.swift; sourceTree = "<group>"; };
+		244F56372BBE0FE00087401B /* TitleBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBodyView.swift; sourceTree = "<group>"; };
 		244F56392BBE0FE00087401B /* AEPNotificationContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEPNotificationContent.h; sourceTree = "<group>"; };
-		244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationContentConstants.swift; sourceTree = "<group>"; };
+		244F563A2BBE0FE00087401B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPNotificationViewController.swift; sourceTree = "<group>"; };
 		244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateControllerDelegate.swift; sourceTree = "<group>"; };
 		244F563E2BBE0FE00087401B /* BasicPayloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPayloadTests.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 		244F562B2BBE0FE00087401B /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				244F56292BBE0FE00087401B /* CarouselLayout.swift */,
 				244F562A2BBE0FE00087401B /* CarouselMode.swift */,
 			);
 			path = Enums;
@@ -254,7 +251,7 @@
 		244F56382BBE0FE00087401B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				244F56372BBE0FE00087401B /* UITitleBody.swift */,
+				244F56372BBE0FE00087401B /* TitleBodyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,7 +265,7 @@
 				244F56362BBE0FE00087401B /* Utility */,
 				244F56382BBE0FE00087401B /* Views */,
 				244F56392BBE0FE00087401B /* AEPNotificationContent.h */,
-				244F563A2BBE0FE00087401B /* AEPNotificationContentConstants.swift */,
+				244F563A2BBE0FE00087401B /* Constants.swift */,
 				244F563B2BBE0FE00087401B /* AEPNotificationViewController.swift */,
 				244F563C2BBE0FE00087401B /* TemplateControllerDelegate.swift */,
 			);
@@ -640,7 +637,6 @@
 			files = (
 				244F56452BBE101C0087401B /* BasicTemplateController.swift in Sources */,
 				244F56462BBE101C0087401B /* FallbackTemplateController.swift in Sources */,
-				244F56472BBE101C0087401B /* CarouselLayout.swift in Sources */,
 				244F56482BBE101C0087401B /* CarouselMode.swift in Sources */,
 				244F56492BBE101C0087401B /* BasicPayload.swift in Sources */,
 				B6A31DE02BBF3C4000C1CEE0 /* TemplateController.swift in Sources */,
@@ -653,8 +649,8 @@
 				244F564E2BBE101C0087401B /* ImageDownloader.swift in Sources */,
 				244F564F2BBE101C0087401B /* ImageDownloadError.swift in Sources */,
 				244F56512BBE101C0087401B /* UIColor+HexString.swift in Sources */,
-				244F56522BBE101C0087401B /* UITitleBody.swift in Sources */,
-				244F56532BBE101C0087401B /* AEPNotificationContentConstants.swift in Sources */,
+				244F56522BBE101C0087401B /* TitleBodyView.swift in Sources */,
+				244F56532BBE101C0087401B /* Constants.swift in Sources */,
 				B6A31DF22BC0E53100C1CEE0 /* UNNotificationContent+TemplateKeys.swift in Sources */,
 				B6A31DED2BC0BA9000C1CEE0 /* TimerPayload.swift in Sources */,
 				244F56542BBE101C0087401B /* AEPNotificationViewController.swift in Sources */,

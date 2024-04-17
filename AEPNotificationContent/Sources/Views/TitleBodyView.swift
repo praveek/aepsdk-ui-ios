@@ -14,7 +14,7 @@ import Foundation
 import UIKit
 
 // A UIView that displays a title and a body
-class UITitleBody: UIView {
+class TitleBodyView: UIView {
     // Color constants
     enum DefaultColor {
         static let TITLE = UIColor.black

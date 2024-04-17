@@ -31,8 +31,8 @@ class TimerTemplateController: TemplateController {
         return label
     }()
 
-    lazy var titleBodyView: UITitleBody = {
-        let view = UITitleBody()
+    lazy var titleBodyView: TitleBodyView = {
+        let view = TitleBodyView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

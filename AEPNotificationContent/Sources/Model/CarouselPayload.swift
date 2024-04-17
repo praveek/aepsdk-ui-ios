@@ -20,9 +20,6 @@ class CarouselPayload: Payload {
     /// The mode of the carousel.
     let carouselMode: CarouselMode
 
-    /// The layout of the carousel.
-    let carouselLayout: CarouselLayout
-
     /// The items in the carousel.
     var carouselItems: [CarouselItem] = []
 
@@ -33,10 +30,9 @@ class CarouselPayload: Payload {
         let userInfo = notificationContent.userInfo
 
         self.carouselMode = notificationContent.carouselMode
-        self.carouselLayout = notificationContent.carouselLayout
 
         // Retrieve the carousel items from the notification
-        if let itemsArray = userInfo[AEPNotificationContentConstants.PayloadKey.Carousel.ITEMS] as? [[String: Any]] {
+        if let itemsArray = userInfo[Constants.PayloadKey.Carousel.ITEMS] as? [[String: Any]] {
             // Filter out invalid items
             self.carouselItems = itemsArray.compactMap { itemDict in
                 CarouselItem(dictionary: itemDict, notificationContent: notificationContent)

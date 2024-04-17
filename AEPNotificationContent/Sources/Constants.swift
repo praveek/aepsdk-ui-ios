@@ -12,7 +12,7 @@
 
 import Foundation
 
-enum AEPNotificationContentConstants {
+enum Constants {
     static let LOG_TAG = "AEPNotificationContent"
     static let EXTENSION_NAME = "com.adobe.aepnotificationcontent"
     static let EXTENSION_VERSION = "5.0.0"
@@ -39,7 +39,6 @@ enum AEPNotificationContentConstants {
 
         enum Carousel {
             static let MODE = "adb_car_mode"
-            static let LAYOUT = "adb_car_layout"
             static let ITEMS = "adb_items"
             static let IMAGE = "img"
             static let TEXT = "txt"
