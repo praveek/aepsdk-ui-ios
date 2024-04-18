@@ -20,6 +20,7 @@ import AEPEdgeIdentity
 import AEPLifecycle
 import AEPRulesEngine
 import AEPSignal
+import AEPMessaging
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
@@ -31,9 +32,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             AEPEdgeIdentity.Identity.self,
             Edge.self,
             Signal.self,
+            Messaging.self,
             Assurance.self
         ]
-
         MobileCore.registerExtensions(extensions) {
             // only start lifecycle if the application is not in the background
             DispatchQueue.main.async {

@@ -22,6 +22,7 @@ def app_main
     pod 'AEPEdgeIdentity'
     pod 'AEPEdgeConsent'
     pod 'AEPAssurance'
+    pod 'AEPMessaging'
 end
 
 def dev_main
