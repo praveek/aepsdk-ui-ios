@@ -13,14 +13,59 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var txtFieldInput: String = ""
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Demo App to test AEPNotificationContent extension")
+            
+            Spacer()
+            
+            // Text field for user input
+            TextEditor(text: $txtFieldInput)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(height: 200)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.gray, lineWidth: 1)
+                )
+                .accessibilityIdentifier("txtUserinfo")
+            
+            
+            Button("Trigger Notification", action: {
+                triggerNotification()
+            }).accessibilityIdentifier("btnNotification")
+            
+            Spacer()
         }
         .padding()
+        
+    }
+    
+    private func triggerNotification() {
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.title = "Notification Title"
+        content.body = "Notification Body"
+        content.sound = .default
+        content.categoryIdentifier = "AEPNotification"
+
+        // Parse user input into a dictionary
+        let userData = parseUserInfo(from: txtFieldInput)
+        content.userInfo = userData
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "testNotification", content: content, trigger: trigger)
+        
+        center.add(request)
+    }
+    
+    private func parseUserInfo(from input: String) -> [AnyHashable: Any] {
+        let data = Data(input.utf8)
+        if let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+            return dictionary
+        }
+        return [:]
     }
 }
 

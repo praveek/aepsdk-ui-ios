@@ -32,6 +32,7 @@ class TitleBodyView: UIView {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.accessibilityIdentifier = "AEPNotificationContentTitle"
         return label
     }()
 
@@ -42,6 +43,7 @@ class TitleBodyView: UIView {
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.accessibilityIdentifier = "AEPNotificationContentDescription"
         return label
     }()
 
