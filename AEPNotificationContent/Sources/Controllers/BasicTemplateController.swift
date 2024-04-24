@@ -42,6 +42,7 @@ class BasicTemplateController: TemplateController {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.accessibilityIdentifier = "AEPNotificationBasicTemplateImage"
         return imageView
     }()
 
