@@ -21,13 +21,20 @@ struct ContentView: View {
             Spacer()
             
             // Text field for user input
-            TextField("Enter userInfo JSONString", text: $txtFieldInput)
+            TextEditor(text: $txtFieldInput)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(height: 200)
                 .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.gray, lineWidth: 1)
+                )
+                .accessibilityIdentifier("txtUserinfo")
+            
             
             Button("Trigger Notification", action: {
                 triggerNotification()
-            })
+            }).accessibilityIdentifier("btnNotification")
             
             Spacer()
         }
