@@ -12,7 +12,7 @@ use_frameworks!
 
 # for app development, include all the following pods
 target 'YOUR_NOTIFICATION_CONTENT_EXTENSION_NAME' do
-      pod 'AEPNotificationContent', :git => 'https://github.com/adobe/aepsdk-notificationcontent-ios.git', :branch => 'dev-v5.0.0'
+      pod 'AEPNotificationContent'
 end
 ```
 

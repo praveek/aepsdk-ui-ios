@@ -4,20 +4,6 @@ A notification that shows a series of two (2) to five (5) images that scroll on/
 
 If operating in `automatic` mode, images will rotate every five (5) seconds.  If operating in manual mode, the user is required to push a button to advance forwards or backwards through the carousel.
 
-## Usage Recommendations
-### Carousel Item Image Specifications
-
-| **Aspect Ratio** | **Image Size Range** | **Supported File Types** |
-| :-------- | :----------- | :------ |
-| 2:1 | 50 KB to 1 MB	  | PNG, JPG, WebP |
-
-### Carousel Item Text Guidelines
-
-| **Text Type** | **Characters per line** | **Recommended number of characters** | **Supports Multiple Lines?** |
-| :-------- | :----------- | :------ | :------- |
-| Title | 35-40  | 35 | No |
-| Description | 50-60  | 250 | Yes |
-
 ## Push notification properties
 
 For full information on APNS payload keys, see [Apple's documentation](https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification).
@@ -52,6 +38,22 @@ The properties below are used to define the payload sent to APNS:
 | Color - Body | ⛔️ | `adb_clr_body` | string | Text color for `adb_body_ex`. Represented as six character hex, e.g. `00FF00`<br /><br />If no value is provided, the system [secondaryLabel color](https://developer.apple.com/documentation/uikit/uicolor/3173136-secondarylabel) will be used. |
 | Color - Background | ⛔️ | `adb_clr_bg` | string | Color for notification's background. Represented as six character hex, e.g. `00FF00`<br /><br />If no value is provided, the system [systemBackground color](https://developer.apple.com/documentation/uikit/uicolor/3173140-systembackground) will be used. |
 
+## Usage recommendations
+
+The tables below contain guidelines for your push notification content. These values are guidelines only - it is still recommended to test a notification prior to sending it.
+
+### Image specifications
+
+| **Aspect ratio** | **Image size range** | **Supported file types** |
+| :-------- | -----------: | :------ |
+| 2:1 (e.g. - 400x200 px) | 50 KB to 1 MB | PNG, JPG, WebP |
+
+### Text guidelines
+
+| **Type** | **Characters per line** | **Recommended max<br /># of characters** | **Supports multiple<br />lines?** |
+| :-------- | -----------: | ------: | :------- |
+| Title | 35-40 | 35 | No |
+| Description | 50-60 | 250 | Yes |
 
 ## Example
 
