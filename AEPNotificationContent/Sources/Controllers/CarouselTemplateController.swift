@@ -17,8 +17,9 @@ import UIKit
 class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
     // MARK: - Dimension Constants
 
-    let ARROW_SIZE = 40.0
+    let ARROW_SIZE = 35.0
     let PAGE_CONTROL_HEIGHT = 20.0
+    let BUTTON_BACKGROUND_ALPHA = 0.2
 
     private let payload: CarouselPayload
 
@@ -52,10 +53,11 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         if #available(iOS 13.0, *) {
             button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
         } else {
-            // Fallback on earlier versions
+            button.setTitle("<", for: .normal)
+            button.titleLabel?.font = .systemFont(ofSize: 30, weight: .light)
         }
-        button.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        button.tintColor = .gray
+        button.backgroundColor = UIColor.black.withAlphaComponent(BUTTON_BACKGROUND_ALPHA)
+        button.tintColor = .init(white: 1, alpha: 0.9)
         button.layer.cornerRadius = ARROW_SIZE / 2
         button.addTarget(self, action: #selector(leftArrowClicked), for: .touchUpInside)
         return button
@@ -66,10 +68,11 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         if #available(iOS 13.0, *) {
             button.setImage(UIImage(systemName: "chevron.forward"), for: .normal)
         } else {
-            // Fallback on earlier versions
+            button.setTitle(">", for: .normal)
+            button.titleLabel?.font = .systemFont(ofSize: 30, weight: .light)
         }
-        button.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        button.tintColor = .gray
+        button.backgroundColor = UIColor.black.withAlphaComponent(BUTTON_BACKGROUND_ALPHA)
+        button.tintColor = .init(white: 1, alpha: 0.9)
         button.layer.cornerRadius = ARROW_SIZE / 2
         button.addTarget(self, action: #selector(rightArrowClicked), for: .touchUpInside)
         return button
