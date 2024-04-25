@@ -15,14 +15,14 @@ import UIKit
 // UI Recommendations
 // Title  : Characters per line : 35-40
 // Title : Recommended maximum title length : 35
-// Title : Multiple lines supported : Yes
+// Title : Multiple lines supported : No
 // Description : Characters per line : 50-60
 // Description : Recommended number of characters : 250
 // Description : Multiple lines supported : Yes
 // Image : Required aspect ratio :  2:1
 // Image : Recommended dimensions : 600x300
 // Image : Recommended size : 40KB
-// Image : Recommended formats : png, jpg
+// Image : Recommended formats : png, jpg, webp
 
 // ViewController for Basic Template
 class BasicTemplateController: TemplateController {

@@ -4,6 +4,20 @@ A notification that shows a series of two (2) to five (5) images that scroll on/
 
 If operating in `automatic` mode, images will rotate every five (5) seconds.  If operating in manual mode, the user is required to push a button to advance forwards or backwards through the carousel.
 
+## Usage Recommendations
+### Carousel Item Image Specifications
+
+| **Aspect Ratio** | **Image Size Range** | **Supported File Types** |
+| :-------- | :----------- | :------ |
+| 2:1 | 50 KB to 1 MB	  | PNG, JPG, WebP |
+
+### Carousel Item Text Guidelines
+
+| **Text Type** | **Characters per line** | **Recommended number of characters** | **Supports Multiple Lines?** |
+| :-------- | :----------- | :------ | :------- |
+| Title | 35-40  | 35 | No |
+| Description | 50-60  | 250 | Yes |
+
 ## Push notification properties
 
 For full information on APNS payload keys, see [Apple's documentation](https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification).

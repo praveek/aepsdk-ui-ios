@@ -35,29 +35,11 @@ center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] gra
 
 ## Notification Content extension configuration
 
-1. In your `NotificationViewController` (or other `UIViewController` implementing the `UNNotificationContentExtension` protocol for your Notification Content extension), import the `AEPNotificationContent` package:
-
-    ```swift
-    import AEPNotificationContent
-    ```
-
-1. Update your view controller to inherit from `AEPNotificationViewController`:
-
-    ```swift
-    import UIKit
-    import UserNotifications
-    import UserNotificationsUI
-    import AEPNotificationContent
-
-    class NotificationViewController: AEPNotificationViewController {
-        
-    }
-    ```
-
 1. Update the `Info.plist` for your Notification Content extension with the following values:
 
     | Key | Type | Value |
     | --- | --- | --- |
+    | `NSExtension` > `NSExtensionPrincipalClass` | `String` | `AEPNotificationContent.AEPNotificationViewController` |
     | `NSExtension` > `NSExtensionPrincipalClass` | `String` | `$(PRODUCT_MODULE_NAME).NotificationViewController` |
     | `NSExtension` > `NSExtensionAttributes` > `UNNotificationExtensionUserInteractionEnabled` | `Boolean` | `YES` |
     | `NSExtension` > `NSExtensionAttributes` > `UNNotificationExtensionDefaultContentHidden` | `Boolean` | `YES` |
