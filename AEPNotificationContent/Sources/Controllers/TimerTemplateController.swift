@@ -149,11 +149,8 @@ class TimerTemplateController: TemplateController {
             let seconds = Int(countdown) % 60
             if hours >= 1 {
                 timerLabel.text = String(format: "%02i:%02i:%02i", hours, minutes, seconds)
-            } else if minutes >= 1 {
-                timerLabel.text = String(format: "%02i:%02i", minutes, seconds)
             } else {
-                timerLabel.text = String(format: "%02i", seconds)
-                timerLabel.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
+                timerLabel.text = String(format: "%02i:%02i", minutes, seconds)
             }
         }
     }
