@@ -39,32 +39,26 @@ The properties below are used to define the payload sent to APNS:
 
 ## Example
 
+![gif of sample basic notification](./../../Assets/basic.gif)
+
 Below is a sample of what a payload might look like for a notification using a basic template:
 
 ```json
 {
-    "aps": {
-        "alert": {
-            "title": "New shoes in stock!",
-            "subtitle": "Shoes that will knock your socks off!",
-            "body": "Come check out the sweet new kicks we just got in stock."            
+    "aps" : {
+        "alert" : {
+            "title" : "Need a break? Picture this...",
+            "body" : "Warm sand, turquoise waves, you + a cocktail. Book your beach escape now!"
         },
-        "category": "AEPNotification",
-        "mutable-content": 1,
-        "sound": "sneakerSqueek",
-        "badge": 1,
-        "thread-id": "apparel"
+        "mutable-content" : 1,
+        "category" : "AEPNotification"
     },
-    "adb_version": "1",
-    "adb_template_type": "basic",
-    "adb_title_ex": "The spring sale is in full swing!",
-    "adb_body_ex": "There are some great new deals in here that we really think you're going to like! Check it out!",
-    "adb_media": "https://sneakerland.com/assets/new.png",
-    "adb_uri": "https://sneakerland.com/products/new",
-    "adb_clr_title": "000000",
-    "adb_clr_body": "333333",
-    "adb_clr_bg": "FFFFFF",
-    "some_custom_data_key": "some data"
+    "adb_template_type" : "basic",
+    "adb_version" : "1.0",
+    "adb_title_ex" : "Summer Beach Vibes Await ☀️",
+    "adb_body_ex" : "Escape to paradise with our Summer Bliss Package! Secure your spot in paradise today—your dream vacation is just a booking away.",
+    "adb_media" : "https://<URL_CONTAINING_IMAGE>",
+    "adb_uri" : "myapp://book/beachPackage"
 }
 ```
 

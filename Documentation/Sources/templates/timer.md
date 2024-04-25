@@ -43,37 +43,29 @@ The properties below are used to define the payload sent to APNS:
 
 ## Example
 
+![gif of sample timer notification](./../../Assets/timer.gif)
+
 Below is a sample of what a payload might look like for a notification using the timer template:
 
 ```json
 {
-    "aps": {
-        "alert": {
-            "title": "Limited time offer!",
-            "subtitle": "Click for more information",
-            "body": "Don't miss out on your chance for deep discounts"
+    "aps" : {
+        "alert" : {
+            "title" : "Game day 🏀",
+            "body" : "Don't miss the thrilling action tonight. Grab last-minute tickets now!"
         },
-        "category": "AEPNotification",
-        "mutable-content": 1,
-        "sound": "sneakerSqueek",
-        "badge": 1,
-        "thread-id": "apparel"
+        "mutable-content" : 1,
+        "category" : "AEPNotification"
     },
-    "adb_version": "1",
-    "adb_template_type": "timer",
-    "adb_title_ex": "The spring sale is in full swing!",
-    "adb_body_ex": "These discounts won't be around for long, click on the notification to go check out the sale.",
-    "adb_media": "https://bigboxretailer.com/sale.png",
-    "adb_uri": "https://bigboxretailer.com/sale",    
-    "adb_title_alt": "You missed out on the sale.",
-    "adb_body_alt": "Our next flash sale will be sometime next month.",
-    "adb_media_alt": "https://bigboxretailer.com/sale_ended.png",
-    "adb_tmr_end": "1703462400",
-    "adb_clr_body": "333333",
-    "adb_clr_title": "000000",
-    "adb_clr_bg": "FFFFFF",
-    "adb_clr_tmr": "000000",
-    "some_custom_data_key": "some data"
+    "adb_template_type" : "timer",
+    "adb_version" : "1.0",
+    "adb_title_ex" : "💥 Last-minute deal alert!",
+    "adb_body_ex" : "Save big on tonight's basketball game. Get your tickets ASAP!",
+    "adb_title_alt" : "Missed out this time?",
+    "adb_body_alt" : "Don't worry, more amazing offers are coming your way. Keep an eye out for more great offers soon",
+    "adb_media" : "https://<URL_CONTAINING_INITIAL_IMAGE>",
+    "adb_media_alt" : "https://<URL_CONTAINING_EXPIRED_IMAGE>",
+    "adb_tmr_dur" : "10"
 }
 ```
 
