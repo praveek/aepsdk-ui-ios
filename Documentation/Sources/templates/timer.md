@@ -41,23 +41,6 @@ The properties below are used to define the payload sent to APNS:
 | Color - Background | ⛔️ | `adb_clr_bg` | string | Color for notification's background. Represented as six character hex, e.g. `00FF00`<br /><br />If no value is provided, the system [systemBackground color](https://developer.apple.com/documentation/uikit/uicolor/3173140-systembackground) will be used. |
 | Color - Timer | ⛔️ | `adb_clr_tmr` | string | Color for the text of the timer overlay. Represented as six character hex, e.g. `00FF00`<br /><br />If no value is provided, the system [label color](https://developer.apple.com/documentation/uikit/uicolor/3173131-label) will be used. |
 
-## Usage recommendations
-
-The tables below contain guidelines for your push notification content. These values are guidelines only - it is still recommended to test a notification prior to sending it.
-
-### Image specifications
-
-| **Aspect ratio** | **Image size range** | **Supported file types** |
-| :-------- | -----------: | ------: |
-| 2:1 (e.g. - 400x200 px) | 50 KB to 1 MB | PNG, JPG, WebP |
-
-### Text guidelines
-
-| **Type** | **Characters per line** | **Recommended max<br /># of characters** | **Supports multiple<br />lines?** |
-| :-------- | -----------: | ------: | -------: |
-| Title | 25-30 | 25 | No |
-| Description | 30-40 | 150 (~5 lines) | Yes |
-
 ## Example
 
 Below is a sample of what a payload might look like for a notification using the timer template:
@@ -93,3 +76,20 @@ Below is a sample of what a payload might look like for a notification using the
     "some_custom_data_key": "some data"
 }
 ```
+
+## Usage recommendations
+
+The tables below contain guidelines for your push notification content. These values are guidelines only - it is still recommended to test a notification prior to sending it.
+
+### Image specifications
+
+| **Aspect ratio** | **Image size range** | **Supported file types** |
+| :-------- | -----------: | ------: |
+| 2:1 (e.g. - 400x200 px) | 50 KB to 1 MB | PNG, JPG, WebP |
+
+### Text guidelines
+
+| **Type** | **Characters per line** | **Recommended max<br /># of characters** | **Supports multiple<br />lines?** |
+| :-------- | -----------: | ------: | -------: |
+| Title | 25-30 | 25 | No |
+| Description | 30-40 | 150 (~5 lines) | Yes |
