@@ -40,6 +40,8 @@ The properties below are used to define the payload sent to APNS:
 
 ## Example
 
+![gif of sample carousel notification](./../../Assets/carousel.gif)
+
 Below is a sample of what a payload might look like for a notification using a carousel template:
 
 ```json
