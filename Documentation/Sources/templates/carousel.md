@@ -45,15 +45,15 @@ The tables below contain guidelines for your push notification content. These va
 ### Image specifications
 
 | **Aspect ratio** | **Image size range** | **Supported file types** |
-| :-------- | -----------: | :------ |
+| :-------- | -----------: | ------: |
 | 2:1 (e.g. - 400x200 px) | 50 KB to 1 MB | PNG, JPG, WebP |
 
 ### Text guidelines
 
 | **Type** | **Characters per line** | **Recommended max<br /># of characters** | **Supports multiple<br />lines?** |
-| :-------- | -----------: | ------: | :------- |
+| :-------- | -----------: | ------: | -------: |
 | Title | 35-40 | 35 | No |
-| Description | 50-60 | 250 | Yes |
+| Description | 50-60 | 250 (~5 lines) | Yes |
 
 ## Example
 
