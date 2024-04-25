@@ -40,7 +40,6 @@ center.requestAuthorization(options: [.badge, .sound, .alert]) { [weak self] gra
     | Key | Type | Value |
     | --- | --- | --- |
     | `NSExtension` > `NSExtensionPrincipalClass` | `String` | `AEPNotificationContent.AEPNotificationViewController` |
-    | `NSExtension` > `NSExtensionPrincipalClass` | `String` | `$(PRODUCT_MODULE_NAME).NotificationViewController` |
     | `NSExtension` > `NSExtensionAttributes` > `UNNotificationExtensionUserInteractionEnabled` | `Boolean` | `YES` |
     | `NSExtension` > `NSExtensionAttributes` > `UNNotificationExtensionDefaultContentHidden` | `Boolean` | `YES` |
     | `NSExtension` > `NSExtensionAttributes` > `UNNotificationExtensionCategory` | `String` | `AEPNotification` |

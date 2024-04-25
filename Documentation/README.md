@@ -7,7 +7,7 @@
   * [AEPMessaging](https://developer.adobe.com/client-sdks/edge/adobe-journey-optimizer/) - for use with Adobe Journey Optimizer
   * [AEPCampaignClassic](https://developer.adobe.com/client-sdks/solution/adobe-campaign-classic/) - for use with Adobe Campaign Classic
 
-## Getting started
+## Using AEPNotificationContent extension
 
 * [Installing the AEPNotificationContent package](./Sources/getting-started.md)
 * [Configure the Notification Content extension](./Sources/configure-extension.md)

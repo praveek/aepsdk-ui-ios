@@ -398,7 +398,8 @@
 			children = (
 				B6ADA6E02BD814A600A794B9 /* BasicTemplateTest.swift */,
 			);
-			path = UITestRunner;
+			name = UITestRunner;
+			path = TestApps/UITestRunner;
 			sourceTree = "<group>";
 		};
 		B6ADF4842B62F34A007D8DDB /* Frameworks */ = {

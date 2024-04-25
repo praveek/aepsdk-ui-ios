@@ -20,6 +20,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
     let ARROW_SIZE = 35.0
     let PAGE_CONTROL_HEIGHT = 20.0
     let BUTTON_BACKGROUND_ALPHA = 0.2
+    let BUTTON_TINT_COLOR = UIColor(white: 1, alpha: 0.9)
 
     private let payload: CarouselPayload
 
@@ -57,7 +58,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             button.titleLabel?.font = .systemFont(ofSize: 30, weight: .light)
         }
         button.backgroundColor = UIColor.black.withAlphaComponent(BUTTON_BACKGROUND_ALPHA)
-        button.tintColor = .init(white: 1, alpha: 0.9)
+        button.tintColor = BUTTON_TINT_COLOR
         button.layer.cornerRadius = ARROW_SIZE / 2
         button.addTarget(self, action: #selector(leftArrowClicked), for: .touchUpInside)
         return button
@@ -72,7 +73,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             button.titleLabel?.font = .systemFont(ofSize: 30, weight: .light)
         }
         button.backgroundColor = UIColor.black.withAlphaComponent(BUTTON_BACKGROUND_ALPHA)
-        button.tintColor = .init(white: 1, alpha: 0.9)
+        button.tintColor = BUTTON_TINT_COLOR
         button.layer.cornerRadius = ARROW_SIZE / 2
         button.addTarget(self, action: #selector(rightArrowClicked), for: .touchUpInside)
         return button
