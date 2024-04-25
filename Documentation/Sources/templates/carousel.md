@@ -57,7 +57,7 @@ Below is a sample of what a payload might look like for a notification using a c
     "adb_template_type" : "car",
     "adb_version" : "1.0",
     "adb_car_mode" : "manual",
-    "adb_body_alt" : "Book your vacation now!",
+    "adb_body_alt" : "Book your vacation now! 🏖️",
     "adb_items" : [
         {
             "img" : "https://<URL_CONTAINING_FIRST_IMAGE>",
