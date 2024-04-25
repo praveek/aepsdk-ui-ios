@@ -2,6 +2,20 @@
 
 Notification containing title, body, and image.  It also contains a configurable countdown timer which, upon expiry, can cause a new title, body, and image to be shown.
 
+## Usage Recommendations
+### Image Specifications
+
+| **Aspect Ratio** | **Image Size Range** | **Supported File Types** |
+| :-------- | :----------- | :------ |
+| 2:1 | 50 KB to 1 MB	  | PNG, JPG, WebP |
+
+### Text Guidelines
+
+| **Text Type** | **Characters per line** | **Recommended number of characters** | **Supports Multiple Lines?** |
+| :-------- | :----------- | :------ | :------- |
+| Title | 25-30  | 25 | No |
+| Description | 30-40  | 250 | Yes |
+
 ## Push notification properties
 
 For full information on APNS payload keys, see [Apple's documentation](https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification).
