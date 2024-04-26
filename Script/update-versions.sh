@@ -8,7 +8,6 @@ set -e # Any subsequent(*) commands which fail will cause the shell script to ex
 ROOT_DIR=$(git rev-parse --show-toplevel)
 LINE="================================================================================"
 VERSION_REGEX="[0-9]+\.[0-9]+\.[0-9]+"
-DEPENDENCIES=none
 
 getRepo() {
     local extensionName=$1
@@ -19,7 +18,7 @@ getRepo() {
 help()
 {
    echo ""
-   echo "Usage: $0 -n EXTENSION_NAME -v NEW_VERSION -d \"PODSPEC_DEPENDENCY_1, PODSPEC_DEPENDENCY_2\""
+   echo "Usage: $0 -n EXTENSION_NAME -v NEW_VERSION"
    echo ""
    echo -e "    -n\t- Name of the extension getting a version update. \n\t  Example: Edge, Analytics\n"
    echo -e "    -v\t- New version to use for the extension. \n\t  Example: 5.0.1\n"
@@ -31,7 +30,6 @@ do
    case "$opt" in
       n ) NAME="$OPTARG" ;;
       v ) NEW_VERSION="$OPTARG" ;;
-      d ) DEPENDENCIES="$OPTARG" ;;      
       ? ) help ;; # Print help in case parameter is non-existent
    esac
 done
@@ -50,7 +48,7 @@ SPM_FILE=$ROOT_DIR/Package.swift
 # Begin script in case all parameters are correct
 echo ""
 echo "$LINE"
-echo "Changing version of AEP$NAME to $NEW_VERSION with the following minimum version dependencies: $DEPENDENCIES"
+echo "Changing version of AEP$NAME to $NEW_VERSION"
 echo "$LINE"
 
 # Replace extension version in podspec

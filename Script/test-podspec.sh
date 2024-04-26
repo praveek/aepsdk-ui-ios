@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2024 Adobe. All rights reserved.
+# Copyright 2021 Adobe. All rights reserved.
 # This file is licensed to you under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License. You may obtain a copy
 # of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -21,7 +21,23 @@ mkdir -p $PROJECT_NAME && cd $PROJECT_NAME
 
 # Create a new Xcode project.
 swift package init
-swift package generate-xcodeproj
+
+# Use Xcodegen to generate the project.
+echo "
+name: $PROJECT_NAME
+options:
+  bundleIdPrefix: $PROJECT_NAME
+targets:
+  $PROJECT_NAME:
+    type: framework
+    sources: Sources
+    platform: iOS
+    deploymentTarget: "12.0"
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+" >>project.yml
+
+xcodegen generate
 
 # Create a Podfile with our pod as dependency.
 echo "
@@ -37,19 +53,19 @@ pod install
 
 # Archive for generic iOS device
 echo '############# Archive for generic iOS device ###############'
-xcodebuild archive -scheme TestProject-Package -workspace TestProject.xcworkspace -destination 'generic/platform=iOS'
+xcodebuild archive -scheme TestProject -workspace TestProject.xcworkspace -destination 'generic/platform=iOS'
 
 # Build for generic iOS device
 echo '############# Build for generic iOS device ###############'
-xcodebuild clean build -scheme TestProject-Package -workspace TestProject.xcworkspace -destination 'generic/platform=iOS'
+xcodebuild clean build -scheme TestProject -workspace TestProject.xcworkspace -destination 'generic/platform=iOS'
 
 # Archive for x86_64 simulator
 echo '############# Archive for simulator ###############'
-xcodebuild archive -scheme TestProject-Package -workspace TestProject.xcworkspace -destination 'generic/platform=iOS Simulator'
+xcodebuild archive -scheme TestProject -workspace TestProject.xcworkspace -destination 'generic/platform=iOS Simulator'
 
 # Build for x86_64 simulator
 echo '############# Build for simulator ###############'
-xcodebuild clean build -scheme TestProject-Package -workspace TestProject.xcworkspace -destination 'generic/platform=iOS Simulator'
+xcodebuild clean build -scheme TestProject -workspace TestProject.xcworkspace -destination 'generic/platform=iOS Simulator'
 
 # Clean up.
 cd ../

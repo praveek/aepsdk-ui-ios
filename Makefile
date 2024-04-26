@@ -24,6 +24,10 @@ build:
 	xcodebuild archive -workspace $(PROJECT_NAME).xcworkspace -scheme $(SCHEME_NAME_XCFRAMEWORK) -archivePath "./build/ios.xcarchive" -sdk iphoneos -destination="iOS" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 	xcodebuild archive -workspace $(PROJECT_NAME).xcworkspace -scheme $(SCHEME_NAME_XCFRAMEWORK) -archivePath "./build/ios_simulator.xcarchive" -sdk iphonesimulator -destination="iOS Simulator" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
+zip:
+	cd build && zip -r -X $(PROJECT_NAME).xcframework.zip $(PROJECT_NAME).xcframework/
+	swift package compute-checksum build/$(PROJECT_NAME).xcframework.zip
+
 test: clean unit-test
 
 unit-test: 
@@ -80,4 +84,4 @@ test-podspec:
 
 # used to test update-versions.sh script locally
 test-versions:
-	(sh ./Script/update-versions.sh -n AEPNotificationContent -v 5.0.0)
+	(sh ./Script/update-versions.sh -n NotificationContent -v 5.9.9)
