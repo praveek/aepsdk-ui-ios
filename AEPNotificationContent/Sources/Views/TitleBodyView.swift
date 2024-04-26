@@ -31,12 +31,13 @@ class TitleBodyView: UIView {
         label.textAlignment = .left
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 17.0)
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         label.accessibilityIdentifier = "AEPNotificationContentTitle"
         return label
     }()
 
-    private let descriptionLabel: UILabel = {
+    private let bodyLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = .darkGray
@@ -48,11 +49,12 @@ class TitleBodyView: UIView {
     }()
 
     private var bodyHeightConstraint: NSLayoutConstraint!
+    private var titleHeightConstraint: NSLayoutConstraint!
 
     // MARK: - Computed Properties
 
     var viewHeight: CGFloat {
-        TITLE_HEIGHT + bodyHeightConstraint.constant + PADDING_BETWEEN_VIEWS
+        titleHeightConstraint.constant + bodyHeightConstraint.constant + PADDING_BETWEEN_VIEWS
     }
 
     // MARK: - Initialization
@@ -82,7 +84,7 @@ class TitleBodyView: UIView {
     /// Sets up the view
     private func setupView() {
         addSubview(titleLabel)
-        addSubview(descriptionLabel)
+        addSubview(bodyLabel)
         setupConstraints()
     }
 
@@ -92,17 +94,21 @@ class TitleBodyView: UIView {
             titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: TITLE_HEIGHT),
 
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: PADDING_BETWEEN_VIEWS),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            bodyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: PADDING_BETWEEN_VIEWS),
+            bodyLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            bodyLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
 
-        /// Set the dynamic height constraint for the description label
-        bodyHeightConstraint = descriptionLabel.heightAnchor.constraint(equalToConstant: 0)
+        /// Set the dynamic height constraint for the body label
+        bodyHeightConstraint = bodyLabel.heightAnchor.constraint(equalToConstant: 0)
         bodyHeightConstraint.priority = .defaultHigh
         bodyHeightConstraint.isActive = true
+
+        /// Set the dynamic height constraint for the title label
+        titleHeightConstraint = titleLabel.heightAnchor.constraint(equalToConstant: 0)
+        titleHeightConstraint.priority = .defaultHigh
+        titleHeightConstraint.isActive = true
     }
 
     // MARK: - Configuration
@@ -110,27 +116,26 @@ class TitleBodyView: UIView {
     func configure(withPayload payload: TitleBodyPayload, viewWidth: CGFloat) {
         titleLabel.text = payload.title
         titleLabel.textColor = DefaultColor.TITLE
-        descriptionLabel.text = payload.body
-        descriptionLabel.textColor = DefaultColor.DESCRIPTION
-        updateBodyHeight(with: payload.body, viewWidth: viewWidth)
+        bodyLabel.text = payload.body
+        bodyLabel.textColor = DefaultColor.DESCRIPTION
+        titleHeightConstraint.constant = getLabelHeight(with: payload.title,
+                                                        viewWidth,
+                                                        titleLabel.font)
+        bodyHeightConstraint.constant = getLabelHeight(with: payload.body,
+                                                       viewWidth,
+                                                       bodyLabel.font)
     }
 
     func changeColor(from payload: Payload) {
         titleLabel.textColor = payload.titleColor
-        descriptionLabel.textColor = payload.descriptionColor
+        bodyLabel.textColor = payload.descriptionColor
     }
 
-    private func updateBodyHeight(with text: String?, viewWidth: CGFloat) {
-        // If no valid text is provided, set the height to zero
+    private func getLabelHeight(with text: String?, _ viewWidth: CGFloat, _ font: UIFont) -> CGFloat {
+        // If no text, return zero
         guard let text = text, !text.isEmpty else {
-            bodyHeightConstraint.constant = 0.0
-            return
+            return 0.0
         }
-
-        // Calculate the height required to fit the text within the given width
-        let requiredHeight = text.height(withConstrainedWidth: viewWidth, font: descriptionLabel.font)
-
-        // Update the body height constraint with the calculated height
-        bodyHeightConstraint.constant = requiredHeight
+        return text.height(withConstrainedWidth: viewWidth, font: font)
     }
 }
