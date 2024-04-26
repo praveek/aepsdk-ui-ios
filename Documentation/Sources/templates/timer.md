@@ -81,7 +81,9 @@ The tables below contain guidelines for your push notification content. These va
 
 ### Text guidelines
 
-| **Type** | **Characters per line** | **Recommended max<br /># of characters** | **Supports multiple<br />lines?** |
-| :-------- | -----------: | ------: | -------: |
-| Title | 25-30 | 25 | No |
-| Description | 30-40 | 150 (~5 lines) | Yes |
+| **Type** |**Recommended max<br /># of characters** | **Supports multiple<br />lines?** |
+| :-------- | ------: | -------: |
+| Title | 50 | Yes (2 lines max) |
+| Description | 450 | Yes |
+
+Important Note: These limits ensure your text displays clearly across devices, especially smaller iPhone.
