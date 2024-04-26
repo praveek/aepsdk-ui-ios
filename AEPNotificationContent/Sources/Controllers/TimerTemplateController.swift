@@ -23,7 +23,11 @@ class TimerTemplateController: TemplateController {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .defaultTitle
-        label.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
+        if #available(iOS 13.0, *) {
+            label.font = UIFont.monospacedSystemFont(ofSize: 20.0, weight: .medium)
+        } else {
+            label.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
+        }
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 1
