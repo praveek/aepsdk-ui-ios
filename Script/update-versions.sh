@@ -22,7 +22,7 @@ help()
    echo "Usage: $0 -n EXTENSION_NAME -v NEW_VERSION -d \"PODSPEC_DEPENDENCY_1, PODSPEC_DEPENDENCY_2\""
    echo ""
    echo -e "    -n\t- Name of the extension getting a version update. \n\t  Example: Edge, Analytics\n"
-   echo -e "    -v\t- New version to use for the extension. \n\t  Example: 4.0.2\n"
+   echo -e "    -v\t- New version to use for the extension. \n\t  Example: 5.0.1\n"
    exit 1 # Exit script after printing help
 }
 
@@ -58,7 +58,7 @@ echo "Changing value of 's.version' to '$NEW_VERSION' in '$PODSPEC_FILE'"
 sed -i '' -E "/^ *s.version/{s/$VERSION_REGEX/$NEW_VERSION/;}" $PODSPEC_FILE
 
 # Replace version in Constants file
-CONSTANTS_FILE=$ROOT_DIR"/AEP$NAME/Sources/"$NAME"Constants.swift"
+CONSTANTS_FILE=$ROOT_DIR"/AEP$NAME/Sources/Constants.swift"
 echo "Changing value of 'EXTENSION_VERSION' to '$NEW_VERSION' in '$CONSTANTS_FILE'"
 sed -i '' -E "/^ +static let EXTENSION_VERSION/{s/$VERSION_REGEX/$NEW_VERSION/;}" $CONSTANTS_FILE
 

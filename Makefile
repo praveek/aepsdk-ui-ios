@@ -80,4 +80,4 @@ test-podspec:
 
 # used to test update-versions.sh script locally
 test-versions:
-	(sh ./Script/update-versions.sh -n AEPNotificationContent -v 5.0.0 -d "AEPCore 5.0.0, AEPServices 5.0.0, AEPEdge 5.0.0, AEPEdgeIdentity 5.0.0")
+	(sh ./Script/update-versions.sh -n AEPNotificationContent -v 5.0.0)

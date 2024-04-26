@@ -1,4 +1,4 @@
-# Adobe Experience Platform - NotificationContent extension for iOS (IN DEVELOPMENT)
+# Adobe Experience Platform - NotificationContent extension for iOS
 
 ## About this project
 
