@@ -27,8 +27,8 @@ echo "Target version - ${BLUE}$1${NC}"
 echo "------------------AEPNotificationContent-------------------"
 PODSPEC_VERSION_IN_AEPNotificationContent=$(pod ipc spec AEPNotificationContent.podspec | jq '.version' | tr -d '"')
 echo "Local podspec version - ${BLUE}${PODSPEC_VERSION_IN_AEPNotificationContent}${NC}"
-SOURCE_CODE_VERSION_IN_AEPNotificationContent=$(cat ./AEPNotificationContent/Sources/AEPNotificationContentConstants.swift | egrep '\s*EXTENSION_VERSION\s*=\s*\"(.*)\"' | ruby -e "puts gets.scan(/\"(.*)\"/)[0] " | tr -d '"')
-echo "Souce code version - ${BLUE}${SOURCE_CODE_VERSION_IN_AEPNotificationContent}${NC}"
+SOURCE_CODE_VERSION_IN_AEPNotificationContent=$(cat ./AEPNotificationContent/Sources/Constants.swift | egrep '\s*EXTENSION_VERSION\s*=\s*\"(.*)\"' | ruby -e "puts gets.scan(/\"(.*)\"/)[0] " | tr -d '"')
+echo "Source code version - ${BLUE}${SOURCE_CODE_VERSION_IN_AEPNotificationContent}${NC}"
 
 if [[ "$1" == "$PODSPEC_VERSION_IN_AEPNotificationContent" ]] && [[ "$1" == "$SOURCE_CODE_VERSION_IN_AEPNotificationContent" ]]; then
     echo "${GREEN}Pass!${NC}"

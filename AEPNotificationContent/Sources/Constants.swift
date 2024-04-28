@@ -14,7 +14,7 @@ import Foundation
 
 enum Constants {
     static let LOG_TAG = "AEPNotificationContent"
-    static let EXTENSION_NAME = "com.adobe.aepnotificationcontent"
+    static let EXTENSION_NAME = "com.adobe.notificationcontent"
     static let EXTENSION_VERSION = "5.0.0"
 
     enum PayloadKey {
