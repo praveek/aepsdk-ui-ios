@@ -3,14 +3,14 @@
 ## Prerequisites
 
 * [Create a Notification Content extension](./Sources/create-extension.md)
-* Implement one of the following Adobe SDK extensions: 
-  * [AEPMessaging](https://developer.adobe.com/client-sdks/edge/adobe-journey-optimizer/) - for use with Adobe Journey Optimizer
+* Implement the following Adobe SDK extension:
   * [AEPCampaignClassic](https://developer.adobe.com/client-sdks/solution/adobe-campaign-classic/) - for use with Adobe Campaign Classic
 
 ## Using AEPNotificationContent extension
 
 * [Installing the AEPNotificationContent package](./Sources/getting-started.md)
 * [Configure the Notification Content extension](./Sources/configure-extension.md)
+* [Validate AEPNotificationContent integration](./Sources/validate-integration.md)
 
 ## Templates
 
