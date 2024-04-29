@@ -12,35 +12,9 @@
 
 import XCTest
 
-final class BasicTemplateTest: XCTestCase {
-    
-    // This is the notification title and body set in the DemoApp.
-    let APS_NOTIFICATION_TITLE = "Notification Title"
-    let APS_NOTIFICATION_BODY = "Notification Body"
-    
-    let app = XCUIApplication()
-    
-    // Demo App UI Elements
-    var userInfoTextField : XCUIElement?
-    var triggerNotificationBtn : XCUIElement?
-    
-    override func setUpWithError() throws {
-        continueAfterFailure = false
-        app.launch()
-        // Request notification permission
-        addUIInterruptionMonitor(withDescription: "Notification permissions") { (alert) -> Bool in
-            alert.buttons["Allow"].tap()
-            return true
-        }
-    }
-    
+final class BasicTemplateTest: AEPXCTestCase {
 
-    override func tearDownWithError() throws {
-        userInfoTextField?.typeText("")
-    }
-
-    func test_happy() throws {
-        
+    func test_happy() throws {        
         // setup
         let payload = """
         {
@@ -48,40 +22,17 @@ final class BasicTemplateTest: XCTestCase {
             "adb_clr_bg": "#FFFFFF",
             "adb_clr_title": "#000000",
             "adb_clr_body": "#AAAAAA",
-            "adb_body_ex": "Expanded Body",
-            "adb_title_ex": "Expanded Title",
+            "adb_title_ex": "\(EXPANDED_TITLE)",
+            "adb_body_ex": "\(EXPANDED_BODY)",
             "adb_template_type": "basic"
         }
         """
         
         // test
-        setNotificationUserInfo(payload)
-        triggerNotification()
-        
-                
-        // wait for the notification to arrive and finish animation
-        sleep(2)
-        
-        // long press notification
-        longPressNotification()
-
+        triggerAndOpenNotification(payload)
 
         // verify the content of the expanded notification
-        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-        let notificationBanner = springboard.otherElements["notification-expanded-view"].firstMatch
-        let basicTemplateTitle = notificationBanner.staticTexts["AEPNotificationContentTitle"]
-        let basicTemplateDescription = notificationBanner.staticTexts["AEPNotificationContentDescription"]
-        let basicTemplateImage = notificationBanner.images["AEPNotificationBasicTemplateImage"]
-
-        // verify the existence of UIComponents
-        XCTAssert(basicTemplateTitle.waitForExistence(timeout: 7))
-        XCTAssert(basicTemplateDescription.exists)
-        XCTAssert(basicTemplateImage.exists)
-        
-        // verify the values
-        XCTAssertEqual(basicTemplateTitle.label, "Expanded Title")
-        XCTAssertEqual(basicTemplateDescription.label, "Expanded Body")
-        XCTAssertGreaterThan(basicTemplateImage.frame.size.height, 0)
+        verifyBasicUI(title: EXPANDED_TITLE, description: EXPANDED_BODY, imageExists: true)
     }
 
     func test_whenExpandedTitle_notAvailable() {
@@ -89,110 +40,50 @@ final class BasicTemplateTest: XCTestCase {
         let payload = """
         {
             "adb_media": "https://picsum.photos/200",
-            "adb_body_ex": "Expanded Body",
+            "adb_body_ex": "\(EXPANDED_BODY)",
             "adb_template_type": "basic"
         }
         """
         
         // test
-        setNotificationUserInfo(payload)
-        triggerNotification()
-
-        // wait for the notification to arrive and finish animation
-        sleep(2)
-
-        // long press notification
-        longPressNotification()
+        triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
-        let notificationBanner = getNotificationBanner()
-        let basicTemplateTitle = notificationBanner.staticTexts["AEPNotificationContentTitle"]
-        let basicTemplateDescription = notificationBanner.staticTexts["AEPNotificationContentDescription"]
-        let basicTemplateImage = notificationBanner.images["AEPNotificationBasicTemplateImage"]
-
-        // verify the existence of UIComponents
-        XCTAssert(basicTemplateTitle.waitForExistence(timeout: 7))
-        XCTAssert(basicTemplateDescription.exists)
-        XCTAssert(basicTemplateImage.exists)
-
-        // verify the values
-        XCTAssertEqual(basicTemplateTitle.label, APS_NOTIFICATION_TITLE)
-        XCTAssertEqual(basicTemplateDescription.label, "Expanded Body")
-        XCTAssertGreaterThan(basicTemplateImage.frame.size.height, 0)
+        verifyBasicUI(title: APS_NOTIFICATION_TITLE, description: EXPANDED_BODY, imageExists: true)
     }
-
 
     func test_whenExpandedBody_notAvailable() {
         // setup
         let payload = """
         {
             "adb_media": "https://picsum.photos/200",
-            "adb_title_ex": "Expanded Title",
+            "adb_title_ex": "\(EXPANDED_TITLE)",
             "adb_template_type": "basic",
         }
         """
         
         // test
-        setNotificationUserInfo(payload)
-        triggerNotification()
-
-        // wait for the notification to arrive and finish animation
-        sleep(2)
-
-        // long press notification
-        longPressNotification()
+        triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
-        let notificationBanner = getNotificationBanner()
-        let basicTemplateTitle = notificationBanner.staticTexts["AEPNotificationContentTitle"]
-        let basicTemplateDescription = notificationBanner.staticTexts["AEPNotificationContentDescription"]
-        let basicTemplateImage = notificationBanner.images["AEPNotificationBasicTemplateImage"]
-
-        // verify the existence of UIComponents
-        XCTAssert(basicTemplateTitle.waitForExistence(timeout: 7))
-        XCTAssert(basicTemplateDescription.exists)
-        XCTAssert(basicTemplateImage.exists)
-
-        // verify the values
-        XCTAssertEqual(basicTemplateTitle.label, "Expanded Title")
-        XCTAssertEqual(basicTemplateDescription.label, APS_NOTIFICATION_BODY)
-        XCTAssertGreaterThan(basicTemplateImage.frame.size.height, 0)
+        verifyBasicUI(title: EXPANDED_TITLE, description: APS_NOTIFICATION_BODY, imageExists: true)
     }
 
     func test_whenImage_notAvailable() {
         // setup
         let payload = """
         {
-            "adb_body_ex": "Expanded Body",
-            "adb_title_ex": "Expanded Title",
+            "adb_title_ex": "\(EXPANDED_TITLE)",
+            "adb_body_ex": "\(EXPANDED_BODY)",
             "adb_template_type": "basic"
         }
         """
         
         // test
-        setNotificationUserInfo(payload)
-        triggerNotification()
-
-        // wait for the notification to arrive and finish animation
-        sleep(2)
-
-        // long press notification
-        longPressNotification()
+        triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
-        let notificationBanner = getNotificationBanner()
-        let basicTemplateTitle = notificationBanner.staticTexts["AEPNotificationContentTitle"]
-        let basicTemplateDescription = notificationBanner.staticTexts["AEPNotificationContentDescription"]
-        let basicTemplateImage = notificationBanner.images["AEPNotificationBasicTemplateImage"]
-
-        // verify the existence of UIComponents
-        XCTAssert(basicTemplateTitle.waitForExistence(timeout: 7))
-        XCTAssert(basicTemplateDescription.exists)
-        XCTAssertFalse(basicTemplateImage.exists)
-
-        // verify the values
-        XCTAssertEqual(basicTemplateTitle.label, "Expanded Title")
-        XCTAssertEqual(basicTemplateDescription.label, "Expanded Body")
+        verifyBasicUI(title: EXPANDED_TITLE, description: EXPANDED_BODY, imageExists: false)
     }
 
     func test_whenNoTitleBodyAndImage() {
@@ -204,51 +95,31 @@ final class BasicTemplateTest: XCTestCase {
         """
         
         // test
-        setNotificationUserInfo(payload)
-        triggerNotification()
-
-        // wait for the notification to arrive and finish animation
-        sleep(2)
-
-        // long press notification
-        longPressNotification()
+        triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
+        verifyBasicUI(title: APS_NOTIFICATION_TITLE, description: APS_NOTIFICATION_BODY, imageExists: false)
+    }
+    
+    
+    // Helper method to verify UI components and values
+    private func verifyBasicUI(title: String, description: String, imageExists: Bool = true) {
         let notificationBanner = getNotificationBanner()
-        let basicTemplateTitle = notificationBanner.staticTexts["AEPNotificationContentTitle"]
-        let basicTemplateDescription = notificationBanner.staticTexts["AEPNotificationContentDescription"]
-        let basicTemplateImage = notificationBanner.images["AEPNotificationBasicTemplateImage"]
+        let basicViewTitle = notificationBanner.staticTexts["AEPNotificationContentTitle"]
+        let basicViewDescription = notificationBanner.staticTexts["AEPNotificationContentDescription"]
+        let basicViewImage = notificationBanner.images["AEPBasicTemplateImage"]
 
-        // verify the existence of UIComponents
-        XCTAssert(basicTemplateTitle.waitForExistence(timeout: 7))
-        XCTAssert(basicTemplateDescription.exists)
-        XCTAssertFalse(basicTemplateImage.exists)
-
-        // verify the values
-        XCTAssertEqual(basicTemplateTitle.label, APS_NOTIFICATION_TITLE)
-        XCTAssertEqual(basicTemplateDescription.label, APS_NOTIFICATION_BODY)
-    }
-    
-    
-    private func setNotificationUserInfo(_ payload : String) {
-        userInfoTextField = app.textViews["txtUserinfo"]
-        userInfoTextField?.tap()
-        userInfoTextField?.typeText(payload)
-    }
-    
-    private func triggerNotification() {
-        triggerNotificationBtn = app.buttons["btnNotification"]
-        triggerNotificationBtn?.tap()
+        XCTAssert(basicViewTitle.waitForExistence(timeout: 7))
+        XCTAssert(basicViewDescription.exists)
+        XCTAssertEqual(basicViewTitle.label, title)
+        XCTAssertEqual(basicViewDescription.label, description)
+        
+        if imageExists {
+            XCTAssert(basicViewImage.exists)
+            XCTAssertGreaterThan(basicViewImage.frame.size.height, 0)
+        } else {
+            XCTAssertFalse(basicViewImage.exists)
+        }
     }
 
-    private func longPressNotification(){
-        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-        let notificationArea = springboard.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1))
-        notificationArea.press(forDuration: 1.0)
-    }
-
-    private func getNotificationBanner() -> XCUIElement {
-        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-        return springboard.otherElements["notification-expanded-view"].firstMatch
-    }
 }
