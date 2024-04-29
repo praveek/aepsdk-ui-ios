@@ -61,6 +61,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         button.tintColor = BUTTON_TINT_COLOR
         button.layer.cornerRadius = ARROW_SIZE / 2
         button.addTarget(self, action: #selector(leftArrowClicked), for: .touchUpInside)
+        button.accessibilityIdentifier = "AEPCarouselLeftArrow"
         return button
     }()
 
@@ -76,6 +77,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         button.tintColor = BUTTON_TINT_COLOR
         button.layer.cornerRadius = ARROW_SIZE / 2
         button.addTarget(self, action: #selector(rightArrowClicked), for: .touchUpInside)
+        button.accessibilityIdentifier = "AEPCarouselRightArrow"
         return button
     }()
 
@@ -91,6 +93,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.accessibilityIdentifier = "AEPScrollView"
         return scrollView
     }()
 
@@ -179,6 +182,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             imageView.contentMode = .scaleAspectFit
             imageView.clipsToBounds = true
             imageView.frame = CGRect(x: CGFloat(index) * view.frame.width, y: 0, width: view.frame.width, height: SCROLL_VIEW_HEIGHT)
+            imageView.accessibilityIdentifier = "AEPCarouselImage\(index)"
             scrollView.addSubview(imageView)
         }
 

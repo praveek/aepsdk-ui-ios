@@ -32,6 +32,7 @@ class TimerTemplateController: TemplateController {
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.accessibilityIdentifier = "AEPTimerLabel"
         return label
     }()
 
@@ -45,6 +46,7 @@ class TimerTemplateController: TemplateController {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.accessibilityIdentifier = "AEPTimerImage"
         return view
     }()
 
