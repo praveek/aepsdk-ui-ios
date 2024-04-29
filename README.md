@@ -2,7 +2,7 @@
 
 ## About this project
 
-AEPNotificationContent extension provides the capability to deliver predefined push notification templates to your application. This extension is compatible with push notifications originating from Adobe Journey Optimizer and Adobe Campaign Classic.
+AEPNotificationContent extension provides the capability to deliver predefined push notification templates to your application. This extension is compatible with push notifications originating from Adobe Campaign Classic.
 
 For further information about Adobe SDKs, visit the [developer documentation](https://developer.adobe.com/client-sdks/documentation/).
 
