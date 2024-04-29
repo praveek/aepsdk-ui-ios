@@ -43,7 +43,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
                 }
             }
             // configure
-            MobileCore.configureWith(appId: "bf7248f92b53/779ef92f7d96/launch-fa59caaf08bb-development")
+            MobileCore.configureWith(appId: "")
             #if DEBUG
                 let debugConfig = ["messaging.useSandbox": true]
                 MobileCore.updateConfigurationWith(configDict: debugConfig)
