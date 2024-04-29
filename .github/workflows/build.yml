@@ -17,25 +17,25 @@ on:
 jobs:
   build:
     runs-on: macos-13
-
+    
     steps:
       - uses: actions/checkout@v3
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: 15.0.1
-
+  
       - name: Install swiftformat
         run: brew install swiftformat
 
       - name: pod install
         run: make pod-install
-
+         
       - name: Linting
         run: make lint
-
+  
       - name: Run tests
         run: make test
-
+  
       # - name: Upload Code Coverage 
       #   uses: codecov/codecov-action@v3
       #   with:
