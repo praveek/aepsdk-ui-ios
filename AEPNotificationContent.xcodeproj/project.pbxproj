@@ -63,6 +63,9 @@
 		B6ADA6D12BD09DC200A794B9 /* DemoAppNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B6ADA6CA2BD09DC200A794B9 /* DemoAppNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B6ADA6D52BD18EFF00A794B9 /* DemoAppNotificationContent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B632B35F2B63230000D04C48 /* DemoAppNotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B6ADA6E12BD814A600A794B9 /* BasicTemplateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADA6E02BD814A600A794B9 /* BasicTemplateTest.swift */; };
+		B6ADA6EE2BDE2A7500A794B9 /* AEPXCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADA6ED2BDE2A7500A794B9 /* AEPXCTestCase.swift */; };
+		B6ADA6F02BDE2AB400A794B9 /* CarouselTemplateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADA6EF2BDE2AB400A794B9 /* CarouselTemplateTest.swift */; };
+		B6ADA6F22BDE9D8500A794B9 /* TimerTemplateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADA6F12BDE9D8500A794B9 /* TimerTemplateTest.swift */; };
 		B6ADF4872B62F34A007D8DDB /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */; };
 		B6ADF4882B62F34A007D8DDB /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */; };
 		B6F0B7AC2BC869AE0027828A /* TimerTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F0B7AB2BC869AE0027828A /* TimerTemplateController.swift */; };
@@ -181,6 +184,9 @@
 		B6ADA6CE2BD09DC200A794B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6ADA6DE2BD814A600A794B9 /* UITestRunner.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITestRunner.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6ADA6E02BD814A600A794B9 /* BasicTemplateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTemplateTest.swift; sourceTree = "<group>"; };
+		B6ADA6ED2BDE2A7500A794B9 /* AEPXCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPXCTestCase.swift; sourceTree = "<group>"; };
+		B6ADA6EF2BDE2AB400A794B9 /* CarouselTemplateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTemplateTest.swift; sourceTree = "<group>"; };
+		B6ADA6F12BDE9D8500A794B9 /* TimerTemplateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTemplateTest.swift; sourceTree = "<group>"; };
 		B6ADF4852B62F34A007D8DDB /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF4862B62F34A007D8DDB /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/iOSSupport/System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
 		B6ADF48D2B63169B007D8DDB /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,6 +403,9 @@
 			isa = PBXGroup;
 			children = (
 				B6ADA6E02BD814A600A794B9 /* BasicTemplateTest.swift */,
+				B6ADA6ED2BDE2A7500A794B9 /* AEPXCTestCase.swift */,
+				B6ADA6EF2BDE2AB400A794B9 /* CarouselTemplateTest.swift */,
+				B6ADA6F12BDE9D8500A794B9 /* TimerTemplateTest.swift */,
 			);
 			name = UITestRunner;
 			path = TestApps/UITestRunner;
@@ -752,6 +761,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6ADA6E12BD814A600A794B9 /* BasicTemplateTest.swift in Sources */,
+				B6ADA6EE2BDE2A7500A794B9 /* AEPXCTestCase.swift in Sources */,
+				B6ADA6F02BDE2AB400A794B9 /* CarouselTemplateTest.swift in Sources */,
+				B6ADA6F22BDE9D8500A794B9 /* TimerTemplateTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
