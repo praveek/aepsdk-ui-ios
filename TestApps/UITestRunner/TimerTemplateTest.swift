@@ -16,6 +16,7 @@ import XCTest
 
 final class TimerTemplateTest: AEPXCTestCase {
     
+    //  Constants for test notification
     let EXPIRED_TITLE = "Expired Title"
     let EXPIRED_BODY = "Expired Body"
     let TIMER_DURATION = 5
@@ -34,16 +35,16 @@ final class TimerTemplateTest: AEPXCTestCase {
             "adb_template_type" : "timer"
         }
       """
-      
+        
         // test
         triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
         verifyTimerUI(title: EXPANDED_TITLE, description: EXPANDED_BODY, timerExists: true)
-
+        
         // wait for the notification to expire
         sleep(5)
-
+        
         // verify the content of the expired notification
         verifyTimerUI(title: EXPIRED_TITLE, description: EXPIRED_BODY)
     }
@@ -62,20 +63,20 @@ final class TimerTemplateTest: AEPXCTestCase {
             "adb_template_type" : "timer"
         }
       """
-      
+        
         // test
         triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
         verifyTimerUI(title: EXPANDED_TITLE, description: EXPANDED_BODY, timerExists: true)
-
+        
         // wait for the notification to expire
         sleep(10)
-
+        
         // verify the content of the expired notification
         verifyTimerUI(title: EXPIRED_TITLE, description: EXPIRED_BODY)
     }
-
+    
     func test_whenTimerDataNotAvailable() {
         // setup
         let payload = """
@@ -88,14 +89,14 @@ final class TimerTemplateTest: AEPXCTestCase {
             "adb_template_type" : "timer"
         }
       """
-      
+        
         // test
         triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
         verifyFallbackTemplateShown()
     }
-
+    
     func test_whenAltTitleNotAvailable() {
         // setup
         let payload = """
@@ -109,14 +110,14 @@ final class TimerTemplateTest: AEPXCTestCase {
             "adb_template_type" : "timer"
         }
       """
-      
+        
         // test
         triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
         verifyFallbackTemplateShown()
     }
-
+    
     func test_whenExpandedTitleAndBodyAreNotAvailable() {
         // setup
         let payload = """
@@ -129,14 +130,14 @@ final class TimerTemplateTest: AEPXCTestCase {
             "adb_template_type" : "timer"
         }
       """
-      
+        
         // test
         triggerAndOpenNotification(payload)
         
         // verify the content of the expanded notification
         verifyTimerUI(title: APS_NOTIFICATION_TITLE, description: APS_NOTIFICATION_BODY, timerExists: true)
     }
-
+    
     func test_whenAltBodyNotAvailable() {
         // setup
         let payload = """
@@ -150,7 +151,7 @@ final class TimerTemplateTest: AEPXCTestCase {
             "adb_template_type" : "timer"
         }
       """
-      
+        
         // test
         triggerAndOpenNotification(payload)
         
@@ -159,19 +160,19 @@ final class TimerTemplateTest: AEPXCTestCase {
         let timerViewTitle = notificationBanner.staticTexts["AEPNotificationContentTitle"]
         let timerViewDescription = notificationBanner.staticTexts["AEPNotificationContentDescription"]
         let timerViewTimer = notificationBanner.staticTexts["AEPTimerLabel"]
-
+        
         // verify the existence of UIComponents
         XCTAssert(timerViewTitle.waitForExistence(timeout: 7))
         XCTAssert(timerViewDescription.exists)
         XCTAssert(timerViewTimer.exists)
-
+        
         // verify the values
         XCTAssertEqual(timerViewTitle.label, EXPANDED_TITLE)
         XCTAssertEqual(timerViewDescription.label, EXPANDED_BODY)
-
+        
         // wait for the notification to expire
         sleep(5)
-
+        
         // verify the content of the expired notification
         XCTAssertEqual(timerViewTitle.label, EXPIRED_TITLE)
         XCTAssertFalse(timerViewDescription.exists)
@@ -185,7 +186,7 @@ final class TimerTemplateTest: AEPXCTestCase {
         let timerViewDescription = notificationBanner.staticTexts["AEPNotificationContentDescription"]
         let timerViewTimer = notificationBanner.staticTexts["AEPTimerLabel"]
         let timerViewImage = notificationBanner.images["AEPTimerImage"]
-
+        
         XCTAssert(timerViewTitle.waitForExistence(timeout: 7))
         XCTAssert(timerViewDescription.exists)
         XCTAssertEqual(timerViewTitle.label, title)
@@ -203,5 +204,5 @@ final class TimerTemplateTest: AEPXCTestCase {
             XCTAssertFalse(timerViewImage.exists)
         }
     }
-
+    
 }

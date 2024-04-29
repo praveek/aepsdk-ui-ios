@@ -14,8 +14,7 @@ import XCTest
 
 final class BasicTemplateTest: AEPXCTestCase {
 
-    func test_happy() throws {
-        
+    func test_happy() throws {        
         // setup
         let payload = """
         {

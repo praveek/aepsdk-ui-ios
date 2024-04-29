@@ -16,10 +16,9 @@ import XCTest
 
 class AEPXCTestCase : XCTestCase {
     
-    // This is the notification title and body set in the DemoApp.
+    //  Constants for test notification
     let APS_NOTIFICATION_TITLE = "Notification Title"
     let APS_NOTIFICATION_BODY = "Notification Body"
-    
     let EXPANDED_TITLE = "Expanded Title"
     let EXPANDED_BODY = "Expanded Body"
     
@@ -43,9 +42,7 @@ class AEPXCTestCase : XCTestCase {
         userInfoTextField?.typeText("")
     }
     
-    
     // Helper methods
-    
     func triggerAndOpenNotification(_ payload: String) {
         setNotificationUserInfo(payload)
         triggerNotification()
@@ -53,23 +50,6 @@ class AEPXCTestCase : XCTestCase {
         longPressNotification()
     }
     
-    private func setNotificationUserInfo(_ payload : String) {
-        userInfoTextField = app.textViews["txtUserinfo"]
-        userInfoTextField?.tap()
-        userInfoTextField?.typeText(payload)
-    }
-    
-    private func triggerNotification() {
-        triggerNotificationBtn = app.buttons["btnNotification"]
-        triggerNotificationBtn?.tap()
-    }
-
-    private func longPressNotification(){
-        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-        let notificationArea = springboard.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1))
-        notificationArea.press(forDuration: 1.0)
-    }
-
     func getNotificationBanner() -> XCUIElement {
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         return springboard.otherElements["notification-expanded-view"].firstMatch
@@ -85,6 +65,24 @@ class AEPXCTestCase : XCTestCase {
         
         XCTAssertEqual(title.label, APS_NOTIFICATION_TITLE)
         XCTAssertEqual(description.label, APS_NOTIFICATION_BODY)
+    }
+    
+    // Private methods
+    private func setNotificationUserInfo(_ payload : String) {
+        userInfoTextField = app.textViews["txtUserinfo"]
+        userInfoTextField?.tap()
+        userInfoTextField?.typeText(payload)
+    }
+    
+    private func triggerNotification() {
+        triggerNotificationBtn = app.buttons["btnNotification"]
+        triggerNotificationBtn?.tap()
+    }
+
+    private func longPressNotification(){
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let notificationArea = springboard.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1))
+        notificationArea.press(forDuration: 1.0)
     }
 }
 

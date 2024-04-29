@@ -15,12 +15,12 @@ import XCTest
 
 class CarouselTemplateTest : AEPXCTestCase {
     
+    //  Constants for test notification
     let CAROUSEL_BODY_0 = "CarouselBody0"
     let CAROUSEL_BODY_1 = "CarouselBody1"
     let CAROUSEL_BODY_2 = "CarouselBody2"
     
-    func test_happy() throws {
-        
+    func test_happy() throws {        
         // setup
         let payload = """
         {
@@ -64,8 +64,7 @@ class CarouselTemplateTest : AEPXCTestCase {
         rightArrowClicked()
         
         // verify the values of third carousel item
-        verifyCarouselItem(index: 2, title: EXPANDED_TITLE, description: CAROUSEL_BODY_2)
-        
+        verifyCarouselItem(index: 2, title: EXPANDED_TITLE, description: CAROUSEL_BODY_2)        
         
         //  previous carousel item
         leftArrowClicked()
