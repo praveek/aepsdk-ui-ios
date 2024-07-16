@@ -1,8 +1,8 @@
 # Adobe Experience Platform - NotificationContent extension for iOS
 
-[![Build](https://github.com/adobe/aepsdk-notificationcontent-ios/actions/workflows/build.yml/badge.svg)](https://github.com/adobe/aepsdk-notificationcontent-ios/actions/workflows/build.yml)
-[![Cocoapods](https://img.shields.io/github/v/release/adobe/aepsdk-notificationcontent-ios?label=CocoaPods&logo=apple&logoColor=white&color=orange&sort=semver)](https://cocoapods.org/pods/AEPNotificationContent)
-[![SPM](https://img.shields.io/github/v/release/adobe/aepsdk-notificationcontent-ios?label=SPM&logo=apple&logoColor=white&color=orange&sort=semver)](https://github.com/adobe/aepsdk-notificationcontent-ios/releases)
+[![Build](https://github.com/adobe/aepsdk-ui-ios/actions/workflows/build.yml/badge.svg)](https://github.com/adobe/aepsdk-ui-ios/actions/workflows/build.yml)
+[![Cocoapods](https://img.shields.io/github/v/release/adobe/aepsdk-ui-ios?label=CocoaPods&logo=apple&logoColor=white&color=orange&sort=semver)](https://cocoapods.org/pods/AEPNotificationContent)
+[![SPM](https://img.shields.io/github/v/release/adobe/aepsdk-ui-ios?label=SPM&logo=apple&logoColor=white&color=orange&sort=semver)](https://github.com/adobe/aepsdk-ui-ios/releases)
 
 ## About this project
 
