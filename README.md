@@ -1,14 +1,14 @@
-# Adobe Experience Platform - NotificationContent extension for iOS
-
-[![Build](https://github.com/adobe/aepsdk-ui-ios/actions/workflows/build.yml/badge.svg)](https://github.com/adobe/aepsdk-ui-ios/actions/workflows/build.yml)
-[![Cocoapods](https://img.shields.io/github/v/release/adobe/aepsdk-ui-ios?label=CocoaPods&logo=apple&logoColor=white&color=orange&sort=semver)](https://cocoapods.org/pods/AEPNotificationContent)
-[![SPM](https://img.shields.io/github/v/release/adobe/aepsdk-ui-ios?label=SPM&logo=apple&logoColor=white&color=orange&sort=semver)](https://github.com/adobe/aepsdk-ui-ios/releases)
+# Adobe Experience Platform - UI extensions for iOS
 
 ## About this project
 
-AEPNotificationContent extension provides the capability to deliver predefined push notification templates to your application. This extension is compatible with push notifications originating from Adobe Campaign Classic.
+This repository is a mono repo structured to hold all AEP SDK extensions that provide a UI to the target application.
 
-For further information about Adobe SDKs, visit the [developer documentation](https://developer.adobe.com/client-sdks/documentation/).
+## Frameworks
+
+| Framework | Current version |
+| --------- | --------------- |
+| NotificationContent | [![Cocoapods](https://img.shields.io/github/v/release/adobe/aepsdk-ui-ios?label=CocoaPods&logo=apple&logoColor=white&color=orange&sort=semver)](https://cocoapods.org/pods/AEPNotificationContent) |
 
 ## Requirements
 
