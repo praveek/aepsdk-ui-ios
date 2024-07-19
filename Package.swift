@@ -16,13 +16,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "AEPNotificationContent",
+    name: "AEPUI",
     platforms: [.iOS(.v12)],
     products: [
         .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"])
     ],
     targets: [
         .target(name: "AEPNotificationContent",
-                path: "AEPNotificationContent/Sources")
+                path: "Frameworks/AEPNotificationContent/Sources")
     ]
 )
