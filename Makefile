@@ -1,9 +1,23 @@
 export EXTENSION_NAME = AEPNotificationContent
 export APP_NAME = DemoApp
 CURRENT_DIRECTORY := ${CURDIR}
-PROJECT_NAME = $(EXTENSION_NAME)
-TARGET_NAME_XCFRAMEWORK = $(EXTENSION_NAME).xcframework
-SCHEME_NAME_XCFRAMEWORK = AEPNotificationContentXCF
+FRAMEWORKS_DIRECTORY = $(CURRENT_DIRECTORY)/Frameworks
+
+# per-framework variables
+
+AEPNOTIFICATIONCONTENT = AEPNotificationContent
+AEPNOTIFICATIONCONTENT_PATH = $(FRAMEWORKS_DIRECTORY)/$(AEPNOTIFICATIONCONTENT)
+AEPNOTIFICATIONCONTENT_WORKSPACE = $(AEPNOTIFICATIONCONTENT_PATH)/$(AEPNOTIFICATIONCONTENT).xcworkspace
+AEPNOTIFICATIONCONTENT_TARGET_NAME_XCFRAMEWORK = $(AEPNOTIFICATIONCONTENT_PROJECT_NAME).xcframework
+AEPNOTIFICATIONCONTENT_SCHEME_NAME_XCFRAMEWORK = $(AEPNOTIFICATIONCONTENT_PROJECT_NAME)XCF
+
+AEPCONTENTCARDS = AEPContentCards
+AEPCONTENTCARDS_PATH = $(FRAMEWORKS_DIRECTORY)/$(AEPCONTENTCARDS)
+AEPCONTENTCARDS_WORKSPACE = $(AEPCONTENTCARDS_PATH)/$(AEPCONTENTCARDS).xcworkspace
+AEPCONTENTCARDS_TARGET_NAME_XCFRAMEWORK = $(AEPCONTENTCARDS_PROJECT_NAME).xcframework
+AEPCONTENTCARDS_SCHEME_NAME_XCFRAMEWORK = $(AEPCONTENTCARDS_PROJECT_NAME)XCF
+
+# build libraries and environments
 
 SIMULATOR_ARCHIVE_PATH = $(CURRENT_DIRECTORY)/build/ios_simulator.xcarchive/Products/Library/Frameworks/
 SIMULATOR_ARCHIVE_DSYM_PATH = $(CURRENT_DIRECTORY)/build/ios_simulator.xcarchive/dSYMs/
@@ -11,67 +25,105 @@ IOS_ARCHIVE_PATH = $(CURRENT_DIRECTORY)/build/ios.xcarchive/Products/Library/Fra
 IOS_ARCHIVE_DSYM_PATH = $(CURRENT_DIRECTORY)/build/ios.xcarchive/dSYMs/
 IOS_DESTINATION = 'platform=iOS Simulator,name=iPhone 15'
 
-setup:
-	(pod install)
-	(cd TestApps/$(APP_NAME) && pod install)
+# testing targets
 
-setup-tools: install-githook
+test: clean aep-notification-content-unit-test aep-content-cards-unit-test
 
-clean:
-	(rm -rf build)
-
-build:
-	xcodebuild archive -workspace $(PROJECT_NAME).xcworkspace -scheme $(SCHEME_NAME_XCFRAMEWORK) -archivePath "./build/ios.xcarchive" -sdk iphoneos -destination="iOS" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
-	xcodebuild archive -workspace $(PROJECT_NAME).xcworkspace -scheme $(SCHEME_NAME_XCFRAMEWORK) -archivePath "./build/ios_simulator.xcarchive" -sdk iphonesimulator -destination="iOS Simulator" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
-
-zip:
-	cd build && zip -r -X $(PROJECT_NAME).xcframework.zip $(PROJECT_NAME).xcframework/
-	swift package compute-checksum build/$(PROJECT_NAME).xcframework.zip
-
-test: clean unit-test
-
-unit-test: 
+aep-notification-content-unit-test: 
 	@echo "######################################################################"
-	@echo "### Unit Testing"
+	@echo "### Unit Testing AEPNotificationContent"
 	@echo "######################################################################"
-	xcodebuild test -workspace $(PROJECT_NAME).xcworkspace -scheme "UnitTests" -destination $(IOS_DESTINATION) -derivedDataPath build/out -resultBundlePath build/$(PROJECT_NAME).xcresult -enableCodeCoverage YES
+	xcodebuild test -workspace $(AEPNOTIFICATIONCONTENT_WORKSPACE) \
+		-scheme "UnitTests" -destination $(IOS_DESTINATION) -derivedDataPath build/out \
+		-resultBundlePath build/$(AEPNOTIFICATIONCONTENT).xcresult -enableCodeCoverage YES
 
-pod-install:
-	(pod install --repo-update)
-	(cd TestApps/$(APP_NAME) && pod install --repo-update)
+aep-content-cards-unit-test: 
+	@echo "######################################################################"
+	@echo "### Unit Testing AEPContentCards"
+	@echo "######################################################################"
+	xcodebuild test -workspace $(AEPCONTENTCARDS_WORKSPACE) \
+		-scheme "UnitTests" -destination $(IOS_DESTINATION) -derivedDataPath build/out \
+		-resultBundlePath build/$(AEPCONTENTCARDS).xcresult -enableCodeCoverage YES
 
-ci-pod-install:
-	(bundle exec pod install --repo-update)
-	(cd TestApps/$(APP_NAME) && bundle exec pod install --repo-update)
+# build and archive targets
 
 archive: pod-install _archive
 
 ci-archive: ci-pod-install _archive
 
-_archive: clean build
+_archive: clean build archive-notification-content archive-content-cards
+
+archive-notification-content:
 	xcodebuild -create-xcframework \
-		-framework $(SIMULATOR_ARCHIVE_PATH)$(EXTENSION_NAME).framework -debug-symbols $(SIMULATOR_ARCHIVE_DSYM_PATH)$(EXTENSION_NAME).framework.dSYM \
-		-framework $(IOS_ARCHIVE_PATH)$(EXTENSION_NAME).framework -debug-symbols $(IOS_ARCHIVE_DSYM_PATH)$(EXTENSION_NAME).framework.dSYM \
-		-output ./build/$(TARGET_NAME_XCFRAMEWORK)
+		-framework $(SIMULATOR_ARCHIVE_PATH)$(AEPNOTIFICATIONCONTENT).framework -debug-symbols $(SIMULATOR_ARCHIVE_DSYM_PATH)$(AEPNOTIFICATIONCONTENT).framework.dSYM \
+		-framework $(IOS_ARCHIVE_PATH)$(AEPNOTIFICATIONCONTENT).framework -debug-symbols $(IOS_ARCHIVE_DSYM_PATH)$(AEPNOTIFICATIONCONTENT).framework.dSYM \
+		-output ./build/$(AEPNOTIFICATIONCONTENT).xcframework
+
+archive-content-cards:
+#	xcodebuild -create-xcframework \
+#		-framework $(SIMULATOR_ARCHIVE_PATH)$(AEPCONTENTCARDS).framework -debug-symbols $(SIMULATOR_ARCHIVE_DSYM_PATH)$(AEPCONTENTCARDS).framework.dSYM \
+#		-framework $(IOS_ARCHIVE_PATH)$(AEPCONTENTCARDS).framework -debug-symbols $(IOS_ARCHIVE_DSYM_PATH)$(AEPCONTENTCARDS).framework.dSYM \
+#		-output ./build/$(AEPCONTENTCARDS.xcframework
+
+build: build-notification-content build-content-cards
+
+build-notification-content:
+	xcodebuild archive -workspace $(AEPNOTIFICATIONCONTENT_WORKSPACE) -scheme $(AEPNOTIFICATIONCONTENT_SCHEME_NAME_XCFRAMEWORK) \
+		-archivePath "./build/ios.xcarchive" -sdk iphoneos -destination="iOS" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+	xcodebuild archive -workspace $(AEPNOTIFICATIONCONTENT_WORKSPACE) -scheme $(AEPNOTIFICATIONCONTENT_SCHEME_NAME_XCFRAMEWORK) \
+		-archivePath "./build/ios_simulator.xcarchive" -sdk iphonesimulator -destination="iOS Simulator" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+
+build-content-cards:
+#	xcodebuild archive -workspace $(AEPCONTENTCARDS_WORKSPACE) -scheme $(AEPCONTENTCARDS_SCHEME_NAME_XCFRAMEWORK) \
+#		-archivePath "./build/ios.xcarchive" -sdk iphoneos -destination="iOS" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+#	xcodebuild archive -workspace $(AEPCONTENTCARDS_WORKSPACE) -scheme $(AEPCONTENTCARDS_SCHEME_NAME_XCFRAMEWORK) \
+#		-archivePath "./build/ios_simulator.xcarchive" -sdk iphonesimulator -destination="iOS Simulator" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+
+# utility targets
+
+pod-install:
+	(cd $(AEPNOTIFICATIONCONTENT_PATH) && pod install --repo-update)
+#	(cd $(AEPCONTENTCARDS_PATH) && pod install --repo-update)
+	(cd TestApps/$(APP_NAME) && pod install --repo-update)
+
+ci-pod-install:
+	(cd $(AEPNOTIFICATIONCONTENT_PATH) && bundle exec pod install --repo-update)
+#	(cd $(AEPCONTENTCARDS_PATH) && bundle exec pod install --repo-update)
+	(cd TestApps/$(APP_NAME) && bundle exec pod install --repo-update)
+
+clean:
+	(rm -rf build)
+
+zip:
+	cd build && zip -r -X $(AEPNOTIFICATIONCONTENT).xcframework.zip $(AEPNOTIFICATIONCONTENT).xcframework/
+	swift package compute-checksum build/$(AEPNOTIFICATIONCONTENT).xcframework.zip
+#	cd build && zip -r -X $(AEPCONTENTCARDS).xcframework.zip $(AEPCONTENTCARDS).xcframework/
+#	swift package compute-checksum build/$(AEPCONTENTCARDS).xcframework.zip
+
+# formatting and linting targets
 
 format: lint-autocorrect swift-format
 
 check-format:
-	(swiftformat --lint $(PROJECT_NAME)/Sources --swiftversion 5.1)
+	(swiftformat --lint $(AEPNOTIFICATIONCONTENT_PATH)/Sources --swiftversion 5.1)
+#	(swiftformat --lint $(AEPCONTENTCARDS_PATH)/Sources --swiftversion 5.1)
+
+swift-format:
+	(swiftformat $(AEPNOTIFICATIONCONTENT_PATH)/Sources --swiftversion 5.1)
+#	(swiftformat $(AEPCONTENTCARDS_PATH)/Sources --swiftversion 5.1)
 
 install-swiftformat:
 	(brew install swiftformat)
 
-swift-format:
-	(swiftformat $(PROJECT_NAME)/Sources --swiftversion 5.1)
-
 lint-autocorrect:
-	($(CURRENT_DIRECTORY)/Pods/SwiftLint/swiftlint --fix)
+	(cd $(AEPNOTIFICATIONCONTENT_PATH) && $(CURRENT_DIRECTORY)/Pods/SwiftLint/swiftlint --fix)
 
 lint: swift-lint check-format
 
 swift-lint:
-	(./Pods/SwiftLint/swiftlint lint $(PROJECT_NAME)/Sources)
+# not working
+	($(AEPNOTIFICATIONCONTENT_PATH)/Pods/SwiftLint/swiftlint lint)
+#	(./Pods/SwiftLint/swiftlint lint $(AEPCONTENTCARDS_PATH)/Sources)
 
 check-version:
 	(sh ./Script/version.sh $(VERSION))
