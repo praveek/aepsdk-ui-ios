@@ -1,4 +1,4 @@
-# Adobe Experience Platform - ContentCardTemplates extension for iOS
+# Adobe Experience Platform - AEPSwiftUI extension for iOS
 
 <!-- 
 [![Build](https://github.com/adobe/aepsdk-ui-ios/actions/workflows/build.yml/badge.svg)](https://github.com/adobe/aepsdk-ui-ios/actions/workflows/build.yml)

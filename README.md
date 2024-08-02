@@ -9,7 +9,7 @@ This repository is a mono repo structured to hold all AEP SDK extensions that pr
 | Framework | Current version |
 | --------- | --------------- |
 | [AEPNotificationContent](./Frameworks/AEPNotificationContent/) | [![Cocoapods](https://img.shields.io/github/v/release/adobe/aepsdk-ui-ios?label=CocoaPods&logo=apple&logoColor=white&color=orange&sort=semver)](https://cocoapods.org/pods/AEPNotificationContent) |
-| [AEPContentCards](./Frameworks/AEPContentCards/) | Coming soon! |
+| [AEPSwiftUI](./Frameworks/AEPSwiftUI/) | Coming soon! |
 
 ## Requirements
 
