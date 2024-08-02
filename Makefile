@@ -1,4 +1,3 @@
-export EXTENSION_NAME = AEPNotificationContent
 export APP_NAME = DemoApp
 CURRENT_DIRECTORY := ${CURDIR}
 FRAMEWORKS_DIRECTORY = $(CURRENT_DIRECTORY)/Frameworks
@@ -11,11 +10,11 @@ AEPNOTIFICATIONCONTENT_WORKSPACE = $(AEPNOTIFICATIONCONTENT_PATH)/$(AEPNOTIFICAT
 AEPNOTIFICATIONCONTENT_TARGET_NAME_XCFRAMEWORK = $(AEPNOTIFICATIONCONTENT_PROJECT_NAME).xcframework
 AEPNOTIFICATIONCONTENT_SCHEME_NAME_XCFRAMEWORK = $(AEPNOTIFICATIONCONTENT_PROJECT_NAME)XCF
 
-AEPCONTENTCARDS = AEPContentCards
-AEPCONTENTCARDS_PATH = $(FRAMEWORKS_DIRECTORY)/$(AEPCONTENTCARDS)
-AEPCONTENTCARDS_WORKSPACE = $(AEPCONTENTCARDS_PATH)/$(AEPCONTENTCARDS).xcworkspace
-AEPCONTENTCARDS_TARGET_NAME_XCFRAMEWORK = $(AEPCONTENTCARDS_PROJECT_NAME).xcframework
-AEPCONTENTCARDS_SCHEME_NAME_XCFRAMEWORK = $(AEPCONTENTCARDS_PROJECT_NAME)XCF
+AEPSWIFTUI = AEPSwiftUI
+AEPSWIFTUI_PATH = $(FRAMEWORKS_DIRECTORY)/$(AEPSWIFTUI)
+AEPSWIFTUI_WORKSPACE = $(AEPSWIFTUI_PATH)/$(AEPSWIFTUI).xcworkspace
+AEPSWIFTUI_TARGET_NAME_XCFRAMEWORK = $(AEPSWIFTUI_PROJECT_NAME).xcframework
+AEPSWIFTUI_SCHEME_NAME_XCFRAMEWORK = $(AEPSWIFTUI_PROJECT_NAME)XCF
 
 # build libraries and environments
 
@@ -39,11 +38,11 @@ aep-notification-content-unit-test:
 
 aep-content-cards-unit-test: 
 	@echo "######################################################################"
-	@echo "### Unit Testing AEPContentCards"
+	@echo "### Unit Testing AEPSwiftUI"
 	@echo "######################################################################"
-	xcodebuild test -workspace $(AEPCONTENTCARDS_WORKSPACE) \
+	xcodebuild test -workspace $(AEPSWIFTUI_WORKSPACE) \
 		-scheme "UnitTests" -destination $(IOS_DESTINATION) -derivedDataPath build/out \
-		-resultBundlePath build/$(AEPCONTENTCARDS).xcresult -enableCodeCoverage YES
+		-resultBundlePath build/$(AEPSWIFTUI).xcresult -enableCodeCoverage YES
 
 # build and archive targets
 
@@ -61,9 +60,9 @@ archive-notification-content:
 
 archive-content-cards:
 #	xcodebuild -create-xcframework \
-#		-framework $(SIMULATOR_ARCHIVE_PATH)$(AEPCONTENTCARDS).framework -debug-symbols $(SIMULATOR_ARCHIVE_DSYM_PATH)$(AEPCONTENTCARDS).framework.dSYM \
-#		-framework $(IOS_ARCHIVE_PATH)$(AEPCONTENTCARDS).framework -debug-symbols $(IOS_ARCHIVE_DSYM_PATH)$(AEPCONTENTCARDS).framework.dSYM \
-#		-output ./build/$(AEPCONTENTCARDS.xcframework
+#		-framework $(SIMULATOR_ARCHIVE_PATH)$(AEPSWIFTUI).framework -debug-symbols $(SIMULATOR_ARCHIVE_DSYM_PATH)$(AEPSWIFTUI).framework.dSYM \
+#		-framework $(IOS_ARCHIVE_PATH)$(AEPSWIFTUI).framework -debug-symbols $(IOS_ARCHIVE_DSYM_PATH)$(AEPSWIFTUI).framework.dSYM \
+#		-output ./build/$(AEPSWIFTUI.xcframework
 
 build: build-notification-content build-content-cards
 
@@ -74,21 +73,21 @@ build-notification-content:
 		-archivePath "./build/ios_simulator.xcarchive" -sdk iphonesimulator -destination="iOS Simulator" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
 build-content-cards:
-#	xcodebuild archive -workspace $(AEPCONTENTCARDS_WORKSPACE) -scheme $(AEPCONTENTCARDS_SCHEME_NAME_XCFRAMEWORK) \
+#	xcodebuild archive -workspace $(AEPSWIFTUI_WORKSPACE) -scheme $(AEPSWIFTUI_SCHEME_NAME_XCFRAMEWORK) \
 #		-archivePath "./build/ios.xcarchive" -sdk iphoneos -destination="iOS" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
-#	xcodebuild archive -workspace $(AEPCONTENTCARDS_WORKSPACE) -scheme $(AEPCONTENTCARDS_SCHEME_NAME_XCFRAMEWORK) \
+#	xcodebuild archive -workspace $(AEPSWIFTUI_WORKSPACE) -scheme $(AEPSWIFTUI_SCHEME_NAME_XCFRAMEWORK) \
 #		-archivePath "./build/ios_simulator.xcarchive" -sdk iphonesimulator -destination="iOS Simulator" SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
 # utility targets
 
 pod-install:
 	(cd $(AEPNOTIFICATIONCONTENT_PATH) && pod install --repo-update)
-#	(cd $(AEPCONTENTCARDS_PATH) && pod install --repo-update)
+#	(cd $(AEPSWIFTUI_PATH) && pod install --repo-update)
 	(cd TestApps/$(APP_NAME) && pod install --repo-update)
 
 ci-pod-install:
 	(cd $(AEPNOTIFICATIONCONTENT_PATH) && bundle exec pod install --repo-update)
-#	(cd $(AEPCONTENTCARDS_PATH) && bundle exec pod install --repo-update)
+#	(cd $(AEPSWIFTUI_PATH) && bundle exec pod install --repo-update)
 	(cd TestApps/$(APP_NAME) && bundle exec pod install --repo-update)
 
 clean:
@@ -97,8 +96,8 @@ clean:
 zip:
 	cd build && zip -r -X $(AEPNOTIFICATIONCONTENT).xcframework.zip $(AEPNOTIFICATIONCONTENT).xcframework/
 	swift package compute-checksum build/$(AEPNOTIFICATIONCONTENT).xcframework.zip
-#	cd build && zip -r -X $(AEPCONTENTCARDS).xcframework.zip $(AEPCONTENTCARDS).xcframework/
-#	swift package compute-checksum build/$(AEPCONTENTCARDS).xcframework.zip
+#	cd build && zip -r -X $(AEPSWIFTUI).xcframework.zip $(AEPSWIFTUI).xcframework/
+#	swift package compute-checksum build/$(AEPSWIFTUI).xcframework.zip
 
 # formatting and linting targets
 
@@ -106,11 +105,11 @@ format: lint-autocorrect swift-format
 
 check-format:
 	(swiftformat --lint $(AEPNOTIFICATIONCONTENT_PATH)/Sources --swiftversion 5.1)
-#	(swiftformat --lint $(AEPCONTENTCARDS_PATH)/Sources --swiftversion 5.1)
+#	(swiftformat --lint $(AEPSWIFTUI_PATH)/Sources --swiftversion 5.1)
 
 swift-format:
 	(swiftformat $(AEPNOTIFICATIONCONTENT_PATH)/Sources --swiftversion 5.1)
-#	(swiftformat $(AEPCONTENTCARDS_PATH)/Sources --swiftversion 5.1)
+#	(swiftformat $(AEPSWIFTUI_PATH)/Sources --swiftversion 5.1)
 
 install-swiftformat:
 	(brew install swiftformat)
@@ -123,7 +122,7 @@ lint: swift-lint check-format
 swift-lint:
 # not working
 	($(AEPNOTIFICATIONCONTENT_PATH)/Pods/SwiftLint/swiftlint lint)
-#	(./Pods/SwiftLint/swiftlint lint $(AEPCONTENTCARDS_PATH)/Sources)
+#	(./Pods/SwiftLint/swiftlint lint $(AEPSWIFTUI_PATH)/Sources)
 
 check-version:
 	(sh ./Script/version.sh $(VERSION))
