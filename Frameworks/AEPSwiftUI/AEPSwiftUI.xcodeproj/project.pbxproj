@@ -26,6 +26,7 @@
 		B626E0582C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626E0572C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift */; };
 		B626E0602C5EC26300ED1816 /* AEPSwiftUIPublicAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626E05F2C5EC26300ED1816 /* AEPSwiftUIPublicAPITests.swift */; };
 		B626E0612C5EC26300ED1816 /* AEPSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B626E04D2C5EC1F400ED1816 /* AEPSwiftUI.framework */; };
+		B626E06E2C612AC200ED1816 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626E06D2C612AC200ED1816 /* Constants.swift */; };
 		E74D1204ACB4A7065BDA160C /* Pods_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED41BA875FEB39933D8B5D6 /* Pods_UnitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		B626E0572C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AEPSwiftUI+PublicAPI.swift"; sourceTree = "<group>"; };
 		B626E05D2C5EC26300ED1816 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B626E05F2C5EC26300ED1816 /* AEPSwiftUIPublicAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPSwiftUIPublicAPITests.swift; sourceTree = "<group>"; };
+		B626E06D2C612AC200ED1816 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C6EE3731C5E42D34C55C6B4C /* Pods-AEPSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-AEPSwiftUI/Pods-AEPSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 			children = (
 				B626E0502C5EC1F400ED1816 /* AEPSwiftUI.h */,
 				B626E0572C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift */,
+				B626E06D2C612AC200ED1816 /* Constants.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B626E0582C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift in Sources */,
+				B626E06E2C612AC200ED1816 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

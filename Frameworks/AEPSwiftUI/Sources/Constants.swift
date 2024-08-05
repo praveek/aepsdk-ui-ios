@@ -10,12 +10,9 @@
  governing permissions and limitations under the License.
  */
 
-import XCTest
-import AEPSwiftUI
+import Foundation
 
-final class AEPSwiftUIPublicAPITests: XCTestCase {
-
-    func testExtensionVersion() throws {
-        XCTAssertEqual("5.0.0", AEPSwiftUI.extensionVersion)
-    }
+enum Constants {
+    static let LOG_TAG = "AEPSwiftUI"
+    static let EXTENSION_VERSION = "5.0.0"
 }
