@@ -12,22 +12,16 @@
 
 import Foundation
 
-extension ContentCardUI : CardDataProvider {
+/// CardDelegate protocol defines methods that a delegate should implement to handle various card related events from the User Interface
+protocol CardDelegate {
     
-    func getTemplateType() -> TemplateType {
-        // TODO : Implement
-        return .unknown
-    }
+    /// Tells the delegate that the card has been displayed
+    func cardDisplayed()
     
-    func getContent() -> [String : Any]? {
-        // TODO : Implement
-        return nil
-    }
+    /// Tells the delegate that the card has been dismissed
+    func cardDismissed()
     
-    func getPublishedDate() -> Int? {
-        // TODO : Implement
-        return nil
-    }
-    
-    
+    /// Tells the delegate that the card is interacted.
+    func cardInteracted(_ interactionId : String, actionURL url : URL)
 }
+

@@ -13,7 +13,7 @@
 import SwiftUI
 
 public struct TemplateView: View {
-    var data: CardDataProvider
+    var data: CardDataSource
     
     
     public var body: some View {
@@ -22,6 +22,7 @@ public struct TemplateView: View {
         case .smallImage:
             var template = SmallImageTemplate(data)
             template?.view
+            
         case .largeImage:
             EmptyView()
             

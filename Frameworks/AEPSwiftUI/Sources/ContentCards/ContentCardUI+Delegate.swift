@@ -10,16 +10,20 @@
  governing permissions and limitations under the License.
  */
 
-import SwiftUI
+import Foundation
 
-public struct SmallImageTemplate {
-        
-    public lazy var view: some View = {
-        // TODO: Implement this method
-        EmptyView()
-    }()
+extension ContentCardUI : CardDelegate {
     
-    init?(_ data: CardDataSource) {
+    func cardDisplayed() {
+        // TODO: Implement this method
     }
     
+    func cardDismissed() {
+        // TODO: Implement this method
+    }
+    
+    func cardInteracted(_ interactionId: String, actionURL url: URL) {
+        // TODO: Implement this method
+    }
+
 }

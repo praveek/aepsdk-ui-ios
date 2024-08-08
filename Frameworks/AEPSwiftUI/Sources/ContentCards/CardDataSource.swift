@@ -12,7 +12,8 @@
 
 import Foundation
 
-protocol CardDataProvider {
+/// CardDataSource is responsible for providing the data that the UI components needs to display.
+protocol CardDataSource {
     
     // Provides the type of the template of the content card
     func getTemplateType() -> TemplateType

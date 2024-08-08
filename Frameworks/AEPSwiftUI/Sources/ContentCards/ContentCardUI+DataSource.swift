@@ -10,16 +10,24 @@
  governing permissions and limitations under the License.
  */
 
-import SwiftUI
+import Foundation
 
-public struct SmallImageTemplate {
-        
-    public lazy var view: some View = {
-        // TODO: Implement this method
-        EmptyView()
-    }()
+extension ContentCardUI : CardDataSource {
     
-    init?(_ data: CardDataSource) {
+    func getTemplateType() -> TemplateType {
+        // TODO: Implement this method
+        return .unknown
     }
+    
+    func getContent() -> [String : Any]? {
+        // TODO: Implement this method
+        return nil
+    }
+    
+    func getPublishedDate() -> Int? {
+        // TODO: Implement this method
+        return nil
+    }
+    
     
 }
