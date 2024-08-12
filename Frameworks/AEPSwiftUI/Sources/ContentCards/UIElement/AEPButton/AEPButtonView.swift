@@ -10,15 +10,25 @@
  governing permissions and limitations under the License.
  */
 
-import Foundation
 import SwiftUI
 
-public class AEPText: ObservableObject {
+public struct AEPButtonView: View {
+
+    /// The model containing the data about the button.
+    @ObservedObject public var model: AEPButton
     
-    public lazy var view: some View = {
-        EmptyView()
-    }()
+    /// Initializes a new instance of `AEPButtonView` with the provided model
+    public init(model: AEPButton) {
+        self.model = model
+    }
     
-    public init(_ data: [String : Any]) {
+    /// The body of the view
+    public var body: some View {
+        Button(action: {
+            // TODO : A handler will be passed to model class the click action
+            // model.handler.handleButtonClick(_id : model.interactId)
+        }, label: {
+            model.text.view
+        })
     }
 }

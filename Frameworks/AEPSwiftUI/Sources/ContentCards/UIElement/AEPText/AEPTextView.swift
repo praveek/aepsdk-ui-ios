@@ -12,12 +12,20 @@
 
 import SwiftUI
 
-public class AEPButton: ObservableObject {
+public struct AEPTextView: View {
+
+    /// The model containing the data about the text.
+    @ObservedObject public var model: AEPText
     
-    public lazy var view: some View = {
-        EmptyView()
-    }()
+    /// Initializes a new instance of `AEPTextView` with the provided model
+    public init(model: AEPText) {
+        self.model = model
+    }
     
-    public init(_ data: [String : Any]) {
+    /// The body of the view
+    public var body: some View {
+        Text(model.content)
+                .font(model.font)
+                .foregroundColor(model.textColor)
     }
 }
