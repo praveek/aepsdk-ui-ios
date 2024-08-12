@@ -12,7 +12,7 @@
 
 import Foundation
 
-enum TemplateType {
+enum ContentCardTemplateType {
     case smallImage
     case largeImage
     case imageOnly
