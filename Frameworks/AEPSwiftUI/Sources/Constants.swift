@@ -29,6 +29,13 @@ enum Constants {
                 static let TEXT = "text"
                 static let ACTION_URL = "actionUrl"
             }
+            
+            enum Image {
+                static let URL = "url"
+                static let DARK_URL = "darkUrl"
+                static let BUNDLE = "bundle"
+                static let DARK_BUNDLE = "darkBundle"
+            }
         }
     }
 }

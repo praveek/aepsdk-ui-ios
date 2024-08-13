@@ -10,14 +10,14 @@
  governing permissions and limitations under the License.
  */
 
-import SwiftUI
+import Foundation
 
-public class AEPImage: ObservableObject {
+/// The ImageSourceType enum is used to identify the source type of an image in the AEPImage model.
+enum ImageSourceType {
     
-    public lazy var view: some View = {
-        EmptyView()
-    }()
+    /// Indicates that the image is sourced from a URL.
+    case url
     
-    public init(_ data: [String : Any]) {
-    }
+    /// Indicates that the image is sourced from a bundled resource within the app
+    case bundle
 }
