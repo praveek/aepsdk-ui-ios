@@ -15,31 +15,28 @@ import SwiftUI
 /// The model class representing the image UI element of the ContentCard.
 /// This class handles the initialization of the image from different sources such as URL or bundle.
 public class AEPImage: ObservableObject {
-    
     /// The URL of the image to be displayed.
     var url: URL?
-    
+
     /// The URL of the dark mode image to be displayed.
     var darkUrl: URL?
-    
+
     /// The name of the image bundled resource.
     var bundle: String?
-    
+
     /// The name of the dark mode image bundled resource.
     var darkBundle: String?
-    
+
     /// The content mode of the image.
-    @Published public var contentMode : ContentMode = .fit
-    
+    @Published public var contentMode: ContentMode = .fit
+
     /// The source type of the image, either URL or bundle.
     let imageSourceType: ImageSourceType
-    
-    
+
     /// Initializes a new instance of `AEPImage`
     /// Failable initializer, returns nil if the required fields are not present in the data
     /// - Parameter data: The dictionary containing server side styling and content of the Image
-    public init?(_ data: [String : Any]) {
-        
+    public init?(_ data: [String: Any]) {
         // Attempt to initialize from URL
         if let urlString = data[Constants.CardTemplate.UIElement.Image.URL] as? String,
            let url = URL(string: urlString) {
@@ -48,7 +45,7 @@ public class AEPImage: ObservableObject {
             self.darkUrl = (data[Constants.CardTemplate.UIElement.Image.DARK_URL] as? String).flatMap { URL(string: $0) }
             return
         }
-        
+
         // Attempt to initialize from bundle
         if let bundle = data[Constants.CardTemplate.UIElement.Image.BUNDLE] as? String {
             self.imageSourceType = .bundle

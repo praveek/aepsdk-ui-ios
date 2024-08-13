@@ -15,21 +15,19 @@ import Foundation
 enum Constants {
     static let LOG_TAG = "AEPSwiftUI"
     static let EXTENSION_VERSION = "5.0.0"
-    
+
     enum CardTemplate {
-        
         enum UIElement {
-            
             enum Text {
                 static let CONTENT = "content"
             }
-            
+
             enum Button {
                 static let INTERACTION_ID = "interactId"
                 static let TEXT = "text"
                 static let ACTION_URL = "actionUrl"
             }
-            
+
             enum Image {
                 static let URL = "url"
                 static let DARK_URL = "darkUrl"

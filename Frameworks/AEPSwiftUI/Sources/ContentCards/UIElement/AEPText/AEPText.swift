@@ -15,31 +15,28 @@ import SwiftUI
 
 // The model class representing the text UI element of the ContentCard.
 public class AEPText: ObservableObject {
-    
     // The content of the text
-    @Published public var content: String 
-    
+    @Published public var content: String
+
     // The font of the text
-    @Published public var font: Font? 
-    
+    @Published public var font: Font?
+
     // The color of the text
-    @Published public var textColor: Color? 
-    
+    @Published public var textColor: Color?
+
     /// The SwiftUI view of the text
-    public lazy var view: some View = {
-        AEPTextView(model: self)
-    }()
-    
+    public lazy var view: some View = AEPTextView(model: self)
+
     /// Initializes a new instance of `AEPText`
     /// Failable initializer, returns nil if the required fields are not present in the data
     /// - Parameter data: The dictionary containing server side styling and content of the text
-    public init?(_ data: [String : Any]) {
+    public init?(_ data: [String: Any]) {
         guard let content = data[Constants.CardTemplate.UIElement.Text.CONTENT] as? String, !content.isEmpty else {
             return nil
         }
         self.content = content
 
-        // TODO - Extract font and textColor from data
+        // TODO: - Extract font and textColor from data
         // Not required for Phase 1 (Since we only allow client side customization)
     }
 }

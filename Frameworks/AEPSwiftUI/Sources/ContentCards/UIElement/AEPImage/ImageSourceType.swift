@@ -14,10 +14,9 @@ import Foundation
 
 /// The ImageSourceType enum is used to identify the source type of an image in the AEPImage model.
 enum ImageSourceType {
-    
     /// Indicates that the image is sourced from a URL.
     case url
-    
+
     /// Indicates that the image is sourced from a bundled resource within the app
     case bundle
 }

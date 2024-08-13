@@ -10,23 +10,20 @@
  governing permissions and limitations under the License.
  */
 
+import AEPMessaging
 import Foundation
 import SwiftUI
-import AEPMessaging
 
 /// ContentCardUI is a class that holds data for a content card and provides a SwiftUI view representation of that content.
 public class ContentCardUI: Identifiable {
-    
     /// The underlying data model for the content card.
-    let schemaData : ContentCardSchemaData
-    
+    let schemaData: ContentCardSchemaData
+
     /// SwiftUI view that represents the content card
-    public lazy var view: some View = {
-          EmptyView()
-    }()
-    
+    public lazy var view: some View = EmptyView()
+
     /// Initializes the `ContentCardUI` instance with the given data
-    ///- Parameter data: The `ContentCardSchemaData` to be used for the content card.
+    /// - Parameter data: The `ContentCardSchemaData` to be used for the content card.
     init(data: ContentCardSchemaData) {
         self.schemaData = data
     }

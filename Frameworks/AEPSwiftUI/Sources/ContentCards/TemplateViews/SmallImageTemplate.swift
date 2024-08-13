@@ -13,13 +13,10 @@
 import SwiftUI
 
 public struct SmallImageTemplate {
-        
     public lazy var view: some View = {
         // TODO: Implement this method
         EmptyView()
     }()
-    
-    init?(_ data: [String : Any]?) {
-    }
-    
+
+    init?(_: [String: Any]?) {}
 }

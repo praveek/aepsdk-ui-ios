@@ -17,29 +17,26 @@ public class AEPButton: ObservableObject {
     @Published public var text: AEPText
     @Published public var interactId: String
     @Published public var actionUrl: String?
-    
-    public lazy var view: some View = {
-        AEPButtonView(model: self)
-    }()
-    
+
+    public lazy var view: some View = AEPButtonView(model: self)
+
     /// Initializes a new instance of `AEPButton`
     /// Failable initializer, returns nil if the required fields are not present in the data
     /// - Parameter data: The dictionary containing server side styling and content of the button
-    public init?(_ data: [String : Any]) {
-
+    public init?(_ data: [String: Any]) {
         // Extract the button text
         // Bail out if the button text is not present
-        guard let buttonTextData = data[Constants.CardTemplate.UIElement.Button.TEXT] as? [String : Any],
+        guard let buttonTextData = data[Constants.CardTemplate.UIElement.Button.TEXT] as? [String: Any],
               let buttonText = AEPText(buttonTextData) else {
             return nil
         }
-        
+
         // Extract the interactId
         // Bail out if the interact Id is not present
         guard let interactId = data[Constants.CardTemplate.UIElement.Button.INTERACTION_ID] as? String else {
             return nil
         }
-        
+
         self.text = buttonText
         self.interactId = interactId
         self.actionUrl = data[Constants.CardTemplate.UIElement.Button.ACTION_URL] as? String
