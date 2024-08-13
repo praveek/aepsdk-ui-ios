@@ -19,7 +19,7 @@ public struct SmallImageTemplate {
         EmptyView()
     }()
     
-    init?(_ data: CardDataSource) {
+    init?(_ data: [String : Any]?) {
     }
     
 }
