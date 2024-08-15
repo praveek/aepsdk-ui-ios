@@ -14,6 +14,7 @@ import AEPMessaging
 import Foundation
 
 @objc(AEPSwiftUI)
+@objcMembers
 public class AEPSwiftUI: NSObject {
     public static var extensionVersion: String = Constants.EXTENSION_VERSION
 

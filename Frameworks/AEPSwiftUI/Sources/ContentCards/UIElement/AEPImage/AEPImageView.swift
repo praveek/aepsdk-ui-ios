@@ -49,7 +49,7 @@ struct AEPImageView: View {
         }
     }
 
-    /// Determines the appropriate URL to use based on the color scheme of the device.
+    /// Determines the appropriate URL for the image based on the device's color scheme.
     /// - Returns: The URL to be used for the image.
     private func themeBasedURL() -> URL {
         if colorScheme == .dark {
@@ -59,7 +59,7 @@ struct AEPImageView: View {
         }
     }
 
-    /// Determines the appropriate bundle resource to use based on the color scheme of the device.
+    /// Determines the appropriate bundle resource for the image based on the color scheme of the device.
     /// - Returns: The name of the bundle resource to be used for the image.
     private func themeBasedBundledImage() -> String {
         if colorScheme == .dark {
