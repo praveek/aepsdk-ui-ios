@@ -10,21 +10,20 @@
  governing permissions and limitations under the License.
  */
 
-import Foundation
 import AEPMessaging
+import Foundation
 
 @objc(AEPSwiftUI)
-public class AEPSwiftUI : NSObject {
-    
+@objcMembers
+public class AEPSwiftUI: NSObject {
     public static var extensionVersion: String = Constants.EXTENSION_VERSION
-    
-    
+
     /// Retrieves the content cards UI for a given surface.
     /// - Parameters:
     ///   - surface: The surface for which to retrieve the content cards.
     ///   - completion: A closure that is called with the retrieved content cards or an error.
-    public static func getContentCardsUI(for surface: Surface,
-                                         completion: @escaping (Result<[ContentCardUI], Error>) -> Void) {
+    public static func getContentCardsUI(for _: Surface,
+                                         completion _: @escaping (Result<[ContentCardUI], Error>) -> Void) {
         // TO DO: Implement the API
     }
 }

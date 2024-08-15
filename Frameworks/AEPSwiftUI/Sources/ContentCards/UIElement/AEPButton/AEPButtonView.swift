@@ -12,20 +12,20 @@
 
 import SwiftUI
 
+/// A view that displays an button based on the provided `AEPButton` model.
 public struct AEPButtonView: View {
-
     /// The model containing the data about the button.
     @ObservedObject public var model: AEPButton
-    
+
     /// Initializes a new instance of `AEPButtonView` with the provided model
     public init(model: AEPButton) {
         self.model = model
     }
-    
+
     /// The body of the view
     public var body: some View {
         Button(action: {
-            // TODO : A handler will be passed to model class
+            // TODO: A handler will be passed to model class
             // eg: model.handler.handleButtonClick(_id : model.interactId)
         }, label: {
             model.text.view

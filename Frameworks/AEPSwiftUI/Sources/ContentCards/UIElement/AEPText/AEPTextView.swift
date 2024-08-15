@@ -12,20 +12,20 @@
 
 import SwiftUI
 
+/// A view that displays an button based on the provided `AEPText` model.
 public struct AEPTextView: View {
-
     /// The model containing the data about the text.
     @ObservedObject public var model: AEPText
-    
+
     /// Initializes a new instance of `AEPTextView` with the provided model
     public init(model: AEPText) {
         self.model = model
     }
-    
+
     /// The body of the view
     public var body: some View {
         Text(model.content)
-                .font(model.font)
-                .foregroundColor(model.textColor)
+            .font(model.font)
+            .foregroundColor(model.textColor)
     }
 }
