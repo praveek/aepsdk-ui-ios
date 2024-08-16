@@ -13,7 +13,7 @@
 import SwiftUI
 
 // The model class representing the button UI element of the ContentCard.
-public class AEPButton: ObservableObject {
+public class AEPButton: ObservableObject, AEPViewModel {
     @Published public var text: AEPText
     @Published public var interactId: String
     @Published public var actionUrl: String?
