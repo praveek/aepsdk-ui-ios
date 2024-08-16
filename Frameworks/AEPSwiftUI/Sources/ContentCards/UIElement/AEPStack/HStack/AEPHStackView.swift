@@ -10,22 +10,18 @@
  governing permissions and limitations under the License.
  */
 
-import Foundation
 import SwiftUI
 
-public class AEPHStack: ObservableObject {
-    @Published var views: [AnyView] = []
-    @Published public var spacing: CGFloat?
-    @Published public var alignment: VerticalAlignment?
-    
-    public lazy var view: some View = AEPHStackView(model: self)
-    
-    func addView<V: View>(_ view: V) {
-        views.append(AnyView(view))
-    }
-    
-    func removeView(at index: Int) {
-        guard views.indices.contains(index) else { return }
-        views.remove(at: index)
+public struct AEPHStackView: View {
+    /// The model containing the data about the button.
+    @ObservedObject var model = AEPHStack()
+
+    /// The body of the view
+    public var body: some View {
+        HStack(alignment: model.alignment ?? .center, spacing: model.spacing ?? 0) {
+            ForEach(Array(model.childModels.enumerated()), id: \.offset) { _, model in
+                AnyView(model.view)
+            }
+        }
     }
 }

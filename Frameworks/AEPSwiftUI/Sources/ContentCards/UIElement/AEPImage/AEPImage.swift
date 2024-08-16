@@ -14,7 +14,7 @@ import SwiftUI
 
 /// The model class representing the image UI element of the ContentCard.
 /// This class handles the initialization of the image from different sources such as URL or bundle.
-public class AEPImage: ObservableObject {
+public class AEPImage: ObservableObject, AEPViewModel {
     /// The URL of the image to be displayed.
     var url: URL?
 
@@ -32,6 +32,8 @@ public class AEPImage: ObservableObject {
 
     /// The source type of the image, either URL or bundle.
     let imageSourceType: ImageSourceType
+
+    public lazy var view: some View = AEPImageView(model: self)
 
     /// Initializes a new instance of `AEPImage`
     /// Failable initializer, returns nil if the required fields are not present in the data

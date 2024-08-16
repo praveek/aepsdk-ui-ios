@@ -14,7 +14,7 @@ import Foundation
 import SwiftUI
 
 // The model class representing the text UI element of the ContentCard.
-public class AEPText: ObservableObject {
+public class AEPText: ObservableObject, AEPViewModel {
     // The content of the text
     @Published public var content: String
 

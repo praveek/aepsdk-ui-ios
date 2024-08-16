@@ -12,13 +12,15 @@
 
 import SwiftUI
 
-public struct AEPHStackView: View {
-    @ObservedObject var model = AEPHStack()
-    
+public struct AEPVStackView: View {
+    /// The model containing the vertical stacks data
+    @ObservedObject var model = AEPVStack()
+
+    /// The body of the view
     public var body: some View {
-        HStack(alignment: model.alignment ?? .center, spacing: model.spacing ?? 0) {
-            ForEach(Array(model.views.enumerated()), id: \.offset) { index, view in
-                view
+        VStack(alignment: model.alignment ?? .center, spacing: model.spacing ?? 0) {
+            ForEach(Array(model.childModels.enumerated()), id: \.offset) { _, model in
+                AnyView(model.view)
             }
         }
     }
