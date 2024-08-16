@@ -62,11 +62,11 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(hStack.childModels.count, 2)
 
         // test and verify
-        XCTAssertTrue(hStack.removeView(at: 1))
+        XCTAssertNoThrow(try hStack.removeView(at: 1))
         XCTAssertEqual(hStack.childModels.count, 1)
 
         // test and verify
-        XCTAssertTrue(hStack.removeView(at: 0))
+        XCTAssertNoThrow(try hStack.removeView(at: 0))
         XCTAssertEqual(hStack.childModels.count, 0)
     }
 
@@ -79,8 +79,11 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(hStack.childModels.count, 1)
 
         // test and verify
-        let result = hStack.removeView(at: 1)
-        XCTAssertFalse(result)
+        XCTAssertThrowsError(try hStack.removeView(at: 1)) { error in
+            XCTAssertEqual(error as? AEPStackError, AEPStackError.indexOutOfBounds)
+        }
+        
+        // verify state after attempted removal
         XCTAssertEqual(hStack.childModels.count, 1)
     }
 
@@ -94,8 +97,7 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(hStack.childModels.count, 2)
 
         // test and verify
-        let result = hStack.insertView(Text("I was wondering"), at: 1)
-        XCTAssertTrue(result)
+        XCTAssertNoThrow(try hStack.insertView(Text("I was wondering"), at: 1))
         XCTAssertEqual(hStack.childModels.count, 3)
     }
 
@@ -108,8 +110,11 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(hStack.childModels.count, 1)
 
         // test and verify
-        let result = hStack.insertView(Text("It's me"), at: 2)
-        XCTAssertFalse(result)
+        XCTAssertThrowsError(try hStack.insertView(Text("It's me"), at: 2)) { error in
+            XCTAssertEqual(error as? AEPStackError, AEPStackError.indexOutOfBounds)
+        }
+        
+        // verify state after attempted removal
         XCTAssertEqual(hStack.childModels.count, 1)
     }
 
@@ -157,12 +162,12 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(vStack.childModels.count, 2)
 
         // test and verify
-        XCTAssertTrue(vStack.removeView(at: 1))
+        XCTAssertNoThrow(try vStack.removeView(at: 1))
         
         XCTAssertEqual(vStack.childModels.count, 1)
 
         // test and verify
-        XCTAssertTrue(vStack.removeView(at: 0))
+        XCTAssertNoThrow(try vStack.removeView(at: 0))
         XCTAssertEqual(vStack.childModels.count, 0)
     }
 }
