@@ -62,11 +62,11 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(hStack.childModels.count, 2)
 
         // test and verify
-        hStack.removeView(at: 1)
+        XCTAssertTrue(hStack.removeView(at: 1))
         XCTAssertEqual(hStack.childModels.count, 1)
 
         // test and verify
-        hStack.removeView(at: 0)
+        XCTAssertTrue(hStack.removeView(at: 0))
         XCTAssertEqual(hStack.childModels.count, 0)
     }
 
@@ -79,7 +79,8 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(hStack.childModels.count, 1)
 
         // test and verify
-        hStack.removeView(at: 1)
+        let result = hStack.removeView(at: 1)
+        XCTAssertFalse(result)
         XCTAssertEqual(hStack.childModels.count, 1)
     }
 
@@ -93,7 +94,8 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(hStack.childModels.count, 2)
 
         // test and verify
-        hStack.insertView(Text("I was wondering"), at: 1)
+        let result = hStack.insertView(Text("I was wondering"), at: 1)
+        XCTAssertTrue(result)
         XCTAssertEqual(hStack.childModels.count, 3)
     }
 
@@ -106,7 +108,8 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(hStack.childModels.count, 1)
 
         // test and verify
-        hStack.insertView(Text("It's me"), at: 2)
+        let result = hStack.insertView(Text("It's me"), at: 2)
+        XCTAssertFalse(result)
         XCTAssertEqual(hStack.childModels.count, 1)
     }
 
@@ -154,11 +157,12 @@ final class AEPStackTests: XCTestCase {
         XCTAssertEqual(vStack.childModels.count, 2)
 
         // test and verify
-        vStack.removeView(at: 1)
+        XCTAssertTrue(vStack.removeView(at: 1))
+        
         XCTAssertEqual(vStack.childModels.count, 1)
 
         // test and verify
-        vStack.removeView(at: 0)
+        XCTAssertTrue(vStack.removeView(at: 0))
         XCTAssertEqual(vStack.childModels.count, 0)
     }
 }
