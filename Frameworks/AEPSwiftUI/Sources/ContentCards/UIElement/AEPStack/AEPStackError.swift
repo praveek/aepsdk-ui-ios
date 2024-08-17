@@ -15,7 +15,6 @@ import Foundation
 /// `AEPStackError` defines the possible error conditions that might be encountered
 /// when performing operations on an `AEPStack`, such as inserting or removing views.
 enum AEPStackError: Error {
-    
     /// Indicates that a stock operation failed because the specified index was out of bounds.
     case indexOutOfBounds
 }

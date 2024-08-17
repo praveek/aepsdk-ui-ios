@@ -17,6 +17,19 @@ enum Constants {
     static let EXTENSION_VERSION = "5.0.0"
 
     enum CardTemplate {
+        enum SchemaData {
+            enum Meta {
+                static let ADOBE_DATA = "adobe"
+                static let TEMPLATE = "template"
+            }
+
+            static let TITLE = "title"
+            static let BODY = "body"
+            static let IMAGE = "image"
+            static let ACTION_URL = "actionUrl"
+            static let BUTTONS = "buttons"
+        }
+
         enum UIElement {
             enum Text {
                 static let CONTENT = "content"
