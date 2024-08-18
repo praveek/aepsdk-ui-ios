@@ -47,6 +47,12 @@
 		B669ED5D2C70161700A26954 /* SmallImageTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = B669ED5C2C70161700A26954 /* SmallImageTemplate.json */; };
 		B669ED5F2C703F9B00A26954 /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED5E2C703F9B00A26954 /* FileReader.swift */; };
 		B669ED622C7075A700A26954 /* ContentCardTestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED612C7075A700A26954 /* ContentCardTestUtil.swift */; };
+		B669ED642C71C54700A26954 /* SmallImageTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED632C71C54700A26954 /* SmallImageTemplateTests.swift */; };
+		B669ED672C71C96300A26954 /* SmallImageTemplate_noTitle.json in Resources */ = {isa = PBXBuildFile; fileRef = B669ED652C71C96300A26954 /* SmallImageTemplate_noTitle.json */; };
+		B669ED682C71C96300A26954 /* SmallImageTemplate_onlyTitle.json in Resources */ = {isa = PBXBuildFile; fileRef = B669ED662C71C96300A26954 /* SmallImageTemplate_onlyTitle.json */; };
+		B669ED6A2C71D21200A26954 /* SmallImageTemplate_validTitle_invalidOther.json in Resources */ = {isa = PBXBuildFile; fileRef = B669ED692C71D21200A26954 /* SmallImageTemplate_validTitle_invalidOther.json */; };
+		B669ED6D2C71D8E900A26954 /* BaseTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED6B2C71D4C400A26954 /* BaseTemplate.swift */; };
+		B669ED702C71DE2300A26954 /* ContentCardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED6E2C71DD6B00A26954 /* ContentCardTemplate.swift */; };
 		B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D18E2C62735600376045 /* ContentCardUI.swift */; };
 		B6F4D1942C6279C300376045 /* ContentCardTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */; };
 		B6F4D19C2C628FFF00376045 /* AEPText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D19B2C628FFF00376045 /* AEPText.swift */; };
@@ -105,6 +111,12 @@
 		B669ED5C2C70161700A26954 /* SmallImageTemplate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SmallImageTemplate.json; sourceTree = "<group>"; };
 		B669ED5E2C703F9B00A26954 /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
 		B669ED612C7075A700A26954 /* ContentCardTestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTestUtil.swift; sourceTree = "<group>"; };
+		B669ED632C71C54700A26954 /* SmallImageTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallImageTemplateTests.swift; sourceTree = "<group>"; };
+		B669ED652C71C96300A26954 /* SmallImageTemplate_noTitle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SmallImageTemplate_noTitle.json; sourceTree = "<group>"; };
+		B669ED662C71C96300A26954 /* SmallImageTemplate_onlyTitle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SmallImageTemplate_onlyTitle.json; sourceTree = "<group>"; };
+		B669ED692C71D21200A26954 /* SmallImageTemplate_validTitle_invalidOther.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SmallImageTemplate_validTitle_invalidOther.json; sourceTree = "<group>"; };
+		B669ED6B2C71D4C400A26954 /* BaseTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTemplate.swift; sourceTree = "<group>"; };
+		B669ED6E2C71DD6B00A26954 /* ContentCardTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplate.swift; sourceTree = "<group>"; };
 		B6F4D18E2C62735600376045 /* ContentCardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUI.swift; sourceTree = "<group>"; };
 		B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplateType.swift; sourceTree = "<group>"; };
 		B6F4D19B2C628FFF00376045 /* AEPText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPText.swift; sourceTree = "<group>"; };
@@ -197,6 +209,7 @@
 				B669ED232C6B010B00A26954 /* AEPImageTests.swift */,
 				B669ED4E2C6F3DE400A26954 /* AEPStackTests.swift */,
 				B669ED582C700B9800A26954 /* ContentCardSchemaData+ExtractorTests.swift */,
+				B669ED632C71C54700A26954 /* SmallImageTemplateTests.swift */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -269,6 +282,9 @@
 		B669ED5B2C7015EF00A26954 /* SmallImageTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				B669ED692C71D21200A26954 /* SmallImageTemplate_validTitle_invalidOther.json */,
+				B669ED652C71C96300A26954 /* SmallImageTemplate_noTitle.json */,
+				B669ED662C71C96300A26954 /* SmallImageTemplate_onlyTitle.json */,
 				B669ED5C2C70161700A26954 /* SmallImageTemplate.json */,
 			);
 			path = SmallImageTemplate;
@@ -286,7 +302,7 @@
 		B6F4D1902C6278AD00376045 /* ContentCards */ = {
 			isa = PBXGroup;
 			children = (
-				B6F4D1972C62834000376045 /* TemplateViews */,
+				B6F4D1972C62834000376045 /* Template */,
 				B6F4D1982C62834E00376045 /* UIElement */,
 				B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */,
 				B6F4D18E2C62735600376045 /* ContentCardUI.swift */,
@@ -295,12 +311,14 @@
 			path = ContentCards;
 			sourceTree = "<group>";
 		};
-		B6F4D1972C62834000376045 /* TemplateViews */ = {
+		B6F4D1972C62834000376045 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				B669ED6B2C71D4C400A26954 /* BaseTemplate.swift */,
+				B669ED6E2C71DD6B00A26954 /* ContentCardTemplate.swift */,
 				B6F4D1A32C62947F00376045 /* SmallImageTemplate.swift */,
 			);
-			path = TemplateViews;
+			path = Template;
 			sourceTree = "<group>";
 		};
 		B6F4D1982C62834E00376045 /* UIElement */ = {
@@ -422,7 +440,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B669ED6A2C71D21200A26954 /* SmallImageTemplate_validTitle_invalidOther.json in Resources */,
+				B669ED682C71C96300A26954 /* SmallImageTemplate_onlyTitle.json in Resources */,
 				B669ED5D2C70161700A26954 /* SmallImageTemplate.json in Resources */,
+				B669ED672C71C96300A26954 /* SmallImageTemplate_noTitle.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +522,7 @@
 				B626E0582C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift in Sources */,
 				B626E06E2C612AC200ED1816 /* Constants.swift in Sources */,
 				B669ED292C6D3B8000A26954 /* AEPHStackView.swift in Sources */,
+				B669ED6D2C71D8E900A26954 /* BaseTemplate.swift in Sources */,
 				B669ED152C6ABF6200A26954 /* AEPTextView.swift in Sources */,
 				B6F4D19E2C62932D00376045 /* AEPButton.swift in Sources */,
 				B669ED182C6AC82300A26954 /* AEPButtonView.swift in Sources */,
@@ -511,6 +533,7 @@
 				B669ED212C6AEB7D00A26954 /* ImageSourceType.swift in Sources */,
 				B669ED4D2C6F3BE900A26954 /* AEPStack.swift in Sources */,
 				B6F4D1A42C62947F00376045 /* SmallImageTemplate.swift in Sources */,
+				B669ED702C71DE2300A26954 /* ContentCardTemplate.swift in Sources */,
 				B669ED482C6F353E00A26954 /* AEPVStack.swift in Sources */,
 				B669ED4A2C6F355F00A26954 /* AEPVStackView.swift in Sources */,
 				B669ED272C6D3B4E00A26954 /* AEPHStack.swift in Sources */,
@@ -532,6 +555,7 @@
 				B626E0602C5EC26300ED1816 /* AEPSwiftUIPublicAPITests.swift in Sources */,
 				B669ED4F2C6F3DE400A26954 /* AEPStackTests.swift in Sources */,
 				B669ED622C7075A700A26954 /* ContentCardTestUtil.swift in Sources */,
+				B669ED642C71C54700A26954 /* SmallImageTemplateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
