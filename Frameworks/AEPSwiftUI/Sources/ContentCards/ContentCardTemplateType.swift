@@ -21,11 +21,11 @@ enum ContentCardTemplateType {
     // Initializer to create an enum case from a string
     init(from string: String) {
         switch string {
-        case "SmallImage":
+        case Constants.CardTemplate.SmallImage:
             self = .smallImage
-        case "LargeImage":
+        case Constants.CardTemplate.LargeImage:
             self = .largeImage
-        case "ImageOnly":
+        case Constants.CardTemplate.ImageOnly:
             self = .imageOnly
         default:
             self = .unknown
