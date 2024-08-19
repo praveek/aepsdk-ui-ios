@@ -17,11 +17,10 @@ enum Constants {
     static let EXTENSION_VERSION = "5.0.0"
 
     enum CardTemplate {
-        
         static let SmallImage = "SmallImage"
         static let LargeImage = "LargeImage"
-        static let ImageOnly  = "ImageOnly"
-        
+        static let ImageOnly = "ImageOnly"
+
         enum SchemaData {
             enum Meta {
                 static let ADOBE_DATA = "adobe"

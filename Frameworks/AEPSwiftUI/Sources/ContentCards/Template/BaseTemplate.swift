@@ -23,10 +23,10 @@ import SwiftUI
 ///
 /// - Note: This class is not intended to be used directly. Instead, use one of its subclasses
 ///   that provide specific template implementations.
-public class BaseTemplate {
+public class BaseTemplate: ObservableObject {
     /// The background color of the content card.
     /// Use this property to set the background color for the content card.
-    public var backgroundColor: Color?
+    @Published public var backgroundColor: Color?
 
     /// The URL that is intended to be opened when the content card is interacted with.
     var actionURL: URL?
@@ -38,5 +38,17 @@ public class BaseTemplate {
         self.actionURL = data.actionUrl
 
         // TODO: Retrieve other common properties for all templated content cards
+    }
+
+    /// Constructs a SwiftUI view with common properties and behaviors applied for all templates.
+    ///
+    /// - Parameter content: A closure that returns the content view to be displayed.
+    /// - Returns: A SwiftUI view of the templated Content Card
+    func buildCardView<Content: View>(@ViewBuilder content: () -> Content) -> some View {
+        content()
+            .background(backgroundColor)
+            .onTapGesture {
+                // TODO: Handle card clicked action through a cardEventListener
+            }
     }
 }

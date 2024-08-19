@@ -22,15 +22,3 @@ protocol ContentCardTemplate: BaseTemplate {
     /// The SwiftUI view representing the content of the template.
     var view: Self.Content { get }
 }
-
-extension ContentCardTemplate {
-    /// Returns the final SwiftUI view for the content card, with an optional background color.
-    ///
-    /// This method returns the view associated with the content card template, applying
-    /// all the common properties specified in the `BaseTemplate`.
-    /// - Returns: A SwiftUI view representing the fully styled content card
-    func getCardUI() -> some View {
-        self.view
-            .background(backgroundColor)
-    }
-}

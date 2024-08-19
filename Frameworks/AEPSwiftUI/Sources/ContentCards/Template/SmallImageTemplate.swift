@@ -45,8 +45,10 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
     /// A horizontal stack for arranging the image and text stack.
     var rootHStack = AEPHStack()
 
-    /// The SwiftUI view representing the entire layout of the content card.
-    public lazy var view: some View = rootHStack.view
+    /// The SwiftUI view representing the content card.
+    public lazy var view: some View = buildCardView {
+        rootHStack.view
+    }
 
     /// Initializes a `SmallImageTemplate` with the given schema data.
     ///
