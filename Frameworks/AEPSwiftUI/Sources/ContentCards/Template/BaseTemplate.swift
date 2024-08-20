@@ -33,9 +33,9 @@ public class BaseTemplate: ObservableObject {
 
     /// Initializes a `BaseTemplate` with the given schema data.
     /// This initializer is designed to be called by subclasses to perform common initialization tasks.
-    /// - Parameter data: The schema data used for initialization.
-    init?(_ data: ContentCardSchemaData) {
-        self.actionURL = data.actionUrl
+    /// - Parameter schemaData: The schema data used for initialization.
+    init?(_ schemaData: ContentCardSchemaData) {
+        self.actionURL = schemaData.actionUrl
 
         // TODO: Retrieve other common properties for all templated content cards
     }

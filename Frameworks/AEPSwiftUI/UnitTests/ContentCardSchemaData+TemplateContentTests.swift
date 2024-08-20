@@ -20,16 +20,6 @@ final class ContentCardSchemaDataTests: XCTestCase {
     let smallImageSchema = ContentCardTestUtil.createContentCardSchemaData(fromFile: "SmallImageTemplate")
     let emptySchema = ContentCardSchemaData.getEmpty()
 
-    func test_contentDict() {
-        XCTAssertNil(emptySchema.contentDict)
-        XCTAssertNotNil(smallImageSchema.contentDict)
-    }
-
-    func test_metaAdobeData() {
-        XCTAssertNil(emptySchema.metaAdobeData)
-        XCTAssertNotNil(smallImageSchema.metaAdobeData)
-    }
-
     func test_templateType() {
         XCTAssertEqual(emptySchema.templateType, .unknown)
         XCTAssertEqual(smallImageSchema.templateType, .smallImage)

@@ -12,23 +12,15 @@
 
 import Foundation
 
-enum ContentCardTemplateType {
-    case smallImage
-    case largeImage
-    case imageOnly
-    case unknown
+/// An enumeration representing the types of content card templates.
+enum ContentCardTemplateType: String {
+    case smallImage = "SmallImage"
+    case largeImage = "LargeImage"
+    case imageOnly = "ImageOnly"
+    case unknown = "Unknown"
 
     // Initializer to create an enum case from a string
     init(from string: String) {
-        switch string {
-        case Constants.CardTemplate.SmallImage:
-            self = .smallImage
-        case Constants.CardTemplate.LargeImage:
-            self = .largeImage
-        case Constants.CardTemplate.ImageOnly:
-            self = .imageOnly
-        default:
-            self = .unknown
-        }
+        self = ContentCardTemplateType(rawValue: string) ?? .unknown
     }
 }

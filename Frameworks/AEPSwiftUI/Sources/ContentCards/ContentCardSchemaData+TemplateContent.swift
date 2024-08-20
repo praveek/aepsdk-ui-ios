@@ -15,21 +15,11 @@ import AEPMessaging
 /// An extension of `ContentCardSchemaData` that provides methods and computed variables for extracting
 /// specific data elements from the content card schema.
 extension ContentCardSchemaData {
-    /// A dictionary representing the content of the content card.
-    var contentDict: [String: Any]? {
-        self.content as? [String: Any]
-    }
-
-    /// A dictionary representing the Adobe-specific metadata of the content card.
-    var metaAdobeData: [String: Any]? {
-        self.meta?[Constants.CardTemplate.SchemaData.Meta.ADOBE_DATA] as? [String: Any]
-    }
-
     /// The template type of the content card.
     /// This property extracts the template type from the Adobe-specific metadata and converts it to
     /// a `ContentCardTemplateType` value. If the template type cannot be determined, it defaults to `.unknown`.
     var templateType: ContentCardTemplateType {
-        guard let templateString = self.metaAdobeData?[Constants.CardTemplate.SchemaData.Meta.TEMPLATE] as? String else {
+        guard let templateString = metaAdobeData?[Constants.CardTemplate.SchemaData.Meta.TEMPLATE] as? String else {
             return .unknown
         }
         return ContentCardTemplateType(from: templateString)
@@ -38,7 +28,7 @@ extension ContentCardSchemaData {
     /// This property extracts the title data from the content dictionary and attempts to
     /// initialize an `AEPText` object with it. Returns `nil` if the title data is not available.
     var title: AEPText? {
-        guard let titleData = self.contentDict?[Constants.CardTemplate.SchemaData.TITLE] as? [String: Any] else {
+        guard let titleData = contentDict?[Constants.CardTemplate.SchemaData.TITLE] as? [String: Any] else {
             return nil
         }
 
@@ -48,7 +38,7 @@ extension ContentCardSchemaData {
     /// This property extracts the body data from the content dictionary and attempts to
     /// initialize an `AEPText` object with it. Returns `nil` if the body data is not available.
     var body: AEPText? {
-        guard let bodyData = self.contentDict?[Constants.CardTemplate.SchemaData.BODY] as? [String: Any] else {
+        guard let bodyData = contentDict?[Constants.CardTemplate.SchemaData.BODY] as? [String: Any] else {
             return nil
         }
         return AEPText(bodyData)
@@ -57,7 +47,7 @@ extension ContentCardSchemaData {
     /// This property extracts the image data from the content dictionary and attempts to
     /// initialize an `AEPText` object with it. Returns `nil` if the image data is not available.
     var image: AEPImage? {
-        guard let imageData = self.contentDict?[Constants.CardTemplate.SchemaData.IMAGE] as? [String: Any] else {
+        guard let imageData = contentDict?[Constants.CardTemplate.SchemaData.IMAGE] as? [String: Any] else {
             return nil
         }
         return AEPImage(imageData)
@@ -66,7 +56,7 @@ extension ContentCardSchemaData {
     /// This property extracts the array of button  from the content dictionary and attempts to
     /// initialize an `AEPText` object with it. Returns `nil` if the buttons data is not available.
     var buttons: [AEPButton]? {
-        guard let buttonsData = self.contentDict?[Constants.CardTemplate.SchemaData.BUTTONS] as? [[String: Any]] else {
+        guard let buttonsData = contentDict?[Constants.CardTemplate.SchemaData.BUTTONS] as? [[String: Any]] else {
             return nil
         }
         return buttonsData.compactMap { AEPButton($0) }
@@ -75,9 +65,19 @@ extension ContentCardSchemaData {
     /// This property extracts the action URL from the content dictionary and returns it as a URL object.
     /// Returns `nil` if the action URL is not available or if it is not a valid URL.
     var actionUrl: URL? {
-        guard let actionUrl = self.contentDict?[Constants.CardTemplate.SchemaData.ACTION_URL] as? String else {
+        guard let actionUrl = contentDict?[Constants.CardTemplate.SchemaData.ACTION_URL] as? String else {
             return nil
         }
         return URL(string: actionUrl)
+    }
+
+    /// A dictionary representing the content of the content card.
+    private var contentDict: [String: Any]? {
+        content as? [String: Any]
+    }
+
+    /// A dictionary representing the Adobe-specific metadata of the content card.
+    private var metaAdobeData: [String: Any]? {
+        meta?[Constants.CardTemplate.SchemaData.Meta.ADOBE_DATA] as? [String: Any]
     }
 }
