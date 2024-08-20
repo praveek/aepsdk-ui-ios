@@ -27,9 +27,17 @@ public class BaseTemplate: ObservableObject {
     /// The background color of the content card.
     /// Use this property to set the background color for the content card.
     @Published public var backgroundColor: Color?
+    
+    /// An optional handler that conforms to the `TemplateEventHandler` protocol.
+    /// Use this property to assign a listener that will handle events related to the content card's interactions.
+    var eventHandler : TemplateEventHandler?
 
     /// The URL that is intended to be opened when the content card is interacted with.
     var actionURL: URL?
+
+    /// Boolean indicating if the template's view is displayed to the user
+    /// Use this boolean to avoid sending multiple display events on a template
+    var isDisplayed : Bool = false
 
     /// Initializes a `BaseTemplate` with the given schema data.
     /// This initializer is designed to be called by subclasses to perform common initialization tasks.
@@ -48,7 +56,12 @@ public class BaseTemplate: ObservableObject {
         content()
             .background(backgroundColor)
             .onTapGesture {
-                // TODO: Handle card clicked action through a cardEventListener
-            }
+                self.eventHandler?.onInteract(interactionId: Constants.CardTemplate.InteractionID.cardTapped, actionURL: self.actionURL)
+            }.onAppear(perform: {
+                if !self.isDisplayed {
+                    self.isDisplayed = true
+                    self.eventHandler?.onDisplay()
+                }
+            })
     }
 }

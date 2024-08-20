@@ -62,10 +62,12 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
             return nil
         }
         self.title = title
+        super.init(schemaData)
+        
         self.body = schemaData.body
         self.image = schemaData.image
-        self.buttons = schemaData.buttons
-
+        self.buttons = schemaData.buttons(forTemplate: self)
+        
         // Add buttons to buttonHStack
         if let buttons = buttons {
             for button in buttons {
@@ -85,6 +87,5 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
             rootHStack.addModel(image)
         }
         rootHStack.addModel(textVStack)
-        super.init(schemaData)
     }
 }
