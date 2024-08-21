@@ -19,6 +19,7 @@ final class ContentCardSchemaDataTests: XCTestCase {
     
     let smallImageSchema = ContentCardTestUtil.createContentCardSchemaData(fromFile: "SmallImageTemplate")
     let emptySchema = ContentCardSchemaData.getEmpty()
+    let mockTemplate : MockTemplate = MockTemplate(ContentCardSchemaData.getEmpty())!
 
     func test_templateType() {
         XCTAssertEqual(emptySchema.templateType, .unknown)
@@ -47,8 +48,11 @@ final class ContentCardSchemaDataTests: XCTestCase {
     }
     
     func test_buttonsExtraction() {
-        XCTAssertNil(emptySchema.buttons)
-        let buttons = smallImageSchema.buttons
+        // test with empty schema
+        XCTAssertNil(emptySchema.getButtons(forTemplate: mockTemplate))
+        
+        // test with small image template schema
+        let buttons = smallImageSchema.getButtons(forTemplate: mockTemplate)
         XCTAssertNotNil(buttons)
         XCTAssertEqual(buttons?.count, 2)
         

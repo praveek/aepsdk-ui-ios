@@ -22,28 +22,28 @@ import SwiftUI
 ///
 /// - Note: The `view` property is lazily initialized and represents the entire layout of the content card.
 public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
-    var templateType: ContentCardTemplateType = .smallImage
+    public var templateType: ContentCardTemplateType = .smallImage
 
     /// The title of the content card.
-    var title: AEPText
+    public var title: AEPText
 
     /// The body text of the content card, if available.
-    var body: AEPText?
+    public var body: AEPText?
 
     /// The image associated with the content card, if available.
-    var image: AEPImage?
+    public var image: AEPImage?
 
     /// The buttons associated with the content card, if available.
-    var buttons: [AEPButton]?
+    public var buttons: [AEPButton]?
 
     /// A horizontal stack for arranging buttons.
-    var buttonHStack = AEPHStack()
+    public var buttonHStack = AEPHStack()
 
     /// A vertical stack for arranging the title, body, and buttons.
-    var textVStack = AEPVStack()
+    public var textVStack = AEPVStack()
 
     /// A horizontal stack for arranging the image and text stack.
-    var rootHStack = AEPHStack()
+    public var rootHStack = AEPHStack()
 
     /// The SwiftUI view representing the content card.
     public lazy var view: some View = buildCardView {
@@ -62,9 +62,11 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
             return nil
         }
         self.title = title
+        super.init(schemaData)
+
         self.body = schemaData.body
         self.image = schemaData.image
-        self.buttons = schemaData.buttons
+        self.buttons = schemaData.getButtons(forTemplate: self)
 
         // Add buttons to buttonHStack
         if let buttons = buttons {
@@ -79,12 +81,12 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
             textVStack.addModel(body)
         }
         textVStack.addModel(buttonHStack)
+        textVStack.alignment = .leading
 
         // Add image and textVStack to rootHStack
         if let image = image {
             rootHStack.addModel(image)
         }
         rootHStack.addModel(textVStack)
-        super.init(schemaData)
     }
 }

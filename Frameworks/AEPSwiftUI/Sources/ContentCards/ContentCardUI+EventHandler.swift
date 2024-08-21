@@ -10,15 +10,21 @@
  governing permissions and limitations under the License.
  */
 
-import SwiftUI
+import Foundation
 
-/// A protocol defining the requirements for content card templates.
-public protocol ContentCardTemplate: BaseTemplate {
-    associatedtype Content: View
+extension ContentCardUI: TemplateEventHandler {
+    /// Called when the templated content card is displayed to the user.
+    func onDisplay() {
+        schemaData.track(withEdgeEventType: .display)
+    }
 
-    /// The type of the content card template.
-    var templateType: ContentCardTemplateType { get }
+    /// Called when the templated content card is displayed to the user.
+    func onDismiss() {
+        schemaData.track(withEdgeEventType: .dismiss)
+    }
 
-    /// The SwiftUI view representing the content of the template.
-    var view: Self.Content { get }
+    /// Called when the templated content card is interacted by the user
+    func onInteract(interactionId: String, actionURL _: URL?) {
+        schemaData.track(interactionId, withEdgeEventType: .interact)
+    }
 }

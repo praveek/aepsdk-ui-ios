@@ -10,15 +10,10 @@
  governing permissions and limitations under the License.
  */
 
-import SwiftUI
+import Foundation
 
-/// A protocol defining the requirements for content card templates.
-public protocol ContentCardTemplate: BaseTemplate {
-    associatedtype Content: View
-
-    /// The type of the content card template.
-    var templateType: ContentCardTemplateType { get }
-
-    /// The SwiftUI view representing the content of the template.
-    var view: Self.Content { get }
+/// An enum which describes different errors that ContentCardUI API's can return
+@objc public enum ContentCardUIError: Int, Error {
+    public typealias RawValue = Int
+    case dataUnavailable = 1
 }

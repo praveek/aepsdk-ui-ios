@@ -12,13 +12,12 @@
 
 import SwiftUI
 
-/// A protocol defining the requirements for content card templates.
-public protocol ContentCardTemplate: BaseTemplate {
-    associatedtype Content: View
-
-    /// The type of the content card template.
-    var templateType: ContentCardTemplateType { get }
-
-    /// The SwiftUI view representing the content of the template.
-    var view: Self.Content { get }
+@main
+struct TestApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    var body: some Scene {
+        WindowGroup {
+            HomePage()
+        }
+    }
 }

@@ -11,6 +11,7 @@
  */
 
 import AEPMessaging
+import AEPServices
 import Foundation
 
 @objc(AEPSwiftUI)
@@ -21,9 +22,49 @@ public class AEPSwiftUI: NSObject {
     /// Retrieves the content cards UI for a given surface.
     /// - Parameters:
     ///   - surface: The surface for which to retrieve the content cards.
-    ///   - completion: A closure that is called with the retrieved content cards or an error.
-    public static func getContentCardsUI(for _: Surface,
-                                         completion _: @escaping (Result<[ContentCardUI], Error>) -> Void) {
-        // TO DO: Implement the API
+    ///   - completion: A completion handler that is called with a `Result` type containing either:
+    ///     - success([ContentCardUI]):  An array of `ContentCardUI` objects if the operation is successful.
+    ///     - failure(Error) : An error indicating the failure reason
+    public static func getContentCardsUI(for surface: Surface,
+                                         _ completion: @escaping (Result<[ContentCardUI], Error>) -> Void) {
+        // Request propositions for the specified surface from Messaging extension.
+        Messaging.getPropositionsForSurfaces([surface]) { propositionDict, error in
+
+            if let error = error {
+                Log.error(label: Constants.LOG_TAG,
+                          "Error retrieving content cards UI for surface, \(surface.uri). Error \(error)")
+                completion(.failure(error))
+                return
+            }
+
+            var cards: [ContentCardUI] = []
+
+            // unwrap the proposition items for the given surface. Bail out with error if unsuccessful
+            guard let propositions = propositionDict?[surface] else {
+                completion(.failure(ContentCardUIError.dataUnavailable))
+                return
+            }
+
+            for eachProposition in propositions {
+                // attempt to retrieve the schema data from the proposition item.
+                guard let schemaData = eachProposition.items.first?.contentCardSchemaData else {
+                    Log.warning(label: Constants.LOG_TAG,
+                                "Failed to retrieve contentCardSchemaData for proposition with ID \(eachProposition.uniqueId). Unable to create ContentCardUI.")
+                    continue
+                }
+
+                // attempt to create a ContentCardUI instance with the schema data.
+                guard let contentCard = ContentCardUI.createInstance(with: schemaData) else {
+                    Log.warning(label: Constants.LOG_TAG,
+                                "Failed to create ContentCardUI for schemaData : \(schemaData)")
+                    continue
+                }
+
+                // append the successfully created content card to the cards array.
+                cards.append(contentCard)
+            }
+
+            completion(.success(cards))
+        }
     }
 }

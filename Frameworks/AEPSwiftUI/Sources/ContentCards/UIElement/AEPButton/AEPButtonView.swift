@@ -25,8 +25,7 @@ public struct AEPButtonView: View {
     /// The body of the view
     public var body: some View {
         Button(action: {
-            // TODO: A handler will be passed to model class
-            // eg: model.handler.handleButtonClick(_id : model.interactId)
+            model.parentTemplate.eventHandler?.onInteract(interactionId: model.interactId, actionURL: model.actionUrl)
         }, label: {
             model.text.view
         })

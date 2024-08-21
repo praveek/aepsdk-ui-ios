@@ -53,13 +53,15 @@ extension ContentCardSchemaData {
         return AEPImage(imageData)
     }
 
-    /// This property extracts the array of button  from the content dictionary and attempts to
-    /// initialize an `AEPText` object with it. Returns `nil` if the buttons data is not available.
-    var buttons: [AEPButton]? {
+    /// Extracts the array of buttons from the content dictionary and initializes `AEPButton` objects with it.
+    /// - Parameter template: The `ContentCardTemplate` instance for which the buttons are initialized.
+    /// - Returns: An array of `AEPButton` objects, or `nil` if the buttons data is not available.
+    func getButtons(forTemplate template: any ContentCardTemplate) -> [AEPButton]? {
         guard let buttonsData = contentDict?[Constants.CardTemplate.SchemaData.BUTTONS] as? [[String: Any]] else {
             return nil
         }
-        return buttonsData.compactMap { AEPButton($0) }
+
+        return buttonsData.compactMap { AEPButton($0, template) }
     }
 
     /// This property extracts the action URL from the content dictionary and returns it as a URL object.
