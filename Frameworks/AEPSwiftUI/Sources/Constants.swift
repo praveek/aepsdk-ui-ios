@@ -20,7 +20,7 @@ enum Constants {
         static let SmallImage = "SmallImage"
         static let LargeImage = "LargeImage"
         static let ImageOnly = "ImageOnly"
-        
+
         enum InteractionID {
             static let cardTapped = "Card "
         }

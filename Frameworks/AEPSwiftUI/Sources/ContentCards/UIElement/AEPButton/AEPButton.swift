@@ -17,15 +17,17 @@ public class AEPButton: ObservableObject, AEPViewModel {
     @Published public var text: AEPText
     @Published public var interactId: String
     @Published public var actionUrl: URL?
-    let parentTemplate : any ContentCardTemplate
+    let parentTemplate: any ContentCardTemplate
 
     public lazy var view: some View = AEPButtonView(model: self)
 
     /// Initializes a new instance of `AEPButton`
     /// Failable initializer, returns nil if the required fields are not present in the data
-    /// - Parameter schemaData: The dictionary containing server side styling and content of the button
-    ///  
-    init?(_ schemaData: [String: Any], template : any ContentCardTemplate) {
+    /// - Parameters:
+    ///   - schemaData: A dictionary containing server-side styling and content information for the button.
+    ///   - template: An instance conforming to the `ContentCardTemplate` protocol, representing the parent template of the button.
+    /// - Returns: An optional `AEPButton` instance, or `nil` if required fields are missing or invalid.
+    init?(_ schemaData: [String: Any], _ template: any ContentCardTemplate) {
         // Extract the button text
         // Bail out if the button text is not present
         guard let buttonTextData = schemaData[Constants.CardTemplate.UIElement.Button.TEXT] as? [String: Any],

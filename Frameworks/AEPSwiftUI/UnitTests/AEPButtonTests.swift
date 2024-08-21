@@ -12,8 +12,11 @@
 
 import XCTest
 @testable import AEPSwiftUI
+@testable import AEPMessaging
 
 final class AEPButtonTests: XCTestCase {
+    
+    let mockTemplate : MockTemplate = MockTemplate(ContentCardSchemaData.getEmpty())!
     
     func testInit_validData() {
         // setup
@@ -25,7 +28,7 @@ final class AEPButtonTests: XCTestCase {
         ] as [String : Any]
         
         // test
-        let button = AEPButton(data)
+        let button = AEPButton(data, mockTemplate)
         
         // verify
         XCTAssertNotNil(button)
@@ -38,7 +41,7 @@ final class AEPButtonTests: XCTestCase {
         let data: [String: Any] = [:]
         
         // test
-        let button = AEPButton(data)
+        let button = AEPButton(data, mockTemplate)
         
         // verify
         XCTAssertNil(button)
@@ -51,7 +54,7 @@ final class AEPButtonTests: XCTestCase {
         ] as [String : Any]
         
         // test
-        let button = AEPButton(data)
+        let button = AEPButton(data, mockTemplate)
         
         // verify
         XCTAssertNil(button)
@@ -66,7 +69,7 @@ final class AEPButtonTests: XCTestCase {
         ] as [String : Any]
         
         // test
-        let button = AEPButton(data)
+        let button = AEPButton(data, mockTemplate)
         
         // verify
         XCTAssertNil(button)
@@ -82,7 +85,7 @@ final class AEPButtonTests: XCTestCase {
         ] as [String : Any]
         
         // test
-        let button = AEPButton(data)
+        let button = AEPButton(data, mockTemplate)
         
         // verify
         XCTAssertNotNil(button?.view)

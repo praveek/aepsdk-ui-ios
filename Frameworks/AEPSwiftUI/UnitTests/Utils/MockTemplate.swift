@@ -10,16 +10,15 @@
  governing permissions and limitations under the License.
  */
 
-import Foundation
+import SwiftUI
+@testable import AEPSwiftUI
 @testable import AEPMessaging
 
-class ContentCardTestUtil {
+class MockTemplate : BaseTemplate, ContentCardTemplate {
+    public var templateType: ContentCardTemplateType = .smallImage
+    public lazy var view: some View = EmptyView()
     
-    static func createContentCardSchemaData(fromFile file : String ) -> ContentCardSchemaData {
-        let jsonString = FileReader.readFromFile(file)
-        let data = jsonString.data(using: .utf8)
-        let decoder = JSONDecoder()
-        let contentCardSchemaData = try! decoder.decode(ContentCardSchemaData.self, from: data!)
-        return contentCardSchemaData
+    override init?(_ schemaData: ContentCardSchemaData) {
+        super.init(schemaData)
     }
 }

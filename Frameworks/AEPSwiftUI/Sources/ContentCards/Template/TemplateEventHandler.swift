@@ -13,16 +13,15 @@
 import Foundation
 
 protocol TemplateEventHandler {
-    
     /// Called when the templated content card appears on the screen
     func onDisplay()
-    
+
     /// Called when the dismiss button is tapped on templated content card
     func onDismiss()
-    
+
     /// Called when the user interacts with the templated content card.
     /// - Parameters:
     ///   - interactionId: A string identifier for the specific interaction event.
     ///   - actionURL: An optional URL associated with the interaction.
-    func onInteract(interactionId : String, actionURL : URL?)
+    func onInteract(interactionId: String, actionURL: URL?)
 }

@@ -12,21 +12,19 @@
 
 import Foundation
 
-extension ContentCardUI : TemplateEventHandler {
-    
+extension ContentCardUI: TemplateEventHandler {
     /// Called when the templated content card is displayed to the user.
     func onDisplay() {
         schemaData.track(withEdgeEventType: .display)
     }
-    
+
     /// Called when the templated content card is displayed to the user.
     func onDismiss() {
         schemaData.track(withEdgeEventType: .dismiss)
     }
-    
+
     /// Called when the templated content card is interacted by the user
-    func onInteract(interactionId: String, actionURL: URL?) {
+    func onInteract(interactionId: String, actionURL _: URL?) {
         schemaData.track(interactionId, withEdgeEventType: .interact)
     }
-    
 }

@@ -35,12 +35,12 @@ final class SmallImageTemplateTests: XCTestCase {
         // verify first button
         XCTAssertEqual(smallImageTemplate?.buttons?[0].text.content, "Purchase Now")
         XCTAssertEqual(smallImageTemplate?.buttons?[0].interactId, "purchaseID")
-        XCTAssertEqual(smallImageTemplate?.buttons?[0].actionUrl, "https://adobe.com/offer")
+        XCTAssertEqual(smallImageTemplate?.buttons?[0].actionUrl, URL(string: "https://adobe.com/offer"))
 
         // verify second button
         XCTAssertEqual(smallImageTemplate?.buttons?[1].text.content, "Cancel")
         XCTAssertEqual(smallImageTemplate?.buttons?[1].interactId, "cancelID")
-        XCTAssertEqual(smallImageTemplate?.buttons?[1].actionUrl, "app://home")
+        XCTAssertEqual(smallImageTemplate?.buttons?[1].actionUrl, URL(string: "app://home"))
 
         // verify stacks
         XCTAssertEqual(smallImageTemplate?.buttonHStack.childModels.count, 2)
