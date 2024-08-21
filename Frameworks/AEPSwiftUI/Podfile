@@ -33,3 +33,9 @@ target 'UnitTests' do
      lib_main
      test_utils
 end
+
+target 'TestApp' do
+    lib_main
+    pod 'AEPEdgeConsent'
+    pod 'AEPAssurance'
+end
