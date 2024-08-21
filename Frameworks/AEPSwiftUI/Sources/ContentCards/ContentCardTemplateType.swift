@@ -13,7 +13,7 @@
 import Foundation
 
 /// An enumeration representing the types of content card templates.
-enum ContentCardTemplateType: String {
+public enum ContentCardTemplateType: String {
     case smallImage = "SmallImage"
     case largeImage = "LargeImage"
     case imageOnly = "ImageOnly"

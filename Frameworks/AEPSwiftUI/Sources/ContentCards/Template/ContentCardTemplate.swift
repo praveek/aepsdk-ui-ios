@@ -13,7 +13,7 @@
 import SwiftUI
 
 /// A protocol defining the requirements for content card templates.
-protocol ContentCardTemplate: BaseTemplate {
+public protocol ContentCardTemplate: BaseTemplate {
     associatedtype Content: View
 
     /// The type of the content card template.
