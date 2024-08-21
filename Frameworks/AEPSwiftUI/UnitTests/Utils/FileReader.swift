@@ -3,7 +3,7 @@
  This file is licensed to you under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License. You may obtain a copy
  of the License at http://www.apache.org/licenses/LICENSE-2.0
-
+ 
  Unless required by applicable law or agreed to in writing, software distributed under
  the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
  OF ANY KIND, either express or implied. See the License for the specific language
@@ -12,15 +12,17 @@
 
 import Foundation
 
-/// An enumeration representing the types of content card templates.
-enum ContentCardTemplateType: String {
-    case smallImage = "SmallImage"
-    case largeImage = "LargeImage"
-    case imageOnly = "ImageOnly"
-    case unknown = "Unknown"
-
-    // Initializer to create an enum case from a string
-    init(from string: String) {
-        self = ContentCardTemplateType(rawValue: string) ?? .unknown
+class FileReader {
+    
+    /// Reads the text from the provided bundled file and returns the string value
+    static func readFromFile(_ fileName: String) -> String {
+        let testBundle = Bundle(for: FileReader.self)
+        guard let url = testBundle.url(forResource: fileName, withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let jsonString = String(data: data, encoding: .utf8)
+        else {
+            return ""
+        }
+        return jsonString
     }
 }

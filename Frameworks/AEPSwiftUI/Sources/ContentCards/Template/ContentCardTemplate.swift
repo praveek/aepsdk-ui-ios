@@ -10,17 +10,15 @@
  governing permissions and limitations under the License.
  */
 
-import Foundation
+import SwiftUI
 
-/// An enumeration representing the types of content card templates.
-enum ContentCardTemplateType: String {
-    case smallImage = "SmallImage"
-    case largeImage = "LargeImage"
-    case imageOnly = "ImageOnly"
-    case unknown = "Unknown"
+/// A protocol defining the requirements for content card templates.
+protocol ContentCardTemplate: BaseTemplate {
+    associatedtype Content: View
 
-    // Initializer to create an enum case from a string
-    init(from string: String) {
-        self = ContentCardTemplateType(rawValue: string) ?? .unknown
-    }
+    /// The type of the content card template.
+    var templateType: ContentCardTemplateType { get }
+
+    /// The SwiftUI view representing the content of the template.
+    var view: Self.Content { get }
 }
