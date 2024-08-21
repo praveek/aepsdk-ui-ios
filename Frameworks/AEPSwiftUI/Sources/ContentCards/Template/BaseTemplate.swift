@@ -30,7 +30,7 @@ public class BaseTemplate: ObservableObject {
 
     /// An optional handler that conforms to the `TemplateEventHandler` protocol.
     /// Use this property to assign a listener that will handle events related to the content card's interactions.
-    var eventHandler: TemplateEventHandler?
+    weak var eventHandler: TemplateEventHandler?
 
     /// The URL that is intended to be opened when the content card is interacted with.
     var actionURL: URL?
