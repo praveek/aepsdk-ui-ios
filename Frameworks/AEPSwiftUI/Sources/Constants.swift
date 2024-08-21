@@ -22,7 +22,8 @@ enum Constants {
         static let ImageOnly = "ImageOnly"
 
         enum InteractionID {
-            static let cardTapped = "Card "
+            // TODO : Verify with PM to see if this Interaction event name makes sense of all platforms 
+            static let cardTapped = "Card Clicked"
         }
 
         enum SchemaData {
