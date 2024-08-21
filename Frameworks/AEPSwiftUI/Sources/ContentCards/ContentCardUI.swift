@@ -18,7 +18,7 @@ import SwiftUI
 /// ContentCardUI is a class that holds data for a content card and provides a SwiftUI view representation of that content.
 public class ContentCardUI: Identifiable {
     /// The underlying data model for the content card.
-    let schemaData: ContentCardSchemaData
+    let proposition: Proposition
 
     public let template: any ContentCardTemplate
 
@@ -29,41 +29,33 @@ public class ContentCardUI: Identifiable {
     }()
 
     /// Factory method to create a `ContentCardUI` instance based on the provided schema data.
-    /// - Parameter schemaData: The `ContentCardSchemaData` to be used for the content
-    /// - Returns: An initialized `ContentCardUI` instance, or `nil` if unable to create template from `schemaData`
-    static func createInstance(with schemaData: ContentCardSchemaData) -> ContentCardUI? {
-        // determine the appropriate template based on the template type
-        let template: (any ContentCardTemplate)? = {
-            switch schemaData.templateType {
-            case .smallImage:
-                return SmallImageTemplate(schemaData)
-            case .largeImage, .imageOnly, .unknown:
-                // Currently unsupported template types
-                return nil
-            }
-        }()
-
-        // ensure a valid template is created
-        guard let validTemplate = template else {
+    /// - Parameter proposition: The `Proposition` containing content card template information
+    /// - Returns: An initialized `ContentCardUI` instance, or `nil` if unable to create template from proposition
+    static func createInstance(with proposition: Proposition) -> ContentCardUI? {
+        
+        guard let schemaData = proposition.items.first?.contentCardSchemaData else {
+            return nil
+        }
+                
+        guard let template = TemplateBuilder.buildTemplate(from: schemaData) else {
             return nil
         }
 
-        // Initialize the ContentCardUI with the schema data and template
-        let contentCardUI = ContentCardUI(schemaData, validTemplate)
+        // Initialize the ContentCardUI with the proposition and template
+        let contentCardUI = ContentCardUI(proposition, template)
 
         // set the listener for the template
-        validTemplate.eventHandler = contentCardUI
+        template.eventHandler = contentCardUI
         return contentCardUI
     }
 
     /// Initializes a new `ContentCardUI` instance with the given schema data and template.
     /// - Parameters:
-    ///   - schemaData: The `ContentCardSchemaData` to be used for the content card.
+    ///   - proposition: The `Proposition` containing the content card template's information
     ///   - template: The template that defines the content card's layout and behavior.
-    ///
     /// - Note : This initializer is private to ensure that `ContentCardUI` instances are only created through the `createInstance` factory method.
-    private init(_ schemaData: ContentCardSchemaData, _ template: any ContentCardTemplate) {
-        self.schemaData = schemaData
+    private init(_ proposition: Proposition, _ template: any ContentCardTemplate) {
+        self.proposition = proposition
         self.template = template
     }
 }
