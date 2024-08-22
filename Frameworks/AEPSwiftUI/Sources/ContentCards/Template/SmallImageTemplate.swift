@@ -55,9 +55,12 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
     /// This initializer extracts the title, body, image, and buttons from the provided `ContentCardSchemaData`.
     /// It organizes these components into the appropriate stacks to form the small Image layout.
     ///
-    /// - Parameter schemaData: The schema data used to populate the template's properties.
+    /// - Parameters:
+    ///    - schemaData: The schema data used to populate the template's properties.
+    ///    - customizer: An object conforming to ContentCardUICustomizer protocol that allows for
+    ///                 custom styling of the content card
     /// - Returns: An initialized `SmallImageTemplate` or `nil` if the required title is missing.
-    override init?(_ schemaData: ContentCardSchemaData) {
+    init?(_ schemaData: ContentCardSchemaData, _ customizer: ContentCardCustomizer?) {
         guard let title = schemaData.title else {
             return nil
         }
@@ -88,5 +91,7 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
             rootHStack.addModel(image)
         }
         rootHStack.addModel(textVStack)
+
+        customizer?.customize(template: self)
     }
 }

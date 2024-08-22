@@ -10,20 +10,23 @@
  governing permissions and limitations under the License.
  */
 
-import Foundation
 import AEPMessaging
+import Foundation
 
 /// Enum responsible for building content card templates based on template types.
 enum TemplateBuilder {
-    
     /// Builds and returns a content card template based on the provided schema data.
     ///
-    /// - Parameter schemaData: The content card schema data containing template information
+    /// - Parameters:
+    ///    - schemaData: The content card schema data containing template information.
+    ///    - customizer: An object conforming to `ContentCardUICustomizer` protocol that allows for
+    ///                 custom styling of the content card
     /// - Returns: An instance conforming to `ContentCardTemplate` if a supported template type is found, otherwise `nil`.
-    static func buildTemplate(from schemaData: ContentCardSchemaData) -> (any ContentCardTemplate)? {
+    static func buildTemplate(from schemaData: ContentCardSchemaData,
+                              customizer: ContentCardCustomizer?) -> (any ContentCardTemplate)? {
         switch schemaData.templateType {
         case .smallImage:
-            return SmallImageTemplate(schemaData)
+            return SmallImageTemplate(schemaData, customizer)
         case .largeImage, .imageOnly, .unknown:
             // Currently unsupported template types
             return nil

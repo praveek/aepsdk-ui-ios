@@ -29,15 +29,18 @@ public class ContentCardUI: Identifiable {
     }()
 
     /// Factory method to create a `ContentCardUI` instance based on the provided schema data.
-    /// - Parameter proposition: The `Proposition` containing content card template information
+    /// - Parameters:
+    ///    - proposition: The `Proposition` containing content card template information
+    ///    - customizer: An object conforming to `ContentCardUICustomizer` protocol that allows for
+    ///                 custom styling of the content card
     /// - Returns: An initialized `ContentCardUI` instance, or `nil` if unable to create template from proposition
-    static func createInstance(with proposition: Proposition) -> ContentCardUI? {
-        
+    static func createInstance(with proposition: Proposition,
+                               customizer: ContentCardCustomizer?) -> ContentCardUI? {
         guard let schemaData = proposition.items.first?.contentCardSchemaData else {
             return nil
         }
-                
-        guard let template = TemplateBuilder.buildTemplate(from: schemaData) else {
+
+        guard let template = TemplateBuilder.buildTemplate(from: schemaData, customizer: customizer) else {
             return nil
         }
 

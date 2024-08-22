@@ -12,7 +12,7 @@
 
 import Foundation
 
-protocol TemplateEventHandler : AnyObject {
+protocol TemplateEventHandler: AnyObject {
     /// Called when the templated content card appears on the screen
     func onDisplay()
 
