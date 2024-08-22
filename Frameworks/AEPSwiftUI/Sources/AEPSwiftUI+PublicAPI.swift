@@ -45,18 +45,11 @@ public class AEPSwiftUI: NSObject {
                 return
             }
 
-            for eachProposition in propositions {
-                // attempt to retrieve the schema data from the proposition item.
-                guard let schemaData = eachProposition.items.first?.contentCardSchemaData else {
-                    Log.warning(label: Constants.LOG_TAG,
-                                "Failed to retrieve contentCardSchemaData for proposition with ID \(eachProposition.uniqueId). Unable to create ContentCardUI.")
-                    continue
-                }
-
+            for proposition in propositions {
                 // attempt to create a ContentCardUI instance with the schema data.
-                guard let contentCard = ContentCardUI.createInstance(with: schemaData) else {
+                guard let contentCard = ContentCardUI.createInstance(with: proposition) else {
                     Log.warning(label: Constants.LOG_TAG,
-                                "Failed to create ContentCardUI for schemaData : \(schemaData)")
+                                "Failed to create ContentCardUI for proposition with ID: \(proposition.uniqueId)")
                     continue
                 }
 
