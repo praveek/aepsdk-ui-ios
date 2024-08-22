@@ -67,6 +67,9 @@
 		B669ED982C75951D00A26954 /* MockTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED972C75951D00A26954 /* MockTemplate.swift */; };
 		B669ED9A2C76655300A26954 /* ContentCardUIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED992C76655300A26954 /* ContentCardUIError.swift */; };
 		B669ED9E2C76AA0700A26954 /* TemplateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED9D2C76AA0700A26954 /* TemplateBuilder.swift */; };
+		B669EDA02C771E2D00A26954 /* ContentCardCustomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED9F2C771E2D00A26954 /* ContentCardCustomizer.swift */; };
+		B669EDA22C778F4C00A26954 /* AEPViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDA12C778F4C00A26954 /* AEPViewModifier.swift */; };
+		B669EDA42C779E0600A26954 /* View+CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDA32C779E0600A26954 /* View+CustomModifiers.swift */; };
 		B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D18E2C62735600376045 /* ContentCardUI.swift */; };
 		B6F4D1942C6279C300376045 /* ContentCardTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */; };
 		B6F4D19C2C628FFF00376045 /* AEPText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D19B2C628FFF00376045 /* AEPText.swift */; };
@@ -167,6 +170,9 @@
 		B669ED972C75951D00A26954 /* MockTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTemplate.swift; sourceTree = "<group>"; };
 		B669ED992C76655300A26954 /* ContentCardUIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUIError.swift; sourceTree = "<group>"; };
 		B669ED9D2C76AA0700A26954 /* TemplateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateBuilder.swift; sourceTree = "<group>"; };
+		B669ED9F2C771E2D00A26954 /* ContentCardCustomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardCustomizer.swift; sourceTree = "<group>"; };
+		B669EDA12C778F4C00A26954 /* AEPViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPViewModifier.swift; sourceTree = "<group>"; };
+		B669EDA32C779E0600A26954 /* View+CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CustomModifiers.swift"; sourceTree = "<group>"; };
 		B6F4D18E2C62735600376045 /* ContentCardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUI.swift; sourceTree = "<group>"; };
 		B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplateType.swift; sourceTree = "<group>"; };
 		B6F4D19B2C628FFF00376045 /* AEPText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPText.swift; sourceTree = "<group>"; };
@@ -395,6 +401,7 @@
 				B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */,
 				B669ED552C6FE92E00A26954 /* ContentCardSchemaData+TemplateContent.swift */,
 				B669ED992C76655300A26954 /* ContentCardUIError.swift */,
+				B669ED9F2C771E2D00A26954 /* ContentCardCustomizer.swift */,
 			);
 			path = ContentCards;
 			sourceTree = "<group>";
@@ -415,6 +422,8 @@
 			isa = PBXGroup;
 			children = (
 				B669ED452C6F2F0E00A26954 /* AEPViewModel.swift */,
+				B669EDA12C778F4C00A26954 /* AEPViewModifier.swift */,
+				B669EDA32C779E0600A26954 /* View+CustomModifiers.swift */,
 				B669ED4B2C6F3BC400A26954 /* AEPStack */,
 				B669ED1D2C6AE0B200A26954 /* AEPImage */,
 				B669ED162C6AC7A500A26954 /* AEPButton */,
@@ -691,15 +700,18 @@
 				B669ED182C6AC82300A26954 /* AEPButtonView.swift in Sources */,
 				B669ED572C70029000A26954 /* ContentCardSchemaData+TemplateContent.swift in Sources */,
 				B669ED1F2C6AE0D500A26954 /* AEPImageView.swift in Sources */,
+				B669EDA42C779E0600A26954 /* View+CustomModifiers.swift in Sources */,
 				B6F4D1A02C62935000376045 /* AEPImage.swift in Sources */,
 				B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */,
 				B669ED212C6AEB7D00A26954 /* ImageSourceType.swift in Sources */,
 				B669ED7B2C75087B00A26954 /* TemplateEventHandler.swift in Sources */,
 				B669ED4D2C6F3BE900A26954 /* AEPStack.swift in Sources */,
+				B669EDA02C771E2D00A26954 /* ContentCardCustomizer.swift in Sources */,
 				B669ED9A2C76655300A26954 /* ContentCardUIError.swift in Sources */,
 				B6F4D1A42C62947F00376045 /* SmallImageTemplate.swift in Sources */,
 				B669ED9E2C76AA0700A26954 /* TemplateBuilder.swift in Sources */,
 				B669ED702C71DE2300A26954 /* ContentCardTemplate.swift in Sources */,
+				B669EDA22C778F4C00A26954 /* AEPViewModifier.swift in Sources */,
 				B669ED482C6F353E00A26954 /* AEPVStack.swift in Sources */,
 				B669ED4A2C6F355F00A26954 /* AEPVStackView.swift in Sources */,
 				B669ED272C6D3B4E00A26954 /* AEPHStack.swift in Sources */,
