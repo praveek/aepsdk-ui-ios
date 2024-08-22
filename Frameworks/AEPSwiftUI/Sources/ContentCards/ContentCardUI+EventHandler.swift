@@ -15,16 +15,16 @@ import Foundation
 extension ContentCardUI: TemplateEventHandler {
     /// Called when the templated content card is displayed to the user.
     func onDisplay() {
-        proposition.items.first?.track(withEdgeEventType: .display)
+        proposition.items.first?.contentCardSchemaData?.track(withEdgeEventType: .display)
     }
 
     /// Called when the templated content card is displayed to the user.
     func onDismiss() {
-        proposition.items.first?.track(withEdgeEventType: .dismiss)
+        proposition.items.first?.contentCardSchemaData?.track(withEdgeEventType: .dismiss)
     }
 
     /// Called when the templated content card is interacted by the user
     func onInteract(interactionId: String, actionURL _: URL?) {
-        proposition.items.first?.track(interactionId, withEdgeEventType: .interact)
+        proposition.items.first?.contentCardSchemaData?.track(interactionId, withEdgeEventType: .interact)
     }
 }
