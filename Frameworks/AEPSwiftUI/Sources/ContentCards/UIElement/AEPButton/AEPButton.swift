@@ -14,9 +14,19 @@ import SwiftUI
 
 // The model class representing the button UI element of the ContentCard.
 public class AEPButton: ObservableObject, AEPViewModel {
+    /// the text model for the button's label.
     @Published public var text: AEPText
+
+    /// unique identifier for tracking button interactions.
     @Published public var interactId: String
+
+    /// the URL to be opened when the button is tapped.
     @Published public var actionUrl: URL?
+
+    /// custom view modifier that can be applied to the text view.
+    @Published public var modifier: AEPViewModifier?
+
+    /// The parent template that contains this button.
     let parentTemplate: any ContentCardTemplate
 
     public lazy var view: some View = AEPButtonView(model: self)

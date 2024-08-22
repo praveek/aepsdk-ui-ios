@@ -22,6 +22,6 @@ public struct AEPHStackView: View {
             ForEach(Array(model.childModels.enumerated()), id: \.offset) { _, model in
                 AnyView(model.view)
             }
-        }
+        }.applyModifier(model.modifier)
     }
 }

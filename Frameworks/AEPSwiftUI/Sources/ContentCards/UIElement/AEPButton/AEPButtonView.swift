@@ -29,5 +29,6 @@ public struct AEPButtonView: View {
         }, label: {
             model.text.view
         })
+        .applyModifier(model.modifier)
     }
 }

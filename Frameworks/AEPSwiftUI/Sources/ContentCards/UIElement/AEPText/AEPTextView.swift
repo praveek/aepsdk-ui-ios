@@ -27,5 +27,6 @@ public struct AEPTextView: View {
         Text(model.content)
             .font(model.font)
             .foregroundColor(model.textColor)
+            .applyModifier(model.modifier)
     }
 }
