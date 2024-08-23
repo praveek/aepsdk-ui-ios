@@ -82,8 +82,7 @@ build-aep-swift-ui:
 
 pod-install:
 	(cd $(AEPNOTIFICATIONCONTENT_PATH) && pod install --repo-update)
-	(cd $(AEPSWIFTUI_PATH) && pod install --repo-update)
-	(cd TestApps/$(APP_NAME) && pod install --repo-update)
+	(cd $(AEPSWIFTUI_PATH) && pod install --repo-update)	
 
 ci-pod-install:
 	(cd $(AEPNOTIFICATIONCONTENT_PATH) && bundle exec pod install --repo-update)
@@ -120,9 +119,7 @@ lint-autocorrect:
 lint: swift-lint check-format
 
 swift-lint:
-# not working
 	($(AEPNOTIFICATIONCONTENT_PATH)/Pods/SwiftLint/swiftlint lint)
-#	(./Pods/SwiftLint/swiftlint lint $(AEPSWIFTUI_PATH)/Sources)
 
 check-version:
 	(sh ./Script/version.sh $(VERSION))
