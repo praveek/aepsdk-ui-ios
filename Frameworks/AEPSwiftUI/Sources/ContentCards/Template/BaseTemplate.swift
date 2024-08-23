@@ -44,8 +44,6 @@ public class BaseTemplate: ObservableObject {
     /// - Parameter schemaData: The schema data used for initialization.
     init?(_ schemaData: ContentCardSchemaData) {
         self.actionURL = schemaData.actionUrl
-
-        // TODO: Retrieve other common properties for all templated content cards
     }
 
     /// Constructs a SwiftUI view with common properties and behaviors applied for all templates.

@@ -15,14 +15,17 @@ import SwiftUI
 
 // The model class representing the text UI element of the ContentCard.
 public class AEPText: ObservableObject, AEPViewModel {
-    // The content of the text
+    /// The content of the text
     @Published public var content: String
 
-    // The font of the text
+    /// The font of the text
     @Published public var font: Font?
 
-    // The color of the text
+    /// The color of the text
     @Published public var textColor: Color?
+
+    /// A custom view modifier that can be applied to the text view.
+    @Published public var modifier: AEPViewModifier?
 
     /// The SwiftUI view of the text
     public lazy var view: some View = AEPTextView(model: self)

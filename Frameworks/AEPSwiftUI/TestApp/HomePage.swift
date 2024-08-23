@@ -19,39 +19,27 @@ struct HomePage: View {
     @State var savedCards : [ContentCardUI] = []
     
     var body: some View {
+        Spacer()
         Text("Content Cards").font(.title)
-        ScrollView {
-            VStack {
+        ScrollView (.horizontal, showsIndicators: false){
+            LazyHStack(spacing: 20) {
                  ForEach(savedCards) { card in
                      card.view
-                         .frame(height: 150)
+                         .frame(width: 325, height: 120)
                          .overlay(
                              RoundedRectangle(cornerRadius: 5)
-                                 .stroke(.gray, lineWidth: 1)
+                                .stroke(Color(.systemGray3), lineWidth: 1)
                          )
                 }
             }
         }
         .padding()
         .onAppear(perform: {
+            
             let homePageSurface = Surface(path: "homepage")
-            AEPSwiftUI.getContentCardsUI(for: homePageSurface, { result in
+            AEPSwiftUI.getContentCardsUI(for: homePageSurface, customizer: HomePageCardCustomizer(),{ result in
                 switch result {
                 case .success(let cards):
-                    
-                    // customize each card only if
-                    cards.forEach { card in
-                        
-                        // customize small image template card only
-                        guard let template = card.template as? SmallImageTemplate else {
-                            return
-                        }
-                        template.rootHStack.spacing = 10
-                        template.textVStack.spacing = 10
-                        template.title.textColor = .primary
-                        template.body?.textColor = .secondary
-                        template.body?.font = .subheadline
-                    }
                     savedCards = cards
                     
                 case .failure(let error):
@@ -61,6 +49,42 @@ struct HomePage: View {
             })
         
         })
+    }
+}
+
+class HomePageCardCustomizer : ContentCardCustomizer {
+    
+    func customize(template: SmallImageTemplate) {
+        
+        // customize UI elements
+        template.title.textColor = .primary
+        template.body?.textColor = .secondary
+        template.body?.font = .subheadline
+        template.buttons?.first?.text.font = .system(size: 13)
+        
+        // customize stack structure
+        template.rootHStack.spacing = 10
+        template.textVStack.alignment = .leading
+        template.textVStack.spacing = 10
+        
+        // add custom modifiers
+        template.buttonHStack.modifier = AEPViewModifier(ButtonHStackModifier())
+        template.rootHStack.modifier = AEPViewModifier(RootHStackModifier())
+    }
+    
+    struct RootHStackModifier : ViewModifier {
+        func body(content: Content) -> some View {
+             content
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.trailing)
+         }
+    }
+    
+    struct ButtonHStackModifier : ViewModifier {
+        func body(content: Content) -> some View {
+             content
+                .frame(maxWidth: .infinity, alignment: .trailing)
+         }
     }
 }
 

@@ -46,7 +46,7 @@ struct AEPImageView: View {
                     .resizable()
                     .aspectRatio(contentMode: model.contentMode)
             }
-        }
+        }.applyModifier(model.modifier)
     }
 
     /// Determines the appropriate URL for the image based on the device's color scheme.
