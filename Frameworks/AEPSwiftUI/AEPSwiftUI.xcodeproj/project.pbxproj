@@ -119,6 +119,7 @@
 
 /* Begin PBXFileReference section */
 		1D160BEF0889F79BFABF7C40 /* Pods-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.release.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.release.xcconfig"; sourceTree = "<group>"; };
+		240436CF2C793191008CCD6D /* AEPSwiftUI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = AEPSwiftUI.xctestplan; path = Tests/AEPSwiftUI.xctestplan; sourceTree = "<group>"; };
 		259F292A5541FC211242A8C2 /* Pods-AEPSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-AEPSwiftUI/Pods-AEPSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		2ED41BA875FEB39933D8B5D6 /* Pods_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37502A12B2503425ECE90DFB /* Pods-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.release.xcconfig"; path = "Target Support Files/Pods-UnitTests/Pods-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +162,7 @@
 		B669ED782C7419AA00A26954 /* ContentCardTemplateTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplateTypeTests.swift; sourceTree = "<group>"; };
 		B669ED7A2C75087B00A26954 /* TemplateEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateEventHandler.swift; sourceTree = "<group>"; };
 		B669ED7C2C750D8E00A26954 /* ContentCardUI+EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentCardUI+EventHandler.swift"; sourceTree = "<group>"; };
-		B669ED822C75403200A26954 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B669ED822C75403200A26954 /* AEPSwiftUITestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEPSwiftUITestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B669ED842C75403200A26954 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
 		B669ED862C75403200A26954 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		B669ED882C75403400A26954 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -238,9 +239,10 @@
 		B626E0432C5EC1F400ED1816 = {
 			isa = PBXGroup;
 			children = (
+				240436CF2C793191008CCD6D /* AEPSwiftUI.xctestplan */,
 				B626E04F2C5EC1F400ED1816 /* Sources */,
-				B626E05E2C5EC26300ED1816 /* UnitTests */,
-				B669ED832C75403200A26954 /* TestApp */,
+				B626E05E2C5EC26300ED1816 /* Tests */,
+				B669ED832C75403200A26954 /* AEPSwiftUITestApp */,
 				B626E04E2C5EC1F400ED1816 /* Products */,
 				099D602B29F2B1041D78D90A /* Pods */,
 				A2B95FA98504EDDB2E02255B /* Frameworks */,
@@ -252,7 +254,7 @@
 			children = (
 				B626E04D2C5EC1F400ED1816 /* AEPSwiftUI.framework */,
 				B626E05D2C5EC26300ED1816 /* UnitTests.xctest */,
-				B669ED822C75403200A26954 /* TestApp.app */,
+				B669ED822C75403200A26954 /* AEPSwiftUITestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,7 +270,7 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		B626E05E2C5EC26300ED1816 /* UnitTests */ = {
+		B626E05E2C5EC26300ED1816 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				B669ED602C70750500A26954 /* Utils */,
@@ -282,7 +284,7 @@
 				B669ED582C700B9800A26954 /* ContentCardSchemaData+TemplateContentTests.swift */,
 				B669ED632C71C54700A26954 /* SmallImageTemplateTests.swift */,
 			);
-			path = UnitTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		B669ED132C6ABF2B00A26954 /* AEPText */ = {
@@ -371,7 +373,7 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		B669ED832C75403200A26954 /* TestApp */ = {
+		B669ED832C75403200A26954 /* AEPSwiftUITestApp */ = {
 			isa = PBXGroup;
 			children = (
 				B669ED902C75416100A26954 /* AppDelegate.swift */,
@@ -380,7 +382,8 @@
 				B669ED882C75403400A26954 /* Assets.xcassets */,
 				B669ED8A2C75403400A26954 /* Preview Content */,
 			);
-			path = TestApp;
+			name = AEPSwiftUITestApp;
+			path = ../../TestApps/AEPSwiftUITestApp;
 			sourceTree = "<group>";
 		};
 		B669ED8A2C75403400A26954 /* Preview Content */ = {
@@ -485,9 +488,9 @@
 			productReference = B626E05D2C5EC26300ED1816 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B669ED812C75403200A26954 /* TestApp */ = {
+		B669ED812C75403200A26954 /* AEPSwiftUITestApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B669ED8D2C75403400A26954 /* Build configuration list for PBXNativeTarget "TestApp" */;
+			buildConfigurationList = B669ED8D2C75403400A26954 /* Build configuration list for PBXNativeTarget "AEPSwiftUITestApp" */;
 			buildPhases = (
 				72A0E8799442323B2D05ED7A /* [CP] Check Pods Manifest.lock */,
 				B669ED7E2C75403200A26954 /* Sources */,
@@ -501,9 +504,9 @@
 			dependencies = (
 				B669ED952C75440000A26954 /* PBXTargetDependency */,
 			);
-			name = TestApp;
+			name = AEPSwiftUITestApp;
 			productName = TestApp;
-			productReference = B669ED822C75403200A26954 /* TestApp.app */;
+			productReference = B669ED822C75403200A26954 /* AEPSwiftUITestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -547,7 +550,7 @@
 				B626E04C2C5EC1F400ED1816 /* AEPSwiftUI */,
 				B626E05C2C5EC26300ED1816 /* UnitTests */,
 				B626E0672C60A36500ED1816 /* AEPSwiftUIXCF */,
-				B669ED812C75403200A26954 /* TestApp */,
+				B669ED812C75403200A26954 /* AEPSwiftUITestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -1029,7 +1032,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"../../TestApps/AEPSwiftUITestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = FKGEE875K4;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1060,7 +1063,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TestApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"../../TestApps/AEPSwiftUITestApp/Preview Content\"";
 				DEVELOPMENT_TEAM = FKGEE875K4;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1122,7 +1125,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B669ED8D2C75403400A26954 /* Build configuration list for PBXNativeTarget "TestApp" */ = {
+		B669ED8D2C75403400A26954 /* Build configuration list for PBXNativeTarget "AEPSwiftUITestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B669ED8E2C75403400A26954 /* Debug */,
