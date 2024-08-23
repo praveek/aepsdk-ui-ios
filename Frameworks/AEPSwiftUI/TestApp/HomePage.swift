@@ -28,15 +28,16 @@ struct HomePage: View {
                          .frame(width: 325, height: 120)
                          .overlay(
                              RoundedRectangle(cornerRadius: 5)
-                                 .stroke(.gray, lineWidth: 1)
+                                .stroke(Color(.systemGray3), lineWidth: 1)
                          )
                 }
             }
         }
         .padding()
         .onAppear(perform: {
+            
             let homePageSurface = Surface(path: "homepage")
-            AEPSwiftUI.getContentCardsUI(for: homePageSurface,customizer: HomePageCardCustomizer(),{ result in
+            AEPSwiftUI.getContentCardsUI(for: homePageSurface, customizer: HomePageCardCustomizer(),{ result in
                 switch result {
                 case .success(let cards):
                     savedCards = cards
@@ -54,13 +55,19 @@ struct HomePage: View {
 class HomePageCardCustomizer : ContentCardCustomizer {
     
     func customize(template: SmallImageTemplate) {
-        template.rootHStack.spacing = 10
-        template.textVStack.alignment = .leading
-        template.textVStack.spacing = 10
+        
+        // customize UI elements
         template.title.textColor = .primary
         template.body?.textColor = .secondary
         template.body?.font = .subheadline
         template.buttons?.first?.text.font = .system(size: 13)
+        
+        // customize stack structure
+        template.rootHStack.spacing = 10
+        template.textVStack.alignment = .leading
+        template.textVStack.spacing = 10
+        
+        // add custom modifiers
         template.buttonHStack.modifier = AEPViewModifier(ButtonHStackModifier())
         template.rootHStack.modifier = AEPViewModifier(RootHStackModifier())
     }

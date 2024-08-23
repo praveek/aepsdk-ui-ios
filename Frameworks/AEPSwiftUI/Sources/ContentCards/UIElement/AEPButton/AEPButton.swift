@@ -23,7 +23,7 @@ public class AEPButton: ObservableObject, AEPViewModel {
     /// the URL to be opened when the button is tapped.
     @Published public var actionUrl: URL?
 
-    /// custom view modifier that can be applied to the text view.
+    /// custom view modifier that can be applied to the button view.
     @Published public var modifier: AEPViewModifier?
 
     /// The parent template that contains this button.

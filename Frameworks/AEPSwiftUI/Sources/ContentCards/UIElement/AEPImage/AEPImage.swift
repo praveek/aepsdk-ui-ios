@@ -27,7 +27,7 @@ public class AEPImage: ObservableObject, AEPViewModel {
     /// The name of the dark mode image bundled resource.
     var darkBundle: String?
 
-    /// custom view modifier that can be applied to the text view.
+    /// custom view modifier that can be applied to the image view.
     @Published public var modifier: AEPViewModifier?
 
     /// The content mode of the image.
