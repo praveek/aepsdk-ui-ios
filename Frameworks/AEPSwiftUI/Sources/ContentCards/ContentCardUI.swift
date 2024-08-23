@@ -35,7 +35,7 @@ public class ContentCardUI: Identifiable {
     ///                 custom styling of the content card
     /// - Returns: An initialized `ContentCardUI` instance, or `nil` if unable to create template from proposition
     static func createInstance(with proposition: Proposition,
-                               customizer: ContentCardCustomizer?) -> ContentCardUI? {
+                               customizer: ContentCardCustomizable?) -> ContentCardUI? {
         guard let schemaData = proposition.items.first?.contentCardSchemaData else {
             return nil
         }

@@ -60,7 +60,7 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
     ///    - customizer: An object conforming to ContentCardUICustomizer protocol that allows for
     ///                 custom styling of the content card
     /// - Returns: An initialized `SmallImageTemplate` or `nil` if the required title is missing.
-    init?(_ schemaData: ContentCardSchemaData, _ customizer: ContentCardCustomizer?) {
+    init?(_ schemaData: ContentCardSchemaData, _ customizer: ContentCardCustomizable?) {
         guard let title = schemaData.title else {
             return nil
         }

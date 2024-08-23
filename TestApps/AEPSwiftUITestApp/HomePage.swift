@@ -52,7 +52,7 @@ struct HomePage: View {
     }
 }
 
-class HomePageCardCustomizer : ContentCardCustomizer {
+class HomePageCardCustomizer : ContentCardCustomizable {
     
     func customize(template: SmallImageTemplate) {
         

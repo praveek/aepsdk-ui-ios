@@ -22,12 +22,12 @@ public class AEPSwiftUI: NSObject {
     /// Retrieves the content cards UI for a given surface.
     /// - Parameters:
     ///   - surface: The surface for which to retrieve the content cards.
-    ///   - customizer: An optional ContentCardCustomizer object to customize the appearance of the content card template.
+    ///   - customizer: An optional ContentCardCustomizable object to customize the appearance of the content card template.
     ///   - completion: A completion handler that is called with a `Result` type containing either:
     ///     - success([ContentCardUI]):  An array of `ContentCardUI` objects if the operation is successful.
     ///     - failure(Error) : An error indicating the failure reason
     public static func getContentCardsUI(for surface: Surface,
-                                         customizer: ContentCardCustomizer? = nil,
+                                         customizer: ContentCardCustomizable? = nil,
                                          _ completion: @escaping (Result<[ContentCardUI], Error>) -> Void) {
         // Request propositions for the specified surface from Messaging extension.
         Messaging.getPropositionsForSurfaces([surface]) { propositionDict, error in

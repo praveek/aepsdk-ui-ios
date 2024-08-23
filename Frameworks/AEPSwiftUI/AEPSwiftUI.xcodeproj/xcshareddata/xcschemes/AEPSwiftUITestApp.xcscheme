@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1540"
-   version = "1.7">
+   version = "1.8">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B669ED812C75403200A26954"
-               BuildableName = "TestApp.app"
-               BlueprintName = "TestApp"
+               BuildableName = "AEPSwiftUITestApp.app"
+               BlueprintName = "AEPSwiftUITestApp"
                ReferencedContainer = "container:AEPSwiftUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B669ED812C75403200A26954"
-            BuildableName = "TestApp.app"
-            BlueprintName = "TestApp"
+            BuildableName = "AEPSwiftUITestApp.app"
+            BlueprintName = "AEPSwiftUITestApp"
             ReferencedContainer = "container:AEPSwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B669ED812C75403200A26954"
-            BuildableName = "TestApp.app"
-            BlueprintName = "TestApp"
+            BuildableName = "AEPSwiftUITestApp.app"
+            BlueprintName = "AEPSwiftUITestApp"
             ReferencedContainer = "container:AEPSwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

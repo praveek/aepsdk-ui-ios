@@ -13,7 +13,7 @@
 import Foundation
 
 /// Protocol for customizing Content Card templates
-public protocol ContentCardCustomizer {
+public protocol ContentCardCustomizable {
     /// Implement this function to customize content cards with SmallImageTemplate
     func customize(template: SmallImageTemplate)
 }
