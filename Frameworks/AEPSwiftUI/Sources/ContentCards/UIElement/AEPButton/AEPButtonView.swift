@@ -13,7 +13,7 @@
 import SwiftUI
 
 /// A view that displays an button based on the provided `AEPButton` model.
-public struct AEPButtonView: View {
+struct AEPButtonView: View {
     /// The model containing the data about the button.
     @ObservedObject public var model: AEPButton
 
@@ -23,9 +23,9 @@ public struct AEPButtonView: View {
     }
 
     /// The body of the view
-    public var body: some View {
+    var body: some View {
         Button(action: {
-            model.parentTemplate.eventHandler?.onInteract(interactionId: model.interactId, actionURL: model.actionUrl)
+            model.parentTemplate?.eventHandler?.onInteract(interactionId: model.interactId, actionURL: model.actionUrl)
         }, label: {
             model.text.view
         })

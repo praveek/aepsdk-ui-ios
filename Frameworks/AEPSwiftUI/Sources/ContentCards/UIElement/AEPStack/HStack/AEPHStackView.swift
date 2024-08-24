@@ -12,12 +12,12 @@
 
 import SwiftUI
 
-public struct AEPHStackView: View {
+struct AEPHStackView: View {
     /// The model containing the data about the button.
     @ObservedObject var model = AEPHStack()
 
     /// The body of the view
-    public var body: some View {
+    var body: some View {
         HStack(alignment: model.alignment ?? .center, spacing: model.spacing ?? 0) {
             ForEach(Array(model.childModels.enumerated()), id: \.offset) { _, model in
                 AnyView(model.view)
