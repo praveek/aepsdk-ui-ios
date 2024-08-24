@@ -25,26 +25,38 @@ struct AEPImageView: View {
 
     /// Initializes a new instance of `AEPImageView` with the provided model
     /// - Parameter model: The `AEPImage` model containing information about the image to display.
-    public init(model: AEPImage) {
+    init(model: AEPImage) {
         self.model = model
     }
 
     /// The body of the view
-    public var body: some View {
+    var body: some View {
         Group {
             switch model.imageSourceType {
             case .url:
-                AsyncImage(url: themeBasedURL()) { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: model.contentMode)
-                } placeholder: {
-                    ProgressView()
+                AsyncImage(url: themeBasedURL()) { phase in
+                    if let image = phase.image {
+                        // the actual image on successful download
+                        image.resizable()
+                            .aspectRatio(contentMode: model.contentMode)
+                    } else if phase.error != nil {
+                        // when error do not show imageView
+                        EmptyView()
+                    } else {
+                        // Placeholder view
+                        ProgressView()
+                    }
                 }
 
             case .bundle:
                 Image(themeBasedBundledImage())
                     .resizable()
                     .aspectRatio(contentMode: model.contentMode)
+
+            case .icon:
+                safeIconImage(icon: model.icon)
+                    .foregroundColor(model.iconColor)
+                    .font(model.iconFont)
             }
         }.applyModifier(model.modifier)
     }
@@ -66,6 +78,21 @@ struct AEPImageView: View {
             return model.darkBundle ?? model.bundle!
         } else {
             return model.bundle!
+        }
+    }
+
+    /// Returns a system icon image or an empty view.
+    /// This method creates an `Image` view from the provided system icon name if it is valid.
+    /// If the icon name is nil or does not correspond to a valid system icon, it returns an `EmptyView`.
+    ///
+    /// - Parameter icon: An optional `String` representing the system icon name.
+    /// - Returns: An `Image` view if the icon name is valid; otherwise, an `EmptyView`.
+    @ViewBuilder
+    private func safeIconImage(icon: String?) -> some View {
+        if let icon = icon, UIImage(systemName: icon) != nil {
+            Image(systemName: icon)
+        } else {
+            EmptyView()
         }
     }
 }
