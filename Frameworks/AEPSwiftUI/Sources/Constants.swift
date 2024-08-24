@@ -37,6 +37,16 @@ enum Constants {
             static let IMAGE = "image"
             static let ACTION_URL = "actionUrl"
             static let BUTTONS = "buttons"
+            static let DISMISS_BTN = "dismissBtn"
+        }
+
+        enum DismissButton {
+            static let STYLE = "style"
+
+            enum Icon {
+                static let SIMPLE = "xmark"
+                static let CIRCLE = "xmark.circle.fill"
+            }
         }
 
         enum UIElement {
@@ -55,6 +65,7 @@ enum Constants {
                 static let DARK_URL = "darkUrl"
                 static let BUNDLE = "bundle"
                 static let DARK_BUNDLE = "darkBundle"
+                static let ICON = "icon"
             }
         }
     }

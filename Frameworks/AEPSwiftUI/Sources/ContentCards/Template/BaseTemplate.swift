@@ -28,6 +28,8 @@ public class BaseTemplate: ObservableObject {
     /// Use this property to set the background color for the content card.
     @Published public var backgroundColor: Color?
 
+    @Published public var dismissButton: AEPDismissButton?
+
     /// An optional handler that conforms to the `TemplateEventHandler` protocol.
     /// Use this property to assign a listener that will handle events related to the content card's interactions.
     weak var eventHandler: TemplateEventHandler?
@@ -59,6 +61,11 @@ public class BaseTemplate: ObservableObject {
                 if !self.isDisplayed {
                     self.isDisplayed = true
                     self.eventHandler?.onDisplay()
+                }
+            }).overlay(alignment: self.dismissButton?.alignment ?? .topTrailing, content: {
+                if dismissButton != nil {
+                    dismissButton?.view
+                        .padding(8)
                 }
             })
     }

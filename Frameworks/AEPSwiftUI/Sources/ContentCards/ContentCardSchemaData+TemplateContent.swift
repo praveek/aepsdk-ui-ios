@@ -64,6 +64,19 @@ extension ContentCardSchemaData {
         return buttonsData.compactMap { AEPButton($0, template) }
     }
 
+    /// Retrieves the dismiss button configuration for a given content card template.
+    /// This method extracts the dismiss button data from the content dictionary and creates an instance of `AEPDismissButton` if the data is present. If the dismiss button data is not found, it returns `nil`.
+    /// - Parameters:
+    ///  - template: The `ContentCardTemplate` instance for which the dismiss button is initialized.
+    /// - Returns: An AEPDismissButton instance, or nil if the data is not available.
+    func getDismissButton(forTemplate template: any ContentCardTemplate) -> AEPDismissButton? {
+        guard let dismissButtonData = contentDict?[Constants.CardTemplate.SchemaData.DISMISS_BTN] as? [String: Any] else {
+            return nil
+        }
+
+        return AEPDismissButton(dismissButtonData, template)
+    }
+
     /// This property extracts the action URL from the content dictionary and returns it as a URL object.
     /// Returns `nil` if the action URL is not available or if it is not a valid URL.
     var actionUrl: URL? {

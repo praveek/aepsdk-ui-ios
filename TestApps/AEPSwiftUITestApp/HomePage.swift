@@ -21,11 +21,11 @@ struct HomePage: View {
     var body: some View {
         Spacer()
         Text("Content Cards").font(.title)
-        ScrollView (.horizontal, showsIndicators: false){
-            LazyHStack(spacing: 20) {
+        ScrollView (.vertical, showsIndicators: false){
+            LazyVStack(spacing: 20) {
                  ForEach(savedCards) { card in
                      card.view
-                         .frame(width: 325, height: 120)
+                         .frame(width: 325, height: 110)
                          .overlay(
                              RoundedRectangle(cornerRadius: 5)
                                 .stroke(Color(.systemGray3), lineWidth: 1)
@@ -58,8 +58,9 @@ class HomePageCardCustomizer : ContentCardCustomizable {
         
         // customize UI elements
         template.title.textColor = .primary
+        template.title.font = .subheadline
         template.body?.textColor = .secondary
-        template.body?.font = .subheadline
+        template.body?.font = .caption
         template.buttons?.first?.text.font = .system(size: 13)
         
         // customize stack structure
@@ -70,6 +71,9 @@ class HomePageCardCustomizer : ContentCardCustomizable {
         // add custom modifiers
         template.buttonHStack.modifier = AEPViewModifier(ButtonHStackModifier())
         template.rootHStack.modifier = AEPViewModifier(RootHStackModifier())
+        
+        template.dismissButton?.image.iconColor = .primary
+        template.dismissButton?.image.iconFont = .system(size: 10)
     }
     
     struct RootHStackModifier : ViewModifier {

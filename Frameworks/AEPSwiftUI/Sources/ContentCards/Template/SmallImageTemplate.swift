@@ -70,6 +70,7 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
         self.body = schemaData.body
         self.image = schemaData.image
         self.buttons = schemaData.getButtons(forTemplate: self)
+        self.dismissButton = schemaData.getDismissButton(forTemplate: self)
 
         // Add buttons to buttonHStack
         if let buttons = buttons {
