@@ -22,10 +22,19 @@ let package = Package(
         .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"]),
         .library(name: "AEPSwiftUI", targets: ["AEPSwiftUI"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/adobe/aepsdk-core-ios.git", .upToNextMajor(from: "5.2.0")),
+        .package(url: "https://github.com/adobe/aepsdk-messaging-ios.git", .upToNextMajor(from: "5.2.0"))
+    ],
     targets: [
         .target(name: "AEPNotificationContent",
                 path: "Frameworks/AEPNotificationContent/Sources"),
         .target(name: "AEPSwiftUI",
+                dependencies: [
+                    .product(name: "AEPCore", package: "aepsdk-core-ios"),
+                    .product(name: "AEPServices", package: "aepsdk-core-ios"),
+                    .product(name: "AEPMessaging", package: "aepsdk-messaging-ios")
+                ],
                 path: "Frameworks/AEPSwiftUI/Sources")
     ]
 )
