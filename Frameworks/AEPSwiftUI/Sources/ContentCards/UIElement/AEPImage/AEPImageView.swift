@@ -18,7 +18,7 @@ import SwiftUI
 /// Additionally, the view adapts to light and dark modes, displaying the appropriate image based on the current interface style.
 struct AEPImageView: View {
     /// The model containing the data about the image.
-    @ObservedObject public var model: AEPImage
+    @ObservedObject var model: AEPImage
 
     /// The environment’s color scheme (light or dark mode).
     @Environment(\.colorScheme) var colorScheme

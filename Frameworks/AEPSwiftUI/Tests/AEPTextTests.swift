@@ -15,7 +15,7 @@ import XCTest
 
 final class AEPTextTests: XCTestCase {
     
-    func testInit_ValidData() {
+    func testInit_validData() {
         // setup
         let data = [Constants.CardTemplate.UIElement.Text.CONTENT: "Text Content"]
         
@@ -25,12 +25,12 @@ final class AEPTextTests: XCTestCase {
         // verify
         XCTAssertNotNil(textElement)
         XCTAssertEqual(textElement?.content, "Text Content")
-        XCTAssertNil(textElement?.font)
-        XCTAssertNil(textElement?.textColor)
+        XCTAssertNotNil(textElement?.font)
+        XCTAssertNotNil(textElement?.textColor)
     }
     
     
-    func testInit_EmptyData() {
+    func testInit_emptyData() {
         // setup
         let data: [String: Any] = [:]
         

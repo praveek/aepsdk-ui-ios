@@ -15,10 +15,10 @@ import SwiftUI
 /// A view that displays an button based on the provided `AEPButton` model.
 struct AEPButtonView: View {
     /// The model containing the data about the button.
-    @ObservedObject public var model: AEPButton
+    @ObservedObject var model: AEPButton
 
     /// Initializes a new instance of `AEPButtonView` with the provided model
-    public init(model: AEPButton) {
+    init(model: AEPButton) {
         self.model = model
     }
 

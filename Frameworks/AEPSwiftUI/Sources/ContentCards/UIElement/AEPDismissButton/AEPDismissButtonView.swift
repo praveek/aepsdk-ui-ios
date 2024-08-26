@@ -17,12 +17,12 @@ struct AEPDismissButtonView: View {
     @ObservedObject public var model: AEPDismissButton
 
     /// Initializes a new instance of `AEPButtonView` with the provided model
-    public init(model: AEPDismissButton) {
+    init(model: AEPDismissButton) {
         self.model = model
     }
 
     /// The body of the view
-    public var body: some View {
+    var body: some View {
         Button(action: {
             model.parentTemplate?.eventHandler?.onDismiss()
         }, label: {
