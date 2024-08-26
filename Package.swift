@@ -24,7 +24,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/adobe/aepsdk-core-ios.git", .upToNextMajor(from: "5.2.0")),
-        .package(url: "https://github.com/adobe/aepsdk-messaging-ios.git", .upToNextMajor(from: "5.2.0"))
+        .package(url: "https://github.com/adobe/aepsdk-messaging-ios.git", .upToNextMajor(from: "5.0.0"))
     ],
     targets: [
         .target(name: "AEPNotificationContent",
