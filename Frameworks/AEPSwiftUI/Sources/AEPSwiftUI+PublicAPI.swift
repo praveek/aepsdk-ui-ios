@@ -23,11 +23,13 @@ public class AEPSwiftUI: NSObject {
     /// - Parameters:
     ///   - surface: The surface for which to retrieve the content cards.
     ///   - customizer: An optional ContentCardCustomizable object to customize the appearance of the content card template.
+    ///   - listener: An optional ContentCardUIEventListening object to listen to UI events from the content card.
     ///   - completion: A completion handler that is called with a `Result` type containing either:
     ///     - success([ContentCardUI]):  An array of `ContentCardUI` objects if the operation is successful.
     ///     - failure(Error) : An error indicating the failure reason
     public static func getContentCardsUI(for surface: Surface,
                                          customizer: ContentCardCustomizing? = nil,
+                                         listener: ContentCardUIEventListening? = nil,
                                          _ completion: @escaping (Result<[ContentCardUI], Error>) -> Void) {
         // Request propositions for the specified surface from Messaging extension.
         Messaging.getPropositionsForSurfaces([surface]) { propositionDict, error in
@@ -50,7 +52,8 @@ public class AEPSwiftUI: NSObject {
             for proposition in propositions {
                 // attempt to create a ContentCardUI instance with the schema data.
                 guard let contentCard = ContentCardUI.createInstance(with: proposition,
-                                                                     customizer: customizer) else {
+                                                                     customizer: customizer,
+                                                                     listener: listener) else {
                     Log.warning(label: Constants.LOG_TAG,
                                 "Failed to create ContentCardUI for proposition with ID: \(proposition.uniqueId)")
                     continue

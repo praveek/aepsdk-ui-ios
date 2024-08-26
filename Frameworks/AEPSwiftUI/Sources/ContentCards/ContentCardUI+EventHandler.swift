@@ -11,20 +11,29 @@
  */
 
 import Foundation
+import UIKit
 
 extension ContentCardUI: TemplateEventHandler {
     /// Called when the templated content card is displayed to the user.
     func onDisplay() {
         proposition.items.first?.contentCardSchemaData?.track(withEdgeEventType: .display)
+        listener?.onDisplay(self)
     }
 
     /// Called when the templated content card is displayed to the user.
     func onDismiss() {
         proposition.items.first?.contentCardSchemaData?.track(withEdgeEventType: .dismiss)
+        listener?.onDismiss(self)
     }
 
     /// Called when the templated content card is interacted by the user
-    func onInteract(interactionId: String, actionURL _: URL?) {
+    func onInteract(interactionId: String, actionURL url: URL?) {
         proposition.items.first?.contentCardSchemaData?.track(interactionId, withEdgeEventType: .interact)
+        let urlHandled = listener?.onInteract(self, interactionId, actionURL: url) ?? false
+
+        // Open the URL if available and not handled by the listener
+        if let url = url, !urlHandled {
+            UIApplication.shared.open(url)
+        }
     }
 }
