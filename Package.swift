@@ -17,7 +17,7 @@ import PackageDescription
 
 let package = Package(
     name: "AEPUI",
-    platforms: [.iOS(.v12)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"]),
         .library(name: "AEPSwiftUI", targets: ["AEPSwiftUI"])
