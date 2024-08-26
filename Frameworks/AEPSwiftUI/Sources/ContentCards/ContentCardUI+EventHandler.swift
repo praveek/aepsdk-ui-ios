@@ -20,7 +20,7 @@ extension ContentCardUI: TemplateEventHandler {
         listener?.onDisplay(self)
     }
 
-    /// Called when the templated content card is displayed to the user.
+    /// Called when the templated content card is dismissed by the user.
     func onDismiss() {
         proposition.items.first?.contentCardSchemaData?.track(withEdgeEventType: .dismiss)
         listener?.onDismiss(self)
