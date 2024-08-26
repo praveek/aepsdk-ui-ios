@@ -27,7 +27,7 @@ public class AEPSwiftUI: NSObject {
     ///     - success([ContentCardUI]):  An array of `ContentCardUI` objects if the operation is successful.
     ///     - failure(Error) : An error indicating the failure reason
     public static func getContentCardsUI(for surface: Surface,
-                                         customizer: ContentCardCustomizable? = nil,
+                                         customizer: ContentCardCustomizing? = nil,
                                          _ completion: @escaping (Result<[ContentCardUI], Error>) -> Void) {
         // Request propositions for the specified surface from Messaging extension.
         Messaging.getPropositionsForSurfaces([surface]) { propositionDict, error in

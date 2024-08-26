@@ -13,7 +13,7 @@
 import SwiftUI
 @testable import AEPSwiftUI
 
-class EmptyCustomizer : ContentCardCustomizable {    
+class EmptyCustomizer : ContentCardCustomizing {    
     func customize(template: SmallImageTemplate) {
         // Do nothing
     }

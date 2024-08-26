@@ -28,6 +28,7 @@ public class BaseTemplate: ObservableObject {
     /// Use this property to set the background color for the content card.
     @Published public var backgroundColor: Color?
 
+    /// the dismiss button model
     @Published public var dismissButton: AEPDismissButton?
 
     /// An optional handler that conforms to the `TemplateEventHandler` protocol.
@@ -66,7 +67,7 @@ public class BaseTemplate: ObservableObject {
                 Constants.CardTemplate.DefaultStyle.DismissButton.ALIGNMENT, content: {
                     if dismissButton != nil {
                         dismissButton?.view
-                            .padding(8)
+                            .padding(Constants.CardTemplate.DefaultStyle.PADDING)
                     }
                 })
     }

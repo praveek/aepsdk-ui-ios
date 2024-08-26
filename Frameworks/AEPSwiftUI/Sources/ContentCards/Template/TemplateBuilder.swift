@@ -19,11 +19,11 @@ enum TemplateBuilder {
     ///
     /// - Parameters:
     ///    - schemaData: The content card schema data containing template information.
-    ///    - customizer: An object conforming to `ContentCardUICustomizer` protocol that allows for
+    ///    - customizer: An object conforming to `ContentCardCustomizing` protocol that allows for
     ///                 custom styling of the content card
     /// - Returns: An instance conforming to `ContentCardTemplate` if a supported template type is found, otherwise `nil`.
     static func buildTemplate(from schemaData: ContentCardSchemaData,
-                              customizer: ContentCardCustomizable?) -> (any ContentCardTemplate)? {
+                              customizer: ContentCardCustomizing?) -> (any ContentCardTemplate)? {
         switch schemaData.templateType {
         case .smallImage:
             return SmallImageTemplate(schemaData, customizer)

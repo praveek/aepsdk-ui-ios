@@ -13,7 +13,7 @@ import AEPServices
 import SwiftUI
 
 public class AEPDismissButton: ObservableObject, AEPViewModel {
-    /// custom view modifier that can be applied to the button view.
+    /// custom view modifier that can be applied to the dismiss button view.
     @Published public var modifier: AEPViewModifier?
 
     /// The image for the dismiss button
@@ -38,7 +38,7 @@ public class AEPDismissButton: ObservableObject, AEPViewModel {
     }
 
     private static func createDismissImage(_ data: [String: Any]) -> AEPImage? {
-        guard let styleString = data["style"] as? String,
+        guard let styleString = data[Constants.CardTemplate.DismissButton.STYLE] as? String,
               let style = DismissButtonStyle(rawValue: styleString.lowercased()) else {
             Log.warning(label: Constants.LOG_TAG, "Dismiss button not created, invalid or missing style property.")
             return nil

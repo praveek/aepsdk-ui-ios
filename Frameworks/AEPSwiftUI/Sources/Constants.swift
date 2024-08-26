@@ -23,6 +23,7 @@ enum Constants {
         static let ImageOnly = "ImageOnly"
 
         enum DefaultStyle {
+            static let PADDING = 8.0
             enum Text {
                 static let TITLE_FONT = Font.system(size: 15, weight: .medium)
                 static let TITLE_COLOR = Color.primary
