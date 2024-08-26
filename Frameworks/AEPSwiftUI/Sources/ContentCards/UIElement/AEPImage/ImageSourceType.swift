@@ -19,4 +19,7 @@ enum ImageSourceType {
 
     /// Indicates that the image is sourced from a bundled resource within the app
     case bundle
+
+    /// Indicates that the image is sourced from SF Symbols
+    case icon
 }

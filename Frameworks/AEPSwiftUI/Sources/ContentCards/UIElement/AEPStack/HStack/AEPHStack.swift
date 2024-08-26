@@ -16,7 +16,7 @@ import SwiftUI
 /// A model class representing a horizontal stack used for Content Cards
 public class AEPHStack: AEPStack, AEPViewModel {
     /// The vertical alignment of child views in the horizontal stack.
-    @Published public var alignment: VerticalAlignment?
+    @Published public var alignment: VerticalAlignment = Constants.CardTemplate.DefaultStyle.Stack.VERTICAL_ALIGNMENT
 
     /// The SwiftUI view representing the horizontal stack.
     public lazy var view: some View = AEPHStackView(model: self)

@@ -27,7 +27,7 @@ public class AEPButton: ObservableObject, AEPViewModel {
     @Published public var modifier: AEPViewModifier?
 
     /// The parent template that contains this button.
-    let parentTemplate: any ContentCardTemplate
+    weak var parentTemplate: (any ContentCardTemplate)?
 
     public lazy var view: some View = AEPButtonView(model: self)
 
@@ -41,7 +41,7 @@ public class AEPButton: ObservableObject, AEPViewModel {
         // Extract the button text
         // Bail out if the button text is not present
         guard let buttonTextData = schemaData[Constants.CardTemplate.UIElement.Button.TEXT] as? [String: Any],
-              let buttonText = AEPText(buttonTextData) else {
+              let buttonText = AEPText(buttonTextData, type: .button) else {
             return nil
         }
 

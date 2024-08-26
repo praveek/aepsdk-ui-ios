@@ -57,10 +57,10 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
     ///
     /// - Parameters:
     ///    - schemaData: The schema data used to populate the template's properties.
-    ///    - customizer: An object conforming to ContentCardUICustomizer protocol that allows for
+    ///    - customizer: An object conforming to ContentCardCustomizing protocol that allows for
     ///                 custom styling of the content card
     /// - Returns: An initialized `SmallImageTemplate` or `nil` if the required title is missing.
-    init?(_ schemaData: ContentCardSchemaData, _ customizer: ContentCardCustomizer?) {
+    init?(_ schemaData: ContentCardSchemaData, _ customizer: ContentCardCustomizing?) {
         guard let title = schemaData.title else {
             return nil
         }
@@ -70,6 +70,7 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
         self.body = schemaData.body
         self.image = schemaData.image
         self.buttons = schemaData.getButtons(forTemplate: self)
+        self.dismissButton = schemaData.getDismissButton(forTemplate: self)
 
         // Add buttons to buttonHStack
         if let buttons = buttons {

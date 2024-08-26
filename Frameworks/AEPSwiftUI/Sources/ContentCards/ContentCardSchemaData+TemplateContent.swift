@@ -32,7 +32,7 @@ extension ContentCardSchemaData {
             return nil
         }
 
-        return AEPText(titleData)
+        return AEPText(titleData, type: .title)
     }
 
     /// This property extracts the body data from the content dictionary and attempts to
@@ -41,7 +41,7 @@ extension ContentCardSchemaData {
         guard let bodyData = contentDict?[Constants.CardTemplate.SchemaData.BODY] as? [String: Any] else {
             return nil
         }
-        return AEPText(bodyData)
+        return AEPText(bodyData, type: .body)
     }
 
     /// This property extracts the image data from the content dictionary and attempts to
@@ -62,6 +62,19 @@ extension ContentCardSchemaData {
         }
 
         return buttonsData.compactMap { AEPButton($0, template) }
+    }
+
+    /// Retrieves the dismiss button configuration for a given content card template.
+    /// This method extracts the dismiss button data from the content dictionary and creates an instance of `AEPDismissButton` if the data is present. If the dismiss button data is not found, it returns `nil`.
+    /// - Parameters:
+    ///  - template: The `ContentCardTemplate` instance for which the dismiss button is initialized.
+    /// - Returns: An AEPDismissButton instance, or nil if the data is not available.
+    func getDismissButton(forTemplate template: any ContentCardTemplate) -> AEPDismissButton? {
+        guard let dismissButtonData = contentDict?[Constants.CardTemplate.SchemaData.DISMISS_BTN] as? [String: Any] else {
+            return nil
+        }
+
+        return AEPDismissButton(dismissButtonData, template)
     }
 
     /// This property extracts the action URL from the content dictionary and returns it as a URL object.

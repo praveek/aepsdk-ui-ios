@@ -23,19 +23,17 @@ public class ContentCardUI: Identifiable {
     public let template: any ContentCardTemplate
 
     /// SwiftUI view that represents the content card
-    public lazy var view: some View = {
-        // TODO: Make adjustments to remove AnyView
-        AnyView(template.view)
-    }()
+    /// TODO: Make adjustments to remove AnyView
+    public lazy var view: some View = AnyView(template.view)
 
     /// Factory method to create a `ContentCardUI` instance based on the provided schema data.
     /// - Parameters:
     ///    - proposition: The `Proposition` containing content card template information
-    ///    - customizer: An object conforming to `ContentCardUICustomizer` protocol that allows for
+    ///    - customizer: An object conforming to `ContentCardCustomizing` protocol that allows for
     ///                 custom styling of the content card
     /// - Returns: An initialized `ContentCardUI` instance, or `nil` if unable to create template from proposition
     static func createInstance(with proposition: Proposition,
-                               customizer: ContentCardCustomizer?) -> ContentCardUI? {
+                               customizer: ContentCardCustomizing?) -> ContentCardUI? {
         guard let schemaData = proposition.items.first?.contentCardSchemaData else {
             return nil
         }

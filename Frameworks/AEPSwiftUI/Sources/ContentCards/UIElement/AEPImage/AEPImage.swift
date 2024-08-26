@@ -27,6 +27,16 @@ public class AEPImage: ObservableObject, AEPViewModel {
     /// The name of the dark mode image bundled resource.
     var darkBundle: String?
 
+    /// The name of the SF Symbol icon used in the image
+    @Published public var icon: String?
+
+    /// The font of the SF Symbol icon used in the image
+    /// Set the size and weight of SF Symbol using the font property
+    @Published public var iconFont: Font?
+
+    /// The color of the SF Symbol icon used in the image
+    @Published public var iconColor = Color.primary
+
     /// custom view modifier that can be applied to the image view.
     @Published public var modifier: AEPViewModifier?
 
@@ -56,6 +66,13 @@ public class AEPImage: ObservableObject, AEPViewModel {
             self.imageSourceType = .bundle
             self.bundle = bundle
             self.darkBundle = data[Constants.CardTemplate.UIElement.Image.DARK_BUNDLE] as? String
+            return
+        }
+
+        // Attempt to initialize from icon
+        if let icon = data[Constants.CardTemplate.UIElement.Image.ICON] as? String {
+            self.imageSourceType = .icon
+            self.icon = icon
             return
         }
 

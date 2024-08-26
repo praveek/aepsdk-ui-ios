@@ -17,12 +17,14 @@ import XCTest
 
 final class SmallImageTemplateTests: XCTestCase {
     
+    var emptyCustomizer = EmptyCustomizer()
+    
     func testSmallImageTemplate_happy() {
         // setup
         let schema = ContentCardTestUtil.createContentCardSchemaData(fromFile: "SmallImageTemplate")
 
         // test
-        let smallImageTemplate = SmallImageTemplate(schema)
+        let smallImageTemplate = SmallImageTemplate(schema, emptyCustomizer)
 
         // verify
         XCTAssertNotNil(smallImageTemplate)
@@ -53,7 +55,7 @@ final class SmallImageTemplateTests: XCTestCase {
         let schema = ContentCardSchemaData.getEmpty()
 
         // test and verify
-        XCTAssertNil(SmallImageTemplate(schema))
+        XCTAssertNil(SmallImageTemplate(schema, emptyCustomizer))
     }
     
     
@@ -62,7 +64,7 @@ final class SmallImageTemplateTests: XCTestCase {
         let schema = ContentCardTestUtil.createContentCardSchemaData(fromFile: "SmallImageTemplate_noTitle")
         
         // test and verify
-        XCTAssertNil(SmallImageTemplate(schema))
+        XCTAssertNil(SmallImageTemplate(schema, emptyCustomizer))
     }
 
     func testSmallImageTemplate_schemaWithOnlyTitle() {
@@ -70,7 +72,7 @@ final class SmallImageTemplateTests: XCTestCase {
         let schema = ContentCardTestUtil.createContentCardSchemaData(fromFile: "SmallImageTemplate_onlyTitle")
         
         // test
-        let smallImageTemplate = SmallImageTemplate(schema)
+        let smallImageTemplate = SmallImageTemplate(schema, emptyCustomizer)
 
         // test and verify
         XCTAssertNotNil(smallImageTemplate)
@@ -90,7 +92,7 @@ final class SmallImageTemplateTests: XCTestCase {
         let schema = ContentCardTestUtil.createContentCardSchemaData(fromFile: "SmallImageTemplate_validTitle_invalidOther")
         
         // test
-        let smallImageTemplate = SmallImageTemplate(schema)
+        let smallImageTemplate = SmallImageTemplate(schema, emptyCustomizer)
         
         // test and verify
         XCTAssertNotNil(smallImageTemplate)

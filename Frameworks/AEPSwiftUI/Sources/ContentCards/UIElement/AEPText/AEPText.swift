@@ -32,14 +32,17 @@ public class AEPText: ObservableObject, AEPViewModel {
 
     /// Initializes a new instance of `AEPText`
     /// Failable initializer, returns nil if the required fields are not present in the data
-    /// - Parameter data: The dictionary containing server side styling and content of the text
-    public init?(_ data: [String: Any]) {
+    /// - Parameters:
+    ///    - data: The dictionary containing server side styling and content of the text
+    ///    - type: The type of text (title or description), determining default styling. Defaults to .body
+    public init?(_ data: [String: Any], type: AEPTextType = .body) {
         guard let content = data[Constants.CardTemplate.UIElement.Text.CONTENT] as? String, !content.isEmpty else {
             return nil
         }
         self.content = content
 
-        // TODO: - Extract font and textColor from data
-        // Not required for Phase 1 (Since we only allow client side customization)
+        // Initialize with default styles
+        self.font = type.defaultFont
+        self.textColor = type.defaultColor
     }
 }

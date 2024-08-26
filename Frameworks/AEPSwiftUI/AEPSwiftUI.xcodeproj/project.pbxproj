@@ -66,9 +66,17 @@
 		B669ED982C75951D00A26954 /* MockTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED972C75951D00A26954 /* MockTemplate.swift */; };
 		B669ED9A2C76655300A26954 /* ContentCardUIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED992C76655300A26954 /* ContentCardUIError.swift */; };
 		B669ED9E2C76AA0700A26954 /* TemplateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED9D2C76AA0700A26954 /* TemplateBuilder.swift */; };
-		B669EDA02C771E2D00A26954 /* ContentCardCustomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED9F2C771E2D00A26954 /* ContentCardCustomizer.swift */; };
+		B669EDA02C771E2D00A26954 /* ContentCardCustomizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669ED9F2C771E2D00A26954 /* ContentCardCustomizing.swift */; };
 		B669EDA22C778F4C00A26954 /* AEPViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDA12C778F4C00A26954 /* AEPViewModifier.swift */; };
 		B669EDA42C779E0600A26954 /* View+CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDA32C779E0600A26954 /* View+CustomModifiers.swift */; };
+		B669EDB22C793B8700A26954 /* EmptyCustomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB12C793B8700A26954 /* EmptyCustomizer.swift */; };
+		B669EDB52C79419800A26954 /* AEPDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB42C79419800A26954 /* AEPDismissButton.swift */; };
+		B669EDB72C7941C200A26954 /* AEPDismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB62C7941C200A26954 /* AEPDismissButtonView.swift */; };
+		B669EDB92C7941E100A26954 /* DismissButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB82C7941E100A26954 /* DismissButtonStyle.swift */; };
+		B669EDBB2C7B7C0A00A26954 /* AEPTextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBA2C7B7C0A00A26954 /* AEPTextType.swift */; };
+		B669EDBE2C7C37A900A26954 /* AEPTextTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBC2C7C377800A26954 /* AEPTextTypeTests.swift */; };
+		B669EDC02C7C3D1D00A26954 /* DismissButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */; };
+		B669EDC22C7C415700A26954 /* AEPDismissButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */; };
 		B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D18E2C62735600376045 /* ContentCardUI.swift */; };
 		B6F4D1942C6279C300376045 /* ContentCardTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */; };
 		B6F4D19C2C628FFF00376045 /* AEPText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D19B2C628FFF00376045 /* AEPText.swift */; };
@@ -173,9 +181,17 @@
 		B669ED972C75951D00A26954 /* MockTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTemplate.swift; sourceTree = "<group>"; };
 		B669ED992C76655300A26954 /* ContentCardUIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUIError.swift; sourceTree = "<group>"; };
 		B669ED9D2C76AA0700A26954 /* TemplateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateBuilder.swift; sourceTree = "<group>"; };
-		B669ED9F2C771E2D00A26954 /* ContentCardCustomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardCustomizer.swift; sourceTree = "<group>"; };
+		B669ED9F2C771E2D00A26954 /* ContentCardCustomizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardCustomizing.swift; sourceTree = "<group>"; };
 		B669EDA12C778F4C00A26954 /* AEPViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPViewModifier.swift; sourceTree = "<group>"; };
 		B669EDA32C779E0600A26954 /* View+CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CustomModifiers.swift"; sourceTree = "<group>"; };
+		B669EDB12C793B8700A26954 /* EmptyCustomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCustomizer.swift; sourceTree = "<group>"; };
+		B669EDB42C79419800A26954 /* AEPDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButton.swift; sourceTree = "<group>"; };
+		B669EDB62C7941C200A26954 /* AEPDismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButtonView.swift; sourceTree = "<group>"; };
+		B669EDB82C7941E100A26954 /* DismissButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonStyle.swift; sourceTree = "<group>"; };
+		B669EDBA2C7B7C0A00A26954 /* AEPTextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPTextType.swift; sourceTree = "<group>"; };
+		B669EDBC2C7C377800A26954 /* AEPTextTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPTextTypeTests.swift; sourceTree = "<group>"; };
+		B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonStyleTests.swift; sourceTree = "<group>"; };
+		B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButtonTests.swift; sourceTree = "<group>"; };
 		B6F4D18E2C62735600376045 /* ContentCardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUI.swift; sourceTree = "<group>"; };
 		B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplateType.swift; sourceTree = "<group>"; };
 		B6F4D19B2C628FFF00376045 /* AEPText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPText.swift; sourceTree = "<group>"; };
@@ -284,9 +300,12 @@
 				B669ED1B2C6AD37E00A26954 /* AEPTextTests.swift */,
 				B669ED232C6B010B00A26954 /* AEPImageTests.swift */,
 				B669ED4E2C6F3DE400A26954 /* AEPStackTests.swift */,
+				B669EDBC2C7C377800A26954 /* AEPTextTypeTests.swift */,
 				B669ED782C7419AA00A26954 /* ContentCardTemplateTypeTests.swift */,
 				B669ED582C700B9800A26954 /* ContentCardSchemaData+TemplateContentTests.swift */,
 				B669ED632C71C54700A26954 /* SmallImageTemplateTests.swift */,
+				B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */,
+				B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -296,6 +315,7 @@
 			children = (
 				B6F4D19B2C628FFF00376045 /* AEPText.swift */,
 				B669ED142C6ABF6200A26954 /* AEPTextView.swift */,
+				B669EDBA2C7B7C0A00A26954 /* AEPTextType.swift */,
 			);
 			path = AEPText;
 			sourceTree = "<group>";
@@ -371,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				B669ED972C75951D00A26954 /* MockTemplate.swift */,
+				B669EDB12C793B8700A26954 /* EmptyCustomizer.swift */,
 				B669ED5E2C703F9B00A26954 /* FileReader.swift */,
 				B669ED612C7075A700A26954 /* ContentCardTestUtil.swift */,
 			);
@@ -398,6 +419,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B669EDB32C79417E00A26954 /* AEPDismissButton */ = {
+			isa = PBXGroup;
+			children = (
+				B669EDB42C79419800A26954 /* AEPDismissButton.swift */,
+				B669EDB62C7941C200A26954 /* AEPDismissButtonView.swift */,
+				B669EDB82C7941E100A26954 /* DismissButtonStyle.swift */,
+			);
+			path = AEPDismissButton;
+			sourceTree = "<group>";
+		};
 		B6F4D1902C6278AD00376045 /* ContentCards */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,7 +439,7 @@
 				B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */,
 				B669ED552C6FE92E00A26954 /* ContentCardSchemaData+TemplateContent.swift */,
 				B669ED992C76655300A26954 /* ContentCardUIError.swift */,
-				B669ED9F2C771E2D00A26954 /* ContentCardCustomizer.swift */,
+				B669ED9F2C771E2D00A26954 /* ContentCardCustomizing.swift */,
 			);
 			path = ContentCards;
 			sourceTree = "<group>";
@@ -431,6 +462,7 @@
 				B669ED452C6F2F0E00A26954 /* AEPViewModel.swift */,
 				B669EDA12C778F4C00A26954 /* AEPViewModifier.swift */,
 				B669EDA32C779E0600A26954 /* View+CustomModifiers.swift */,
+				B669EDB32C79417E00A26954 /* AEPDismissButton */,
 				B669ED4B2C6F3BC400A26954 /* AEPStack */,
 				B669ED1D2C6AE0B200A26954 /* AEPImage */,
 				B669ED162C6AC7A500A26954 /* AEPButton */,
@@ -708,21 +740,25 @@
 				B669ED572C70029000A26954 /* ContentCardSchemaData+TemplateContent.swift in Sources */,
 				B669ED1F2C6AE0D500A26954 /* AEPImageView.swift in Sources */,
 				B669EDA42C779E0600A26954 /* View+CustomModifiers.swift in Sources */,
+				B669EDB52C79419800A26954 /* AEPDismissButton.swift in Sources */,
 				B6F4D1A02C62935000376045 /* AEPImage.swift in Sources */,
 				B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */,
 				B669ED212C6AEB7D00A26954 /* ImageSourceType.swift in Sources */,
 				B669ED7B2C75087B00A26954 /* TemplateEventHandler.swift in Sources */,
 				B669ED4D2C6F3BE900A26954 /* AEPStack.swift in Sources */,
-				B669EDA02C771E2D00A26954 /* ContentCardCustomizer.swift in Sources */,
+				B669EDA02C771E2D00A26954 /* ContentCardCustomizing.swift in Sources */,
 				B669ED9A2C76655300A26954 /* ContentCardUIError.swift in Sources */,
+				B669EDB72C7941C200A26954 /* AEPDismissButtonView.swift in Sources */,
 				B6F4D1A42C62947F00376045 /* SmallImageTemplate.swift in Sources */,
 				B669ED9E2C76AA0700A26954 /* TemplateBuilder.swift in Sources */,
 				B669ED702C71DE2300A26954 /* ContentCardTemplate.swift in Sources */,
 				B669EDA22C778F4C00A26954 /* AEPViewModifier.swift in Sources */,
+				B669EDBB2C7B7C0A00A26954 /* AEPTextType.swift in Sources */,
 				B669ED482C6F353E00A26954 /* AEPVStack.swift in Sources */,
 				B669ED4A2C6F355F00A26954 /* AEPVStackView.swift in Sources */,
 				B669ED272C6D3B4E00A26954 /* AEPHStack.swift in Sources */,
 				B669ED462C6F2F0E00A26954 /* AEPViewModel.swift in Sources */,
+				B669EDB92C7941E100A26954 /* DismissButtonStyle.swift in Sources */,
 				B669ED522C6FDF2800A26954 /* AEPStackError.swift in Sources */,
 				B669ED7D2C750D8E00A26954 /* ContentCardUI+EventHandler.swift in Sources */,
 				B6F4D19C2C628FFF00376045 /* AEPText.swift in Sources */,
@@ -733,8 +769,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B669EDC02C7C3D1D00A26954 /* DismissButtonStyleTests.swift in Sources */,
 				B669ED1A2C6AD2FF00A26954 /* AEPButtonTests.swift in Sources */,
 				B669ED592C700B9800A26954 /* ContentCardSchemaData+TemplateContentTests.swift in Sources */,
+				B669EDBE2C7C37A900A26954 /* AEPTextTypeTests.swift in Sources */,
 				B669ED5F2C703F9B00A26954 /* FileReader.swift in Sources */,
 				B669ED1C2C6AD37E00A26954 /* AEPTextTests.swift in Sources */,
 				B669ED242C6B010B00A26954 /* AEPImageTests.swift in Sources */,
@@ -743,6 +781,8 @@
 				B669ED982C75951D00A26954 /* MockTemplate.swift in Sources */,
 				B669ED622C7075A700A26954 /* ContentCardTestUtil.swift in Sources */,
 				B669ED642C71C54700A26954 /* SmallImageTemplateTests.swift in Sources */,
+				B669EDB22C793B8700A26954 /* EmptyCustomizer.swift in Sources */,
+				B669EDC22C7C415700A26954 /* AEPDismissButtonTests.swift in Sources */,
 				B669ED792C7419AA00A26954 /* ContentCardTemplateTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
