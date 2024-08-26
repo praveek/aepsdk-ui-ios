@@ -20,7 +20,7 @@ public class AEPStack: ObservableObject {
     @Published var childModels: [any AEPViewModel] = []
 
     /// The spacing between child views in the stack.
-    @Published public var spacing: CGFloat?
+    @Published public var spacing: CGFloat = Constants.CardTemplate.DefaultStyle.Stack.SPACING
 
     /// custom view modifier that can be applied to the stack view.
     @Published public var modifier: AEPViewModifier?

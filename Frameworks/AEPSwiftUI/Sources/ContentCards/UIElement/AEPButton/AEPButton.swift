@@ -41,7 +41,7 @@ public class AEPButton: ObservableObject, AEPViewModel {
         // Extract the button text
         // Bail out if the button text is not present
         guard let buttonTextData = schemaData[Constants.CardTemplate.UIElement.Button.TEXT] as? [String: Any],
-              let buttonText = AEPText(buttonTextData) else {
+              let buttonText = AEPText(buttonTextData, type: .button) else {
             return nil
         }
 

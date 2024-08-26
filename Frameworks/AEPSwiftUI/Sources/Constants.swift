@@ -11,6 +11,7 @@
  */
 
 import Foundation
+import SwiftUI
 
 enum Constants {
     static let LOG_TAG = "AEPSwiftUI"
@@ -20,6 +21,35 @@ enum Constants {
         static let SmallImage = "SmallImage"
         static let LargeImage = "LargeImage"
         static let ImageOnly = "ImageOnly"
+
+        enum DefaultStyle {
+            enum Text {
+                static let TITLE_FONT = Font.system(size: 15, weight: .medium)
+                static let TITLE_COLOR = Color.primary
+
+                static let BODY_FONT = Font.system(size: 13, weight: .regular)
+                static let BODY_COLOR = Color.secondary
+
+                static let BUTTON_FONT = Font.system(size: 13, weight: .regular)
+                static let BUTTON_COLOR = Color.blue
+            }
+
+            enum Stack {
+                static let SPACING = 8.0
+                static let HORIZONTAL_ALIGNMENT = HorizontalAlignment.center
+                static let VERTICAL_ALIGNMENT = VerticalAlignment.center
+            }
+
+            enum Image {
+                static let ICON_COLOR = Color.primary
+                static let ICON_SIZE = 13
+            }
+
+            enum DismissButton {
+                static let ALIGNMENT = Alignment.topTrailing
+                static let SIZE = 13
+            }
+        }
 
         enum InteractionID {
             // TODO: Verify with PM to see if this Interaction event name makes sense of all platforms

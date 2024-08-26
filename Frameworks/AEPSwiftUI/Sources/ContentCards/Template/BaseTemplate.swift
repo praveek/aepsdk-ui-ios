@@ -62,11 +62,12 @@ public class BaseTemplate: ObservableObject {
                     self.isDisplayed = true
                     self.eventHandler?.onDisplay()
                 }
-            }).overlay(alignment: self.dismissButton?.alignment ?? .topTrailing, content: {
-                if dismissButton != nil {
-                    dismissButton?.view
-                        .padding(8)
-                }
-            })
+            }).overlay(alignment: self.dismissButton?.alignment ??
+                Constants.CardTemplate.DefaultStyle.DismissButton.ALIGNMENT, content: {
+                    if dismissButton != nil {
+                        dismissButton?.view
+                            .padding(8)
+                    }
+                })
     }
 }

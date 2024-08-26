@@ -73,6 +73,7 @@
 		B669EDB52C79419800A26954 /* AEPDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB42C79419800A26954 /* AEPDismissButton.swift */; };
 		B669EDB72C7941C200A26954 /* AEPDismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB62C7941C200A26954 /* AEPDismissButtonView.swift */; };
 		B669EDB92C7941E100A26954 /* DismissButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB82C7941E100A26954 /* DismissButtonStyle.swift */; };
+		B669EDBB2C7B7C0A00A26954 /* AEPTextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBA2C7B7C0A00A26954 /* AEPTextType.swift */; };
 		B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D18E2C62735600376045 /* ContentCardUI.swift */; };
 		B6F4D1942C6279C300376045 /* ContentCardTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */; };
 		B6F4D19C2C628FFF00376045 /* AEPText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D19B2C628FFF00376045 /* AEPText.swift */; };
@@ -184,6 +185,7 @@
 		B669EDB42C79419800A26954 /* AEPDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButton.swift; sourceTree = "<group>"; };
 		B669EDB62C7941C200A26954 /* AEPDismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButtonView.swift; sourceTree = "<group>"; };
 		B669EDB82C7941E100A26954 /* DismissButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonStyle.swift; sourceTree = "<group>"; };
+		B669EDBA2C7B7C0A00A26954 /* AEPTextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPTextType.swift; sourceTree = "<group>"; };
 		B6F4D18E2C62735600376045 /* ContentCardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUI.swift; sourceTree = "<group>"; };
 		B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplateType.swift; sourceTree = "<group>"; };
 		B6F4D19B2C628FFF00376045 /* AEPText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPText.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				B6F4D19B2C628FFF00376045 /* AEPText.swift */,
 				B669ED142C6ABF6200A26954 /* AEPTextView.swift */,
+				B669EDBA2C7B7C0A00A26954 /* AEPTextType.swift */,
 			);
 			path = AEPText;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				B669ED9E2C76AA0700A26954 /* TemplateBuilder.swift in Sources */,
 				B669ED702C71DE2300A26954 /* ContentCardTemplate.swift in Sources */,
 				B669EDA22C778F4C00A26954 /* AEPViewModifier.swift in Sources */,
+				B669EDBB2C7B7C0A00A26954 /* AEPTextType.swift in Sources */,
 				B669ED482C6F353E00A26954 /* AEPVStack.swift in Sources */,
 				B669ED4A2C6F355F00A26954 /* AEPVStackView.swift in Sources */,
 				B669ED272C6D3B4E00A26954 /* AEPHStack.swift in Sources */,

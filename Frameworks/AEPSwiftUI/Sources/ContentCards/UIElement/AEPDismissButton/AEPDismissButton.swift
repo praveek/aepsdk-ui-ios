@@ -20,7 +20,7 @@ public class AEPDismissButton: ObservableObject, AEPViewModel {
     @Published public var image: AEPImage
 
     /// Alignment for the dismiss button rendered as an overlay on the card's template
-    @Published public var alignment: Alignment?
+    @Published public var alignment: Alignment = Constants.CardTemplate.DefaultStyle.DismissButton.ALIGNMENT
 
     /// The parent template that contains this button.
     weak var parentTemplate: (any ContentCardTemplate)?

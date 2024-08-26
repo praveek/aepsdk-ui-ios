@@ -35,7 +35,7 @@ public class AEPImage: ObservableObject, AEPViewModel {
     @Published public var iconFont: Font?
 
     /// The color of the SF Symbol icon used in the image
-    @Published public var iconColor: Color?
+    @Published public var iconColor = Color.primary
 
     /// custom view modifier that can be applied to the image view.
     @Published public var modifier: AEPViewModifier?

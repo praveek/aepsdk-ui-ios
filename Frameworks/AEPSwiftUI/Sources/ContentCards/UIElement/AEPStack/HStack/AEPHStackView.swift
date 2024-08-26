@@ -18,7 +18,7 @@ struct AEPHStackView: View {
 
     /// The body of the view
     var body: some View {
-        HStack(alignment: model.alignment ?? .center, spacing: model.spacing ?? 0) {
+        HStack(alignment: model.alignment, spacing: model.spacing) {
             ForEach(Array(model.childModels.enumerated()), id: \.offset) { _, model in
                 AnyView(model.view)
             }

@@ -32,7 +32,7 @@ extension ContentCardSchemaData {
             return nil
         }
 
-        return AEPText(titleData)
+        return AEPText(titleData, type: .title)
     }
 
     /// This property extracts the body data from the content dictionary and attempts to
@@ -41,7 +41,7 @@ extension ContentCardSchemaData {
         guard let bodyData = contentDict?[Constants.CardTemplate.SchemaData.BODY] as? [String: Any] else {
             return nil
         }
-        return AEPText(bodyData)
+        return AEPText(bodyData, type: .body)
     }
 
     /// This property extracts the image data from the content dictionary and attempts to
