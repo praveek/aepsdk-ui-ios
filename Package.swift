@@ -24,7 +24,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "AEPNotificationContent",
-                path: "Frameworks/AEPNotificationContent/Sources")
+                path: "Frameworks/AEPNotificationContent/Sources"),
         .target(name: "AEPSwiftUI",
                 path: "Frameworks/AEPSwiftUI/Sources")
     ]
