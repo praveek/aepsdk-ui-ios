@@ -23,10 +23,8 @@ public class ContentCardUI: Identifiable {
     public let template: any ContentCardTemplate
 
     /// SwiftUI view that represents the content card
-    public lazy var view: some View = {
-        // TODO: Make adjustments to remove AnyView
-        AnyView(template.view)
-    }()
+    /// TODO: Make adjustments to remove AnyView
+    public lazy var view: some View = AnyView(template.view)
 
     /// Factory method to create a `ContentCardUI` instance based on the provided schema data.
     /// - Parameters:
