@@ -74,6 +74,9 @@
 		B669EDB72C7941C200A26954 /* AEPDismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB62C7941C200A26954 /* AEPDismissButtonView.swift */; };
 		B669EDB92C7941E100A26954 /* DismissButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDB82C7941E100A26954 /* DismissButtonStyle.swift */; };
 		B669EDBB2C7B7C0A00A26954 /* AEPTextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBA2C7B7C0A00A26954 /* AEPTextType.swift */; };
+		B669EDBE2C7C37A900A26954 /* AEPTextTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBC2C7C377800A26954 /* AEPTextTypeTests.swift */; };
+		B669EDC02C7C3D1D00A26954 /* DismissButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */; };
+		B669EDC22C7C415700A26954 /* AEPDismissButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */; };
 		B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D18E2C62735600376045 /* ContentCardUI.swift */; };
 		B6F4D1942C6279C300376045 /* ContentCardTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */; };
 		B6F4D19C2C628FFF00376045 /* AEPText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D19B2C628FFF00376045 /* AEPText.swift */; };
@@ -186,6 +189,9 @@
 		B669EDB62C7941C200A26954 /* AEPDismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButtonView.swift; sourceTree = "<group>"; };
 		B669EDB82C7941E100A26954 /* DismissButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonStyle.swift; sourceTree = "<group>"; };
 		B669EDBA2C7B7C0A00A26954 /* AEPTextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPTextType.swift; sourceTree = "<group>"; };
+		B669EDBC2C7C377800A26954 /* AEPTextTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPTextTypeTests.swift; sourceTree = "<group>"; };
+		B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonStyleTests.swift; sourceTree = "<group>"; };
+		B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButtonTests.swift; sourceTree = "<group>"; };
 		B6F4D18E2C62735600376045 /* ContentCardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUI.swift; sourceTree = "<group>"; };
 		B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplateType.swift; sourceTree = "<group>"; };
 		B6F4D19B2C628FFF00376045 /* AEPText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPText.swift; sourceTree = "<group>"; };
@@ -294,9 +300,12 @@
 				B669ED1B2C6AD37E00A26954 /* AEPTextTests.swift */,
 				B669ED232C6B010B00A26954 /* AEPImageTests.swift */,
 				B669ED4E2C6F3DE400A26954 /* AEPStackTests.swift */,
+				B669EDBC2C7C377800A26954 /* AEPTextTypeTests.swift */,
 				B669ED782C7419AA00A26954 /* ContentCardTemplateTypeTests.swift */,
 				B669ED582C700B9800A26954 /* ContentCardSchemaData+TemplateContentTests.swift */,
 				B669ED632C71C54700A26954 /* SmallImageTemplateTests.swift */,
+				B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */,
+				B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -760,8 +769,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B669EDC02C7C3D1D00A26954 /* DismissButtonStyleTests.swift in Sources */,
 				B669ED1A2C6AD2FF00A26954 /* AEPButtonTests.swift in Sources */,
 				B669ED592C700B9800A26954 /* ContentCardSchemaData+TemplateContentTests.swift in Sources */,
+				B669EDBE2C7C37A900A26954 /* AEPTextTypeTests.swift in Sources */,
 				B669ED5F2C703F9B00A26954 /* FileReader.swift in Sources */,
 				B669ED1C2C6AD37E00A26954 /* AEPTextTests.swift in Sources */,
 				B669ED242C6B010B00A26954 /* AEPImageTests.swift in Sources */,
@@ -771,6 +782,7 @@
 				B669ED622C7075A700A26954 /* ContentCardTestUtil.swift in Sources */,
 				B669ED642C71C54700A26954 /* SmallImageTemplateTests.swift in Sources */,
 				B669EDB22C793B8700A26954 /* EmptyCustomizer.swift in Sources */,
+				B669EDC22C7C415700A26954 /* AEPDismissButtonTests.swift in Sources */,
 				B669ED792C7419AA00A26954 /* ContentCardTemplateTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
