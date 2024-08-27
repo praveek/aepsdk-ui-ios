@@ -98,7 +98,7 @@ class BasicTemplateController: TemplateController {
                 imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                 imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 2),
+                imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 2)
             ])
         }
 

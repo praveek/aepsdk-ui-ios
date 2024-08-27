@@ -222,7 +222,7 @@ class CarouselTemplateController: TemplateController, UIScrollViewDelegate {
             titleBodyView.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: TOP_MARGIN),
             titleBodyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SIDE_MARGIN),
             titleBodyView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SIDE_MARGIN),
-            titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyView.viewHeight),
+            titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyView.viewHeight)
         ])
     }
 

@@ -14,6 +14,23 @@ set -e # Any subsequent(*) commands which fail will cause the shell script to ex
 
 PROJECT_NAME=TestProject
 
+help()
+{
+   echo ""
+   echo "Usage: $0 -n FRAMEWORK_NAME"
+   echo ""
+   echo -e "    -n\t- Name of the framework being validated. \n\t  Example: NotificationContent, SwiftUI\n"
+   exit 1 # Exit script after printing help
+}
+
+while getopts "n:" opt
+do
+   case "$opt" in
+      n ) NAME="$OPTARG" ;;      
+      ? ) help ;; # Print help in case parameter is non-existent
+   esac
+done
+
 # Clean up.
 rm -rf $PROJECT_NAME
 
@@ -44,7 +61,7 @@ echo "
 platform :ios, '12.0'
 target '$PROJECT_NAME' do
   use_frameworks!
-  pod 'AEPNotificationContent', :path => '../AEPNotificationContent.podspec'
+  pod '$NAME', :path => '../Frameworks/$NAME/$NAME.podspec'
 end
 " >>Podfile
 
@@ -68,5 +85,5 @@ echo '############# Build for simulator ###############'
 xcodebuild clean build -scheme TestProject -workspace TestProject.xcworkspace -destination 'generic/platform=iOS Simulator'
 
 # Clean up.
-cd ../
-rm -rf $PROJECT_NAME
+# cd ../
+# rm -rf $PROJECT_NAME

@@ -50,19 +50,19 @@ archive: pod-install _archive
 
 ci-archive: ci-pod-install _archive
 
-_archive: clean build archive-notification-content archive-aep-swift-ui
+_archive: clean archive-notification-content archive-aep-swift-ui
 
-archive-notification-content:
+archive-notification-content: build-notification-content
 	xcodebuild -create-xcframework \
 		-framework $(SIMULATOR_ARCHIVE_PATH)$(AEPNOTIFICATIONCONTENT).framework -debug-symbols $(SIMULATOR_ARCHIVE_DSYM_PATH)$(AEPNOTIFICATIONCONTENT).framework.dSYM \
 		-framework $(IOS_ARCHIVE_PATH)$(AEPNOTIFICATIONCONTENT).framework -debug-symbols $(IOS_ARCHIVE_DSYM_PATH)$(AEPNOTIFICATIONCONTENT).framework.dSYM \
 		-output ./build/$(AEPNOTIFICATIONCONTENT).xcframework
 
-archive-aep-swift-ui:
+archive-aep-swift-ui: build-aep-swift-ui
 	xcodebuild -create-xcframework \
 		-framework $(SIMULATOR_ARCHIVE_PATH)$(AEPSWIFTUI).framework -debug-symbols $(SIMULATOR_ARCHIVE_DSYM_PATH)$(AEPSWIFTUI).framework.dSYM \
 		-framework $(IOS_ARCHIVE_PATH)$(AEPSWIFTUI).framework -debug-symbols $(IOS_ARCHIVE_DSYM_PATH)$(AEPSWIFTUI).framework.dSYM \
-		-output ./build/$(AEPSWIFTUI.xcframework
+		-output ./build/$(AEPSWIFTUI).xcframework
 
 build: build-notification-content build-aep-swift-ui
 
@@ -95,8 +95,8 @@ clean:
 zip:
 	cd build && zip -r -X $(AEPNOTIFICATIONCONTENT).xcframework.zip $(AEPNOTIFICATIONCONTENT).xcframework/
 	swift package compute-checksum build/$(AEPNOTIFICATIONCONTENT).xcframework.zip
-#	cd build && zip -r -X $(AEPSWIFTUI).xcframework.zip $(AEPSWIFTUI).xcframework/
-#	swift package compute-checksum build/$(AEPSWIFTUI).xcframework.zip
+	cd build && zip -r -X $(AEPSWIFTUI).xcframework.zip $(AEPSWIFTUI).xcframework/
+	swift package compute-checksum build/$(AEPSWIFTUI).xcframework.zip
 
 # formatting and linting targets
 
@@ -114,7 +114,7 @@ install-swiftformat:
 	(brew install swiftformat)
 
 lint-autocorrect:
-	(cd $(AEPNOTIFICATIONCONTENT_PATH) && $(CURRENT_DIRECTORY)/Pods/SwiftLint/swiftlint --fix)
+	(cd $(AEPNOTIFICATIONCONTENT_PATH) && ./Pods/SwiftLint/swiftlint --fix)
 
 lint: swift-lint check-format
 
@@ -128,7 +128,8 @@ test-SPM-integration:
 	(sh ./Script/test-SPM.sh)
 
 test-podspec:
-	(sh ./Script/test-podspec.sh)
+	(sh ./Script/test-podspec.sh -n AEPNotificationContent)
+#   (sh ./Script/test-podspec.sh -n AEPSwiftUI)
 
 # used to test update-versions.sh script locally
 test-versions:

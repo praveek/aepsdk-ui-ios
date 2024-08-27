@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES' }
 
-  s.source_files = 'AEPNotificationContent/Sources/**/*.swift'
+  s.source_files = 'Sources/**/*.swift'
 
 end

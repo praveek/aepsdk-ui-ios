@@ -15,7 +15,7 @@ import XCTest
 @testable import AEPNotificationContent
 
 final class ColorHexStringTests: XCTestCase {
-    
+
     func testColorCreation_withValid_hexString_withoutAlpha() {
         // 6-digit hex string (no alpha)
         let color = UIColor(hexString: "#FF5733")
@@ -28,8 +28,8 @@ final class ColorHexStringTests: XCTestCase {
         XCTAssertEqual(blue, 0.20, accuracy: 0.01, "Blue component does not match")
         XCTAssertEqual(alpha, 1.0, accuracy: 0.01, "Alpha component does not match")
     }
-    
-    func testColorCreation_basicColors(){
+
+    func testColorCreation_basicColors() {
         // 6-digit hex white color
         var color = UIColor(hexString: "#FFFFFF")
         var red, green, blue, alpha: CGFloat
@@ -81,7 +81,7 @@ final class ColorHexStringTests: XCTestCase {
         XCTAssertEqual(blue, 1.0, accuracy: 0.01, "Blue component does not match")
         XCTAssertEqual(alpha, 1.0, accuracy: 0.01, "Alpha component does not match")
     }
-    
+
     func testColorCreation_fromValidHexWithAlpha() {
         // 8-digit hex string (with alpha)
         let color = UIColor(hexString: "#23FB8AD9")
@@ -94,22 +94,21 @@ final class ColorHexStringTests: XCTestCase {
         XCTAssertEqual(blue, 0.54, accuracy: 0.01, "Blue component does not match")
         XCTAssertEqual(alpha, 0.85, accuracy: 0.01, "Alpha component does not match")
     }
-    
 
     func testColorCreation_when_tooShortInput() {
         XCTAssertNil(UIColor(hexString: "#123"))
     }
-    
+
     func testColorCreation_when_tooLongInput() {
         XCTAssertNil(UIColor(hexString: "#123456789"))
     }
-    
+
     func testColorCreation_when_invalidCharacters() {
         XCTAssertNil(UIColor(hexString: "#ZZZZZZ"))
     }
-    
+
     func testColorCreation_withoutHash() {
         XCTAssertNotNil(UIColor(hexString: "FF5733"))
     }
-    
+
 }

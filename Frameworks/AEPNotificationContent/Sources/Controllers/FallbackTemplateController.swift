@@ -62,7 +62,7 @@ class FallbackTemplateController: UIViewController {
             titleBodyView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: TOP_MARGIN),
             titleBodyView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: SIDE_MARGIN),
             titleBodyView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SIDE_MARGIN),
-            titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyHeight),
+            titleBodyView.heightAnchor.constraint(equalToConstant: titleBodyHeight)
         ])
 
         updatePreferredContentSize()

@@ -95,7 +95,7 @@ class TimerTemplateController: TemplateController {
                 imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                 imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 2),
+                imageView.heightAnchor.constraint(equalToConstant: view.frame.width / 2)
             ])
         }
 
@@ -111,7 +111,7 @@ class TimerTemplateController: TemplateController {
                 timerLabel.topAnchor.constraint(equalTo: imageViewBottomAnchor, constant: TOP_MARGIN),
                 timerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -SIDE_MARGIN),
                 timerLabel.widthAnchor.constraint(equalToConstant: TIMER_LABEL_WIDTH),
-                timerLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                timerLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
             titleViewTrailingAnchor = timerLabel.leadingAnchor
             titleBodyViewWidth = titleBodyViewWidth - TIMER_LABEL_WIDTH - SIDE_MARGIN
