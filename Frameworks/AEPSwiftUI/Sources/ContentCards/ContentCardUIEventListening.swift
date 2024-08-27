@@ -31,3 +31,11 @@ public protocol ContentCardUIEventListening {
     /// - Returns: A boolean indicating whether the interaction was handled.
     func onInteract(_ card: ContentCardUI, _ interactionId: String, actionURL: URL?) -> Bool
 }
+
+/// Public extension of `ContentCardUIEventListening` protocol provides default implementations,
+/// making protocol methods optional for implementers.
+public extension ContentCardUIEventListening {
+    func onDisplay(_ card: ContentCardUI) {}
+    func onDismiss(_ card: ContentCardUI) {}
+    func onInteract(_ card: ContentCardUI, _ interactionId: String, actionURL: URL?) -> Bool { return false }
+}
