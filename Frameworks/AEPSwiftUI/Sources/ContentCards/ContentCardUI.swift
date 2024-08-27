@@ -20,7 +20,11 @@ public class ContentCardUI: Identifiable {
     /// The underlying data model for the content card.
     let proposition: Proposition
 
+    /// The template that defines the content card
     public let template: any ContentCardTemplate
+
+    /// The host app listener for the content card UI events.
+    let listener: ContentCardUIEventListening?
 
     /// SwiftUI view that represents the content card
     /// TODO: Make adjustments to remove AnyView
@@ -29,11 +33,12 @@ public class ContentCardUI: Identifiable {
     /// Factory method to create a `ContentCardUI` instance based on the provided schema data.
     /// - Parameters:
     ///    - proposition: The `Proposition` containing content card template information
-    ///    - customizer: An object conforming to `ContentCardCustomizing` protocol that allows for
-    ///                 custom styling of the content card
+    ///    - customizer: An optional object conforming to `ContentCardCustomizing` protocol that allows for custom styling of the content card
+    ///    - listener: An optional object conforming to `ContentCardUIEventListening` protocol implemented by the host app to listen to UI events from the content card
     /// - Returns: An initialized `ContentCardUI` instance, or `nil` if unable to create template from proposition
     static func createInstance(with proposition: Proposition,
-                               customizer: ContentCardCustomizing?) -> ContentCardUI? {
+                               customizer: ContentCardCustomizing?,
+                               listener: ContentCardUIEventListening?) -> ContentCardUI? {
         guard let schemaData = proposition.items.first?.contentCardSchemaData else {
             return nil
         }
@@ -43,7 +48,7 @@ public class ContentCardUI: Identifiable {
         }
 
         // Initialize the ContentCardUI with the proposition and template
-        let contentCardUI = ContentCardUI(proposition, template)
+        let contentCardUI = ContentCardUI(proposition, template, listener)
 
         // set the listener for the template
         template.eventHandler = contentCardUI
@@ -55,8 +60,9 @@ public class ContentCardUI: Identifiable {
     ///   - proposition: The `Proposition` containing the content card template's information
     ///   - template: The template that defines the content card's layout and behavior.
     /// - Note : This initializer is private to ensure that `ContentCardUI` instances are only created through the `createInstance` factory method.
-    private init(_ proposition: Proposition, _ template: any ContentCardTemplate) {
+    private init(_ proposition: Proposition, _ template: any ContentCardTemplate, _ listener: ContentCardUIEventListening?) {
         self.proposition = proposition
         self.template = template
+        self.listener = listener
     }
 }

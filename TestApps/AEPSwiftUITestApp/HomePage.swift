@@ -14,7 +14,7 @@ import SwiftUI
 import AEPSwiftUI
 import AEPMessaging
 
-struct HomePage: View {
+struct HomePage: View, ContentCardUIEventListening {
     
     @State var savedCards : [ContentCardUI] = []
     
@@ -34,10 +34,11 @@ struct HomePage: View {
             }
         }
         .padding()
-        .onAppear(perform: {
-            
+        .onAppear() {
             let homePageSurface = Surface(path: "homepage")
-            AEPSwiftUI.getContentCardsUI(for: homePageSurface, customizer: HomePageCardCustomizer(),{ result in
+            AEPSwiftUI.getContentCardsUI(for: homePageSurface,
+                                         customizer: HomePageCardCustomizer(),
+                                         listener: self) { result in
                 switch result {
                 case .success(let cards):
                     savedCards = cards
@@ -46,16 +47,28 @@ struct HomePage: View {
                     print(error)
                     
                 }
-            })
-        
-        })
+            }
+        }
+    }
+    
+    func onDisplay(_ card: ContentCardUI) {
+        print("TestAppLog : ContentCard Displayed")
+    }
+    
+    func onDismiss(_ card: ContentCardUI) {
+        print("TestAppLog : ContentCard Dismissed")
+        savedCards.removeAll(where: { $0.id == card.id })
+    }
+    
+    func onInteract(_ card: ContentCardUI, _ interactionId: String, actionURL: URL?) -> Bool {
+        print("TestAppLog : ContentCard Interacted : Interaction - \(interactionId)")
+        return false
     }
 }
 
 class HomePageCardCustomizer : ContentCardCustomizing {
     
     func customize(template: SmallImageTemplate) {
-        
         // customize UI elements
         template.title.textColor = .primary
         template.title.font = .subheadline
@@ -72,6 +85,7 @@ class HomePageCardCustomizer : ContentCardCustomizing {
         template.buttonHStack.modifier = AEPViewModifier(ButtonHStackModifier())
         template.rootHStack.modifier = AEPViewModifier(RootHStackModifier())
         
+        // customize the dismiss buttons
         template.dismissButton?.image.iconColor = .primary
         template.dismissButton?.image.iconFont = .system(size: 10)
     }

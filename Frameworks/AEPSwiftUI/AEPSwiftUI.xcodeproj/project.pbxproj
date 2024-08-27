@@ -77,6 +77,7 @@
 		B669EDBE2C7C37A900A26954 /* AEPTextTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBC2C7C377800A26954 /* AEPTextTypeTests.swift */; };
 		B669EDC02C7C3D1D00A26954 /* DismissButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */; };
 		B669EDC22C7C415700A26954 /* AEPDismissButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */; };
+		B669EDC52C7D0C8100A26954 /* ContentCardUIEventListening.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDC42C7D0C8100A26954 /* ContentCardUIEventListening.swift */; };
 		B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D18E2C62735600376045 /* ContentCardUI.swift */; };
 		B6F4D1942C6279C300376045 /* ContentCardTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */; };
 		B6F4D19C2C628FFF00376045 /* AEPText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D19B2C628FFF00376045 /* AEPText.swift */; };
@@ -192,6 +193,7 @@
 		B669EDBC2C7C377800A26954 /* AEPTextTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPTextTypeTests.swift; sourceTree = "<group>"; };
 		B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonStyleTests.swift; sourceTree = "<group>"; };
 		B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButtonTests.swift; sourceTree = "<group>"; };
+		B669EDC42C7D0C8100A26954 /* ContentCardUIEventListening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUIEventListening.swift; sourceTree = "<group>"; };
 		B6F4D18E2C62735600376045 /* ContentCardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUI.swift; sourceTree = "<group>"; };
 		B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplateType.swift; sourceTree = "<group>"; };
 		B6F4D19B2C628FFF00376045 /* AEPText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPText.swift; sourceTree = "<group>"; };
@@ -435,11 +437,12 @@
 				B6F4D1972C62834000376045 /* Template */,
 				B6F4D1982C62834E00376045 /* UIElement */,
 				B6F4D18E2C62735600376045 /* ContentCardUI.swift */,
+				B669ED9F2C771E2D00A26954 /* ContentCardCustomizing.swift */,
+				B669EDC42C7D0C8100A26954 /* ContentCardUIEventListening.swift */,
 				B669ED7C2C750D8E00A26954 /* ContentCardUI+EventHandler.swift */,
 				B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */,
 				B669ED552C6FE92E00A26954 /* ContentCardSchemaData+TemplateContent.swift */,
 				B669ED992C76655300A26954 /* ContentCardUIError.swift */,
-				B669ED9F2C771E2D00A26954 /* ContentCardCustomizing.swift */,
 			);
 			path = ContentCards;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 				B669EDA22C778F4C00A26954 /* AEPViewModifier.swift in Sources */,
 				B669EDBB2C7B7C0A00A26954 /* AEPTextType.swift in Sources */,
 				B669ED482C6F353E00A26954 /* AEPVStack.swift in Sources */,
+				B669EDC52C7D0C8100A26954 /* ContentCardUIEventListening.swift in Sources */,
 				B669ED4A2C6F355F00A26954 /* AEPVStackView.swift in Sources */,
 				B669ED272C6D3B4E00A26954 /* AEPHStack.swift in Sources */,
 				B669ED462C6F2F0E00A26954 /* AEPViewModel.swift in Sources */,
