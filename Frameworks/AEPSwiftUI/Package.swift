@@ -17,7 +17,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "AEPSwiftUI",
+    name: "AEPSwiftUIY",
     platforms: [.iOS(.v15)],
     products: [
         .library(name: "AEPSwiftUI", targets: ["AEPSwiftUI"])

@@ -19,7 +19,7 @@ let package = Package(
     name: "AEPUI2",
     products: [
         .package(path: "Frameworks/AEPNotificationContent"),
-        .package(path: "Frameworks/AEPSwiftUI")
+        .package(path: "Frameworks/AEPSwiftUIY")
     ]
 )
 
