@@ -16,10 +16,10 @@
 import PackageDescription
 
 let package = Package(
-    name: "AEPUI2",
+    name: "AEPUI",
     products: [
         .package(path: "Frameworks/AEPNotificationContent"),
-        .package(path: "Frameworks/AEPSwiftUIY")
+        .package(path: "Frameworks/AEPSwiftUI")
     ]
 )
 
