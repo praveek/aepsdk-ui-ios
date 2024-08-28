@@ -18,8 +18,16 @@ import PackageDescription
 let package = Package(
     name: "AEPUI",
     products: [
+        .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"]),
+        .library(name: "AEPSwiftUI", targets: ["AEPSwiftUI"])
+    ],
+    dependencies: [
         .package(path: "Frameworks/AEPNotificationContent"),
         .package(path: "Frameworks/AEPSwiftUI")
+    ],
+    targets: [
+        .target(name: "AEPNotificationContent", dependencies: ["AEPNotificationContent"]),
+        .target(name: "AEPSwiftUI", dependencies: ["AEPSwiftUI"])
     ]
 )
 
