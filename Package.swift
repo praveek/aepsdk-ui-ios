@@ -15,38 +15,38 @@
 
 import PackageDescription
 
-// let package = Package(
-//     name: "AEPUI",
-//     products: [
-//         .package(path: "Frameworks/AEPNotificationContent"),
-//         .package(path: "Frameworks/AEPSwiftUI")
-//     ]
-// )
-
 let package = Package(
     name: "AEPUI",
-    platforms: [.iOS(.v15)],
     products: [
-        .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"]),
-        .library(name: "AEPSwiftUI", targets: ["AEPSwiftUI"])
-    ],
-    dependencies: [
-        .package(url: "https://github.com/adobe/aepsdk-core-ios.git", .upToNextMajor(from: "5.2.0")),
-        .package(url: "https://github.com/adobe/aepsdk-messaging-ios.git", .upToNextMajor(from: "5.0.0")),
-        .package(url: "https://github.com/adobe/aepsdk-edge-ios.git", .upToNextMajor(from: "5.0.2")),
-        .package(url: "https://github.com/adobe/aepsdk-edgeidentity-ios.git", .upToNextMajor(from: "5.0.0"))
-    ],
-    targets: [
-        .target(name: "AEPNotificationContent",
-                path: "Frameworks/AEPNotificationContent/Sources"),
-        .target(name: "AEPSwiftUI",
-                dependencies: [
-                    .product(name: "AEPCore", package: "aepsdk-core-ios"),
-                    .product(name: "AEPServices", package: "aepsdk-core-ios"),
-                    .product(name: "AEPMessaging", package: "aepsdk-messaging-ios"),
-                    .product(name: "AEPEdge", package: "aepsdk-edge-ios"),
-                    .product(name: "AEPEdgeIdentity", package: "aepsdk-edgeidentity-ios")
-                ],
-                path: "Frameworks/AEPSwiftUI/Sources")
+        .package(path: "Frameworks/AEPNotificationContent"),
+        .package(path: "Frameworks/AEPSwiftUI")
     ]
 )
+
+// let package = Package(
+//     name: "AEPUI",
+//     platforms: [.iOS(.v15)],
+//     products: [
+//         .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"]),
+//         .library(name: "AEPSwiftUI", targets: ["AEPSwiftUI"])
+//     ],
+//     dependencies: [
+//         .package(url: "https://github.com/adobe/aepsdk-core-ios.git", .upToNextMajor(from: "5.2.0")),
+//         .package(url: "https://github.com/adobe/aepsdk-messaging-ios.git", .upToNextMajor(from: "5.0.0")),
+//         .package(url: "https://github.com/adobe/aepsdk-edge-ios.git", .upToNextMajor(from: "5.0.2")),
+//         .package(url: "https://github.com/adobe/aepsdk-edgeidentity-ios.git", .upToNextMajor(from: "5.0.0"))
+//     ],
+//     targets: [
+//         .target(name: "AEPNotificationContent",
+//                 path: "Frameworks/AEPNotificationContent/Sources"),
+//         .target(name: "AEPSwiftUI",
+//                 dependencies: [
+//                     .product(name: "AEPCore", package: "aepsdk-core-ios"),
+//                     .product(name: "AEPServices", package: "aepsdk-core-ios"),
+//                     .product(name: "AEPMessaging", package: "aepsdk-messaging-ios"),
+//                     .product(name: "AEPEdge", package: "aepsdk-edge-ios"),
+//                     .product(name: "AEPEdgeIdentity", package: "aepsdk-edgeidentity-ios")
+//                 ],
+//                 path: "Frameworks/AEPSwiftUI/Sources")
+//     ]
+// )
