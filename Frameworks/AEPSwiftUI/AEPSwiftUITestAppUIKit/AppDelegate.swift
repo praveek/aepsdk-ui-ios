@@ -10,7 +10,6 @@
  governing permissions and limitations under the License.
  */
 
-import Foundation
 import UIKit
 import AEPCore
 import AEPMessaging
@@ -19,9 +18,11 @@ import AEPEdgeConsent
 import AEPEdgeIdentity
 import AEPAssurance
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         MobileCore.setLogLevel(.trace)
         let extensions = [
                           Messaging.self,
@@ -32,11 +33,21 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                           Assurance.self
                         ]
         MobileCore.registerExtensions(extensions, {
-            MobileCore.configureWith(appId: "")
         })
-        
+        MobileCore.configureWith(appId: "")
         let homePageSurface = Surface(path: "homepage")
         Messaging.updatePropositionsForSurfaces([homePageSurface])
         return true
     }
+
+    // MARK: UISceneSession Lifecycle
+
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    }
+
 }
+
