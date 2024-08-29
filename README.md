@@ -13,12 +13,12 @@ This repository is a mono repo structured to hold all AEP SDK extensions that pr
 
 ## Requirements
 
-- Xcode 15 (or newer)
-- Swift 5.1 (or newer)
+Requirements vary depending on which framework is being used.
 
 ## Getting started
 
-Check out the [documentation](./Documentation/README.md) to get started using this extension.
+* [Documentation](./Documentation/README.md) for `AEPNotificationContent`.
+* [Documentation](./Frameworks/AEPSwiftUI/Documentation/README.md) for `AEPSwiftUI`.
 
 ## Contributing
 
