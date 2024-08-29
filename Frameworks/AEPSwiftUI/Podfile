@@ -39,3 +39,9 @@ target 'AEPSwiftUITestApp' do
     pod 'AEPEdgeConsent'
     pod 'AEPAssurance'
 end
+
+target 'AEPSwiftUITestAppUIKit' do
+  lib_main
+  pod 'AEPEdgeConsent'
+  pod 'AEPAssurance'
+end
