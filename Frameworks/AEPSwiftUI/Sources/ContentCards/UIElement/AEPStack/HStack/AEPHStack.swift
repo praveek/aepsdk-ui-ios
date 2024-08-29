@@ -10,8 +10,8 @@
  governing permissions and limitations under the License.
  */
 
-import Foundation
 import Combine
+import Foundation
 import SwiftUI
 
 /// A model class representing a horizontal stack used for Content Cards
