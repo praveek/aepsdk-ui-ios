@@ -11,6 +11,7 @@
  */
 
 import AEPMessaging
+import Foundation
 
 /// An extension of `ContentCardSchemaData` that provides methods and computed variables for extracting
 /// specific data elements from the content card schema.

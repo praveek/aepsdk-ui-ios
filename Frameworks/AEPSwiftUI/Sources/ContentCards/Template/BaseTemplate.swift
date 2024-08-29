@@ -11,6 +11,7 @@
  */
 
 import AEPMessaging
+import Combine
 import SwiftUI
 
 /// A base class for content card templates, providing common properties and initialization logic.

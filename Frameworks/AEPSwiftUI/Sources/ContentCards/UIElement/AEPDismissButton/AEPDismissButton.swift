@@ -10,6 +10,7 @@
  */
 
 import AEPServices
+import Combine
 import SwiftUI
 
 public class AEPDismissButton: ObservableObject, AEPViewModel {

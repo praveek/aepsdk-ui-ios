@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		110EBA03B80AD39743110BB3 /* Pods_AEPSwiftUITestAppUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245C787B45D5CFB66F0CD892 /* Pods_AEPSwiftUITestAppUIKit.framework */; };
 		B25A185E52E37DC5113019D8 /* Pods_AEPSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5BC8CF7F954B4FC0A7F4FB /* Pods_AEPSwiftUI.framework */; };
 		B626E0512C5EC1F400ED1816 /* AEPSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = B626E0502C5EC1F400ED1816 /* AEPSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B626E0582C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626E0572C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift */; };
@@ -78,6 +79,12 @@
 		B669EDC02C7C3D1D00A26954 /* DismissButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */; };
 		B669EDC22C7C415700A26954 /* AEPDismissButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */; };
 		B669EDC52C7D0C8100A26954 /* ContentCardUIEventListening.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EDC42C7D0C8100A26954 /* ContentCardUIEventListening.swift */; };
+		B669EE1B2C7FA11E00A26954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EE1A2C7FA11E00A26954 /* AppDelegate.swift */; };
+		B669EE1D2C7FA11E00A26954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EE1C2C7FA11E00A26954 /* SceneDelegate.swift */; };
+		B669EE1F2C7FA11E00A26954 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669EE1E2C7FA11E00A26954 /* ViewController.swift */; };
+		B669EE222C7FA11E00A26954 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B669EE202C7FA11E00A26954 /* Main.storyboard */; };
+		B669EE242C7FA11F00A26954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B669EE232C7FA11F00A26954 /* Assets.xcassets */; };
+		B669EE272C7FA11F00A26954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B669EE252C7FA11F00A26954 /* LaunchScreen.storyboard */; };
 		B6F4D18F2C62735600376045 /* ContentCardUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D18E2C62735600376045 /* ContentCardUI.swift */; };
 		B6F4D1942C6279C300376045 /* ContentCardTemplateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */; };
 		B6F4D19C2C628FFF00376045 /* AEPText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F4D19B2C628FFF00376045 /* AEPText.swift */; };
@@ -129,9 +136,12 @@
 /* Begin PBXFileReference section */
 		1D160BEF0889F79BFABF7C40 /* Pods-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.release.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.release.xcconfig"; sourceTree = "<group>"; };
 		240436CF2C793191008CCD6D /* AEPSwiftUI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = AEPSwiftUI.xctestplan; path = Tests/AEPSwiftUI.xctestplan; sourceTree = "<group>"; };
+		245C787B45D5CFB66F0CD892 /* Pods_AEPSwiftUITestAppUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSwiftUITestAppUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		259F292A5541FC211242A8C2 /* Pods-AEPSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-AEPSwiftUI/Pods-AEPSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		2ED41BA875FEB39933D8B5D6 /* Pods_UnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37502A12B2503425ECE90DFB /* Pods-UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.release.xcconfig"; path = "Target Support Files/Pods-UnitTests/Pods-UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		3FD8A95153BF2BAE5D35B875 /* Pods-AEPSwiftUITestAppUIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSwiftUITestAppUIKit.debug.xcconfig"; path = "Target Support Files/Pods-AEPSwiftUITestAppUIKit/Pods-AEPSwiftUITestAppUIKit.debug.xcconfig"; sourceTree = "<group>"; };
+		4B7976F1C93944A62152BD6B /* Pods-AEPSwiftUITestAppUIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSwiftUITestAppUIKit.release.xcconfig"; path = "Target Support Files/Pods-AEPSwiftUITestAppUIKit/Pods-AEPSwiftUITestAppUIKit.release.xcconfig"; sourceTree = "<group>"; };
 		63FE3BBA2E0F66C177907A39 /* Pods-UnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.debug.xcconfig"; path = "Target Support Files/Pods-UnitTests/Pods-UnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6630EC878F77BE418BBEFA85 /* Pods-AEPSwiftUITestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSwiftUITestApp.debug.xcconfig"; path = "Target Support Files/Pods-AEPSwiftUITestApp/Pods-AEPSwiftUITestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6E7D2C1EC369EBC80ABE4DC1 /* Pods-TestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.debug.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +204,14 @@
 		B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonStyleTests.swift; sourceTree = "<group>"; };
 		B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPDismissButtonTests.swift; sourceTree = "<group>"; };
 		B669EDC42C7D0C8100A26954 /* ContentCardUIEventListening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUIEventListening.swift; sourceTree = "<group>"; };
+		B669EE182C7FA11E00A26954 /* AEPSwiftUITestAppUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AEPSwiftUITestAppUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B669EE1A2C7FA11E00A26954 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B669EE1C2C7FA11E00A26954 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B669EE1E2C7FA11E00A26954 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B669EE212C7FA11E00A26954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B669EE232C7FA11F00A26954 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B669EE262C7FA11F00A26954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B669EE282C7FA11F00A26954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6F4D18E2C62735600376045 /* ContentCardUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUI.swift; sourceTree = "<group>"; };
 		B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardTemplateType.swift; sourceTree = "<group>"; };
 		B6F4D19B2C628FFF00376045 /* AEPText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEPText.swift; sourceTree = "<group>"; };
@@ -230,6 +248,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B669EE152C7FA11E00A26954 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				110EBA03B80AD39743110BB3 /* Pods_AEPSwiftUITestAppUIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -244,6 +270,8 @@
 				1D160BEF0889F79BFABF7C40 /* Pods-TestApp.release.xcconfig */,
 				6630EC878F77BE418BBEFA85 /* Pods-AEPSwiftUITestApp.debug.xcconfig */,
 				91CF32B1E170EB424505DE98 /* Pods-AEPSwiftUITestApp.release.xcconfig */,
+				3FD8A95153BF2BAE5D35B875 /* Pods-AEPSwiftUITestAppUIKit.debug.xcconfig */,
+				4B7976F1C93944A62152BD6B /* Pods-AEPSwiftUITestAppUIKit.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -254,6 +282,7 @@
 				7E5BC8CF7F954B4FC0A7F4FB /* Pods_AEPSwiftUI.framework */,
 				2ED41BA875FEB39933D8B5D6 /* Pods_UnitTests.framework */,
 				801BECC51A40A472303AE4DF /* Pods_AEPSwiftUITestApp.framework */,
+				245C787B45D5CFB66F0CD892 /* Pods_AEPSwiftUITestAppUIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -265,6 +294,7 @@
 				B626E04F2C5EC1F400ED1816 /* Sources */,
 				B626E05E2C5EC26300ED1816 /* Tests */,
 				B669ED832C75403200A26954 /* AEPSwiftUITestApp */,
+				B669EE192C7FA11E00A26954 /* AEPSwiftUITestAppUIKit */,
 				B626E04E2C5EC1F400ED1816 /* Products */,
 				099D602B29F2B1041D78D90A /* Pods */,
 				A2B95FA98504EDDB2E02255B /* Frameworks */,
@@ -277,6 +307,7 @@
 				B626E04D2C5EC1F400ED1816 /* AEPSwiftUI.framework */,
 				B626E05D2C5EC26300ED1816 /* UnitTests.xctest */,
 				B669ED822C75403200A26954 /* AEPSwiftUITestApp.app */,
+				B669EE182C7FA11E00A26954 /* AEPSwiftUITestAppUIKit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -431,6 +462,21 @@
 			path = AEPDismissButton;
 			sourceTree = "<group>";
 		};
+		B669EE192C7FA11E00A26954 /* AEPSwiftUITestAppUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				B669EE1A2C7FA11E00A26954 /* AppDelegate.swift */,
+				B669EE1C2C7FA11E00A26954 /* SceneDelegate.swift */,
+				B669EE1E2C7FA11E00A26954 /* ViewController.swift */,
+				B669EE202C7FA11E00A26954 /* Main.storyboard */,
+				B669EE232C7FA11F00A26954 /* Assets.xcassets */,
+				B669EE252C7FA11F00A26954 /* LaunchScreen.storyboard */,
+				B669EE282C7FA11F00A26954 /* Info.plist */,
+			);
+			name = AEPSwiftUITestAppUIKit;
+			path = ../../TestApps/AEPSwiftUITestAppUIKit;
+			sourceTree = "<group>";
+		};
 		B6F4D1902C6278AD00376045 /* ContentCards */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +594,25 @@
 			productReference = B669ED822C75403200A26954 /* AEPSwiftUITestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B669EE172C7FA11E00A26954 /* AEPSwiftUITestAppUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B669EE2B2C7FA11F00A26954 /* Build configuration list for PBXNativeTarget "AEPSwiftUITestAppUIKit" */;
+			buildPhases = (
+				CEA29FBB849C5C6D186B24D7 /* [CP] Check Pods Manifest.lock */,
+				B669EE142C7FA11E00A26954 /* Sources */,
+				B669EE152C7FA11E00A26954 /* Frameworks */,
+				B669EE162C7FA11E00A26954 /* Resources */,
+				09FA88788C29C1D115FD30C4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AEPSwiftUITestAppUIKit;
+			productName = AEPSwiftUITestAppUIKit;
+			productReference = B669EE182C7FA11E00A26954 /* AEPSwiftUITestAppUIKit.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -571,6 +636,9 @@
 					B669ED812C75403200A26954 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
+					B669EE172C7FA11E00A26954 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 				};
 			};
 			buildConfigurationList = B626E0472C5EC1F400ED1816 /* Build configuration list for PBXProject "AEPSwiftUI" */;
@@ -590,6 +658,7 @@
 				B626E05C2C5EC26300ED1816 /* UnitTests */,
 				B626E0672C60A36500ED1816 /* AEPSwiftUIXCF */,
 				B669ED812C75403200A26954 /* AEPSwiftUITestApp */,
+				B669EE172C7FA11E00A26954 /* AEPSwiftUITestAppUIKit */,
 			);
 		};
 /* End PBXProject section */
@@ -622,9 +691,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B669EE162C7FA11E00A26954 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B669EE272C7FA11F00A26954 /* LaunchScreen.storyboard in Resources */,
+				B669EE242C7FA11F00A26954 /* Assets.xcassets in Resources */,
+				B669EE222C7FA11E00A26954 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		09FA88788C29C1D115FD30C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AEPSwiftUITestAppUIKit/Pods-AEPSwiftUITestAppUIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AEPSwiftUITestAppUIKit/Pods-AEPSwiftUITestAppUIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AEPSwiftUITestAppUIKit/Pods-AEPSwiftUITestAppUIKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0F14A45B3ED570E586F09401 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -701,6 +797,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AEPSwiftUITestApp/Pods-AEPSwiftUITestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEA29FBB849C5C6D186B24D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AEPSwiftUITestAppUIKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F9017AD45A899E311E5AD97F /* [CP] Check Pods Manifest.lock */ = {
@@ -801,6 +919,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B669EE142C7FA11E00A26954 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B669EE1F2C7FA11E00A26954 /* ViewController.swift in Sources */,
+				B669EE1B2C7FA11E00A26954 /* AppDelegate.swift in Sources */,
+				B669EE1D2C7FA11E00A26954 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -820,6 +948,25 @@
 			targetProxy = B669ED942C75440000A26954 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B669EE202C7FA11E00A26954 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B669EE212C7FA11E00A26954 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B669EE252C7FA11F00A26954 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B669EE262C7FA11F00A26954 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B626E0522C5EC1F400ED1816 /* Debug */ = {
@@ -951,6 +1098,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 259F292A5541FC211242A8C2 /* Pods-AEPSwiftUI.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -986,6 +1134,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6EE3731C5E42D34C55C6B4C /* Pods-AEPSwiftUI.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1134,6 +1283,66 @@
 			};
 			name = Release;
 		};
+		B669EE292C7FA11F00A26954 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FD8A95153BF2BAE5D35B875 /* Pods-AEPSwiftUITestAppUIKit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../../TestApps/AEPSwiftUITestAppUIKit/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.aep.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B669EE2A2C7FA11F00A26954 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B7976F1C93944A62152BD6B /* Pods-AEPSwiftUITestAppUIKit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FKGEE875K4;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ../../TestApps/AEPSwiftUITestAppUIKit/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.aep.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1178,6 +1387,15 @@
 			buildConfigurations = (
 				B669ED8E2C75403400A26954 /* Debug */,
 				B669ED8F2C75403400A26954 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B669EE2B2C7FA11F00A26954 /* Build configuration list for PBXNativeTarget "AEPSwiftUITestAppUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B669EE292C7FA11F00A26954 /* Debug */,
+				B669EE2A2C7FA11F00A26954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

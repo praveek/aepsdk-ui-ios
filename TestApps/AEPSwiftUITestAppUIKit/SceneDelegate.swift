@@ -10,15 +10,15 @@
  governing permissions and limitations under the License.
  */
 
-import Combine
-import Foundation
-import SwiftUI
+import UIKit
 
-/// A model class representing a horizontal stack used for Content Cards
-public class AEPHStack: AEPStack, AEPViewModel {
-    /// The vertical alignment of child views in the horizontal stack.
-    @Published public var alignment: VerticalAlignment = Constants.CardTemplate.DefaultStyle.Stack.VERTICAL_ALIGNMENT
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    /// The SwiftUI view representing the horizontal stack.
-    public lazy var view: some View = AEPHStackView(model: self)
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let _ = (scene as? UIWindowScene) else { return }
+    }
+
 }
+
