@@ -16,8 +16,7 @@ import Foundation
 import SwiftUI
 
 /// ContentCardUI is a class that holds data for a content card and provides a SwiftUI view representation of that content.
-@objc(AEPContentCardUI)
-public class ContentCardUI: NSObject, Identifiable {
+public class ContentCardUI: Identifiable {
     /// The underlying data model for the content card.
     let proposition: Proposition
 

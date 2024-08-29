@@ -11,6 +11,7 @@
  */
 
 import Foundation
+import Combine
 import SwiftUI
 
 /// A model class representing a vertical stack used for Content Cards

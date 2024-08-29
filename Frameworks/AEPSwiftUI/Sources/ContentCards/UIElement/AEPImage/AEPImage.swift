@@ -10,6 +10,7 @@
  governing permissions and limitations under the License.
  */
 
+import Combine
 import SwiftUI
 
 /// The model class representing the image UI element of the ContentCard.
