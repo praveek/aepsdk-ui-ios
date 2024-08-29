@@ -14,9 +14,8 @@ import Foundation
 import XCTest
 @testable import AEPNotificationContent
 
-
 final class CarouselPayloadTest: XCTestCase {
-    
+
     func testInit() {
         // Setup
         let content = UNMutableNotificationContent()
@@ -28,9 +27,9 @@ final class CarouselPayloadTest: XCTestCase {
             "adb_clr_bg": "#FFFFFF",
             "adb_clr_title": "#000000",
             "adb_clr_body": "#AAAAAA",
-            "adb_title_ex" : "Expanded Title",
-            "adb_body_ex" : "Expanded Body",
-            "adb_car_mode" : "manual",
+            "adb_title_ex": "Expanded Title",
+            "adb_body_ex": "Expanded Body",
+            "adb_car_mode": "manual",
             "adb_car_layout": "filmstrip",
             "adb_items": [
                 [
@@ -44,10 +43,10 @@ final class CarouselPayloadTest: XCTestCase {
                 ]
             ]
         ]
-        
+
         // Test
         let payload = CarouselPayload(from: content)
-        
+
         // Verify
         XCTAssertNotNil(payload)
         XCTAssertEqual(payload?.carouselItems.count, 2)
@@ -59,16 +58,16 @@ final class CarouselPayloadTest: XCTestCase {
         XCTAssertEqual(payload?.carouselItems[1].clickURL, "https://example.com/click2")
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.title, "Expanded Title")
         XCTAssertEqual(payload?.carouselItems[1].titleBodyPayload.body, "Notification Body")
-        
+
         // verify Carousel Mode
         XCTAssertEqual(payload?.carouselMode, CarouselMode.manual)
-        
+
         // verify the color properties
         XCTAssertNotNil(payload?.backgroundColor)
         XCTAssertNotNil(payload?.titleColor)
         XCTAssertNotNil(payload?.descriptionColor)
     }
-    
+
     func testInitWithMissingItems() {
         // Setup
         let content = UNMutableNotificationContent()
@@ -79,14 +78,14 @@ final class CarouselPayloadTest: XCTestCase {
             "adb_car_mode": "manual",
             "adb_car_layout": "filmstrip"
         ]
-        
+
         // Test
         let payload = CarouselPayload(from: content)
-        
+
         // Verify
         XCTAssertNil(payload)
     }
-    
+
     func testInitWhenCarouselModeIsMissing() {
         // Setup
         let content = UNMutableNotificationContent()
@@ -103,15 +102,15 @@ final class CarouselPayloadTest: XCTestCase {
                 ]
             ]
         ]
-        
+
         // Test
         let payload = CarouselPayload(from: content)
-        
+
         // Verify auto mode is picked
         XCTAssertNotNil(payload)
         XCTAssertEqual(payload?.carouselMode, CarouselMode.auto)
     }
-    
+
     func testInitWhenCarouseModeIsMissing() {
         // Setup
         let content = UNMutableNotificationContent()
@@ -128,14 +127,14 @@ final class CarouselPayloadTest: XCTestCase {
                 ]
             ]
         ]
-        
+
         // Test
         let payload = CarouselPayload(from: content)
-        
+
         // Verify default layout is picked
         XCTAssertNotNil(payload)
     }
-    
+
     func testInitWhenCarouselItemsIsEmptyArray() {
         // Setup
         let content = UNMutableNotificationContent()
@@ -148,14 +147,14 @@ final class CarouselPayloadTest: XCTestCase {
             "adb_car_layout": "filmstrip",
             "adb_items": []
         ]
-        
+
         // Test
         let payload = CarouselPayload(from: content)
-        
+
         // Verify
         XCTAssertNil(payload)
     }
-    
+
     func testInitWhenCarouselItemsIsNotArray() {
         // Setup
         let content = UNMutableNotificationContent()
@@ -168,10 +167,10 @@ final class CarouselPayloadTest: XCTestCase {
             "adb_car_layout": "filmstrip",
             "adb_items": "not an array"
         ]
-        
+
         // Test
         let payload = CarouselPayload(from: content)
-        
+
         // Verify
         XCTAssertNil(payload)
     }
@@ -196,13 +195,13 @@ final class CarouselPayloadTest: XCTestCase {
                 ]
             ]
         ]
-        
+
         // Test
         let payload = CarouselPayload(from: content)
-        
+
         // Verify invalid item are filtered out
         XCTAssertNotNil(payload)
         XCTAssertEqual(payload?.carouselItems.count, 1)
     }
-    
+
 }

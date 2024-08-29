@@ -14,23 +14,23 @@ import XCTest
 @testable import AEPNotificationContent
 
 final class TimerPayloadTests: XCTestCase {
-    
+
     func testInit_with_validPayload() {
         // setup
         let content = UNMutableNotificationContent()
         content.userInfo = [
-            "adb_media" : "https://www.adobe.com/image0.jpg",
-            "adb_title_ex" : "title",
-            "adb_body_ex" : "body",
+            "adb_media": "https://www.adobe.com/image0.jpg",
+            "adb_title_ex": "title",
+            "adb_body_ex": "body",
             "adb_tmr_dur": "10",
             "adb_title_alt": "expired title",
             "adb_body_alt": "expired body",
             "adb_media_alt": "https://www.adobe.com/image1.jpg"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify
         XCTAssertNotNil(timerPayload)
         XCTAssertNotNil(timerPayload?.expiryTime)
@@ -52,10 +52,10 @@ final class TimerPayloadTests: XCTestCase {
             "adb_title_alt": "expired title",
             "adb_body_alt": "expired body"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify that the payload instance is still created
         XCTAssertNotNil(timerPayload)
     }
@@ -68,12 +68,12 @@ final class TimerPayloadTests: XCTestCase {
         content.title = "notification title"
         content.userInfo = [
             "adb_tmr_dur": "10",
-            "adb_body_alt": "expired body",
+            "adb_body_alt": "expired body"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify
         XCTAssertNil(timerPayload)
     }
@@ -85,10 +85,10 @@ final class TimerPayloadTests: XCTestCase {
             "adb_tmr_dur": "10",
             "adb_title_alt": "expired title"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify
         XCTAssertNotNil(timerPayload)
         XCTAssertNil(timerPayload?.altTitleBodyPayload.body)
@@ -103,10 +103,10 @@ final class TimerPayloadTests: XCTestCase {
             "adb_body_ex": "body",
             "adb_title_alt": "expired title"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify that the actual notifications title is used instead
         XCTAssertNotNil(timerPayload)
         XCTAssertEqual(timerPayload?.titleBodyPayload.title, "notification title")
@@ -118,17 +118,16 @@ final class TimerPayloadTests: XCTestCase {
         content.body = "notification body"
         content.userInfo = [
             "adb_tmr_dur": "10",
-            "adb_title_alt": "expired title",
+            "adb_title_alt": "expired title"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify that the notification's body is used instead
         XCTAssertNotNil(timerPayload)
         XCTAssertEqual(timerPayload?.titleBodyPayload.body, "notification body")
     }
-    
 
     // MARK: - Timer keys tests
 
@@ -136,16 +135,16 @@ final class TimerPayloadTests: XCTestCase {
         // setup
         let content = UNMutableNotificationContent()
         content.userInfo = [
-            "adb_media" : "https://www.adobe.com/image0.jpg",
+            "adb_media": "https://www.adobe.com/image0.jpg",
             "adb_tmr_dur": "10",
             "adb_title_alt": "alternate title",
             "adb_body_ex_alt": "alternate body",
             "adb_media_alt": "https://www.adobe.com/image1.jpg"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify
         XCTAssertNotNil(timerPayload)
         XCTAssertEqual(timerPayload!.expiryTime, Date().timeIntervalSince1970 + 10, accuracy: 2.0)
@@ -155,16 +154,16 @@ final class TimerPayloadTests: XCTestCase {
         // setup
         let content = UNMutableNotificationContent()
         content.userInfo = [
-            "adb_media" : "https://www.adobe.com/image0.jpg",
+            "adb_media": "https://www.adobe.com/image0.jpg",
             "adb_tmr_end": "1712417524",
             "adb_title_alt": "alternate title",
             "adb_body_ex_alt": "alternate body",
             "adb_media_alt": "https://www.adobe.com/image1.jpg"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify
         XCTAssertNotNil(timerPayload)
         XCTAssertEqual(timerPayload!.expiryTime, 1712417524)
@@ -177,12 +176,12 @@ final class TimerPayloadTests: XCTestCase {
             "adb_title_alt": "alternate title",
             "adb_body_ex_alt": "alternate body"
         ]
-                
+
         // test
         let timerPayload = TimerPayload(from: content, notificationDate: Date())
-        
+
         // verify
         XCTAssertNil(timerPayload)
     }
-    
+
 }

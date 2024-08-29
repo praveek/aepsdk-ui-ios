@@ -14,7 +14,7 @@ import XCTest
 @testable import AEPNotificationContent
 
 final class PayloadTests: XCTestCase {
-    
+
     func testInitialization_with_allValidNotificationContent() {
         // Create a mock UNNotificationContent with all necessary fields
         let content = UNMutableNotificationContent()
@@ -34,7 +34,7 @@ final class PayloadTests: XCTestCase {
         XCTAssertEqual(payload.imageURL, "https://example.com/image.png")
         XCTAssertEqual(payload.clickURL, "https://example.com/click")
         XCTAssertEqual(payload.expandedBody, "Expanded Description")
-        
+
         // verify color properties
         var red, green, blue, alpha: CGFloat
         (red, green, blue, alpha) = (0, 0, 0, 0)
@@ -63,7 +63,7 @@ final class PayloadTests: XCTestCase {
         XCTAssertEqual(blue, 0.67, accuracy: 0.01, "Body Color Blue component does not match")
         XCTAssertEqual(alpha, 1.0, accuracy: 0.01, "Body Color Alpha component does not match")
     }
-    
+
     func testInitialization_when_noColorDataInNotification() {
         // Create a mock UNNotificationContent with all necessary fields
         let content = UNMutableNotificationContent()
@@ -82,13 +82,13 @@ final class PayloadTests: XCTestCase {
         XCTAssertEqual(payload.imageURL, "https://example.com/image.png")
         XCTAssertEqual(payload.clickURL, "https://example.com/click")
         XCTAssertEqual(payload.expandedBody, "Expanded Description")
-        
+
         // verify defaults colors are picked
         XCTAssertEqual(payload.backgroundColor, UIColor.defaultBackground)
         XCTAssertEqual(payload.titleColor, UIColor.defaultTitle)
         XCTAssertEqual(payload.descriptionColor, UIColor.defaultBody)
     }
-    
+
     func testInitialization_with_noClickURL_noMediaURL_noExpandedTextProvided() {
         // Create a mock UNNotificationContent with all necessary fields
         let content = UNMutableNotificationContent()
@@ -102,5 +102,5 @@ final class PayloadTests: XCTestCase {
         XCTAssertNil(payload.clickURL)
         XCTAssertNil(payload.expandedBody)
     }
-    
+
 }

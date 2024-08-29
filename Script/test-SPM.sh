@@ -39,11 +39,14 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: \"AEPNotificationContent\", path: \"../\")
+        .package(name: \"AEPUI\", path: \"../\")
     ],
     targets: [
         .target(
-            name: \"TestProject\")
+            name: \"TestProject\",
+            dependencies: [
+                .product(name: \"AEPNotificationContent\", package: \"AEPUI\")
+            ])
     ]
 )
 " >Package.swift

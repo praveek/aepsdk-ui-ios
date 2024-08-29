@@ -951,6 +951,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 259F292A5541FC211242A8C2 /* Pods-AEPSwiftUI.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -986,6 +987,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6EE3731C5E42D34C55C6B4C /* Pods-AEPSwiftUI.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

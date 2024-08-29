@@ -15,7 +15,7 @@ import XCTest
 @testable import AEPNotificationContent
 
 final class CarouselItemTests: XCTestCase {
-    
+
     func testInit_happy() {
         // setup
         let dictionary: [String: Any] = [
@@ -25,11 +25,11 @@ final class CarouselItemTests: XCTestCase {
         ]
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "This is a title"
-        notificationContent.userInfo = ["adb_title_ex" : "Expanded Title"]
-        
+        notificationContent.userInfo = ["adb_title_ex": "Expanded Title"]
+
         // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
-        
+
         // verify
         XCTAssertNotNil(carouselItem)
         XCTAssertEqual(carouselItem?.imageURL, "https://www.adobe.com/image.png")
@@ -37,24 +37,24 @@ final class CarouselItemTests: XCTestCase {
         XCTAssertEqual(carouselItem?.titleBodyPayload.title, "Expanded Title")
         XCTAssertEqual(carouselItem?.titleBodyPayload.body, "This is a carousel item")
     }
-    
+
     func testInit_when_invalidImageURL() {
         // setup
         let dictionary: [String: Any] = [
             "img": "",
             "txt": "This is a carousel item",
             "uri": "https://www.adobe.com"
-        ]        
+        ]
         let notificationContent = UNMutableNotificationContent()
-        notificationContent.userInfo = ["adb_title_ex" : "Expanded Title"]
-        
+        notificationContent.userInfo = ["adb_title_ex": "Expanded Title"]
+
         // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
-        
+
         // verify
         XCTAssertNil(carouselItem)
     }
-    
+
     func testInit_with_missingBody() {
         // setup
         let dictionary: [String: Any] = [
@@ -62,11 +62,11 @@ final class CarouselItemTests: XCTestCase {
             "uri": "https://www.adobe.com"
         ]
         let notificationContent = UNMutableNotificationContent()
-        notificationContent.userInfo = ["adb_title_ex" : "Expanded Title"]
-        
+        notificationContent.userInfo = ["adb_title_ex": "Expanded Title"]
+
         // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
-        
+
         // verify
         XCTAssertNotNil(carouselItem)
         XCTAssertEqual(carouselItem?.titleBodyPayload.body, "")
@@ -80,11 +80,11 @@ final class CarouselItemTests: XCTestCase {
             "uri": "https://www.adobe.com"
         ]
         let notificationContent = UNMutableNotificationContent()
-        notificationContent.userInfo = ["adb_title_ex" : "Expanded Title"]
-        
+        notificationContent.userInfo = ["adb_title_ex": "Expanded Title"]
+
         // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
-        
+
         // verify
         XCTAssertNotNil(carouselItem)
         XCTAssertEqual(carouselItem?.titleBodyPayload.body, "")
@@ -98,11 +98,11 @@ final class CarouselItemTests: XCTestCase {
             "uri": ""
         ]
         let notificationContent = UNMutableNotificationContent()
-        notificationContent.userInfo = ["adb_title_ex" : "Expanded Title"]
-        
+        notificationContent.userInfo = ["adb_title_ex": "Expanded Title"]
+
         // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
-        
+
         // verify the carousel item is created
         XCTAssertNotNil(carouselItem)
     }
@@ -116,10 +116,10 @@ final class CarouselItemTests: XCTestCase {
         ]
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "This is a title"
-        
+
         // test
         let carouselItem = CarouselItem(dictionary: dictionary, notificationContent: notificationContent)
-        
+
         // verify
         XCTAssertNotNil(carouselItem)
         XCTAssertEqual(carouselItem?.titleBodyPayload.title, "This is a title")

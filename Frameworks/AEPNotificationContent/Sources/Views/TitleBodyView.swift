@@ -97,7 +97,7 @@ class TitleBodyView: UIView {
 
             bodyLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: PADDING_BETWEEN_VIEWS),
             bodyLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            bodyLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            bodyLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
 
         /// Set the dynamic height constraint for the body label
