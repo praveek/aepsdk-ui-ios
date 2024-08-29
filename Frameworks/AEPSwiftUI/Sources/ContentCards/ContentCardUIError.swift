@@ -13,7 +13,7 @@
 import Foundation
 
 /// An enum which describes different errors that ContentCardUI API's can return
-@objc public enum ContentCardUIError: Int, Error {
+public enum ContentCardUIError: Int, Error {
     public typealias RawValue = Int
     case dataUnavailable = 1
 }
