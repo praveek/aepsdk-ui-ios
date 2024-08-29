@@ -20,6 +20,10 @@ The SwiftUI components provided in this library enable the following workflows:
 - Xcode 15 (or newer)
 - Swift 5.1 (or newer)
 
+## Documentation
+
+Additional documentation for usage and configuration can be found in the [Documentation](./Documentation/README.md) directory.
+
 ## Contributing
 
 Looking to contribute to this project? Please review our [contributing guidelines](../../.github/CONTRIBUTING.md) prior to opening a pull request.
