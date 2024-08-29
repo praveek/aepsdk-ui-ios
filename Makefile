@@ -128,8 +128,8 @@ test-SPM-integration:
 	(sh ./Script/test-SPM.sh)
 
 test-podspec:
-	(sh ./Script/test-podspec.sh -n AEPNotificationContent)
-#   (sh ./Script/test-podspec.sh -n AEPSwiftUI)
+	(sh ./Script/test-podspec.sh -n AEPNotificationContent -v 12.0)
+	(sh ./Script/test-podspec.sh -n AEPSwiftUI -v 15.0)
 
 # used to test update-versions.sh script locally
 test-versions:

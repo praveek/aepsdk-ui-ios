@@ -19,14 +19,16 @@ help()
    echo ""
    echo "Usage: $0 -n FRAMEWORK_NAME"
    echo ""
-   echo -e "    -n\t- Name of the framework being validated. \n\t  Example: NotificationContent, SwiftUI\n"
+   echo "    -n\t- Name of the framework being validated. \n\t  Example: NotificationContent, SwiftUI\n"
+   echo "    -v\t- iOS version being targeted. \n\t  Example: 12.0, 15.0\n"
    exit 1 # Exit script after printing help
 }
 
-while getopts "n:" opt
+while getopts "n:v:" opt
 do
    case "$opt" in
-      n ) NAME="$OPTARG" ;;      
+      n ) NAME="$OPTARG" ;;
+      v ) IOS_VERSION="$OPTARG" ;;
       ? ) help ;; # Print help in case parameter is non-existent
    esac
 done
@@ -49,7 +51,7 @@ targets:
     type: framework
     sources: Sources
     platform: iOS
-    deploymentTarget: "12.0"
+    deploymentTarget: "$IOS_VERSION"
     settings:
       GENERATE_INFOPLIST_FILE: YES
 " >>project.yml
@@ -58,15 +60,16 @@ xcodegen generate
 
 # Create a Podfile with our pod as dependency.
 echo "
-platform :ios, '12.0'
+platform :ios, '$IOS_VERSION'
 target '$PROJECT_NAME' do
   use_frameworks!
-  pod '$NAME', :path => '../Frameworks/$NAME/$NAME.podspec'
+  pod '$NAME', :path => '../$NAME.podspec'
+  pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :tag => '5.3.0-beta'
 end
 " >>Podfile
 
 # Install the pods.
-pod install
+pod update
 
 # Archive for generic iOS device
 echo '############# Archive for generic iOS device ###############'
@@ -85,5 +88,5 @@ echo '############# Build for simulator ###############'
 xcodebuild clean build -scheme TestProject -workspace TestProject.xcworkspace -destination 'generic/platform=iOS Simulator'
 
 # Clean up.
-# cd ../
-# rm -rf $PROJECT_NAME
+cd ../
+rm -rf $PROJECT_NAME
