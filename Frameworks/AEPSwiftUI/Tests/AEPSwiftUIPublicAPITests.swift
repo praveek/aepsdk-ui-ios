@@ -16,6 +16,6 @@ import AEPSwiftUI
 final class AEPSwiftUIPublicAPITests: XCTestCase {
 
     func testExtensionVersion() throws {
-        XCTAssertEqual("5.0.0", AEPSwiftUI.extensionVersion)
+        XCTAssertEqual("5.1.0-beta", AEPSwiftUI.extensionVersion)
     }
 }
