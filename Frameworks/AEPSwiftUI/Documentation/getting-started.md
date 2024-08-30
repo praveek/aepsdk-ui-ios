@@ -9,13 +9,13 @@
 use_frameworks!
 
 # for app development, include all the following pods
-target 'YOUR_NOTIFICATION_CONTENT_EXTENSION_NAME' do
+target 'YOUR_APP_NAME' do
     pod 'AEPSwiftUI', :git => 'https://github.com/adobe/aepsdk-ui-ios.git', :tag => '5.1.0-beta'
     pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :tag => '5.3.0-beta'
 end
 ```
 
-Replace `YOUR_NOTIFICATION_CONTENT_EXTENSION_NAME` and then, in the `Podfile` directory, run:
+Replace `YOUR_APP_NAME` and then, in the `Podfile` directory, run:
 
 ```ruby
 $ pod install

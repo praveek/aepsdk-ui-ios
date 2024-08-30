@@ -29,14 +29,14 @@ public class AEPText: ObservableObject, AEPViewModel {
     @Published public var modifier: AEPViewModifier?
 
     /// The SwiftUI view of the text
-    public lazy var view: some View = AEPTextView(model: self)
+    lazy var view: some View = AEPTextView(model: self)
 
     /// Initializes a new instance of `AEPText`
     /// Failable initializer, returns nil if the required fields are not present in the data
     /// - Parameters:
     ///    - data: The dictionary containing server side styling and content of the text
     ///    - type: The type of text (title or description), determining default styling. Defaults to .body
-    public init?(_ data: [String: Any], type: AEPTextType = .body) {
+    init?(_ data: [String: Any], type: AEPTextType = .body) {
         guard let content = data[Constants.CardTemplate.UIElement.Text.CONTENT] as? String, !content.isEmpty else {
             return nil
         }

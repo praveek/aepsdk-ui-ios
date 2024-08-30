@@ -13,7 +13,7 @@
 import SwiftUI
 
 /// Defines the type of text and its default styling properties
-public enum AEPTextType {
+enum AEPTextType {
     case title
     case body
     case button
