@@ -6,7 +6,5 @@ An enumeration of the different types of content card templates supported by AEP
 
 | Case         | Raw Value      | Description                                                                 |
 | ------------ | -------------- | --------------------------------------------------------------------------- |
-| smallImage   | `SmallImage`   | Represents [SmallImageTemplate](../PublicClasses/Template/smallimagetemplate.md).                            |
+| smallImage   | `SmallImage`   | Represents [SmallImageTemplate](../PublicClasses/Template/smallimage-template.md).                            |
 | unknown      | `Unknown`      | Represents an unknown template type, used as a fallback when a string does not match any known template types. |
-
-

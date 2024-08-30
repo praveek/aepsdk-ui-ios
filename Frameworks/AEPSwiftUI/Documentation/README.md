@@ -10,19 +10,19 @@
     * [API Usage](./api-usage.md)
 
 * Public Classes, Enums, and Protocols
-    * [ContentCardUI](./ContentCard/PublicClasses/ContentCardUI.md)
-    * [ContentCardCustomizing](./ContentCard/PublicClasses/ContentCardCustomizing.md)
-    * [ContentCardUIEventListening](./ContentCard/PublicClasses/ContentCardUIEventListening.md)
+    * [ContentCardUI](./ContentCard/PublicClasses/contentcardui.md)
+    * [ContentCardCustomizing](./ContentCard/PublicClasses/contentcardcustomizing.md)
+    * [ContentCardUIEventListening](./ContentCard/PublicClasses/contentcarduieventlistening.md)
 
 * Templates
     * [SmallImageTemplate](ContentCard/PublicClasses/SmallImageTemplate.md)
 
 * UI Elements
-    * [AEPText](./ContentCard/PublicClasses/UIElements/AEPText.md)
-    * [AEPButton](./ContentCard/PublicClasses/UIElements/AEPButton.md)
-    * [AEPImage](./ContentCard/PublicClasses/UIElements/AEPImage.md)
-    * [AEPStack](./ContentCard/PublicClasses/UIElements/AEPStack.md)
-    * [AEPDismissButton](./ContentCard/PublicClasses/UIElements/AEPDismissButton.md)
+    * [AEPText](./ContentCard/PublicClasses/UIElements/aeptext.md)
+    * [AEPButton](./ContentCard/PublicClasses/UIElements/aepbutton.md)
+    * [AEPImage](./ContentCard/PublicClasses/UIElements/aepimage.md)
+    * [AEPStack](./ContentCard/PublicClasses/UIElements/aepstack.md)
+    * [AEPDismissButton](./ContentCard/PublicClasses/UIElements/aepdismissbutton.md)
 
 * Tutorial
     * [Displaying Content Cards](./ContentCard/Tutorial/displaying-content-cards.md) 
