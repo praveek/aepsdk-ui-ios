@@ -1,1 +1,1 @@
-# Customzing Content Card Templates
+# Customizing Content Card Templates

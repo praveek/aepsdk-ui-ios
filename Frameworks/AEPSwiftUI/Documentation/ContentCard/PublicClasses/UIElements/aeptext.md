@@ -1,20 +1,25 @@
-# AEPText
-The AEPText class is a fundamental UI component in the AEPSwiftUI framework, used to display text for content cards. This class allows you to customize the text element with various properties such as font, color, and modifier. This class conforms to ObservableObject, allowing it to be used reactively in SwiftUI views.
+# Class - AEPText
+
+The `AEPText` class is a fundamental UI component in the AEPSwiftUI framework. It is used to display text for content cards. 
+
+This class allows you to customize the text element with properties like font, color, and modifier. 
+
+`AEPText` class conforms to `ObservableObject`, allowing it to be used reactively in SwiftUI views.
 
 ## Properties
 
 | Property | Type | Description | Default Value |
 | --- | --- | --- | --- |
 | content | String | The actual text content to be displayed. | N/A |
-| font | Font | The font to be used for the text. |  Depends on the type of text <br> &bull; **Title**:  system font, size 15, medium weight <br> &bull;  **Body** - system font, size 13, regular weight <br> &bull; **ButtonText**  - system font, size 13, regular weight |
-| color | Color | The color of the text. | Depends on the type of text <br> &bull; **Title**: [primary](https://developer.apple.com/documentation/swiftui/color/primary) <br> &bull; **Body**: [secondary](https://developer.apple.com/documentation/swiftui/color/primary) <br> &bull; **Button**: [blue](https://developer.apple.com/documentation/swiftui/color/blue) |
+| font | Font | The font to be used for the text. |  Depends on the type of text: <br> &bull; **Title**:  system font, size 15, medium weight <br> &bull;  **Body** - system font, size 13, regular weight <br> &bull; **ButtonText**  - system font, size 13, regular weight |
+| color | Color | The color of the text. | Depends on the type of text: <br> &bull; **Title**: [primary](https://developer.apple.com/documentation/swiftui/color/primary) <br> &bull; **Body**: [secondary](https://developer.apple.com/documentation/swiftui/color/primary) <br> &bull; **Button**: [blue](https://developer.apple.com/documentation/swiftui/color/blue) |
 | modifier | AEPViewModifier | A custom view modifer that can be applied to the text view for additional styling | N/A  |
 
-**Note**: All properties are marked with [@Published](https://developer.apple.com/documentation/combine/published). Any changes will trigger updates to your UI.
-
+> **Note**: All properties are marked with [@Published](https://developer.apple.com/documentation/combine/published). Any changes will trigger updates to your UI.
 
 ## Customization
-Below is an example of how to customize the AEPText properties when working with a SmallImageTemplate.
+
+Below is an example of how to customize the `AEPText` properties when working with a `SmallImageTemplate`:
 
 ```swift
 class MyCustomizer : ContentCardCustomizing {

@@ -1,11 +1,19 @@
-# AEPImage
+# Class - AEPImage
 
-The AEPImage class is a fudamental UI component in the AEPSwiftUI framework, used to display images for content cards. This class allows you to display images from various sources (URL, bundle, or SF Symbols) and customize their appearance. It conforms to ObservableObject, enabling reactive updates in SwiftUI views.
+The `AEPImage` class is a fundamental UI component in the AEPSwiftUI framework. It is used to display images for content cards. 
+
+Images can be displayed from various sources (URL, bundle, or SF Symbols) and their appearance can be customized. 
+
+`AEPImage` conforms to `ObservableObject`, allowing it to be used reactively in SwiftUI views.
 
 ## Image Sources
-The AEPImage class supports multiple sources for displaying images, with built-in support for both light and dark mode variants. The sources are prioritized in the following order:
+
+The `AEPImage` class supports multiple sources for displaying images, with built-in support for both light and dark mode variants. 
+
+Image sources are prioritized in the following order:
+
 - URL images
-- Bundled Resource images
+- Bundled resource images
 - SF Symbol icons
 
 ## Public properties
@@ -13,16 +21,16 @@ The AEPImage class supports multiple sources for displaying images, with built-i
 | Property | Type | Description | Default Value |
 | --- | --- | --- | --- |
 | contentMode | ContentMode | The content mode of the image.|[ContentMode.fit](https://developer.apple.com/documentation/swiftui/contentmode/fit)
-| modifier | AEPViewModifier | A custom view modifer that can be applied to the text view for additional styling | N/A  |
-| icon | String |	The name of the SF Symbol icon used in the image. <br> *This applies only to images sourced from icons.* |	N/A |
-| iconFont |	Font |	The font of the SF Symbol icon used in the image. <br> *This applies to images sourced from icons.* |	N/A |
-| iconColor |	Color |	The color of the SF Symbol icon used in the image. <br> *This applies to images sourced from icons.* | [primary](https://developer.apple.com/documentation/swiftui/color/primary) |
+| modifier | AEPViewModifier | A custom view modifier that can be applied to the text view for additional styling. | N/A  |
+| icon | String |	The name of the SF Symbol icon used in the image. <br>*This applies only to images sourced from icons.* |	N/A |
+| iconFont |	Font |	The font of the SF Symbol icon used in the image. <br>*This applies only to images sourced from icons.* |	N/A |
+| iconColor |	Color |	The color of the SF Symbol icon used in the image. <br>*This applies only to images sourced from icons.* | [primary](https://developer.apple.com/documentation/swiftui/color/primary) |
 
-**Note**: All properties are marked with [@Published](https://developer.apple.com/documentation/combine/published). Any changes will trigger updates to your UI.
-
+> **Note**: All properties are marked with [@Published](https://developer.apple.com/documentation/combine/published). Any changes will trigger updates to the UI.
 
 ## Customization
-You can customize the AEPImage properties when working with a template that includes an image. Here's an example:
+
+You can customize `AEPImage` properties when working with a template that includes an image. Here's an example:
 
 ```swift
 class MyCustomizer: ContentCardCustomizing {
