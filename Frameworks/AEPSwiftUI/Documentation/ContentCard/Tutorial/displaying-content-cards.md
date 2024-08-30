@@ -1,5 +1,7 @@
 # Fetch and Display Content Cards
 
+This tutorial explains how to fetch and display content cards in your application using the AEPSwiftUI framework.
+
 ## Pre-requisites
 
 [Integrate and register AEPMessaging extension](https://developer.adobe.com/client-sdks/edge/adobe-journey-optimizer/#implement-extension-in-mobile-app) in your app.
