@@ -53,8 +53,7 @@ enum Constants {
         }
 
         enum InteractionID {
-            // TODO: Verify with PM to see if this Interaction event name makes sense of all platforms
-            static let cardTapped = "Card Clicked"
+            static let cardTapped = "Card clicked"
         }
 
         enum SchemaData {
