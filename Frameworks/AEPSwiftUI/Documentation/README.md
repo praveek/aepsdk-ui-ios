@@ -27,9 +27,9 @@
     * [AEPImage](./ContentCard/PublicClasses/UIElements/aepimage.md)
     * [AEPStack](./ContentCard/PublicClasses/UIElements/aepstack.md)
     * [AEPDismissButton](./ContentCard/PublicClasses/UIElements/aepdismissbutton.md)
-
+ 
 * Tutorials
 
-    * [Displaying Content Cards](./ContentCard/Tutorial/displaying-content-cards.md) 
+    * [Fetch and Display Content Cards](./ContentCard/Tutorial/displaying-content-cards.md) 
     * [Customizing Content Card Templates](./ContentCard/Tutorial/customizing-content-card-templates.md)
     * [Listening to Content Card Events](./ContentCard/Tutorial/listening-content-card-events.md)
