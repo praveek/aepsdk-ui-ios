@@ -25,6 +25,6 @@
     * [AEPDismissButton](./ContentCard/PublicClasses/UIElements/aepdismissbutton.md)
 
 * Tutorial
-    * [Displaying Content Cards](./ContentCard/Tutorial/displaying-content-cards.md) 
+    * [Fetch and Display Content Cards](./ContentCard/Tutorial/displaying-content-cards.md) 
     * [Customizing Content Card Templates](./ContentCard/Tutorial/customizing-content-card-templates.md)
     * [Listening to Content Card Events](./ContentCard/Tutorial/listening-content-card-events.md)
