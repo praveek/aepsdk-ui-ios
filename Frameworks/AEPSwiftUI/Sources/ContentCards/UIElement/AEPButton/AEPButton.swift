@@ -17,7 +17,7 @@ import SwiftUI
 public class AEPButton: ObservableObject, AEPViewModel {
     /// the text model for the button's label.
     @Published public var text: AEPText
-    
+
     /// custom view modifier that can be applied to the button view.
     @Published public var modifier: AEPViewModifier?
 
