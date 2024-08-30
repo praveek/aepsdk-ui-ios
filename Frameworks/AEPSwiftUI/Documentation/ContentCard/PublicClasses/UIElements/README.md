@@ -1,6 +1,6 @@
-# AEPUIElements
+# AEPSwiftUI UI Elements
 
-AEPSwiftUI provides the following UI elements that acts as building blocks for creating templated content cards:
+AEPSwiftUI provides the following UI elements that act as building blocks for creating templated content cards:
 
 - [AEPText](./aeptext.md)
 - [AEPButton](./aepbutton.md)

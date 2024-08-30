@@ -1,9 +1,9 @@
 # ContentCardCustomizing
 
-Protocol that defines method for customizing content card based on the template type.
-
+Protocol defining methodology for customizing content cards based on the template type.
 
 ## Protocol Definition
+
 ```swift
 protocol ContentCardCustomizing {
     func customize(template: SmallImageTemplate)
@@ -14,7 +14,7 @@ protocol ContentCardCustomizing {
 
 ### customize 
 
-Implement this function to customize content cards with [SmallImageTemplate](../PublicClasses/Template/smallimage-template.md).
+Customize content cards with [SmallImageTemplate](../PublicClasses/Template/smallimage-template.md).
 
 #### Parameters
 

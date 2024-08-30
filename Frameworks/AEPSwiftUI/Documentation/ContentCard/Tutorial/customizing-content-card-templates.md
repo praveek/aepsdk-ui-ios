@@ -3,17 +3,20 @@
 This tutorial explains how to customize content card templates in your application using the AEPSwiftUI framework.
 
 ## Overview
+
 AEPSwiftUI provides a way to customize content card templates based on the template type. You can customize the content card templates using the [ContentCardCustomizing](../PublicClasses/contentcardcustomizing.md) protocol.
 
 ## Implementing ContentCardCustomizing
-To customize content card templates:
-1. Conform to the [ContentCardCustomizing](../PublicClasses/contentcardcustomizing.md) protocol in your class or struct.
-2. Implement the required methods of the [ContentCardCustomizing](../PublicClasses/contentcardcustomizing.md) protocol.
 
-Below is an example implementation of `ContentCardCustomizing`. In this example, the `HomePageCardCustomizer` class conforms to the `ContentCardCustomizing` protocol and customizes the `SmallImageTemplate` content card template.:
+Perform the following steps to customize content card templates:
+
+1. Conform to the [ContentCardCustomizing](../PublicClasses/contentcardcustomizing.md) protocol in your class or struct.
+2. Implement the desired methods of the [ContentCardCustomizing](../PublicClasses/contentcardcustomizing.md) protocol.
+
+Below is an example implementation of `ContentCardCustomizing`. In this example, the `HomePageCardCustomizer` class conforms to the `ContentCardCustomizing` protocol and customizes the `SmallImageTemplate` content card template:
 
 ```swift
-class HomePageCardCustomizer : ContentCardCustomizing {
+class HomePageCardCustomizer: ContentCardCustomizing {
     
     func customize(template: SmallImageTemplate) {
         // customize UI elements
@@ -54,32 +57,32 @@ class HomePageCardCustomizer : ContentCardCustomizing {
 ```
 
 ## Applying Customizations
+
 To apply the customizations to the content card templates, pass the customizer to the `getContentCardsUI` API. The customizer will be called for each content card template type that is recognized by the AEPSwiftUI framework.
 
 ```swift
-    let homePageSurface = Surface(path: "homepage")
-    let homePageCustomizer = HomePageCardCustomizer()
-    AEPSwiftUI.getContentCardsUI(for: homePageSurface,
-                                customizer: homePageCustomizer) { result in
-            // handle result
-    }
+let homePageSurface = Surface(path: "homepage")
+let homePageCustomizer = HomePageCardCustomizer()
+AEPSwiftUI.getContentCardsUI(for: homePageSurface,
+                             customizer: homePageCustomizer) { result in
+    // handle result
+}
 ```
 
-
-Customize the content card templates for different surfaces by creating a customizer for each surface. For example, the following code snippet customizes the content card templates for the homepage and detailpage content cards separately:
+Customize the content card templates for different surfaces by creating a customizer for each surface. For example, the following code snippet customizes the content card templates for the "homepage" and "detailpage" content cards separately:
 
 ```swift
-    let homePageSurface = Surface(path: "homepage")
-    let homePageCustomizer = HomePageCardCustomizer()
-    AEPSwiftUI.getContentCardsUI(for: homePageSurface,
-                                customizer: homePageCustomizer) { result in
-        // handle result
-    }
+let homePageSurface = Surface(path: "homepage")
+let homePageCustomizer = HomePageCardCustomizer()
+AEPSwiftUI.getContentCardsUI(for: homePageSurface,
+                             customizer: homePageCustomizer) { result in
+    // handle result
+}
 
-    let detailPageSurface = Surface(path: "profile")
-    let detailPageCustomizer = DetailPageCardCustomizer()
-    AEPSwiftUI.getContentCardsUI(for: detailPageSurface,
-                                customizer: detailPageCustomizer) { result in
-        // handle result
-    }
+let detailPageSurface = Surface(path: "detailpage")
+let detailPageCustomizer = DetailPageCardCustomizer()
+AEPSwiftUI.getContentCardsUI(for: detailPageSurface,
+                             customizer: detailPageCustomizer) { result in
+    // handle result
+}
 ```
