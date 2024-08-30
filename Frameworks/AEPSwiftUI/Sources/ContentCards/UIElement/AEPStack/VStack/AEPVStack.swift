@@ -20,5 +20,5 @@ public class AEPVStack: AEPStack, AEPViewModel {
     @Published public var alignment: HorizontalAlignment = Constants.CardTemplate.DefaultStyle.Stack.HORIZONTAL_ALIGNMENT
 
     /// The SwiftUI view representing the vertical stack.
-    public lazy var view: some View = AEPVStackView(model: self)
+    lazy var view: some View = AEPVStackView(model: self)
 }

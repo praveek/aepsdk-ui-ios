@@ -17,15 +17,15 @@ import SwiftUI
 public class AEPButton: ObservableObject, AEPViewModel {
     /// the text model for the button's label.
     @Published public var text: AEPText
-
-    /// unique identifier for tracking button interactions.
-    @Published public var interactId: String
-
-    /// the URL to be opened when the button is tapped.
-    @Published public var actionUrl: URL?
-
+    
     /// custom view modifier that can be applied to the button view.
     @Published public var modifier: AEPViewModifier?
+
+    /// unique identifier for tracking button interactions.
+    var interactId: String
+
+    /// the URL to be opened when the button is tapped.
+    var actionUrl: URL?
 
     /// The parent template that contains this button.
     weak var parentTemplate: (any ContentCardTemplate)?

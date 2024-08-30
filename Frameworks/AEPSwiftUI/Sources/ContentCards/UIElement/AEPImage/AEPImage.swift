@@ -47,12 +47,12 @@ public class AEPImage: ObservableObject, AEPViewModel {
     /// The source type of the image, either URL or bundle.
     let imageSourceType: ImageSourceType
 
-    public lazy var view: some View = AEPImageView(model: self)
+    lazy var view: some View = AEPImageView(model: self)
 
     /// Initializes a new instance of `AEPImage`
     /// Failable initializer, returns nil if the required fields are not present in the data
     /// - Parameter data: The dictionary containing server side styling and content of the Image
-    public init?(_ data: [String: Any]) {
+    init?(_ data: [String: Any]) {
         // Attempt to initialize from URL
         if let urlString = data[Constants.CardTemplate.UIElement.Image.URL] as? String,
            let url = URL(string: urlString) {
