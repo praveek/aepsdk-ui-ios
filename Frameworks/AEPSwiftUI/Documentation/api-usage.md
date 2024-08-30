@@ -6,7 +6,6 @@ This document provides information on how to use the AEPSwiftUI APIs to receive 
 
 To use the AEPSwiftUI APIs, you need to import the AEPSwiftUI module in your Swift file.
 
-###### Swift
 ```swift
 import AEPSwiftUI
 ```
@@ -17,29 +16,26 @@ import AEPSwiftUI
 
 The `extensionVersion` property is used to get the version of the AEPSwiftUI extension.
 
-##### Example
 ```swift
 let version = AEPSwiftUI.extensionVersion
 ```
 
-### getContentCardUI 
+### getContentCardsUI
 
-The getContentCardUI method retrieves a list of [ContentCardUI](./ContentCard/PublicClasses/contentcardui.md) objects for a specified surface. These ContentCardUI objects provide the user interface for templated content cards in your application.
+The `getContentCardsUI` method retrieves an array of [ContentCardUI](./ContentCard/PublicClasses/contentcardui.md) objects for the provided surface. These ContentCardUI objects provide the user interface for templated content cards in your application.
 
-##### Parameters:
-**surface**: The surface for which the content cards should be retrieved.
+#### Parameters:
 
-**customizer**: An optional [ContentCardCustomizing](./ContentCard/PublicClasses/contentcardcustomizing.md) object to customize the appearance of the content card template. If you do not need to customize the appearance of the content card template, this parameter can be omitted.
+- _surface_ - The surface for which the content cards should be retrieved.
+- _customizer_ - An optional [ContentCardCustomizing](./ContentCard/PublicClasses/contentcardcustomizing.md) object to customize the appearance of the content card template. If you do not need to customize the appearance of the content card template, this parameter can be omitted.
+- _listener_ - An optional [ContentCardUIEventListening](./ContentCard/PublicClasses/contentcarduieventlistening.md) object to listen to UI events from the content card. If you do not need to listen to UI events from the content card, this parameter can be omitted.
+- _completion_ - A completion handler that is called with a `Result` containing either:
+    - _success_ - An array of [ContentCardUI](./ContentCard/PublicClasses/contentcardui.md) objects representing the content cards to be displayed.
+    - _failure_ - An `Error` object indicating the reason for the failure, if any.
 
-**listener**: An optional [ContentCardUIEventListening](./ContentCard/PublicClasses/contentcarduieventlistening.md) object to listen to UI events from the content card. If you do not need to listen to UI events from the content card, this parameter can be omitted.
+> **Note** - Calling this API will not download content cards from Adobe Journey Optimizer; it will only retrieve the content cards that are already downloaded and cached by the Messaging extension. You **must** call [`updatePropositionsForSurfaces`](https://github.com/adobe/aepsdk-messaging-ios/blob/main/Documentation/sources/propositions/developer-documentation/api-usage.md#updatePropositionsForSurfaces) API from the AEPMessaging extension with the desired surfaces prior to calling this API. 
 
-**completion**: : A completion handler that is called with a Result type containing either:
-- success: An array of [ContentCardUI](./ContentCard/PublicClasses/contentcardui.md) objects representing the content cards to be displayed.
-- failure: An Error object indicating the reason for the failure, if any.
-
-> **Note**: You must call `updatePropositionsForSurfaces` API from Messaging extension with the required surfaces before calling this API. This API call will not download the content cards from AJO. It will only retrieve the content cards that are already downloaded and cached with Messaging extension's updateProposition API.
-
-##### Syntax
+#### Syntax
 
 ```swift
 public static func getContentCardsUI(for surface: Surface,
@@ -48,15 +44,14 @@ public static func getContentCardsUI(for surface: Surface,
                                      _ completion: @escaping (Result<[ContentCardUI], Error>) -> Void)
 ```
 
-##### Example
+#### Example
 
 ```swift
-// Dowload the content cards for homepage surface using Messaging extension
+// Download the content cards for homepage surface using Messaging extension
 let homePageSurface = Surface(path: "homepage")
 Messaging.updatePropositionsForSurfaces([homePageSurface])
 
 // Get the content card UI for the homepage surface
-let homePageSurface = Surface(path: "homepage")
 AEPSwiftUI.getContentCardUI(surface: homePageSurface, customizer: nil, listener: nil) { result in
     switch result {
     case .success(let contentCards):

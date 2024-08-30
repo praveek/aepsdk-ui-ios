@@ -1,6 +1,8 @@
 # ContentCardTemplateType
 
-An enumeration of the different types of content card templates supported by AEPSwiftUI framework.  Each case corresponds to a specific template type, identified by a string value.
+An enumeration of the different types of content card templates supported by the AEPSwiftUI framework. 
+
+Each case corresponds to a specific template type, identified by its JSON string value.
 
 ## Enumeration Cases
 
