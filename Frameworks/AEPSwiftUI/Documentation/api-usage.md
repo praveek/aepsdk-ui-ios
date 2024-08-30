@@ -24,8 +24,7 @@ let version = AEPSwiftUI.extensionVersion
 
 ### getContentCardUI 
 
-The getContentCardsUI method retrieves the list of ContentCardUI objects for a given surface. Use the ContentCardUI objects to display UI for templated content cards in your application.
-
+The getContentCardUI method retrieves a list of [ContentCardUI](ContentCard/PublicClasses/ContentCardUI.md) objects for a specified surface. These ContentCardUI objects provide the user interface for templated content cards in your application.
 
 ##### Parameters:
 **surface**: The surface for which the content cards should be retrieved.
@@ -38,7 +37,7 @@ The getContentCardsUI method retrieves the list of ContentCardUI objects for a g
 - success: An array of ContentCardUI objects representing the content cards to be displayed.
 - failure: An Error object indicating the reason for the failure, if any.
 
-**Note**: You must call updatePropositionsForSurfaces API from Messaging extension with the required surfaces before calling this API. 
+**Note**: You must call `updatePropositionsForSurfaces` API from Messaging extension with the required surfaces before calling this API. 
 This API call will not download the content cards from AJO server. It will only retrive the content cards that are already downloaded using Messging extension's updateProposition API
 
 ##### Syntax
@@ -53,6 +52,11 @@ public static func getContentCardsUI(for surface: Surface,
 ##### Example
 
 ```swift
+// Dowload the content cards for homepage surface using Messaging extension
+let homePageSurface = Surface(path: "homepage")
+Messaging.updatePropositionsForSurfaces([homePageSurface])
+
+// Get the content card UI for the homepage surface
 let homePageSurface = Surface(path: "homepage")
 AEPSwiftUI.getContentCardUI(surface: homePageSurface, customizer: nil, listener: nil) { result in
     switch result {
