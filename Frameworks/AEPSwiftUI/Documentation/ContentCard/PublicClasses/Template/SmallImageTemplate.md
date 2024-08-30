@@ -16,5 +16,4 @@
 | buttonHStack  | [AEPHStack](../UIElements/aepstack.md)                       | A horizontal stack for arranging buttons.                                |
 | textVStack    | [AEPVStack](../UIElements/aepstack.md)                       | A vertical stack for arranging the title, body, and buttons.             |
 | rootHStack    | [AEPHStack](../UIElements/aepstack.md)                       | A horizontal stack for arranging the image and text stack.               |
-| view          | [View](https://developer.apple.com/documentation/swiftui/view) | The SwiftUI view representing the template.                            |
 | dismissButton | [AEPButton](../UIElements/aepbutton.md)                      | *Optional*<br>The dismiss button for the template.                       |
