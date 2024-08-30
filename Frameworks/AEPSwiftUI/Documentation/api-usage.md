@@ -24,21 +24,20 @@ let version = AEPSwiftUI.extensionVersion
 
 ### getContentCardUI 
 
-The getContentCardUI method retrieves a list of [ContentCardUI](ContentCard/PublicClasses/ContentCardUI.md) objects for a specified surface. These ContentCardUI objects provide the user interface for templated content cards in your application.
+The getContentCardUI method retrieves a list of [ContentCardUI](ContentCard/PublicClasses/contentcardui.md) objects for a specified surface. These ContentCardUI objects provide the user interface for templated content cards in your application.
 
 ##### Parameters:
 **surface**: The surface for which the content cards should be retrieved.
 
-**customizer**: An optional ContentCardCustomizing object to customize the appearance of the content card template. If you do not need to customize the appearance of the content card template, this parameter can be omitted.
+**customizer**: An optional [ContentCardCustomizing](ContentCard/PublicClasses/contentcardcustomizing.md) object to customize the appearance of the content card template. If you do not need to customize the appearance of the content card template, this parameter can be omitted.
 
-**listener**: An optional ContentCardUIEventListening object to listen to UI events from the content card. If you do not need to listen to UI events from the content card, this parameter can be omitted.
+**listener**: An optional [ContentCardUIEventListening](ContentCard/PublicClasses/contentcarduieventlistening.md) object to listen to UI events from the content card. If you do not need to listen to UI events from the content card, this parameter can be omitted.
 
 **completion**: : A completion handler that is called with a Result type containing either:
-- success: An array of ContentCardUI objects representing the content cards to be displayed.
+- success: An array of [ContentCardUI](ContentCard/PublicClasses/contentcardui.md) objects representing the content cards to be displayed.
 - failure: An Error object indicating the reason for the failure, if any.
 
-**Note**: You must call `updatePropositionsForSurfaces` API from Messaging extension with the required surfaces before calling this API. 
-This API call will not download the content cards from AJO server. It will only retrive the content cards that are already downloaded using Messging extension's updateProposition API
+> **Note**: You must call `updatePropositionsForSurfaces` API from Messaging extension with the required surfaces before calling this API. This API call will not download the content cards from AJO. It will only retrieve the content cards that are already downloaded and cached with Messaging extension's updateProposition API.
 
 ##### Syntax
 

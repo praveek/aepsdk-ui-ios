@@ -1,6 +1,6 @@
 # AEPStack
 
-The AEPStack class is a fundamental layout container in the AEPSwiftUI framework, used to arrange multiple UI elements in a sequential manner. It provides a flexible way to organize and position components within a content card, supporting both horizontal and vertical orientations. This class conforms to ObservableObject, enabling reactive updates in SwiftUI views.
+The AEPStack class is a fundamental layout container in the AEPSwiftUI framework, used to arrange multiple UI elements in a horizontal or vertical manner. This class conforms to ObservableObject, enabling reactive updates in SwiftUI views.
 
 ## Public Properties
 | Property | Type | Description | Default Value |
