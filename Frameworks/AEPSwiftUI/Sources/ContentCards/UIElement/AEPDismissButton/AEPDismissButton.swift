@@ -26,7 +26,7 @@ public class AEPDismissButton: ObservableObject, AEPViewModel {
     /// The parent template that contains this button.
     weak var parentTemplate: (any ContentCardTemplate)?
 
-    public lazy var view: some View = AEPDismissButtonView(model: self)
+    lazy var view: some View = AEPDismissButtonView(model: self)
 
     init?(_ data: [String: Any], _ template: any ContentCardTemplate) {
         // bail out, if we cannot create a dismiss button Image
