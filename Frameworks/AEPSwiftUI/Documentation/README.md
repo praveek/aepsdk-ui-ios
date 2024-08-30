@@ -22,7 +22,9 @@
     * [AEPButton](ContentCard/PublicClasses/UIElements/AEPButton.md)
     * [AEPImage](ContentCard/PublicClasses/UIElements/AEPImage.md)
     * [AEPStack](ContentCard/PublicClasses/UIElements/AEPStack.md)
+    * [AEPDismissButton](ContentCard/PublicClasses/UIElements/AEPDismissButton.md)
 
 * Tutorial
-    * [Customizing Content Card Templates](ContentCard/Tutorial/CustomizingContentCardTemplates.md)
-    * [Handling Content Card Events](ContentCard/Tutorial/HandlingContentCardEvents.md)
+    * [Displaying Content Cards](ContentCard/Tutorial/displaying-content-cards.md) 
+    * [Customizing Content Card Templates](ContentCard/Tutorial/customizing-content-card-templates.md)
+    * [Listening to Content Card Events](ContentCard/Tutorial/listening-content-card-events.md)
