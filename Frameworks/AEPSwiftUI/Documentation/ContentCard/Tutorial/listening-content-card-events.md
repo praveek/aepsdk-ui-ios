@@ -1,20 +1,23 @@
-# Listening Content Card Events
+# Listening to Content Card Events
 
 This tutorial explains how to listen to content card events in your application using the AEPSwiftUI framework.
 
-## Prerequisites
-Before proceeding with this tutorial, please read the [Fetch and Display Content Cards](./displaying-content-cards.md) guide.
-
 ## Overview
-AEPSwiftUI provides a way to listen to events from content cards displayed in your application. You can listen to events such as card display, card click, and card dismiss. This tutorial explains how to listen to these events using the `ContentCardUIEventListening` protocol.
 
-## Implementing ContentCardEventListening
-To listen to content card events :
-1. Conform to the [ContentCardUIEventListening](../PublicClasses/contentcarduieventlistening.md) protocol in your class or struct.
-2. Implement the required methods of the [ContentCardUIEventListening](../PublicClasses/contentcarduieventlistening.md) protocol.
-3. Pass the listener to the `getContentCardsUI` API.
+The AEPSwiftUI framework provides a way to listen to events from content cards displayed in your application. The following events can be heard by implementing the `ContentCardUIEventListening` protocol:
 
-Here's an example implementation:
+- display
+- interaction (or "click")
+- dismiss
+
+## Implement ContentCardEventListening
+
+Complete the following steps to hear content card events:
+
+1. Conform to the [ContentCardUIEventListening](../PublicClasses/contentcarduieventlistening.md) protocol in your class or struct and implement the desired methods.
+1. Pass the listener to the `getContentCardsUI` API.
+
+Below is an example implementation of `ContentCardEventListening`:
 
 ```swift
 struct HomePage: View, ContentCardUIEventListening {
@@ -22,7 +25,7 @@ struct HomePage: View, ContentCardUIEventListening {
     @State var savedCards : [ContentCardUI] = []
     
     var body: some View {
-        ScrollView (.vertical){
+        ScrollView (.vertical) {
           // Display the content cards here
         }
         .onAppear() {
@@ -58,19 +61,22 @@ struct HomePage: View, ContentCardUIEventListening {
 ```
 
 ### Handling actionable URLs
-The `onInteract` method provides an optional actionURL parameter associated with the interaction event. To handle this URL in your application, return true from the onInteract method:
+
+The `onInteract` method provides an optional `actionURL` parameter associated with the interaction event. To handle this URL in your application, return true from the `onInteract` method:
 
 ```swift
 func onInteract(_ card: ContentCardUI, _ interactionId: String, actionURL: URL?) -> Bool {
     guard let url = actionURL else { return false }
     
-    // Handle the actionable URL in your application    
+    // Handle the actionable URL in your application
     return true
 }
 ```
 
-
 ### Removing content cards on dismiss
+
+> *__IMPORTANT__* - Removing a dismissed content card from the UI is the responsibility of the app developer.
+
 To remove a content card from the UI when the user dismisses it, implement the onDismiss method:
 
 ```swift
@@ -78,4 +84,5 @@ To remove a content card from the UI when the user dismisses it, implement the o
         savedCards.removeAll(where: { $0.id == card.id })
     }
 ```
-This implementation ensures that the dismissed card is removed from the savedCards array, which should trigger a UI update if the array is used to populate your view.
+
+This implementation ensures that the dismissed card is removed from the `savedCards` array, which should trigger a UI update if the array is used to populate your view.

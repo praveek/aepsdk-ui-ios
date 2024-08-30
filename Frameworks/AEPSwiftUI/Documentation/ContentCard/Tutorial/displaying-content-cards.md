@@ -1,11 +1,12 @@
 # Fetch and Display Content Cards
 
 ## Pre-requisites
+
 [Integrate and register AEPMessaging extension](https://developer.adobe.com/client-sdks/edge/adobe-journey-optimizer/#implement-extension-in-mobile-app) in your app.
 
-
 ## Fetch Content Cards
-To fetch the content cards for the surfaces configured in [Adobe Journey Optimizer](https://business.adobe.com/products/journey-optimizer/adobe-journey-optimizer.html) campaigns, call the [updatePropositionsForSurfaces](https://developer.adobe.com/client-sdks/edge/adobe-journey-optimizer/code-based/api-reference/#updatepropositionsforsurfaces) API. It's recommended to batch requests for multiple surfaces in a single API call when possible. The returned content cards are cached in-memory by the Messaging extension and persists throughout the app's lifecycle (i.e as long as the app is running).
+
+To fetch the content cards for the surfaces configured in [Adobe Journey Optimizer](https://business.adobe.com/products/journey-optimizer/adobe-journey-optimizer.html) campaigns, call the [updatePropositionsForSurfaces](https://developer.adobe.com/client-sdks/edge/adobe-journey-optimizer/code-based/api-reference/#updatepropositionsforsurfaces) API. It's recommended to batch requests for multiple surfaces in a single API call when possible. The returned content cards are cached in-memory by the Messaging extension and persist through the application's lifecycle.
 
 ```swift
 let homePageSurface = Surface(path: "homepage")
@@ -13,13 +14,14 @@ Messaging.updatePropositionsForSurfaces([homePageSurface])
 ```
 
 ## Retrieve Content Cards
-To retrieve the content cards for a specific surface, call the `getContentCardUI` API. This API returns an array of [ContentCardUI](../PublicClasses/contentcardui.md) objects representing the qualified content cards to be displayed.
 
-`ContentCardUI` objects are created only for the cards with templates recognized by AEPSwiftUI framework. The array of ContentCardUI can contain different types of templates based on the content card campaign.
+To retrieve the content cards for a specific surface, call `getContentCardsUI`. This API returns an array of [ContentCardUI](../PublicClasses/contentcardui.md) objects representing content cards for which the user is qualified.
+
+`ContentCardUI` objects are created only for content cards with templates recognized by the AEPSwiftUI framework. The array of `ContentCardUI` objects may contain multiple content card template types.
 
 ```swift
 let homePageSurface = Surface(path: "homepage")
-AEPSwiftUI.getContentCardUI(surface: homePageSurface, customizer: nil, listener: nil) { result in
+AEPSwiftUI.getContentCardsUI(surface: homePageSurface) { result in
     switch result {
     case .success(let contentCards):
         // use the contentCards array to display content cards in your application
@@ -29,14 +31,15 @@ AEPSwiftUI.getContentCardUI(surface: homePageSurface, customizer: nil, listener:
 }
 ```
 
-> Note : Only content cards that qualify based on client rules defined in the Adobe Journey Optimizer campaign are returned by the getContentCardUI API.
+> Note - only content cards for which the user has qualified are returned by the getContentCardUI API. Client-side rules are defined in the Adobe Journey Optimizer campaign.
 
 ## Display Content Cards
-To display the content cards in your app, you can use the `ContentCardUI` objects returned by the `getContentCardUI` API. The `ContentCardUI` objects provide the user interface for templated content cards in your application. Whether your application is built using SwiftUI or UIKit, you can seamlessly incorporate and display these content cards using the ContentCardUI objects.
 
-#### Display Content Cards in SwiftUI
+To display content cards in your app, use the `ContentCardUI` objects returned by the `getContentCardsUI` API. The `ContentCardUI` objects provide the user interface for templated content cards in your application. Whether your application is built using SwiftUI or UIKit, you can seamlessly incorporate and display these content cards using the `ContentCardUI` objects.
 
-Below is an example of how to display content cards in a SwiftUI application.
+### Display Content Cards in SwiftUI
+
+Below is an example of how to display content cards in a SwiftUI application:
 
 ```swift
 struct HomePage: View {
@@ -44,7 +47,7 @@ struct HomePage: View {
     @State var savedCards : [ContentCardUI] = []
     
     var body: some View {
-        ScrollView (.vertical, showsIndicators: false){
+        ScrollView (.vertical, showsIndicators: false) {
             LazyVStack(spacing: 20) {
                  ForEach(savedCards) { card in
                      card.view
@@ -69,17 +72,17 @@ struct HomePage: View {
     }
 }
 ```
+
 Refer to this [TestApp](../../../../../TestApps/AEPSwiftUITestApp/) for a complete example of how to display, customize and listen to UI events from content cards in a SwiftUI application.
 
+### Display Content Cards in UIKit 
 
-#### Display Content Cards in UIKit 
-
-Below is an example of how to display content cards in a UIKit application using a UITableView.
+Below is an example of how to display content cards in a UIKit application using a UITableView:
 
 ```swift
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var tableView : UITableView!    
+    @IBOutlet var tableView : UITableView!
     var savedCards : [ContentCardUI] = []
         
     override func viewDidLoad() {
@@ -98,35 +101,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
             case .failure(let error):
-                // handle error here                
+                // handle error here
             }
-        }        
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
+        cell.contentView.subviews.forEach { $0.removeFromSuperview() }
 
-         // Get the SwiftUI view for the content card
-         let contentCard = savedCards[indexPath.row]
-         let swiftUIView = contentCard.view
+        // Get the SwiftUI view for the content card
+        let contentCard = savedCards[indexPath.row]
+        let swiftUIView = contentCard.view
 
-         // Wrap the SwiftUI view in a UIHostingController
-         let hostingController = UIHostingController(rootView: swiftUIView)
-         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        // Wrap the SwiftUI view in a UIHostingController
+        let hostingController = UIHostingController(rootView: swiftUIView)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
-         // Add the hosting controller's view to the cell's content view
-         cell.contentView.addSubview(hostingController.view)
+        // Add the hosting controller's view to the cell's content view
+        cell.contentView.addSubview(hostingController.view)
 
-         // Set up constraints to make the SwiftUI view fill the cell
-         NSLayoutConstraint.activate([
-             hostingController.view.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 10),
-             hostingController.view.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant:  -10),
-             hostingController.view.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10),
-             hostingController.view.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -10)
-         ])
+        // Set up constraints to make the SwiftUI view fill the cell
+        NSLayoutConstraint.activate([
+            hostingController.view.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 10),
+            hostingController.view.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -10),
+            hostingController.view.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10),
+            hostingController.view.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -10)
+        ])
 
-         return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,7 +138,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
-    }    
+    }
 }
 ```
+
 Refer to this [TestApp](../../../../../TestApps/AEPSwiftUITestAppUIKit/) for a complete example of how to display, customize and listen to UI events from content cards in a UIKit application.
