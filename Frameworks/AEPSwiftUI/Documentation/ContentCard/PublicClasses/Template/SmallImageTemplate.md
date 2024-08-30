@@ -1,0 +1,5 @@
+# SmallImageTemplate
+
+## Public Properties
+
+## Customization
