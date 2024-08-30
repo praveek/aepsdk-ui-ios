@@ -4,11 +4,11 @@ This tutorial explains how to listen to content card events in your application 
 
 ## Overview
 
-The AEPSwiftUI framework provides a way to listen to events from content cards displayed in your application. The following events can be heard by implementing the `ContentCardUIEventListening` protocol:
+The AEPSwiftUI framework provides a way to listen to events from content cards displayed in your application. The following functions can be implemented in conformance with the `ContentCardUIEventListening` protocol:
 
-- display
-- interaction (or "click")
-- dismiss
+- `onDisplay`
+- `onDismiss`
+- `onInteract`
 
 ## Implement ContentCardEventListening
 
