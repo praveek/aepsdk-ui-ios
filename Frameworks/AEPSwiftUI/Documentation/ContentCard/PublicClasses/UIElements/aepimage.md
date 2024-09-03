@@ -20,11 +20,11 @@ Image sources are prioritized in the following order:
 
 | Property | Type | Description | Default Value |
 | --- | --- | --- | --- |
-| contentMode | ContentMode | The content mode of the image.|[ContentMode.fit](https://developer.apple.com/documentation/swiftui/contentmode/fit)
+| contentMode | [ContentMode](https://developer.apple.com/documentation/uikit/uiview/1622619-contentmode) | The content mode of the image.|[ContentMode.fit](https://developer.apple.com/documentation/swiftui/contentmode/fit)
 | modifier | AEPViewModifier | A custom view modifier that can be applied to the text view for additional styling. | N/A  |
 | icon | String |	The name of the SF Symbol icon used in the image. <br>*This applies only to images sourced from icons.* |	N/A |
-| iconFont |	Font |	The font of the SF Symbol icon used in the image. <br>*This applies only to images sourced from icons.* |	N/A |
-| iconColor |	Color |	The color of the SF Symbol icon used in the image. <br>*This applies only to images sourced from icons.* | [primary](https://developer.apple.com/documentation/swiftui/color/primary) |
+| iconFont |	[Font](https://developer.apple.com/documentation/swiftui/font) |	The font of the SF Symbol icon used in the image. <br>*This applies only to images sourced from icons.* |	N/A |
+| iconColor |	[Color](https://developer.apple.com/documentation/swiftui/color) |	The color of the SF Symbol icon used in the image. <br>*This applies only to images sourced from icons.* | [primary](https://developer.apple.com/documentation/swiftui/color/primary) |
 
 > **Note**: All properties are marked with [@Published](https://developer.apple.com/documentation/combine/published). Any changes will trigger updates to the UI.
 
