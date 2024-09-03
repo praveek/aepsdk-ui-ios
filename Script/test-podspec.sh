@@ -64,7 +64,6 @@ platform :ios, '$IOS_VERSION'
 target '$PROJECT_NAME' do
   use_frameworks!
   pod '$NAME', :path => '../$NAME.podspec'
-  pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :tag => '5.3.0-beta'
 end
 " >>Podfile
 

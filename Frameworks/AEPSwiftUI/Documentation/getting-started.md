@@ -2,7 +2,7 @@
 
 ### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
-> During BETA, an additional line of configuration is necessary to retrieve the correct BETA version of the Messaging extension. After the general availability release, this dependency will be automatically managed by `AEPSwiftUI.podspec`.
+> During BETA, you will need to point to the specific beta release tag in the repo.
 
 ```ruby
 # Podfile
@@ -11,7 +11,6 @@ use_frameworks!
 # for app development, include all the following pods
 target 'YOUR_APP_NAME' do
     pod 'AEPSwiftUI', :git => 'https://github.com/adobe/aepsdk-ui-ios.git', :tag => '5.1.0-beta'
-    pod 'AEPMessaging', :git => 'https://github.com/adobe/aepsdk-messaging-ios.git', :tag => '5.3.0-beta'
 end
 ```
 
