@@ -11,7 +11,7 @@ Customization of the dismiss button's properties can be achieved with a custom v
 | Property |	Type |	Description |
 | --- | --- | --- |
 | image | [AEPImage](aepimage.md) |	The image model representing the dismiss button's image. |
-| alignment | `Alignment` |	The alignment of the dismiss button within the content card. |
+| alignment | [Alignment](https://developer.apple.com/documentation/swiftui/alignment) |	The alignment of the dismiss button within the content card. |
 | modifier |	`AEPViewModifier` |	A custom view modifier that can be applied to the dismiss button view for additional styling. |
 
 > **Note**: All properties are marked with [@Published](https://developer.apple.com/documentation/combine/published). Any changes will trigger updates to the UI.

@@ -11,7 +11,7 @@ Customization of the button's properties can be achieved with a custom view modi
 | Property |	Type |	Description |
 | --- | --- | --- |
 | text | [AEPText](aeptext.md) |	The text model representing the button's label. |
-| modifier |	`AEPViewModifier?` |	A custom view modifier that can be applied to the button view for additional styling. |
+| modifier |	`AEPViewModifier` |	A custom view modifier that can be applied to the button view for additional styling. |
 
 > **Note**: All properties are marked with [@Published](https://developer.apple.com/documentation/combine/published). Any changes will trigger updates to the UI.
 

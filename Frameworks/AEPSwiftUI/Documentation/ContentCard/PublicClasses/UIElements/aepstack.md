@@ -21,7 +21,7 @@ The `AEPHStack` class extends `AEPStack` and arranges its child views horizontal
 
 | Property | Type | Description | Default Value |
 | --- | --- | --- | --- |
-| alignment | VerticalAlignment | The vertical alignment of child views in the stack.	| [center](https://developer.apple.com/documentation/swiftui/verticalalignment/center) |
+| alignment | [VerticalAlignment](https://developer.apple.com/documentation/swiftui/verticalalignment) | The vertical alignment of child views in the stack.	| [center](https://developer.apple.com/documentation/swiftui/verticalalignment/center) |
 
 # AEPVStack
 
@@ -31,7 +31,7 @@ The `AEPVStack` class extends `AEPStack` and arranges its child views vertically
 
 | Property | Type | Description | Default Value |
 | --- | --- | --- | --- |
-| alignment | HorizontalAlignment | The horizontal alignment of child views in the stack.| [center](https://developer.apple.com/documentation/swiftui/horizontalalignment/center) |
+| alignment | [HorizontalAlignment](https://developer.apple.com/documentation/swiftui/horizontalalignment) | The horizontal alignment of child views in the stack.| [center](https://developer.apple.com/documentation/swiftui/horizontalalignment/center) |
 
 ## Customization
 

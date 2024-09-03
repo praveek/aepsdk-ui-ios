@@ -11,8 +11,8 @@ This class allows you to customize the text element with properties like font, c
 | Property | Type | Description | Default Value |
 | --- | --- | --- | --- |
 | content | String | The actual text content to be displayed. | N/A |
-| font | Font | The font to be used for the text. |  Depends on the type of text: <br> &bull; **Title**:  system font, size 15, medium weight <br> &bull;  **Body** - system font, size 13, regular weight <br> &bull; **ButtonText**  - system font, size 13, regular weight |
-| color | Color | The color of the text. | Depends on the type of text: <br> &bull; **Title**: [primary](https://developer.apple.com/documentation/swiftui/color/primary) <br> &bull; **Body**: [secondary](https://developer.apple.com/documentation/swiftui/color/primary) <br> &bull; **Button**: [blue](https://developer.apple.com/documentation/swiftui/color/blue) |
+| font | [Font](https://developer.apple.com/documentation/swiftui/font) | The font to be used for the text. |  Depends on the type of text: <br> &bull; **Title**:  system font, size 15, medium weight <br> &bull;  **Body** - system font, size 13, regular weight <br> &bull; **ButtonText**  - system font, size 13, regular weight |
+| color | [Color](https://developer.apple.com/documentation/swiftui/color) | The color of the text. | Depends on the type of text: <br> &bull; **Title**: [primary](https://developer.apple.com/documentation/swiftui/color/primary) <br> &bull; **Body**: [secondary](https://developer.apple.com/documentation/swiftui/color/primary) <br> &bull; **Button**: [blue](https://developer.apple.com/documentation/swiftui/color/blue) |
 | modifier | AEPViewModifier | A custom view modifer that can be applied to the text view for additional styling | N/A  |
 
 > **Note**: All properties are marked with [@Published](https://developer.apple.com/documentation/combine/published). Any changes will trigger updates to your UI.
