@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   
     s.source_files = 'Frameworks/AEPSwiftUI/Sources/**/*.swift'
 
-    s.dependency 'AEPMessaging', '>= 5.2.0', '< 6.0.0'
+    s.dependency 'AEPMessaging', '>= 5.3.0', '< 6.0.0'
 
   end

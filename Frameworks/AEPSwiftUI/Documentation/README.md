@@ -18,7 +18,7 @@
 
 * Templates
 
-    * [SmallImageTemplate](./ContentCard/PublicClasses/SmallImageTemplate.md)
+    * [SmallImageTemplate](./ContentCard/PublicClasses/Template/smallimage-template.md)
 
 * UI Elements
 
