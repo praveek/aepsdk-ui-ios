@@ -52,7 +52,7 @@ let homePageSurface = Surface(path: "homepage")
 Messaging.updatePropositionsForSurfaces([homePageSurface])
 
 // Get the content card UI for the homepage surface
-AEPSwiftUI.getContentCardUI(surface: homePageSurface, customizer: nil, listener: nil) { result in
+AEPSwiftUI.getContentCardsUI(for: acrobatCardsSurface) { result in
     switch result {
     case .success(let contentCards):
         // Use the contentCards array to display UI for templated content cards in your application

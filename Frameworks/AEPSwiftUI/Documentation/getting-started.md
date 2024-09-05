@@ -22,7 +22,27 @@ $ pod install
 
 ### [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
-Not available during the BETA.
+To add the AEPSwiftUI Beta Package to your application, from the Xcode menu select:
+
+`File > Add Packages...`
+
+> **Note**: the menu options may vary depending on the version of Xcode being used.
+
+Enter the URL for the AEPSwiftUI Beta package repository: `https://github.com/adobe/aepsdk-ui-ios.git`.
+
+For `Dependency Rule`, select `Branch` and enter `v5.1.0-beta`.
+
+Alternatively, if your project has a `Package.swift` file, you can add AEPMessaging directly to your dependencies:
+
+```
+dependencies: [
+    .package(url: "https://github.com/adobe/aepsdk-ui-ios.git", .branch("v5.1.0-beta"))
+],
+targets: [
+    .target(name: "YourTarget",
+            dependencies: ["AEPSwiftUI"],
+            path: "your/path")
+]
 
 ### Binaries
 
