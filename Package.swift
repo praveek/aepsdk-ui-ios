@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 /*
@@ -17,12 +17,21 @@ import PackageDescription
 
 let package = Package(
     name: "AEPUI",
-    platforms: [.iOS(.v12)],
+    platforms: [.iOS(.v15)],
     products: [
-        .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"])
+        .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"]),
+        .library(name: "AEPSwiftUI", targets: ["AEPSwiftUI"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/adobe/aepsdk-messaging-ios.git", .upToNextMajor(from: "5.3.0")),
     ],
     targets: [
         .target(name: "AEPNotificationContent",
-                path: "Frameworks/AEPNotificationContent/Sources")
+                path: "Frameworks/AEPNotificationContent/Sources"),
+        .target(name: "AEPSwiftUI",
+                dependencies: [
+                    .product(name: "AEPMessaging", package: "aepsdk-messaging-ios")
+                ],
+                path: "Frameworks/AEPSwiftUI/Sources")
     ]
 )
