@@ -30,7 +30,7 @@ To add the AEPSwiftUI Beta Package to your application, from the Xcode menu sele
 
 Enter the URL for the AEPSwiftUI Beta package repository: `https://github.com/adobe/aepsdk-ui-ios.git`.
 
-For `Dependency Rule`, select `Branch`.
+For `Dependency Rule`, select `Branch` and enter `v5.1.0-beta`.
 
 Alternatively, if your project has a `Package.swift` file, you can add AEPMessaging directly to your dependencies:
 
