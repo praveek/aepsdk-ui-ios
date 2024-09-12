@@ -1,4 +1,4 @@
-# For details on formatting rules, refer https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
+# For details on formatting rules, refer https://github.com/nicklockwood/SwiftFormat/blob/main/Rules.md
 --commas inline
 --disable \
     wrapMultilineStatementBraces, \
