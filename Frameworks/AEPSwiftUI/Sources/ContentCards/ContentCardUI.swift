@@ -29,6 +29,12 @@ public class ContentCardUI: Identifiable {
     /// SwiftUI view that represents the content card
     /// TODO: Make adjustments to remove AnyView
     public lazy var view: some View = AnyView(template.view)
+    
+    /// Metadata associated with the ContentCard
+    public var meta: [String: Any]? {
+        return proposition.items.first?.contentCardSchemaData?.meta
+    }
+
 
     /// Factory method to create a `ContentCardUI` instance based on the provided schema data.
     /// - Parameters:
