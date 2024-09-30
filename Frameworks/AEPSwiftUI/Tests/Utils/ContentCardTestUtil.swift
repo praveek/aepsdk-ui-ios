@@ -22,4 +22,13 @@ class ContentCardTestUtil {
         let contentCardSchemaData = try! decoder.decode(ContentCardSchemaData.self, from: data!)
         return contentCardSchemaData
     }
+    
+    static func createProposition(fromFile file : String ) -> Proposition {
+        let jsonString = FileReader.readFromFile(file)
+        let data = jsonString.data(using: .utf8)
+        let itemData = try! JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
+        let propositionItem = PropositionItem(itemId: "mockItemId", schema: .contentCard, itemData: itemData!)
+        let proposition = Proposition(uniqueId: "mockID", scope: "mockScope", scopeDetails: [:], items: [propositionItem])
+        return proposition
+    }
 }
