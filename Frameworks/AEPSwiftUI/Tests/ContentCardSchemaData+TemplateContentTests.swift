@@ -19,6 +19,7 @@ final class ContentCardSchemaDataTests: XCTestCase {
     
     let smallImageSchema = ContentCardTestUtil.createContentCardSchemaData(fromFile: "SmallImageTemplate")
     let emptySchema = ContentCardSchemaData.getEmpty()
+    let invalidSchema = ContentCardTestUtil.createContentCardSchemaData(fromFile: "InvalidTemplate")
     let mockTemplate : MockTemplate = MockTemplate(ContentCardSchemaData.getEmpty())!
 
     func test_templateType() {
@@ -28,6 +29,7 @@ final class ContentCardSchemaDataTests: XCTestCase {
 
     func test_titleExtraction() {
         XCTAssertNil(emptySchema.title)
+        XCTAssertNil(invalidSchema.title)
         let title = smallImageSchema.title
         XCTAssertNotNil(title)
         XCTAssertEqual(title?.content, "Card Title")
@@ -35,6 +37,7 @@ final class ContentCardSchemaDataTests: XCTestCase {
 
     func test_bodyExtraction() {
         XCTAssertNil(emptySchema.body)
+        XCTAssertNil(invalidSchema.body)
         let body = smallImageSchema.body
         XCTAssertNotNil(body)
         XCTAssertEqual(body?.content, "Card Body")
@@ -42,6 +45,7 @@ final class ContentCardSchemaDataTests: XCTestCase {
     
     func test_imageExtraction() {
         XCTAssertNil(emptySchema.image)
+        XCTAssertNil(invalidSchema.image)
         let image = smallImageSchema.image
         XCTAssertNotNil(image)
         XCTAssertEqual(image?.url?.absoluteString, "https://imagetoDownload.com/cardimage")
@@ -50,6 +54,7 @@ final class ContentCardSchemaDataTests: XCTestCase {
     func test_buttonsExtraction() {
         // test with empty schema
         XCTAssertNil(emptySchema.getButtons(forTemplate: mockTemplate))
+        XCTAssertNil(invalidSchema.getButtons(forTemplate: mockTemplate))
         
         // test with small image template schema
         let buttons = smallImageSchema.getButtons(forTemplate: mockTemplate)

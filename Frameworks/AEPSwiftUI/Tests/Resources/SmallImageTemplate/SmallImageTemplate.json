@@ -3,7 +3,8 @@
     "meta": {
         "adobe" : {
             "template": "SmallImage"
-        }
+        },
+        "customKey" : "customValue"
     },
     "content": {
           "actionUrl": "https://actionUrl.com",

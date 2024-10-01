@@ -23,6 +23,9 @@
 /* Begin PBXBuildFile section */
 		110EBA03B80AD39743110BB3 /* Pods_AEPSwiftUITestAppUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245C787B45D5CFB66F0CD892 /* Pods_AEPSwiftUITestAppUIKit.framework */; };
 		B25A185E52E37DC5113019D8 /* Pods_AEPSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5BC8CF7F954B4FC0A7F4FB /* Pods_AEPSwiftUI.framework */; };
+		B61DF4612CA859D500349B6F /* TemplateBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61DF4602CA859CB00349B6F /* TemplateBuilderTests.swift */; };
+		B61DF4632CA85B7900349B6F /* InvalidTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = B61DF4622CA85B7900349B6F /* InvalidTemplate.json */; };
+		B61DF4652CA860D800349B6F /* ContentCardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61DF4642CA860D800349B6F /* ContentCardUITests.swift */; };
 		B626E0512C5EC1F400ED1816 /* AEPSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = B626E0502C5EC1F400ED1816 /* AEPSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B626E0582C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626E0572C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift */; };
 		B626E0602C5EC26300ED1816 /* AEPSwiftUIPublicAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626E05F2C5EC26300ED1816 /* AEPSwiftUIPublicAPITests.swift */; };
@@ -148,6 +151,9 @@
 		7E5BC8CF7F954B4FC0A7F4FB /* Pods_AEPSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801BECC51A40A472303AE4DF /* Pods_AEPSwiftUITestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AEPSwiftUITestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91CF32B1E170EB424505DE98 /* Pods-AEPSwiftUITestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPSwiftUITestApp.release.xcconfig"; path = "Target Support Files/Pods-AEPSwiftUITestApp/Pods-AEPSwiftUITestApp.release.xcconfig"; sourceTree = "<group>"; };
+		B61DF4602CA859CB00349B6F /* TemplateBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateBuilderTests.swift; sourceTree = "<group>"; };
+		B61DF4622CA85B7900349B6F /* InvalidTemplate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = InvalidTemplate.json; sourceTree = "<group>"; };
+		B61DF4642CA860D800349B6F /* ContentCardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCardUITests.swift; sourceTree = "<group>"; };
 		B626E04D2C5EC1F400ED1816 /* AEPSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AEPSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B626E0502C5EC1F400ED1816 /* AEPSwiftUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AEPSwiftUI.h; sourceTree = "<group>"; };
 		B626E0572C5EC24300ED1816 /* AEPSwiftUI+PublicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AEPSwiftUI+PublicAPI.swift"; sourceTree = "<group>"; };
@@ -339,6 +345,8 @@
 				B669ED632C71C54700A26954 /* SmallImageTemplateTests.swift */,
 				B669EDBF2C7C3D1D00A26954 /* DismissButtonStyleTests.swift */,
 				B669EDC12C7C415700A26954 /* AEPDismissButtonTests.swift */,
+				B61DF4602CA859CB00349B6F /* TemplateBuilderTests.swift */,
+				B61DF4642CA860D800349B6F /* ContentCardUITests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -404,6 +412,7 @@
 		B669ED5A2C7015C800A26954 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B61DF4622CA85B7900349B6F /* InvalidTemplate.json */,
 				B669ED5B2C7015EF00A26954 /* SmallImageTemplate */,
 			);
 			path = Resources;
@@ -484,9 +493,9 @@
 				B6F4D1982C62834E00376045 /* UIElement */,
 				B6F4D18E2C62735600376045 /* ContentCardUI.swift */,
 				B669ED9F2C771E2D00A26954 /* ContentCardCustomizing.swift */,
+				B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */,
 				B669EDC42C7D0C8100A26954 /* ContentCardUIEventListening.swift */,
 				B669ED7C2C750D8E00A26954 /* ContentCardUI+EventHandler.swift */,
-				B6F4D1932C6279C300376045 /* ContentCardTemplateType.swift */,
 				B669ED552C6FE92E00A26954 /* ContentCardSchemaData+TemplateContent.swift */,
 				B669ED992C76655300A26954 /* ContentCardUIError.swift */,
 			);
@@ -677,6 +686,7 @@
 			files = (
 				B669ED6A2C71D21200A26954 /* SmallImageTemplate_validTitle_invalidOther.json in Resources */,
 				B669ED682C71C96300A26954 /* SmallImageTemplate_onlyTitle.json in Resources */,
+				B61DF4632CA85B7900349B6F /* InvalidTemplate.json in Resources */,
 				B669ED5D2C70161700A26954 /* SmallImageTemplate.json in Resources */,
 				B669ED672C71C96300A26954 /* SmallImageTemplate_noTitle.json in Resources */,
 			);
@@ -897,11 +907,13 @@
 				B669EDBE2C7C37A900A26954 /* AEPTextTypeTests.swift in Sources */,
 				B669ED5F2C703F9B00A26954 /* FileReader.swift in Sources */,
 				B669ED1C2C6AD37E00A26954 /* AEPTextTests.swift in Sources */,
+				B61DF4652CA860D800349B6F /* ContentCardUITests.swift in Sources */,
 				B669ED242C6B010B00A26954 /* AEPImageTests.swift in Sources */,
 				B626E0602C5EC26300ED1816 /* AEPSwiftUIPublicAPITests.swift in Sources */,
 				B669ED4F2C6F3DE400A26954 /* AEPStackTests.swift in Sources */,
 				B669ED982C75951D00A26954 /* MockTemplate.swift in Sources */,
 				B669ED622C7075A700A26954 /* ContentCardTestUtil.swift in Sources */,
+				B61DF4612CA859D500349B6F /* TemplateBuilderTests.swift in Sources */,
 				B669ED642C71C54700A26954 /* SmallImageTemplateTests.swift in Sources */,
 				B669EDB22C793B8700A26954 /* EmptyCustomizer.swift in Sources */,
 				B669EDC22C7C415700A26954 /* AEPDismissButtonTests.swift in Sources */,
