@@ -9,7 +9,7 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Foundation
 
 /// The ImageSourceType enum is used to identify the source type of an image in the AEPImage model.
@@ -23,3 +23,4 @@ enum ImageSourceType {
     /// Indicates that the image is sourced from SF Symbols
     case icon
 }
+#endif

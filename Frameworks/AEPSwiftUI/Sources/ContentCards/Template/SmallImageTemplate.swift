@@ -9,10 +9,11 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import AEPMessaging
 import SwiftUI
 
+@available(iOS 15.0, *)
 /// A class representing a content card template with a small image layout.
 ///
 /// `SmallImageTemplate` is a subclass of `BaseTemplate` and conforms to the `ContentCardTemplate` protocol.
@@ -96,3 +97,4 @@ public class SmallImageTemplate: BaseTemplate, ContentCardTemplate {
         customizer?.customize(template: self)
     }
 }
+#endif

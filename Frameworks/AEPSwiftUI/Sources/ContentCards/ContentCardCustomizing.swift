@@ -10,10 +10,14 @@
  governing permissions and limitations under the License.
  */
 
+#if canImport(SwiftUI)
+
 import Foundation
 
+@available(iOS 15.0, *)
 /// Protocol for customizing Content Card templates
 public protocol ContentCardCustomizing {
     /// Implement this function to customize content cards with SmallImageTemplate
     func customize(template: SmallImageTemplate)
 }
+#endif

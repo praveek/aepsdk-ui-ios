@@ -9,10 +9,11 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Combine
 import SwiftUI
 
+@available(iOS 15.0, *)
 // The model class representing the button UI element of the ContentCard.
 public class AEPButton: ObservableObject, AEPViewModel {
     /// the text model for the button's label.
@@ -61,3 +62,4 @@ public class AEPButton: ObservableObject, AEPViewModel {
         self.parentTemplate = template
     }
 }
+#endif

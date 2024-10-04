@@ -9,7 +9,7 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import SwiftUI
 
 /// A protocol that defines a model capable of providing a SwiftUI view.
@@ -19,6 +19,7 @@ import SwiftUI
 /// This protocol is useful for creating a uniform interface for different view models that can generate SwiftUI views.
 /// All the UI elements `AEPText`, `AEPButton`, `AEPImage`, `AEPHStack`, and `AEPVStack`
 /// must conform to the `AEPModel` protocol.
+@available(iOS 15.0, *)
 protocol AEPViewModel {
     /// The type of view associated with this model.
     associatedtype Content: View
@@ -32,6 +33,7 @@ protocol AEPViewModel {
 /// This struct acts as a bridge, allowing you to  integrate any existing SwiftUI view into a
 /// system that expects view models adhering to the `AEPViewModel` protocol.
 /// Used in AEPStack to accept SwiftUI view's from public API and store them as `AEPViewModel`
+@available(iOS 15.0, *)
 struct AnyViewModel<Content: View>: AEPViewModel {
     /// The underlying SwiftUI view being adapted.
     let wrappedView: Content
@@ -41,3 +43,4 @@ struct AnyViewModel<Content: View>: AEPViewModel {
         wrappedView
     }
 }
+#endif

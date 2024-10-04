@@ -9,13 +9,14 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Foundation
 import SwiftUI
 
 /// A view that displays an image based on the provided `AEPImage` model.
 /// The view supports images sourced from either a URL or a bundled resource.
 /// Additionally, the view adapts to light and dark modes, displaying the appropriate image based on the current interface style.
+@available(iOS 15.0, *)
 struct AEPImageView: View {
     /// The model containing the data about the image.
     @ObservedObject var model: AEPImage
@@ -96,3 +97,4 @@ struct AEPImageView: View {
         }
     }
 }
+#endif

@@ -9,10 +9,11 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import SwiftUI
 
 /// Defines the type of text and its default styling properties
+@available(iOS 15.0, *)
 enum AEPTextType {
     case title
     case body
@@ -42,3 +43,4 @@ enum AEPTextType {
         }
     }
 }
+#endif

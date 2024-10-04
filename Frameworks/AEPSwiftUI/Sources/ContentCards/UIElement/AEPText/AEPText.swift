@@ -9,12 +9,13 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Combine
 import Foundation
 import SwiftUI
 
 // The model class representing the text UI element of the ContentCard.
+@available(iOS 15.0, *)
 public class AEPText: ObservableObject, AEPViewModel {
     /// The content of the text
     @Published public var content: String
@@ -47,3 +48,4 @@ public class AEPText: ObservableObject, AEPViewModel {
         self.textColor = type.defaultColor
     }
 }
+#endif

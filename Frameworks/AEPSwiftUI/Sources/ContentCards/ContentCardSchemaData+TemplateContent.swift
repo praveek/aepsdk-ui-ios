@@ -9,10 +9,11 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import AEPMessaging
 import Foundation
 
+@available(iOS 15.0, *)
 /// An extension of `ContentCardSchemaData` that provides methods and computed variables for extracting
 /// specific data elements from the content card schema.
 extension ContentCardSchemaData {
@@ -97,3 +98,4 @@ extension ContentCardSchemaData {
         meta?[Constants.CardTemplate.SchemaData.Meta.ADOBE_DATA] as? [String: Any]
     }
 }
+#endif

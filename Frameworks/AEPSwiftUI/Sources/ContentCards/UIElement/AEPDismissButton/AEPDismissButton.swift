@@ -8,11 +8,12 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import AEPServices
 import Combine
 import SwiftUI
 
+@available(iOS 15.0, *)
 public class AEPDismissButton: ObservableObject, AEPViewModel {
     /// custom view modifier that can be applied to the dismiss button view.
     @Published public var modifier: AEPViewModifier?
@@ -53,3 +54,4 @@ public class AEPDismissButton: ObservableObject, AEPViewModel {
         return AEPImage([Constants.CardTemplate.UIElement.Image.ICON: iconName])
     }
 }
+#endif

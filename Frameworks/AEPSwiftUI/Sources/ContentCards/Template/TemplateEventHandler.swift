@@ -9,7 +9,7 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Foundation
 
 protocol TemplateEventHandler: AnyObject {
@@ -25,3 +25,4 @@ protocol TemplateEventHandler: AnyObject {
     ///   - actionURL: An optional URL associated with the interaction.
     func onInteract(interactionId: String, actionURL: URL?)
 }
+#endif

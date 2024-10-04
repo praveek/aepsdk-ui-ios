@@ -10,9 +10,11 @@
  governing permissions and limitations under the License.
  */
 
+#if canImport(SwiftUI)
 import Foundation
 import UIKit
 
+@available(iOS 15.0, *)
 extension ContentCardUI: TemplateEventHandler {
     /// Called when the templated content card is displayed to the user.
     func onDisplay() {
@@ -37,3 +39,4 @@ extension ContentCardUI: TemplateEventHandler {
         }
     }
 }
+#endif

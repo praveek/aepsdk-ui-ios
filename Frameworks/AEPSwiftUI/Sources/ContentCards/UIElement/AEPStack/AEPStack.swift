@@ -9,12 +9,13 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import AEPServices
 import Combine
 import Foundation
 import SwiftUI
 
+@available(iOS 15.0, *)
 public class AEPStack: ObservableObject {
     /// An array of child view models of the  stack, each conforming to `AEPViewModel`.
     ///  TODO : Synchronize access to this array from various threads.
@@ -68,3 +69,4 @@ public class AEPStack: ObservableObject {
         childModels.remove(at: index)
     }
 }
+#endif

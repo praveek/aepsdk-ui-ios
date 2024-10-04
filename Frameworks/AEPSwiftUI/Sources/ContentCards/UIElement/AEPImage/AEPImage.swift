@@ -9,12 +9,13 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Combine
 import SwiftUI
 
 /// The model class representing the image UI element of the ContentCard.
 /// This class handles the initialization of the image from different sources such as URL or bundle.
+@available(iOS 15.0, *)
 public class AEPImage: ObservableObject, AEPViewModel {
     /// The URL of the image to be displayed.
     var url: URL?
@@ -81,3 +82,4 @@ public class AEPImage: ObservableObject, AEPViewModel {
         return nil
     }
 }
+#endif

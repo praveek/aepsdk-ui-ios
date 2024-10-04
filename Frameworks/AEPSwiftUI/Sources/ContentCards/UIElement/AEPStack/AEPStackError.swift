@@ -9,7 +9,7 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Foundation
 
 /// `AEPStackError` defines the possible error conditions that might be encountered
@@ -18,3 +18,4 @@ enum AEPStackError: Error {
     /// Indicates that a stock operation failed because the specified index was out of bounds.
     case indexOutOfBounds
 }
+#endif

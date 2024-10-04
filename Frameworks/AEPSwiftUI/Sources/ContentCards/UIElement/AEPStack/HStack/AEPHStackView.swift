@@ -9,9 +9,10 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct AEPHStackView: View {
     /// The model containing the data about the button.
     @ObservedObject var model = AEPHStack()
@@ -25,3 +26,4 @@ struct AEPHStackView: View {
         }.applyModifier(model.modifier)
     }
 }
+#endif

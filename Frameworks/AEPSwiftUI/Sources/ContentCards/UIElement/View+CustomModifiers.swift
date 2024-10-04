@@ -9,9 +9,10 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import SwiftUI
 
+@available(iOS 15.0, *)
 extension View {
     /// Applies an optional `AEPViewModifier` to the view.
     /// - Parameter modifier: An optional `AEPViewModifier` to apply to the view.
@@ -38,3 +39,4 @@ extension View {
         }
     }
 }
+#endif

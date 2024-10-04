@@ -10,12 +10,15 @@
  governing permissions and limitations under the License.
  */
 
+#if canImport(SwiftUI)
+
 import AEPMessaging
 import AEPServices
 import Foundation
 import SwiftUI
 
 /// ContentCardUI is a class that holds data for a content card and provides a SwiftUI view representation of that content.
+@available(iOS 15.0, *)
 public class ContentCardUI: Identifiable {
     /// The underlying data model for the content card.
     let proposition: Proposition
@@ -66,3 +69,4 @@ public class ContentCardUI: Identifiable {
         self.listener = listener
     }
 }
+#endif

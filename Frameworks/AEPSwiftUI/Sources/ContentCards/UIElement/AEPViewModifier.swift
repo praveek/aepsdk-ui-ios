@@ -9,7 +9,7 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Foundation
 import SwiftUI
 
@@ -17,6 +17,7 @@ import SwiftUI
 ///
 /// AEPViewModifier provides a way to encapsulate and store view modifiers,
 /// allowing for dynamic application of modifiers to views.
+@available(iOS 15.0, *)
 public struct AEPViewModifier: ViewModifier {
     private let _body: (Content) -> any View
 
@@ -33,3 +34,4 @@ public struct AEPViewModifier: ViewModifier {
         AnyView(_body(content))
     }
 }
+#endif

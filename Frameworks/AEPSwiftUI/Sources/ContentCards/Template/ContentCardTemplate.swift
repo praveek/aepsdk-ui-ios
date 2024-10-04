@@ -9,10 +9,11 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import SwiftUI
 
 /// A protocol defining the requirements for content card templates.
+@available(iOS 15.0, *)
 public protocol ContentCardTemplate: BaseTemplate {
     associatedtype Content: View
 
@@ -22,3 +23,4 @@ public protocol ContentCardTemplate: BaseTemplate {
     /// The SwiftUI view representing the content of the template.
     var view: Self.Content { get }
 }
+#endif

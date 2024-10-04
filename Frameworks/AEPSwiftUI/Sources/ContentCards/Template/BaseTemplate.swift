@@ -9,7 +9,7 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import AEPMessaging
 import Combine
 import SwiftUI
@@ -24,6 +24,8 @@ import SwiftUI
 ///
 /// - Note: This class is not intended to be used directly. Instead, use one of its subclasses
 ///   that provide specific template implementations.
+///
+@available(iOS 15.0, *)
 public class BaseTemplate: ObservableObject {
     /// The background color of the content card.
     /// Use this property to set the background color for the content card.
@@ -73,3 +75,4 @@ public class BaseTemplate: ObservableObject {
                 })
     }
 }
+#endif

@@ -9,10 +9,11 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import AEPMessaging
 import Foundation
 
+@available(iOS 15.0, *)
 /// Enum responsible for building content card templates based on template types.
 enum TemplateBuilder {
     /// Builds and returns a content card template based on the provided schema data.
@@ -33,3 +34,4 @@ enum TemplateBuilder {
         }
     }
 }
+#endif

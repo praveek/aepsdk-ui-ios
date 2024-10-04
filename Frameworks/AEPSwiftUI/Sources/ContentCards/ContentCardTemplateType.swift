@@ -9,7 +9,7 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Foundation
 
 /// An enumeration representing the types of content card templates.
@@ -22,3 +22,4 @@ public enum ContentCardTemplateType: String {
         self = ContentCardTemplateType(rawValue: string) ?? .unknown
     }
 }
+#endif

@@ -14,6 +14,7 @@ import AEPMessaging
 import AEPServices
 import Foundation
 
+@available(iOS 15.0, *)
 public class AEPSwiftUI: NSObject {
     public static var extensionVersion: String = Constants.EXTENSION_VERSION
 

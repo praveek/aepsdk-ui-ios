@@ -10,8 +10,10 @@
  governing permissions and limitations under the License.
  */
 
+#if canImport(SwiftUI)
 import Foundation
 
+@available(iOS 15.0, *)
 public protocol ContentCardUIEventListening {
     /// Called when the templated content card appears on the screen
     func onDisplay(_ card: ContentCardUI)
@@ -34,8 +36,10 @@ public protocol ContentCardUIEventListening {
 
 /// Public extension of `ContentCardUIEventListening` protocol provides default implementations,
 /// making protocol methods optional for implementers.
+@available(iOS 15.0, *)
 public extension ContentCardUIEventListening {
     func onDisplay(_: ContentCardUI) {}
     func onDismiss(_: ContentCardUI) {}
     func onInteract(_: ContentCardUI, _: String, actionURL _: URL?) -> Bool { false }
 }
+#endif

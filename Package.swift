@@ -20,9 +20,14 @@ let package = Package(
     platforms: [.iOS(.v12)],
     products: [
         .library(name: "AEPNotificationContent", targets: ["AEPNotificationContent"])
+        .library(name: "AEPSwiftUI", targets: ["AEPSwiftUI"])
     ],
     targets: [
         .target(name: "AEPNotificationContent",
                 path: "Frameworks/AEPNotificationContent/Sources")
+    ]
+    targets: [
+        .target(name: "AEPSwiftUI",
+                path: "Frameworks/AEPSwiftUI/Sources")
     ]
 )

@@ -9,10 +9,11 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import SwiftUI
 
 /// A view that displays an button based on the provided `AEPButton` model.
+@available(iOS 15.0, *)
 struct AEPButtonView: View {
     /// The model containing the data about the button.
     @ObservedObject var model: AEPButton
@@ -32,3 +33,4 @@ struct AEPButtonView: View {
         .applyModifier(model.modifier)
     }
 }
+#endif

@@ -9,10 +9,10 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Foundation
 import SwiftUI
-
+@available(iOS 15, *)
 enum Constants {
     static let LOG_TAG = "AEPSwiftUI"
     static let EXTENSION_VERSION = "5.1.0-beta"
@@ -100,3 +100,4 @@ enum Constants {
         }
     }
 }
+#endif

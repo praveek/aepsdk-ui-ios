@@ -9,7 +9,7 @@
  OF ANY KIND, either express or implied. See the License for the specific language
  governing permissions and limitations under the License.
  */
-
+#if canImport(SwiftUI)
 import Foundation
 
 /// An enum which describes different errors that ContentCardUI API's can return
@@ -17,3 +17,4 @@ public enum ContentCardUIError: Int, Error {
     public typealias RawValue = Int
     case dataUnavailable = 1
 }
+#endif
